@@ -17,6 +17,12 @@
 		<h1>{data.content.chipSensorsPage.title}</h1>
 		<p class="lead">{data.content.chipSensorsPage.lead}</p>
 
+		<div class="intro-stack">
+			{#each data.content.chipSensorsPage.intro as paragraph}
+				<p>{paragraph}</p>
+			{/each}
+		</div>
+
 		<p class="intro-stack">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
 		<table class="capabilities-table">
 			<tbody>
@@ -28,12 +34,6 @@
 				{/each}
 			</tbody>
 		</table>
-
-		<div class="intro-stack">
-			{#each data.content.chipSensorsPage.intro as paragraph}
-				<p>{paragraph}</p>
-			{/each}
-		</div>
 
 		<div class="areas-flow">
 			{#each data.content.chipSensorsPage.areas as area, index}
@@ -154,7 +154,7 @@
 	}
 
 	.capabilities-table {
-		width: 50%;
+		max-width: 40rem;
 		margin-top: 1.5rem;
 		border: 1px solid rgba(16, 35, 28, 0.18);
 		border-radius: 1rem;
