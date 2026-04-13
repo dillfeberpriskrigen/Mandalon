@@ -159,7 +159,7 @@
 
 	.hero {
 		position: relative;
-		min-height: 42rem;
+		min-height: 21rem;
 		display: grid;
 		place-items: center;
 		background:
