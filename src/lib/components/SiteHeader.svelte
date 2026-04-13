@@ -32,7 +32,13 @@
 
 			<nav class="main-nav" aria-label="Primary navigation">
 				{#each data.content.primaryLinks as link}
-					<a class:active={isActive(link.path)} href={toPath(link.path)}>{link.label}</a>
+					<a
+						class:active={isActive(link.path)}
+						class:contact-link={link.path === 'kontakt' || link.path === 'contact'}
+						href={toPath(link.path)}
+					>
+						{link.label}
+					</a>
 				{/each}
 			</nav>
 		</div>
@@ -91,10 +97,21 @@
 	}
 
 	.main-nav a {
+		display: inline-flex;
+		align-items: center;
 		font-size: 0.98rem;
 		font-weight: 600;
+		padding: 0.15rem 0;
 		color: rgba(255, 255, 255, 0.92);
 		text-decoration: none;
+	}
+
+	.main-nav a.contact-link {
+		padding: 0.55rem 0.95rem;
+		border-radius: 999px;
+		background: #e97d2f;
+		color: #fff6ec;
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
 	}
 
 	.language-switch,
@@ -106,6 +123,12 @@
 
 	.top-nav a:hover,
 	.main-nav a:hover {
+		color: #fff;
+	}
+
+	.main-nav a.contact-link:hover,
+	.main-nav a.contact-link.active {
+		background: #ef8d44;
 		color: #fff;
 	}
 
