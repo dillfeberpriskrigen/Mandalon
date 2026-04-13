@@ -17,6 +17,18 @@
 		<h1>{data.content.chipSensorsPage.title}</h1>
 		<p class="lead">{data.content.chipSensorsPage.lead}</p>
 
+		<p class="intro-stack">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
+		<table class="capabilities-table">
+			<tbody>
+				{#each data.content.chipSensorsPage.capabilities as capability}
+					<tr>
+						<td>{capability.name}</td>
+						<td>{capability.description}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+
 		<div class="intro-stack">
 			{#each data.content.chipSensorsPage.intro as paragraph}
 				<p>{paragraph}</p>
@@ -139,6 +151,23 @@
 		font-size: 1.05rem;
 		font-weight: 700;
 		color: #10231c;
+	}
+
+	.capabilities-table {
+		width: 50%;
+		margin-top: 1.5rem;
+		border: 1px solid rgba(16, 35, 28, 0.18);
+		border-radius: 1rem;
+		border-collapse: separate;
+		border-spacing: 0;
+	}
+
+	.capabilities-table td {
+		padding: 1rem 1.25rem;
+	}
+
+	.capabilities-table tr:not(:last-child) td {
+		border-bottom: 1px solid rgba(16, 35, 28, 0.12);
 	}
 
 	@media (max-width: 780px) {

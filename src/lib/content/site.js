@@ -11,12 +11,12 @@ export const siteContent = {
 		},
 		switchLabel: 'English',
 		topLinks: [
-			{ label: 'Ordlista', path: 'ordlista' },
+			{ label: 'Kunskapsbank', path: 'ordlista' },
 			{ label: 'Kontakt', path: 'kontakt' },
 			{ label: 'Om Mandalon', path: 'om-mandalon' }
 		],
 		primaryLinks: [
-			{ label: 'Chip & Sensorer', path: 'chip-sensorer' },
+			{ label: 'Packetering av Chip', path: 'chip-sensorer' },
 			{ label: 'Konsulttjänster', path: 'konsulttjanster' },
 			{ label: 'Kontakt', path: 'kontakt' }
 		],
@@ -85,12 +85,25 @@ export const siteContent = {
 				description:
 					'En översikt av hur Mandalon arbetar med chip, sensorer, MEMS, montering, bonding, kapsling och prototyper.'
 			},
-			title: 'Chip & Sensorer',
+			title: 'Packeteringstjänster',
 			lead:
 				'Chip och sensorer hanterar vi dagligen',
 			intro: [
-				'En stor del av det vi på Mandalon sysslar med är problemlösning. Rätt ofta dyker det upp flexkort, MEMS och udda limmer, ibland kanske även keramikkapslar, metallstrukturer och diverse trådar. Dessa ska som regel sammanfogas till en användbar enhet, vilket innebär att den först måste fås att fungera elektriskt.',
-				'Enheten kan också behöva tåla till exempel beröring, temperaturväxlingar, vibrationer eller elektromagnetisk påverkan. Med en gedigen bakgrund som fysiker förstås alla aspekter av ert projekt och vi kan på bästa sätt hantera inkommande uppdrag.'
+				'En stor del av det vi på Mandalon sysslar med är problemlösning. Rätt ofta dyker det upp flexkort, MEMS och udda limmer som vi genom åren lärt oss hur vi effektivt arbetar med.',
+				'Vi är vana att hantera känsliga chip och prototyper som för andra kan upplevas omöjliga att arbeta med. Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem och gör vårt yttersta för att få till en fungerande lösning till din produkt.'
+			],
+			capabilitiesPresentation: 'Listan nedan visar det som vi är mest vana att hantera gällande bondning. Kontakta oss ifall du har frågor eller behöver någonting som inte listas, listan är inte heltäckande.',
+			capabilities: [
+				{name: 'Guldtråd', description: '25µm, 17µm'},
+				{name: 'Aluminiumtråd', description: '25µm, 17µm'},
+				{name: 'Ball-bonding', description: 'Guldtråd'},
+				{name: 'Wedge-bonding', description: 'Guldtråd, Aluminium'},
+				{name: 'Manuell bondning', description: 'Ball och wedge'},
+				{name: 'Automatisk bondning', description: 'Ball och wedge'},
+				{name: 'Die bondning', description: 'Vi die-bondar manuellt'},
+				{name: 'Lim', description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.'},
+				{name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.'},
+				{name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.'},
 			],
 			areas: [
 				{
