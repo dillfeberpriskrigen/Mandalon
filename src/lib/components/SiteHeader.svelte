@@ -19,7 +19,7 @@
 <header class="site-header">
 	<div class="container header-grid">
 		<a class="brand" href={toPath()} aria-label="Mandalon home">
-			<img src="/mandalon/logo-vertical.svg" alt="Mandalon" />
+			<img src="/mandalon/mandalon-logo-white.svg" alt="Mandalon" />
 		</a>
 
 		<div class="nav-stack">
@@ -64,14 +64,14 @@
 
 	.header-grid {
 		display: grid;
-		grid-template-columns: 180px 1fr;
+		grid-template-columns: max-content max-content;
+		justify-content: center;
 		align-items: center;
-		gap: 1.5rem;
+		gap: 1rem 1.2rem;
 	}
 
 	.brand img {
 		width: 148px;
-		filter: invert(1);
 	}
 
 	.nav-stack {
@@ -85,6 +85,7 @@
 	.main-nav {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
 		gap: 1rem 1.4rem;
 	}
 
@@ -135,20 +136,64 @@
 	@media (max-width: 960px) {
 		.header-grid {
 			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
 
 		.nav-stack {
-			align-items: flex-start;
+			align-items: stretch;
+		}
+
+		.top-nav,
+		.main-nav {
+			justify-content: flex-start;
 		}
 	}
 
 	@media (max-width: 640px) {
 		.site-header {
 			position: static;
+			padding: 0.85rem 0 1rem;
+		}
+
+		.brand {
+			justify-self: center;
 		}
 
 		.brand img {
 			width: 128px;
+		}
+
+		.nav-stack {
+			width: 100%;
+			gap: 0.7rem;
+		}
+
+		.top-nav,
+		.main-nav {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 0.55rem;
+			width: 100%;
+		}
+
+		.top-nav a,
+		.main-nav a {
+			justify-content: center;
+			padding: 0.65rem 0.8rem;
+			border-radius: 0.9rem;
+			text-align: center;
+			background: rgba(255, 255, 255, 0.08);
+		}
+
+		.main-nav a.contact-link {
+			padding: 0.65rem 0.8rem;
+		}
+	}
+
+	@media (max-width: 420px) {
+		.top-nav,
+		.main-nav {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
