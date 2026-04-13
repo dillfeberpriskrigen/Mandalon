@@ -9,7 +9,7 @@ export const siteContent = {
 			description:
 				'Mandalons långa erfarenhet av vitt skilda strukturer gör dem väl lämpade att ta hand om chipmontering, sensorer, MEMS-strukturer och ASIC:s.'
 		},
-		switchLabel: 'En',
+		switchLabel: 'English',
 		topLinks: [
 			{ label: 'Ordlista', path: 'ordlista' },
 			{ label: 'Kontakt', path: 'kontakt' },
@@ -258,20 +258,18 @@ export const siteContent = {
 					role: 'VD',
 					image: '/mandalon/PerErik.jpg',
 					imageAlt: 'Per-Erik Fägerman',
-					phone: '0733 20 60 50',
+					phone: '073 320 60 50',
 					phoneHref: 'tel:+46733206050',
 					email: 'info@mandalon.se',
 					emailHref: 'mailto:info@mandalon.se'
 				},
 				{
 					name: 'Jonatan Gezelius',
-					role: 'Senior Associate',
+					role: 'Teknisk säljare/Bondlärling',
 					image: '/mandalon/Jonatan.jpg',
 					imageAlt: 'Jonatan',
-					emailHref: 'mailto:info@mandalon.se',
-					email: 'Borde vara personlig mail',
-					phone: '0733 20 60 50',
-					phoneHref: 'tel:+46733206050'
+					phone: '073 58 48 690',
+					phoneHref: 'tel:+46735848690'
 				}
 			],
 			details: [
@@ -388,7 +386,7 @@ export const siteContent = {
 			description:
 				'Mandalon has long experience with a wide range of structures and is well equipped to handle chip packaging, sensors, MEMS structures and ASICs.'
 		},
-		switchLabel: 'Sv',
+		switchLabel: 'Svenska',
 		topLinks: [
 			{ label: 'Glossary', path: 'glossary' },
 			{ label: 'Contact', path: 'contact' },
@@ -642,10 +640,12 @@ export const siteContent = {
 					emailHref: 'mailto:info@mandalon.se'
 				},
 				{
-					name: 'Jonatan',
-					role: '',
+					name: 'Jonatan Gezelius',
+					role: 'Technical sales / Bonding apprentice',
 					image: '/mandalon/Jonatan.jpg',
-					imageAlt: 'Jonatan'
+					imageAlt: 'Jonatan',
+					phone: '+46 73 58 48 690',
+					phoneHref: 'tel:+46735848690'
 				}
 			],
 			details: [
