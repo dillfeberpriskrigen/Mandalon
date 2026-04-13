@@ -81,7 +81,7 @@ export const siteContent = {
 		},
 		chipSensorsPage: {
 			meta: {
-				title: 'Mandalon | Chip & Sensorer',
+				title: 'Mandalon | Packeteringstjänster',
 				description:
 					'En översikt av hur Mandalon arbetar med chip, sensorer, MEMS, montering, bonding, kapsling och prototyper.'
 			},
@@ -94,16 +94,16 @@ export const siteContent = {
 			],
 			capabilitiesPresentation: 'Listan nedan visar det som vi är mest vana att hantera gällande bondning. Kontakta oss ifall du har frågor eller behöver någonting som inte listas, listan är inte heltäckande.',
 			capabilities: [
-				{name: 'Guldtråd', description: '25µm, 17µm'},
-				{name: 'Aluminiumtråd', description: '25µm, 17µm'},
-				{name: 'Ball-bonding', description: 'Guldtråd'},
-				{name: 'Wedge-bonding', description: 'Guldtråd, Aluminium'},
-				{name: 'Manuell bondning', description: 'Ball och wedge'},
-				{name: 'Automatisk bondning', description: 'Ball och wedge'},
-				{name: 'Die bondning', description: 'Vi die-bondar manuellt'},
-				{name: 'Lim', description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.'},
-				{name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.'},
-				{name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.'},
+				{ name: 'Guldtråd', description: '25µm, 17µm' },
+				{ name: 'Aluminiumtråd', description: '25µm, 17µm' },
+				{ name: 'Ball-bonding', description: 'Guldtråd' },
+				{ name: 'Wedge-bonding', description: 'Guldtråd, Aluminium' },
+				{ name: 'Manuell bondning', description: 'Ball och wedge' },
+				{ name: 'Automatisk bondning', description: 'Ball och wedge' },
+				{ name: 'Die bondning', description: 'Vi die-bondar manuellt' },
+				{ name: 'Lim', description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.' },
+				{ name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.' },
+				{ name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.' },
 			],
 			areas: [
 				{
@@ -401,12 +401,12 @@ export const siteContent = {
 		},
 		switchLabel: 'Svenska',
 		topLinks: [
-			{ label: 'Glossary', path: 'glossary' },
+			{ label: 'Knowledge Base', path: 'glossary' },
 			{ label: 'Contact', path: 'contact' },
 			{ label: 'About Mandalon', path: 'about' }
 		],
 		primaryLinks: [
-			{ label: 'Chip & Sensors', path: 'chip-sensors' },
+			{ label: 'Chip Packaging', path: 'chip-sensors' },
 			{ label: 'Consulting Services', path: 'consulting' },
 			{ label: 'Contact', path: 'contact' }
 		],
@@ -471,16 +471,28 @@ export const siteContent = {
 		},
 		chipSensorsPage: {
 			meta: {
-				title: 'Mandalon | Chip & Sensors',
+				title: 'Mandalon | Chip Packaging Services',
 				description:
 					'An overview of how Mandalon works with chips, sensors, MEMS, assembly, bonding, packaging and prototypes.'
-			},
-			title: 'Chip & Sensors',
+			}, title: 'Chip Packaging Services',
 			lead:
-				'Chips and sensors are part of Mandalon’s daily work',
+				'We handle chips and sensors on a daily basis',
 			intro: [
-				'A large part of what Mandalon does is problem-solving, where flexible circuits, MEMS structures, unusual adhesives, ceramic packages, metal structures and wire technologies need to come together in a usable device.',
-				'The unit may also need to withstand touch, temperature changes, vibration or electromagnetic influence. With a strong technical background, Mandalon can look at several aspects of a project at once and help where packaging, assembly and function meet.'
+				'A large part of what we do at Mandalon is problem-solving. We often encounter flex PCBs, MEMS, and unusual adhesives that we have learned to work with efficiently over the years.',
+				'We are used to handling sensitive chips and prototypes that others may find impossible to work with. Did you forget to open the passivation layer for an important pad? We have saved many chips with issues and do our utmost to achieve a working solution for your product.'
+			],
+			capabilitiesPresentation: 'The list below shows what we are most experienced with regarding bonding. Contact us if you have questions or need something not listed, the list is not exhaustive.',
+			capabilities: [
+				{ name: 'Gold wire', description: '25µm, 17µm' },
+				{ name: 'Aluminum wire', description: '25µm, 17µm' },
+				{ name: 'Ball bonding', description: 'Gold wire' },
+				{ name: 'Wedge bonding', description: 'Gold wire, Aluminum' },
+				{ name: 'Manual bonding', description: 'Ball and wedge' },
+				{ name: 'Automatic bonding', description: 'Ball and wedge' },
+				{ name: 'Die bonding', description: 'We perform die bonding manually' },
+				{ name: 'Adhesives', description: 'We have a wide range of adhesives and the ability to mix them using a precision scale. If you require a specific adhesive, we can source it or use yours.' },
+				{ name: 'Standard packages', description: 'We keep a limited selection of packages in stock but can source what is needed or use customer-supplied ones.' },
+				{ name: 'Glob top', description: 'We use silicone and epoxy for glob topping of chips and wires.' },
 			],
 			areas: [
 				{
