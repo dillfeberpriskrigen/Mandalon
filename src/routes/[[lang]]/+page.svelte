@@ -307,6 +307,10 @@
 		margin-bottom: 2rem;
 	}
 
+	.consulting .container {
+		max-width: 48rem;
+	}
+
 	.consulting-spotlight {
 		display: grid;
 		gap: 1rem;
@@ -334,11 +338,14 @@
 
 	.consulting-slide {
 		display: grid;
-		grid-template-columns: 1.1fr 0.9fr;
-		min-height: 19rem;
+		grid-template-columns: 1fr;
 		border-radius: 1.5rem;
 		background: #fff;
 		overflow: hidden;
+	}
+
+	.consulting-media {
+		aspect-ratio: 16 / 9;
 	}
 
 	.consulting-media img {
@@ -352,10 +359,6 @@
 	}
 
 	@media (max-width: 960px) {
-		.consulting-slide {
-			grid-template-columns: 1fr;
-		}
-
 		.process-grid {
 			grid-template-columns: 1fr 1fr;
 		}
