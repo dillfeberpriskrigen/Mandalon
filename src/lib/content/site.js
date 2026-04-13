@@ -108,7 +108,7 @@ export const siteContent = {
 					title: 'Trådbondning & paketering',
 					subtitle: 'Ett chip behöver kontakteras och skyddas',
 					paragraphs: [
-						'Kontaktering av chip och andra strukturer kan ske på flera sätt. Trådbondning har använts länge och är den metod som Mandalon använder. Vi har tillgång till bondmaskiner för ball- respektive wedgebondning, manuella maskiner samt helautomatiska.'
+						'Trådbondning  är en beprövad metod för kontaktering och är den metod som Mandalon använder. Vi har tillgång till bondmaskiner för ball- respektive wedgebondning, manuella maskiner samt helautomatiska.'
 					],
 					image: '/mandalon/chip-wirebonding.jpeg',
 					imageAlt: 'Bondmaskin, mikroskop och work holder'
@@ -130,7 +130,8 @@ export const siteContent = {
 						'Ett bondat chip behöver ofta bli skyddat mot mekanisk åverkan även på prototypstadiet. Ibland räcker det att ha ett enkelt plastlock tejpat över chip och trådar, ibland kräver det en tät keramikkapsel. Man väljer också ofta att globba, dvs gjuta in chip och trådar i lämpligt lim.',
 						'Förberedelsen inför montering innefattar vanligtvis val av metall- eller keramkapsel/lock eller att välja montering/globning direkt på PCB. Den normala verksamheten inom detta område utgörs av att tillsammans med kund hitta rätt paketering i form av matchande kapsel eller att föreslå montering direkt på PCB. Båda angreppssätten har för och nackdelar.',
 						'Väljer man en relativt sett dyrare kapsel får man ett gott mekaniskt skydd och kan med rätt sockel byta sin krets enkelt i en mer komplex uppställning.',
-						'Väljer man istället montering direkt på PCB kan man uppnå en snabbare koppling med kortare anslutningar med rätt layout. Gäller ofta inom RF. Vill man ändå ha ett mer robust mekaniskt skydd för trådarna kan en globning hjälpa. Alternativet kan vara lock.'
+						'Väljer man istället montering direkt på PCB kan man uppnå en snabbare koppling med kortare anslutningar med rätt layout. Gäller ofta inom RF. Vill man ändå ha ett mer robust mekaniskt skydd för trådarna kan en globning hjälpa. Alternativet kan vara lock.',
+						'Vet ni inte hur ni ska göra avvägningarna för erat projekt så står våran erfarenhet till erat förfogande.'
 					],
 					image: '/mandalon/chip-encapsulation.jpg',
 					imageAlt: 'Ett urval av normala TO metallkapslar'
@@ -254,7 +255,7 @@ export const siteContent = {
 			people: [
 				{
 					name: 'Per-Erik Fägerman',
-					role: 'vd',
+					role: 'VD',
 					image: '/mandalon/PerErik.jpg',
 					imageAlt: 'Per-Erik Fägerman',
 					phone: '0733 20 60 50',
@@ -263,10 +264,14 @@ export const siteContent = {
 					emailHref: 'mailto:info@mandalon.se'
 				},
 				{
-					name: 'Jonatan',
-					role: '',
+					name: 'Jonatan Gezelius',
+					role: 'Senior Associate',
 					image: '/mandalon/Jonatan.jpg',
-					imageAlt: 'Jonatan'
+					imageAlt: 'Jonatan',
+					emailHref: 'mailto:info@mandalon.se',
+					email: 'Borde vara personlig mail',
+					phone: '0733 20 60 50',
+					phoneHref: 'tel:+46733206050'
 				}
 			],
 			details: [
@@ -339,37 +344,28 @@ export const siteContent = {
 					title: 'MEMS',
 					subtitle: 'Micro Electro Mechanical Systems',
 					paragraphs: [
-						'MEMS ar nar man anvander kisel till annat an bara kretsmedium. Det ar ett omrade som vaxer och ar valdigt intressant.',
-						'Omradet overlappar delvis sensorer men ar inte synonymt, da det till exempel ocksa innefattar mikrohogtalare. Man talar ibland om sensors and actuators.',
-						'Under arens lopp har manga strukturer passerat Mandalon da aven dessa behover sin kontakt med omvarlden. Ofta ar anslutningarna farre men olika framstallningssatt gor ibland bondningen svar. Ofta ar aven sjalva monteringen komplicerad da funktionaliteten kraver speciallosningar.'
+						'MEMS är nar man använder kisel till annat än bara kretsmedium. MEMS  är ett växande och väldigt intressant område.',
+						'Området överlappar delvis sensorer men är inte synonymt, då det exempelvis också innefattar mikrohögtalare. Man talar ibland om sensors and actuators. <- Det här behöver förtydligas',
+						'Under årens lopp har många strukturer passerat Mandalon då även dessa behöver sin kontakt med omvärlden. Ofta är anslutningarna färre men olika framställningssätt gör ibland bondningen svår. Ofta är även själva monteringen komplicerad då funktionaliteten kräver speciallösningar.'
 					]
 				},
 				{
 					title: 'WAFER',
 					subtitle: 'Mandalon hanterar sagade wafer',
 					paragraphs: [
-						'Vi sagar inte sjalva men hanterar plockning av chip manuellt upp till hanterbara och ekonomiskt forsvarbara volymer.'
+						'Vi sågar inte wafers själva men hanterar plockning av chip manuellt upp till hanterbara och ekonomiskt försvarbara volymer.'
 					],
 					image: '/mandalon/help-wafer.jpg',
 					imageAlt: 'Plockade chip i ask',
 					caption: 'Plockade chip i ask'
 				},
 				{
-					title: 'Sensorer',
-					subtitle: 'Starten for Mandalon',
-					paragraphs: [
-						'I begynnelsen var nasan. Nasan var elektronisk.',
-						'Detta var alldeles i slutet av forra artusendet nar Mandalon slog upp sina bla. Snart insags vardet av att kunna lukta pa omvarlden och Mandalon satte igang med att montera kemiska gassensorer.',
-						'Mandalon som annu inte hade nagot namn ville garna fortsatta att gora detta aven ute i den fria varlden da det verkade finnas behov av nasor till att borja med.',
-						'Resan har gatt vidare och idag monteras mycket olika strukturer. Mandalon paketerar, tradbondar och gjuter in mikroelektronik, och givetvis fortfarande sensorer.'
-					]
-				},
-				{
 					title: 'Mikrostrukturer',
-					subtitle: 'Alla sma strukturer nara chipet',
+					subtitle: 'Alla små strukturer nära chipet',
 					paragraphs: [
-						'Detta innefattar egentligen alla sma strukturer nara chipet.',
-						'Delvis overlappande MEMS, men innefattar for Mandalons del ofta ocksa bygget av kringstrukturen. Det kan galla en integrerad mikrovarmare eller en MCM, Multi-chip-modul. Integrerad gaskanal eller en spegel. Satt oss pa prov.'
+						'Detta innefattar egentligen alla små strukturer nära chipet.',
+						'Delvis överlappande MEMS, men innefattar för Mandalons del ofta också bygget av kringstrukturen. Det kan gälla en integrerad mikrovärmare eller en MCM, Multi-chip-modul. Integrerad gaskanal eller en spegel.',
+						'På Mandalon har vi både tradition och erfarenhet av att välkomna utmaningar, sätt oss gärna på prov.'
 					],
 					image: '/mandalon/help-microstructures.jpg',
 					imageAlt: 'Abstrakt mikrostruktur',
