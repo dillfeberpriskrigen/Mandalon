@@ -16,6 +16,11 @@
 	import designGuideHtml from '$lib/content/designguide.html?raw';
 
 	const { data } = $props();
+	const downloadLabel = data.locale === 'sv' ? 'Designguide' : 'Download design guide';
+	const localizedDesignGuideHtml = designGuideHtml.replace(
+		'>Designguide</a>',
+		`>${downloadLabel}</a>`
+	);
 </script>
 
 <SiteHeader {data} currentPath={data.locale === 'sv' ? 'designguide' : 'design-guide'} />
@@ -24,7 +29,7 @@
 	<div class="container">
 		<h1>{data.locale === 'sv' ? 'Designguide' : 'Design guide'}</h1>
 		<div class="guide-content">
-			{@html designGuideHtml}
+			{@html localizedDesignGuideHtml}
 		</div>
 	</div>
 </section>
@@ -86,7 +91,7 @@
 	}
 
 	.guide-content :global(.designguide-article a) {
-		color: #10231c;
+		color: #ffffff;
 	}
 
 	.guide-content :global(.designguide-download) {
@@ -94,8 +99,8 @@
 		margin-top: 0.2rem;
 		padding: 0.8rem 1.2rem;
 		border-radius: 999px;
-		background: #10231c;
-		color: white;
+		background: #e97d2f;
+		color: rgb(255, 255, 255);
 		font-weight: 700;
 		text-decoration: none;
 	}
