@@ -310,14 +310,21 @@
 	.consulting-spotlight {
 		display: grid;
 		gap: 1rem;
+		min-width: 0;
+	}
+
+	.embla {
+		min-width: 0;
 	}
 
 	.embla__viewport {
 		overflow: hidden;
+		min-width: 0;
 	}
 
 	.embla__container {
 		display: flex;
+		min-width: 0;
 	}
 
 	.embla__slide {
@@ -370,6 +377,19 @@
 
 		.consulting-slide {
 			min-height: 0;
+		}
+
+		.consulting .container,
+		.consulting-spotlight,
+		.embla,
+		.embla__viewport,
+		.embla__container,
+		.embla__slide,
+		.consulting-slide,
+		.consulting-copy,
+		.consulting-media {
+			min-width: 0;
+			max-width: 100%;
 		}
 
 	}
