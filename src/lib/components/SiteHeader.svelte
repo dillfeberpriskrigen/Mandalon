@@ -23,13 +23,6 @@
 		</a>
 
 		<div class="nav-stack">
-			<nav class="top-nav" aria-label="Secondary navigation">
-				{#each data.content.topLinks as link}
-					<a class:active={isActive(link.path)} href={toPath(link.path)}>{link.label}</a>
-				{/each}
-				<a class="language-switch" href={getSwitchPath()}>{data.content.switchLabel}</a>
-			</nav>
-
 			<nav class="main-nav" aria-label="Primary navigation">
 				{#each data.content.primaryLinks as link}
 					<a
@@ -40,6 +33,7 @@
 						{link.label}
 					</a>
 				{/each}
+				<a class="language-switch" href={getSwitchPath()}>{data.content.switchLabel}</a>
 			</nav>
 		</div>
 	</div>
