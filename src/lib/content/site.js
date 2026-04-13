@@ -333,7 +333,7 @@ export const siteContent = {
 			],
 			guide: {
 				title: 'Designguide',
-				text: 'Designguiden togs fram tillsammans med doktorander vid Linkopings universitet och ar ett bra komplement om ni vill forsta fler vanliga fallgropar tidigt i processen.',
+				text: 'Designguiden togs fram tillsammans med doktorander vid Linköpings universitet och ar ett bra komplement om ni vill förstå fler vanliga fallgropar tidigt i processen.',
 				label: 'Till designguiden',
 				path: 'designguide'
 			},
@@ -342,10 +342,10 @@ export const siteContent = {
 					title: 'ASIC',
 					subtitle: 'AnvändarSpecifik Integrerad Krets, Application Specific IC',
 					paragraphs: [
-						'Vi finner i denna kategori de chip som designats for ett specifikt andamal, ASIC, medan andra egna kategorier ar till exempel MEMS och sensorer.',
-						'Dessa chip har ofta manga anslutningar och padutrymmet ar snalt. ASICen har ocksa ofta behov av manga I/O:s och datamangderna gor att allt ska ga snabbt. Detta kraver korta tradar och garna stor diameter pa matningsanslutningarna, vilket i sig ofta ar en svar kombination.',
-						'Mandalon hjalper er med layouten sa att ASICen och systemet i stort bibehaller sin funktionalitet och inte forsamras av paketeringen. Med ett utkast gar vi sedan garna vidare tillsammans med er for att ta fram en fungerande design.',
-						'Mandalon foreslar hur monteringen kan goras pa basta satt, samt lamplig barare, PCB eller kapsel. Efter leverans ber vi om aterkoppling for att sakerstalla att resultatet blivit det onskade.'
+						'Vi finner i denna kategori de chip som designats för ett specifikt ändamål, ASIC, medan andra egna kategorier är till exempel MEMS och sensorer.',
+						'Dessa chip har ofta många anslutningar och padutrymmet är snålt. ASICen har också ofta behov av många I/O:s och datamängderna gör att allt ska gå snabbt. Detta kräver korta trådar och gärna stor diameter på mätningsanslutningarna, vilket i sig ofta är en svår kombination.',
+						'Mandalon hjälper er med layouten så att ASICen och systemet i stort bibehåller sin funktionalitet och inte försämras av paketeringen. Med ett utkast går vi sedan gärna vidare tillsammans med er för att ta fram en fungerande design.',
+						'Mandalon föreslår hur monteringen kan göras på bästa sätt, samt lamplig bärare, PCB eller kapsel. Efter leverans ber vi om återkoppling för att säkerställa att resultatet blivit det önskade.'
 					],
 					image: '/mandalon/help-asic.jpg',
 					imageAlt: 'Manuellt bondad ASIC',
@@ -355,8 +355,8 @@ export const siteContent = {
 					title: 'MEMS',
 					subtitle: 'Micro Electro Mechanical Systems',
 					paragraphs: [
-						'MEMS är nar man använder kisel till annat än bara kretsmedium. MEMS  är ett växande och väldigt intressant område.',
-						'Området överlappar delvis sensorer men är inte synonymt, då det exempelvis också innefattar mikrohögtalare. Man talar ibland om sensors and actuators. <- Det här behöver förtydligas',
+						'MEMS är när man använder kisel till annat än bara kretsmedium. MEMS  är ett växande och väldigt intressant område.',
+						'Området överlappar delvis sensorer men är inte synonymt, då det exempelvis också innefattar mikrohögtalare. Man talar ibland om sensors and actuators.',
 						'Under årens lopp har många strukturer passerat Mandalon då även dessa behöver sin kontakt med omvärlden. Ofta är anslutningarna färre men olika framställningssätt gör ibland bondningen svår. Ofta är även själva monteringen komplicerad då funktionaliteten kräver speciallösningar.'
 					]
 				},
