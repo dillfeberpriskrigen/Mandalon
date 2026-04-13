@@ -16,24 +16,21 @@ npm run dev
 ```bash
 npm install
 npm run build
-npm run start
 ```
 
-The production server uses `@sveltejs/adapter-node` and starts from `build/index.js`.
+This project uses `@sveltejs/adapter-static`.
 
-## Passenger / shared hosting
+After the build, the generated static site is written to `build/`.
 
-If you deploy this on a Passenger-based host:
+## Static hosting
 
-- Node.js version: `18.20.8`
-- Application mode: `Production`
-- Application startup file: `app.js`
+Upload the contents of `build/` to your web root, for example `public_html`.
 
-After upload or pull:
+Typical deploy flow:
 
 ```bash
 npm install
 npm run build
 ```
 
-Then restart the app in the hosting panel.
+Then copy the contents of `build/` into the public directory used by the subdomain.
