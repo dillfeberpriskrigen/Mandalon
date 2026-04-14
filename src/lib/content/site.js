@@ -16,7 +16,7 @@ export const siteContent = {
 			{ label: 'Om Mandalon', path: 'om-mandalon' }
 		],
 		primaryLinks: [
-			{ label: 'Packetering av Chip', path: 'chip-sensorer' },
+			{ label: 'Paketering av Chip', path: 'paketering' },
 			{ label: 'Konsulttjänster', path: 'konsulttjanster' },
 			{ label: 'Kontakt', path: 'kontakt' }
 		],
@@ -38,7 +38,7 @@ export const siteContent = {
 				text: 'Designguiden är ett bra exempel på hur Mandalon arbetar transparent och informativt redan tidigt i processen.'
 			},
 			actions: [
-				{ label: 'Chip & Sensorer', path: 'chip-sensorer' },
+				{ label: 'Paketering av Chip', path: 'paketering' },
 				{ label: 'Kontakt', path: 'kontakt' }
 			]
 		},
@@ -81,11 +81,11 @@ export const siteContent = {
 		},
 		chipSensorsPage: {
 			meta: {
-				title: 'Mandalon | Packeteringstjänster',
+				title: 'Mandalon | Paketeringstjänster',
 				description:
 					'En översikt av hur Mandalon arbetar med chip, sensorer, MEMS, montering, bonding, kapsling och prototyper.'
 			},
-			title: 'Packeteringstjänster',
+			title: 'Paketering av Chip',
 			lead:
 				'Chip och sensorer hanterar vi dagligen',
 			intro: [
@@ -423,7 +423,7 @@ export const siteContent = {
 			{ label: 'About Mandalon', path: 'about' }
 		],
 		primaryLinks: [
-			{ label: 'Chip Packaging', path: 'chip-sensors' },
+			{ label: 'Chip Packaging', path: 'packaging' },
 			{ label: 'Consulting Services', path: 'consulting' },
 			{ label: 'Contact', path: 'contact' }
 		],
@@ -445,7 +445,7 @@ export const siteContent = {
 				text: 'The design guide is a concrete example of how Mandalon works with transparency and practical guidance early in the process.'
 			},
 			actions: [
-				{ label: 'Chip & Sensors', path: 'chip-sensors' },
+				{ label: 'Chip & Sensors', path: 'paketering' },
 				{ label: 'Contact', path: 'contact' }
 			]
 		},

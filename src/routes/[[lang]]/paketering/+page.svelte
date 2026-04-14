@@ -10,7 +10,7 @@
 	const { data } = $props();
 </script>
 
-<SiteHeader {data} currentPath={data.locale === 'sv' ? 'chip-sensorer' : 'chip-sensors'} />
+<SiteHeader {data} currentPath={data.locale === 'sv' ? 'paketering' : 'packaging'} />
 
 <section class="chip-page">
 	<div class="container">
