@@ -14,16 +14,16 @@
 
 <section class="chip-page">
 	<div class="container">
-		<h1>{data.content.chipSensorsPage.title}</h1>
-		<p class="lead">{data.content.chipSensorsPage.lead}</p>
+		<h1 class="page-title">{data.content.chipSensorsPage.title}</h1>
+		<p class="lead text-width">{data.content.chipSensorsPage.lead}</p>
 
-		<div class="intro-stack">
+		<div class="intro-stack text-width">
 			{#each data.content.chipSensorsPage.intro as paragraph}
 				<p>{paragraph}</p>
 			{/each}
 		</div>
 
-		<p class="intro-stack">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
+		<p class="intro-stack text-width">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
 		<table class="capabilities-table">
 			<tbody>
 				{#each data.content.chipSensorsPage.capabilities as capability}
@@ -59,11 +59,6 @@
 <SiteFooter {data} />
 
 <style>
-	.container {
-		width: min(1080px, calc(100vw - 2rem));
-		margin: 0 auto;
-	}
-
 	.chip-page {
 		padding: 4rem 0 6rem;
 	}
@@ -74,13 +69,7 @@
 		margin: 0;
 	}
 
-	h1 {
-		font-size: clamp(3rem, 8vw, 5.6rem);
-		line-height: 0.95;
-	}
-
 	.lead {
-		max-width: 54rem;
 		margin-top: 1.25rem;
 		font-size: 1.12rem;
 		line-height: 1.8;
@@ -89,7 +78,6 @@
 	.intro-stack {
 		display: grid;
 		gap: 1rem;
-		max-width: 100%;
 		margin-top: 2rem;
 	}
 

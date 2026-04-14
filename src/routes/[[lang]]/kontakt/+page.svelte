@@ -25,8 +25,8 @@
 
 <section class="info-page">
 	<div class="container">
-		<h1>{data.content.contactPage.title}</h1>
-		<p class="lead">{data.content.contactPage.lead}</p>
+		<h1 class="page-title">{data.content.contactPage.title}</h1>
+		<p class="lead text-width">{data.content.contactPage.lead}</p>
 
 		<div class="people-flow">
 			{#each data.content.contactPage.people as person, index}
@@ -84,11 +84,6 @@
 <SiteFooter {data} />
 
 <style>
-	.container {
-		width: min(980px, calc(100vw - 2rem));
-		margin: 0 auto;
-	}
-
 	.info-page {
 		padding: 4rem 0 6rem;
 	}
@@ -99,14 +94,7 @@
 		margin: 0;
 	}
 
-	h1 {
-		max-width: 12ch;
-		font-size: clamp(3rem, 8vw, 5.6rem);
-		line-height: 0.95;
-	}
-
 	.lead {
-		max-width: 50rem;
 		margin-top: 1.25rem;
 		font-size: 1.12rem;
 		line-height: 1.8;

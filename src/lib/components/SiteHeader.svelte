@@ -40,12 +40,8 @@
 </header>
 
 <style>
-	.container {
-		width: min(1140px, calc(100vw - 2rem));
-		margin: 0 auto;
-	}
-
 	.site-header {
+		--container-width: var(--container-width-wide);
 		position: sticky;
 		top: 0;
 		z-index: 20;

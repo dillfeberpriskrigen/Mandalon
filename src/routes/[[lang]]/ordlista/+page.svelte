@@ -16,11 +16,11 @@
 
 <section class="info-page">
 	<div class="container">
-		<h1>{data.content.glossaryPage.title}</h1>
-		<p class="lead">{data.content.glossaryPage.lead}</p>
+		<h1 class="page-title">{data.content.glossaryPage.title}</h1>
+		<p class="lead text-width">{data.content.glossaryPage.lead}</p>
 
 		<div class="intro-grid">
-			<div class="intro-copy">
+			<div class="intro-copy text-width">
 				{#each data.content.glossaryPage.intro as paragraph}
 					<p>{paragraph}</p>
 				{/each}
@@ -86,12 +86,8 @@
 <SiteFooter {data} />
 
 <style>
-	.container {
-		width: min(980px, calc(100vw - 2rem));
-		margin: 0 auto;
-	}
-
 	.info-page {
+		--container-width: var(--container-width-narrow);
 		padding: 4rem 0 6rem;
 	}
 
@@ -101,14 +97,7 @@
 		margin: 0;
 	}
 
-	h1 {
-		max-width: 13ch;
-		font-size: clamp(3rem, 8vw, 5.6rem);
-		line-height: 0.95;
-	}
-
 	.lead {
-		max-width: 50rem;
 		margin-top: 1.25rem;
 		font-size: 1.12rem;
 		line-height: 1.8;

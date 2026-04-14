@@ -43,7 +43,7 @@
 	<section class="hero">
 		<div class="container hero-content">
 			<h1>{data.content.hero.title}</h1>
-			<p class="hero-copy">{data.content.hero.copy}</p>
+			<p class="hero-copy text-width">{data.content.hero.copy}</p>
 		
 		</div>
 	</section>
@@ -141,12 +141,8 @@
 	}
 
 	.site-shell {
+		--container-width: var(--container-width-wide);
 		min-height: 100vh;
-	}
-
-	.container {
-		width: min(1140px, calc(100vw - 2rem));
-		margin: 0 auto;
 	}
 
 	.intro-actions a {
@@ -191,7 +187,6 @@
 	}
 
 	.hero-copy {
-		max-width: 42rem;
 		margin: 1.4rem auto 0;
 		font-size: 1.12rem;
 		line-height: 1.7;

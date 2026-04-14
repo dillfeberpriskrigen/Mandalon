@@ -27,7 +27,7 @@
 
 <section class="guide-page">
 	<div class="container">
-		<h1>{data.locale === 'sv' ? 'Designguide' : 'Design guide'}</h1>
+		<h1 class="page-title">{data.locale === 'sv' ? 'Designguide' : 'Design guide'}</h1>
 		<div class="guide-content">
 			{@html localizedDesignGuideHtml}
 		</div>
@@ -37,20 +37,13 @@
 <SiteFooter {data} />
 
 <style>
-	.container {
-		width: min(980px, calc(100vw - 2rem));
-		margin: 0 auto;
-	}
-
 	.guide-page {
+		--container-width: var(--container-width-narrow);
 		padding: 4rem 0 6rem;
 	}
 
 	h1 {
 		margin: 0;
-		max-width: 12ch;
-		font-size: clamp(3rem, 8vw, 5.6rem);
-		line-height: 0.95;
 	}
 
 	.guide-content {

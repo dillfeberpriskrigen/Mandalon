@@ -14,10 +14,10 @@
 
 <section class="consulting-page">
 	<div class="container">
-		<h1>{data.content.consultingPage.title}</h1>
-		<p class="lead">{data.content.consultingPage.lead}</p>
+		<h1 class="page-title">{data.content.consultingPage.title}</h1>
+		<p class="lead text-width">{data.content.consultingPage.lead}</p>
 
-		<section class="intro-panel">
+		<section class="intro-panel text-width">
 			<h2>{data.content.consultingPage.introTitle}</h2>
 			<p>{data.content.consultingPage.introText}</p>
 		</section>
@@ -41,11 +41,6 @@
 <SiteFooter {data} />
 
 <style>
-	.container {
-		width: min(1080px, calc(100vw - 2rem));
-		margin: 0 auto;
-	}
-
 	.consulting-page {
 		padding: 4rem 0 6rem;
 	}
@@ -57,21 +52,13 @@
 		margin: 0;
 	}
 
-	h1 {
-		max-width: 10ch;
-		font-size: clamp(3rem, 8vw, 5.6rem);
-		line-height: 0.95;
-	}
-
 	.lead {
-		max-width: 54rem;
 		margin-top: 1.25rem;
 		font-size: 1.12rem;
 		line-height: 1.8;
 	}
 
 	.intro-panel {
-		max-width: 54rem;
 		margin-top: 2.2rem;
 		padding: 1.7rem 1.8rem;
 		border-radius: 1.5rem;

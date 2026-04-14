@@ -25,12 +25,8 @@
 </footer>
 
 <style>
-	.container {
-		width: min(1140px, calc(100vw - 2rem));
-		margin: 0 auto;
-	}
-
 	.site-footer {
+		--container-width: var(--container-width-wide);
 		padding: 4rem 0;
 		background: transparent;
 	}
