@@ -510,6 +510,8 @@ export const siteContent = {
 				{ name: 'Adhesives', description: 'We have a wide range of adhesives and the ability to mix them using a precision scale. If you require a specific adhesive, we can source it or use yours.' },
 				{ name: 'Standard packages', description: 'We keep a limited selection of packages in stock but can source what is needed or use customer-supplied ones.' },
 				{ name: 'Glob top', description: 'We use silicone and epoxy for glob topping of chips and wires.' },
+				{ name: 'Pull tester', description: 'We have the capability to perform pull tests on bond wires to evaluate quality.' },
+{ name: 'Plasma cleaning', description: 'Our machine uses atmospheric plasma to clean the objects that are to be bonded. This is especially important for automatic bonding to work well.' },
 			],
 			areas: [
 				{
