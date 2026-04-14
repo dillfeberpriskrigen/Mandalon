@@ -418,7 +418,7 @@ export const siteContent = {
 		},
 		switchLabel: 'Svenska',
 		topLinks: [
-			{ label: 'Knowledgebank', path: 'knowledgebank' },
+			{ label: 'Knowledge bank', path: 'knowledge-bank' },
 			{ label: 'Contact', path: 'contact' },
 			{ label: 'About Mandalon', path: 'about' }
 		],
@@ -700,11 +700,11 @@ export const siteContent = {
 		},
 		glossaryPage: {
 			meta: {
-				title: 'Mandalon | Knowledgebank',
+				title: 'Mandalon | Knowledge Bank',
 				description:
 					'A collected help and glossary page based on Mandalon’s earlier help pages, including FAQ, ASIC, MEMS, wafer, sensors and microstructures.'
 			},
-			title: 'Knowledgebank for packaging, bonding and microstructures.',
+			title: 'Knowledge bank for packaging, bonding and microstructures.',
 			lead:
 				'This page brings together material from Mandalon’s earlier help pages. It includes both common questions and short introductions to ASIC, MEMS, wafer handling, sensors and microstructures.',
 			intro: [
@@ -819,7 +819,7 @@ export const siteContent = {
 			nav: [
 				{ label: 'About Mandalon', path: 'about' },
 				{ label: 'Contact', path: 'contact' },
-				{ label: 'Knowledgebank', path: 'knowledgebank' },
+				{ label: 'Knowledge bank', path: 'knowledge-bank' },
 				{ label: 'Design guide', path: 'design-guide' }
 			]
 		}
