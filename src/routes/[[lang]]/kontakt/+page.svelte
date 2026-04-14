@@ -161,7 +161,6 @@
 		font-size: 1.05rem;
 		font-weight: 700;
 		color: #506458;
-		text-transform: lowercase;
 	}
 
 	.person-details {

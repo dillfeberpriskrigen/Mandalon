@@ -70,7 +70,7 @@ export const siteContent = {
 				{
 					title: 'Processutveckling',
 					text: 'Mandalons mångåriga erfarenhet ställs gärna till förfogande när ni behöver utveckla en egen process.',
-					image: '/mandalon/process.jpg'
+					image: '/mandalon/chip-prototypes.jpg'
 				},
 				{
 					title: 'Projektledning',
@@ -104,6 +104,8 @@ export const siteContent = {
 				{ name: 'Lim', description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.' },
 				{ name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.' },
 				{ name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.' },
+				{ name: 'Dragprovare', description: 'Vi har möjlighet att dragprova bondtrådar för att utvärdera kvalitet' },
+				{ name: 'Plasmatvätt', description: 'Vår maskin använder atmosfärsplasma för att rengöra objekten som skall bondas. Det är extra viktigt för att automatbondning ska fungera bra.' },
 			],
 			areas: [
 				{
@@ -278,7 +280,7 @@ export const siteContent = {
 				},
 				{
 					name: 'Jonatan Gezelius',
-					role: 'Teknisk säljare/Bondlärling',
+					role: 'Teknisk Säljare/Bondlärling',
 					image: '/mandalon/Jonatan.jpg',
 					imageAlt: 'Jonatan',
 					phone: '073 58 48 690',
@@ -460,7 +462,7 @@ export const siteContent = {
 				{
 					title: 'Process development',
 					text: 'Mandalon’s long experience is available when you need to develop your own process.',
-					image: '/mandalon/process.jpg'
+					image: '/mandalon/chip-prototypes.jpg'
 				},
 				{
 					title: 'Project management',

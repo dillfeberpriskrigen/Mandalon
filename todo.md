@@ -2,7 +2,6 @@
 
 ## Vital fixes
 ## Medium
-- Gör en sektion "Bonding Services", kanske istället för "Chip & Sensors"
 ## Low
 
 # Fixed
@@ -14,5 +13,6 @@
 
 - Jag gillar inte att menyn känns som den är till höger om mitten. Åtminstone inte så mycket. Kanske göra så att loggan + menyn är centrerad?
 
+- Gör en sektion "Bonding Services", kanske istället för "Chip & Sensors"
 
 - Bottenmenyn är överflödig

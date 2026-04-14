@@ -75,7 +75,6 @@
 	}
 
 	h1 {
-		max-width: 10ch;
 		font-size: clamp(3rem, 8vw, 5.6rem);
 		line-height: 0.95;
 	}
@@ -90,7 +89,7 @@
 	.intro-stack {
 		display: grid;
 		gap: 1rem;
-		max-width: 58rem;
+		max-width: 100%;
 		margin-top: 2rem;
 	}
 
@@ -154,12 +153,15 @@
 	}
 
 	.capabilities-table {
-		max-width: 40rem;
-		margin-top: 1.5rem;
+		max-width: 48rem;
+		margin-top: 5rem;
+		margin-top: 5rem;
 		border: 1px solid rgba(16, 35, 28, 0.18);
 		border-radius: 1rem;
 		border-collapse: separate;
 		border-spacing: 0;
+		margin-left:auto;
+		margin-right: auto;
 	}
 
 	.capabilities-table td {

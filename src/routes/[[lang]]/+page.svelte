@@ -203,11 +203,11 @@
 	}
 
 	.divider-banner__image {
-		height: 8rem;
+		height: 20rem;
 		border-radius: 1.25rem;
 		background:
 			linear-gradient(90deg, rgba(16, 35, 28, 0.24) 0%, rgba(16, 35, 28, 0.08) 100%),
-			url('/mandalon/process.jpg') center 38% / cover no-repeat;
+			url('/mandalon/help-asic.jpg') center 65% / cover no-repeat;
 	}
 
 	.intro-actions a:first-child {
