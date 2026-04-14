@@ -12,7 +12,7 @@
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
 
-<SiteHeader {data} currentPath={data.locale === 'sv' ? 'ordlista' : 'glossary'} />
+<SiteHeader {data} currentPath={data.locale === 'sv' ? 'kunskapsbank' : 'knowledgebank'} />
 
 <section class="info-page">
 	<div class="container">

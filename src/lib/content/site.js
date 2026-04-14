@@ -11,7 +11,7 @@ export const siteContent = {
 		},
 		switchLabel: 'English',
 		topLinks: [
-			{ label: 'Kunskapsbank', path: 'ordlista' },
+			{ label: 'Kunskapsbank', path: 'kunskapsbank' },
 			{ label: 'Kontakt', path: 'kontakt' },
 			{ label: 'Om Mandalon', path: 'om-mandalon' }
 		],
@@ -295,11 +295,11 @@ export const siteContent = {
 		},
 		glossaryPage: {
 			meta: {
-				title: 'Mandalon | Ordlista',
+				title: 'Mandalon | Kunskapsbank',
 				description:
 					'En samlad guidesida med innehåll från Mandalons tidigare hjälpsidor: vanliga frågor, ASIC, MEMS, wafer, sensorer och mikrostrukturer.'
 			},
-			title: 'Ordlista och hjälp för packaging, bonding och mikrostrukturer.',
+			title: 'Kunskapsbank för packaging, bonding och mikrostrukturer.',
 			lead:
 				'Det här är en samlad version av Mandalons tidigare hjälpsidor. Här finns både vanliga frågor och korta introduktioner till ASIC, MEMS, wafer, sensorer och mikrostrukturer.',
 			intro: [
@@ -390,7 +390,7 @@ export const siteContent = {
 			nav: [
 				{ label: 'Om Mandalon', path: 'om-mandalon' },
 				{ label: 'Kontakt', path: 'kontakt' },
-				{ label: 'Ordlista', path: 'ordlista' },
+				{ label: 'Kunskapsbank', path: 'kunskapsbank' },
 				{ label: 'Designguide', path: 'designguide' }
 			]
 		}
@@ -403,7 +403,7 @@ export const siteContent = {
 		},
 		switchLabel: 'Svenska',
 		topLinks: [
-			{ label: 'Knowledge Base', path: 'glossary' },
+			{ label: 'Knowledgebank', path: 'knowledgebank' },
 			{ label: 'Contact', path: 'contact' },
 			{ label: 'About Mandalon', path: 'about' }
 		],
@@ -683,11 +683,11 @@ export const siteContent = {
 		},
 		glossaryPage: {
 			meta: {
-				title: 'Mandalon | Glossary',
+				title: 'Mandalon | Knowledgebank',
 				description:
 					'A collected help and glossary page based on Mandalon’s earlier help pages, including FAQ, ASIC, MEMS, wafer, sensors and microstructures.'
 			},
-			title: 'Glossary and help for packaging, bonding and microstructures.',
+			title: 'Knowledgebank for packaging, bonding and microstructures.',
 			lead:
 				'This page brings together material from Mandalon’s earlier help pages. It includes both common questions and short introductions to ASIC, MEMS, wafer handling, sensors and microstructures.',
 			intro: [
@@ -787,7 +787,7 @@ export const siteContent = {
 			nav: [
 				{ label: 'About Mandalon', path: 'about' },
 				{ label: 'Contact', path: 'contact' },
-				{ label: 'Glossary', path: 'glossary' },
+				{ label: 'Knowledgebank', path: 'knowledgebank' },
 				{ label: 'Design guide', path: 'design-guide' }
 			]
 		}
