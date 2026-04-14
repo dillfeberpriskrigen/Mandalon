@@ -8,8 +8,8 @@
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 
 	const { data } = $props();
-	const latitude = 58.44832;
-	const longitude = 15.82594;
+	const latitude = 58.448268;
+	const longitude = 15.826769;
 	const delta = 0.012;
 	const bbox = [
 		(longitude - delta).toFixed(5),
