@@ -1,13 +1,6 @@
 <svelte:head>
-	<title>{data.locale === 'sv' ? 'Mandalon | Designguide' : 'Mandalon | Design guide'}</title>
-	<meta
-		name="description"
-		content={
-			data.locale === 'sv'
-				? 'Mandalons designguide med originalcopy, bilder och PDF för chipdesign, PCB-layout och bonding.'
-				: 'Mandalon design guide with original copy, images and PDF for chip design, PCB layout and bonding.'
-		}
-	/>
+	<title>{data.content.designGuidePage.meta.title}</title>
+	<meta name="description" content={data.content.designGuidePage.meta.description} />
 </svelte:head>
 
 <script>
@@ -16,18 +9,26 @@
 	import designGuideHtml from '$lib/content/designguide.html?raw';
 
 	const { data } = $props();
-	const downloadLabel = data.locale === 'sv' ? 'Designguide' : 'Download design guide';
-	const localizedDesignGuideHtml = designGuideHtml.replace(
-		'>Designguide</a>',
-		`>${downloadLabel}</a>`
-	);
+	const content = data.content.designGuidePage;
+	const localizedDesignGuideHtml = designGuideHtml
+		.replace(
+			'En hjälp på vägen kan vara den designguide vi tagit fram för några tillämpningar ',
+			content.articleIntroTitle
+		)
+		.replace(
+			'2007 tog vi tillsammans med doktorander och personal vid Linköpings universitet och i samarbete med nano- och mikrosystemprogrammet minST fram en designguide. Ta del av den i sin helhet här, eller ladda ner den i PDF-format.',
+			content.articleIntroBody
+		)
+		.replace('>Hämta designguide som pdf</a>', `>${content.downloadLabel}</a>`)
+		.replace('>Designguide</a>', `>${content.embeddedDownloadLabel}</a>`);
 </script>
 
 <SiteHeader {data} currentPath={data.locale === 'sv' ? 'designguide' : 'design-guide'} />
 
 <section class="guide-page">
 	<div class="container">
-		<h1 class="page-title">{data.locale === 'sv' ? 'Designguide' : 'Design guide'}</h1>
+		<h1 class="page-title">{content.title}</h1>
+		<p class="guide-intro text-width">{content.intro}</p>
 		<div class="guide-content">
 			{@html localizedDesignGuideHtml}
 		</div>
@@ -44,6 +45,13 @@
 
 	h1 {
 		margin: 0;
+	}
+
+	.guide-intro {
+		margin-top: 1.25rem;
+		font-size: 1.12rem;
+		line-height: 1.8;
+		color: #506458;
 	}
 
 	.guide-content {

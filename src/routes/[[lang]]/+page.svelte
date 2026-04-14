@@ -112,11 +112,7 @@
 					</div>
 				</div>
 
-				<div class="intro-actions">
-					{#each data.content.salesIntro.actions as action}
-						<a href={toPath(action.path)}>{action.label}</a>
-					{/each}
-				</div>
+			
 			</div>
 		</section>
 

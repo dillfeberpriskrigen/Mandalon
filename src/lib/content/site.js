@@ -179,7 +179,7 @@ export const siteContent = {
 				{
 					title: 'Processutveckling',
 					text:
-						'Mandalons mångåriga erfarenhet från vitt skilda projekt kan användas när ni behöver utveckla eller vässa en egen process. Fokus ligger på att hitta arbetssätt som fungerar i praktiken, inte bara i teorin.',
+						'Mandalons mångåriga erfarenhet från vitt skilda projekt kan användas när ni behöver utveckla eller vässa en egen process. Fokus ligger på att hitta arbetssätt som fungerar i praktiken.',
 					points: [
 						'Erfarenhetsbaserat stöd i processfrågor',
 						'Hjälp att vässa parametrar, upplägg och flöden',
@@ -386,6 +386,21 @@ export const siteContent = {
 				}
 			]
 		},
+		designGuidePage: {
+			meta: {
+				title: 'Mandalon | Designguide',
+				description:
+					'Mandalons designguide med originalcopy, bilder och PDF för chipdesign, PCB-layout och bonding.'
+			},
+			title: 'Designguide',
+			intro:
+				'Designguiden togs fram tillsammans med doktorander vid Linköpings universitet och samlar praktiska råd, bilder och vanliga fallgropar inom chipdesign, PCB-layout och bonding.',
+			articleIntroTitle: 'En hjälp på vägen kan vara den designguide vi tagit fram för några tillämpningar',
+			articleIntroBody:
+				'2007 tog vi tillsammans med doktorander och personal vid Linköpings universitet och i samarbete med nano- och mikrosystemprogrammet minST fram en designguide. Ta del av den i sin helhet här, eller ladda ner den i PDF-format.',
+			downloadLabel: 'Hämta designguide som pdf',
+			embeddedDownloadLabel: 'Designguide'
+		},
 		footer: {
 			nav: [
 				{ label: 'Om Mandalon', path: 'om-mandalon' },
@@ -567,7 +582,7 @@ export const siteContent = {
 				{
 					title: 'Process development',
 					text:
-						'Mandalon’s long experience across very different projects is available when you need to build or sharpen your own process. The focus is on approaches that work in practice, not only in theory.',
+						'Mandalon’s long experience across very different projects is available when you need to build or sharpen your own process. The focus is on approaches that work in practice.',
 					points: [
 						'Experience-based process support',
 						'Help improving parameters, setup and flow',
@@ -604,10 +619,10 @@ export const siteContent = {
 			},
 			title: 'Experience from research, lab work and hands-on assembly.',
 			lead:
-				'Mandalon grew out of work with sensors and microsystems in Linkoping and has, since the late 1990s, built a clear focus on chip packaging, bonding and design-oriented support.',
+				'Mandalon grew out of work with sensors and microsystems in Linköping and has, since the late 1990s, built a clear focus on chip packaging, bonding and design-oriented support.',
 			introTitle: 'An introduction to Mandalon',
 			intro: [
-				'The S-Sence competence centre at Linkoping University played a major role in Mandalon’s origin. Among other things, "the electronic nose" was developed within that programme during the 1990s, and assembling those sensors became the starting point for the company.',
+				'The S-Sence competence centre at Linköping University played a major role in Mandalon’s origin. Among other things, "the electronic nose" was developed within that programme during the 1990s, and assembling those sensors became the starting point for the company.',
 				'These chemical gas sensors were assembled at the university, but the need for assembly work grew and a business idea took shape.',
 				'In the beginning the company also worked with vacuum technology and surface coatings. Since 2005, when the company was divided, Mandalon Technologies AB has focused on microelectronics.'
 			],
@@ -723,7 +738,7 @@ export const siteContent = {
 			],
 			guide: {
 				title: 'Design guide',
-				text: 'The design guide was developed together with doctoral researchers at Linkoping University and is still a useful complement if you want to understand common packaging pitfalls early.',
+				text: 'The design guide was developed together with doctoral researchers at Linköping University and is still a useful complement if you want to understand common packaging pitfalls early.',
 				label: 'Open the design guide',
 				path: 'design-guide'
 			},
@@ -782,6 +797,21 @@ export const siteContent = {
 					caption: 'Microstructures and surrounding structure'
 				}
 			]
+		},
+		designGuidePage: {
+			meta: {
+				title: 'Mandalon | Design guide',
+				description:
+					'Mandalon design guide with original copy, images and PDF for chip design, PCB layout and bonding.'
+			},
+			title: 'Design guide',
+			intro:
+				'The design guide was developed together with doctoral researchers at Linköping University and brings together practical advice, images, and common pitfalls in chip design, PCB layout, and bonding.',
+			articleIntroTitle: 'A useful starting point is the design guide we have developed for a number of applications',
+			articleIntroBody:
+				'In 2007, together with doctoral researchers and staff at Linköping University and in collaboration with the nano- and microsystems programme minST, we developed a design guide. Read it in full here, or download it as a PDF.',
+			downloadLabel: 'Download design guide as PDF',
+			embeddedDownloadLabel: 'Download design guide'
 		},
 		footer: {
 			nav: [
