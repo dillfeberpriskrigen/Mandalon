@@ -1,3 +1,37 @@
+<script>
+	import { browser } from '$app/environment';
+	import { afterNavigate } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import { trackPageView } from '$lib/client/analytics';
+
+	let lastTrackedPath = '';
+
+	function trackCurrentPage() {
+		if (!browser) {
+			return;
+		}
+
+		const currentPath = `${window.location.pathname}${window.location.search}`;
+
+		if (currentPath === lastTrackedPath) {
+			return;
+		}
+
+		lastTrackedPath = currentPath;
+		trackPageView();
+	}
+
+	if (browser) {
+		afterNavigate(() => {
+			trackCurrentPage();
+		});
+	}
+
+	onMount(() => {
+		trackCurrentPage();
+	});
+</script>
+
 <div class="app-shell">
 	<div class="page-layer">
 		<slot />

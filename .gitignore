@@ -30,3 +30,9 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+
+# runtime analytics storage
+analytics_wsgi/var/analytics/
+
+# Python
+__pycache__/
