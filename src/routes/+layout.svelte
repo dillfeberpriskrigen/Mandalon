@@ -1,8 +1,10 @@
 <script>
 	import { browser } from '$app/environment';
 	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { trackPageView } from '$lib/client/analytics';
+	import { getAlternateLinks } from '$lib/seo';
 
 	let lastTrackedPath = '';
 
@@ -30,6 +32,8 @@
 	onMount(() => {
 		trackCurrentPage();
 	});
+
+	const alternateLinks = $derived(getAlternateLinks(page.url.pathname));
 </script>
 
 <div class="app-shell">
@@ -45,6 +49,9 @@
 		href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap"
 		rel="stylesheet"
 	/>
+	{#each alternateLinks as link}
+		<link rel="alternate" hreflang={link.hreflang} href={link.href} />
+	{/each}
 </svelte:head>
 
 <style>
