@@ -18,13 +18,33 @@ npm install
 npm run build
 ```
 
-This project uses `@sveltejs/adapter-static`.
+This project uses `@sveltejs/adapter-node` and is built for SSR.
 
-After the build, the generated static site is written to `build/`.
+After the build, the generated Node server bundle is written to `build/`.
 
-## Static hosting
+You can start it locally after build with:
 
-Upload the contents of `build/` to your web root, for example `public_html`.
+```bash
+npm run start
+```
+
+## SSR hosting
+
+This project should now run as a Node app instead of being uploaded as plain static files.
+
+`@sveltejs/adapter-node` makes the app listen on the `PORT` provided by the host.
+
+## Passenger
+
+If your hosting uses Passenger, point Passenger at the repository root and use:
+
+```text
+app.js
+```
+
+as the startup file.
+
+That file imports the generated SSR server from `build/index.js`.
 
 Typical deploy flow:
 
@@ -33,4 +53,8 @@ npm install
 npm run build
 ```
 
-Then copy the contents of `build/` into the public directory used by the subdomain.
+Important:
+
+- Build the app before Passenger starts or restarts it.
+- Run it with Node 18 to match `package.json`.
+- Do not deploy this by copying `build/` into a static `public_html` directory.
