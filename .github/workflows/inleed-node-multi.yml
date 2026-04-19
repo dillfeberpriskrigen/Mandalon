@@ -82,7 +82,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "app.tar.gz"
-          target: "${{ secrets.APP_ROOT }}"
+          target: "${{ env.APP_ROOT }}"
           debug: true
 
       - name: Install + start app
