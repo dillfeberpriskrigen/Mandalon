@@ -22,7 +22,7 @@ jobs:
       - name: Build
         id: env
         run: |
-          if [ "${{ github.ref }}"" = 'refs/heads/main' ]; then
+          if [ "${{ github.ref }}" = 'refs/heads/main' ]; then
             echo "APP_ROOT=${{ secrets.APP_ROOT_MAIN }}" >> "$GITHUB_ENV"
             echo "DOMAIN=${{ secrets.DOMAIN_MAIN }}" >> "$GITHUB_ENV"
           elif [ "${{ github.ref }}" = 'refs/heads/test1' ]; then
