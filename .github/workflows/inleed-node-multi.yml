@@ -67,7 +67,7 @@ jobs:
           script: |
             cloudlinux-selector stop --json \
               --interpreter nodejs \
-              --app-root "${APP_ROOT}"
+              --app-root ${APP_ROOT}
 
       - name: Download artifact from build job
         uses: actions/download-artifact@v7
@@ -92,16 +92,17 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd "${APP_ROOT}"
+            cd ${APP_ROOT}
 
+            rm -r build
             tar -xzf app.tar.gz
             rm app.tar.gz
 
             # ensure correct environment (adjust if Inleed requires sourcing)
-            source ~/.bashrc || true
+            source /home/${{ secrets.SSH_USER }}/nodevenv/${APP_ROOT}/18/bin/activate || true
 
             npm install --omit=dev
 
             cloudlinux-selector start --json \
               --interpreter nodejs \
-              --app-root "${APP_ROOT}"
+              --app-root ${APP_ROOT}
