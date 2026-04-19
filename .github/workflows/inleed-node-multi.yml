@@ -67,7 +67,7 @@ jobs:
           script: |
             echo "cloudlinux-selector stop --json \
               --interpreter nodejs \
-              --app-root ${APP_ROOT}" > cmd_tried_to_run.txt
+              --app-root ${{env.APP_ROOT}}" > cmd_tried_to_run.txt
             return 1
 
       - name: Download artifact from build job
