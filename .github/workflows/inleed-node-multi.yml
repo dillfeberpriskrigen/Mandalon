@@ -11,35 +11,8 @@ env:
   NODE_VERSION: '24'
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    
-    outputs:
-      app-root: ${{ steps.env.outputs.APP_ROOT }}
-      domain: ${{ steps.env.outputs.DOMAIN }}
-
-    steps:
-      - name: Build
-        id: env
-        run: |
-          if [ "${{ github.ref }}" = 'refs/heads/main' ]; then
-            echo "APP_ROOT=${{ secrets.APP_ROOT_MAIN }}" >> "$GITHUB_ENV"
-            echo "DOMAIN=${{ secrets.DOMAIN_MAIN }}" >> "$GITHUB_ENV"
-          elif [ "${{ github.ref }}" = 'refs/heads/test1' ]; then
-            echo "APP_ROOT=${{ secrets.APP_ROOT_TEST1 }}" >> "$GITHUB_ENV"
-            echo "DOMAIN=${{ secrets.DOMAIN_TEST1 }}" >> "$GITHUB_ENV"
-          else
-            exit 1
-          fi
-
   build:
     runs-on: ubuntu-latest
-
-    needs: setup
-
-    env:
-      APP_ROOT: ${{needs.setup.outputs.app-root}}
-      DOMAIN: ${{needs.setup.outputs.domain}}
 
     steps:
       - name: Checkout
@@ -68,13 +41,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    needs: [setup, build]
-
-    env:
-      APP_ROOT: ${{needs.setup.outputs.app-root}}
-      DOMAIN: ${{needs.setup.outputs.domain}}
+    needs: [build]
 
     steps:
+      - name: Set environment
+        id: env
+        run: |
+          if [ "${{ github.ref }}" = 'refs/heads/main' ]; then
+            echo "APP_ROOT=${{ secrets.APP_ROOT_MAIN }}" >> "$GITHUB_ENV"
+            echo "DOMAIN=${{ secrets.DOMAIN_MAIN }}" >> "$GITHUB_ENV"
+          elif [ "${{ github.ref }}" = 'refs/heads/test1' ]; then
+            echo "APP_ROOT=${{ secrets.APP_ROOT_TEST1 }}" >> "$GITHUB_ENV"
+            echo "DOMAIN=${{ secrets.DOMAIN_TEST1 }}" >> "$GITHUB_ENV"
+          else
+            exit 1
+          fi
+
       - name: Stop app
         uses: appleboy/ssh-action@v1.2.5
         with:
