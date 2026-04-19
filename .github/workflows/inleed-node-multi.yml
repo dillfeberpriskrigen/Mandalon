@@ -74,15 +74,15 @@ jobs:
         with:
           name: release-package
 
-      - name: Upload files
+      - name: Upload files to server
         uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "app.tar.gz"
-          target: "${{ secrets.APP_ROOT }}"
+          src: "app.tar.gz"
+          remote: "${{ secrets.APP_ROOT }}"
 
       - name: Install + start app
         uses: appleboy/ssh-action@v1.2.5
