@@ -58,7 +58,7 @@ jobs:
           fi
 
       - name: Stop app
-        uses: appleboy/ssh-action@v1.2.5
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
@@ -75,17 +75,18 @@ jobs:
           name: release-package
 
       - name: Upload files to server
-        uses: appleboy/scp-action@v1.0.0
+        uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          src: "app.tar.gz"
-          remote: "${{ secrets.APP_ROOT }}"
+          source: "app.tar.gz"
+          target: "${{ secrets.APP_ROOT }}"
+          debug: true
 
       - name: Install + start app
-        uses: appleboy/ssh-action@v1.2.5
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
