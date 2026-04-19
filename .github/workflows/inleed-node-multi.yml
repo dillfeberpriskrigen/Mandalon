@@ -53,7 +53,7 @@ jobs:
           if [ "${{ github.ref }}" = 'refs/heads/main' ]; then
             echo "APP_ROOT=${{ secrets.APP_ROOT_MAIN }}" >> "$GITHUB_ENV"
             echo "DOMAIN=${{ secrets.DOMAIN_MAIN }}" >> "$GITHUB_ENV"
-          elif [ "${{ github.ref }}" = 'refs/heads/development' ]; then
+          elif [ "${{ github.ref }}" = 'refs/heads/develop' ]; then
             echo "APP_ROOT=${{ secrets.APP_ROOT_DEVELOPMENT }}" >> "$GITHUB_ENV"
             echo "DOMAIN=${{ secrets.DOMAIN_DEVELOPMENT }}" >> "$GITHUB_ENV"
           elif [ "${{ github.ref }}" = 'refs/heads/test1' ]; then
