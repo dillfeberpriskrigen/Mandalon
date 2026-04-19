@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
+      - development
       - test1
+      - test2
   workflow_dispatch:
 
 env:
@@ -30,7 +32,7 @@ jobs:
 
       - name: Create deployment package
         run: |
-          tar -czf app.tar.gz build package.json package-lock.json
+          tar -czf app.tar.gz build package.json package-lock.json utility/_passenger.cjs
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v7
@@ -50,9 +52,15 @@ jobs:
           if [ "${{ github.ref }}" = 'refs/heads/main' ]; then
             echo "APP_ROOT=${{ secrets.APP_ROOT_MAIN }}" >> "$GITHUB_ENV"
             echo "DOMAIN=${{ secrets.DOMAIN_MAIN }}" >> "$GITHUB_ENV"
+          elif [ "${{ github.ref }}" = 'refs/heads/development' ]; then
+            echo "APP_ROOT=${{ secrets.APP_ROOT_DEVELOPMENT }}" >> "$GITHUB_ENV"
+            echo "DOMAIN=${{ secrets.DOMAIN_DEVELOPMENT }}" >> "$GITHUB_ENV"
           elif [ "${{ github.ref }}" = 'refs/heads/test1' ]; then
             echo "APP_ROOT=${{ secrets.APP_ROOT_TEST1 }}" >> "$GITHUB_ENV"
             echo "DOMAIN=${{ secrets.DOMAIN_TEST1 }}" >> "$GITHUB_ENV"
+          elif [ "${{ github.ref }}" = 'refs/heads/test2' ]; then
+            echo "APP_ROOT=${{ secrets.APP_ROOT_TEST2 }}" >> "$GITHUB_ENV"
+            echo "DOMAIN=${{ secrets.DOMAIN_TEST2 }}" >> "$GITHUB_ENV"
           else
             exit 1
           fi
@@ -99,9 +107,8 @@ jobs:
             rm app.tar.gz
 
             # Activate the Node environment provided by Inleed (DirectAdmin and cPanel)
-            source /home/${{ secrets.SSH_USER }}/nodevenv/${{env.APP_ROOT}}/18/bin/activate || true
-
-            npm install --omit=dev
+            # source /home/${{ secrets.SSH_USER }}/nodevenv/${{env.APP_ROOT}}/18/bin/activate || true
+            # npm install --omit=dev
 
             cloudlinux-selector start --json \
               --interpreter nodejs \
