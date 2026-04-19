@@ -83,7 +83,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "app.tar.gz"
           target: "${{ env.APP_ROOT }}"
-          debug: true
 
       - name: Install + start app
         uses: appleboy/ssh-action@v1
@@ -99,8 +98,8 @@ jobs:
             tar -xzf app.tar.gz
             rm app.tar.gz
 
-            # ensure correct environment (adjust if Inleed requires sourcing)
-            source /home/${{ secrets.SSH_USER }}/nodevenv/${APP_ROOT}/18/bin/activate || true
+            # Activate the Node environment provided by Inleed (DirectAdmin and cPanel)
+            source /home/${{ secrets.SSH_USER }}/nodevenv/${{env.APP_ROOT}}/18/bin/activate || true
 
             npm install --omit=dev
 
