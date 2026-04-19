@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - development
+      - develop
       - test1
       - test2
   workflow_dispatch:
