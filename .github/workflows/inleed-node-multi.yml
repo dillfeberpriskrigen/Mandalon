@@ -1,0 +1,122 @@
+name: Deploy to Inleed
+
+on:
+  push:
+    branches:
+      - main
+      - test1
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    
+    outputs:
+      app-root: ${{ steps.env.outputs.APP_ROOT }}
+      domain: ${{ steps.env.outputs.DOMAIN }}
+
+    steps:
+      - name: Build
+        id: env
+        run: |
+          if [ "${{ github.ref }}"" = 'refs/heads/main' ]; then
+            echo "APP_ROOT=${{ secrets.APP_ROOT_MAIN }}" >> "$GITHUB_ENV"
+            echo "DOMAIN=${{ secrets.DOMAIN_MAIN }}" >> "$GITHUB_ENV"
+          elif [ "${{ github.ref }}" = 'refs/heads/test1' ]; then
+            echo "APP_ROOT=${{ secrets.APP_ROOT_TEST1 }}" >> "$GITHUB_ENV"
+            echo "DOMAIN=${{ secrets.DOMAIN_TEST1 }}" >> "$GITHUB_ENV"
+          else
+            exit 1
+          fi
+
+  build:
+    runs-on: ubuntu-latest
+
+    needs: setup
+
+    env:
+      APP_ROOT: ${{needs.setup.outputs.app-root}}
+      DOMAIN: ${{needs.setup.outputs.domain}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Create deployment package
+        run: |
+          tar -czf app.tar.gz build package.json package-lock.json
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: release-package
+          path: app.tar.gz
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    needs: [setup, build]
+
+    env:
+      APP_ROOT: ${{needs.setup.outputs.app-root}}
+      DOMAIN: ${{needs.setup.outputs.domain}}
+
+    steps:
+      - name: Stop app
+        uses: appleboy/ssh-action@v1.2.5
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cloudlinux-selector stop --json \
+              --interpreter nodejs \
+              --app-root "${APP_ROOT}"
+
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v7
+        with:
+          name: release-package
+
+      - name: Upload files
+        uses: appleboy/scp-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "app.tar.gz"
+          target: "${{ secrets.APP_ROOT }}"
+
+      - name: Install + start app
+        uses: appleboy/ssh-action@v1.2.5
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd "${APP_ROOT}"
+
+            tar -xzf app.tar.gz
+            rm app.tar.gz
+
+            # ensure correct environment (adjust if Inleed requires sourcing)
+            source ~/.bashrc || true
+
+            npm install --omit=dev
+
+            cloudlinux-selector start --json \
+              --interpreter nodejs \
+              --app-root "${APP_ROOT}"
