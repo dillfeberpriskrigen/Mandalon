@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '24'
-  SERVER_NODE_VERSION: '18'
+  NODE_VERSION: "24"
+  SERVER_NODE_VERSION: "18"
 
 jobs:
   build:
@@ -41,19 +41,19 @@ jobs:
           name: release-package
           path: app.tar.gz
 
-  deploy:
+  deploy-dev:
+    if: |
+      github.ref == 'refs/heads/develop' ||
+      github.ref == 'refs/heads/test1' ||
+      github.ref == 'refs/heads/test2'
     runs-on: ubuntu-latest
-
-    needs: [build]
+    needs: build
 
     steps:
       - name: Set environment
         id: env
         run: |
-          if [ "${{ github.ref }}" = 'refs/heads/main' ]; then
-            echo "APP_ROOT=${{ secrets.APP_ROOT_MAIN }}" >> "$GITHUB_ENV"
-            echo "DOMAIN=${{ secrets.DOMAIN_MAIN }}" >> "$GITHUB_ENV"
-          elif [ "${{ github.ref }}" = 'refs/heads/develop' ]; then
+          if [ "${{ github.ref }}" = 'refs/heads/develop' ]; then
             echo "APP_ROOT=${{ secrets.APP_ROOT_DEVELOPMENT }}" >> "$GITHUB_ENV"
             echo "DOMAIN=${{ secrets.DOMAIN_DEVELOPMENT }}" >> "$GITHUB_ENV"
           elif [ "${{ github.ref }}" = 'refs/heads/test1' ]; then
@@ -114,3 +114,58 @@ jobs:
             cloudlinux-selector start --json \
               --interpreter nodejs \
               --app-root "${{env.APP_ROOT}}"
+
+  deploy-main:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Stop app
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST_MAIN }}
+          port: ${{ secrets.SSH_PORT_MAIN }}
+          username: ${{ secrets.SSH_USER_MAIN }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
+          script: |
+            cloudlinux-selector stop --json \
+              --interpreter nodejs \
+              --app-root "${{ secrets.APP_ROOT_MAIN }}"
+
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v7
+        with:
+          name: release-package
+
+      - name: Upload files to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST_MAIN }}
+          port: ${{ secrets.SSH_PORT_MAIN }}
+          username: ${{ secrets.SSH_USER_MAIN }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
+          source: "app.tar.gz"
+          target: "${{ secrets.APP_ROOT_MAIN }}"
+
+      - name: Install + start app
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST_MAIN }}
+          port: ${{ secrets.SSH_PORT_MAIN }}
+          username: ${{ secrets.SSH_USER_MAIN }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
+          script: |
+            cd "${{secrets.APP_ROOT_MAIN}}"
+
+            rm -rf build
+            tar -xzf app.tar.gz
+            rm app.tar.gz
+
+            # Activate the Node environment provided by Inleed (DirectAdmin and cPanel)
+            source /home/${{ secrets.SSH_USER_MAIN }}/nodevenv/${{secrets.APP_ROOT_MAIN}}/${{env.SERVER_NODE_VERSION}}/bin/activate || true
+            npm install --omit=dev
+
+            cloudlinux-selector start --json \
+              --interpreter nodejs \
+              --app-root "${{secrets.APP_ROOT_MAIN}}"
