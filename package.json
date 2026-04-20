@@ -3,9 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "engines": {
-    "node": ">=18.13 <19"
-  },
+
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -21,6 +19,7 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
+    "@sveltejs/adapter-node": "^5.5.4",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-svelte": "^8.6.0"
