@@ -1,13 +1,14 @@
 <script>
 	import { localePath } from '$lib/utils/routing';
+	import { pagePaths } from '$lib/content/site'
 
 	const { data, currentPath = '' } = $props();
 
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 	const getSwitchPath = () =>
 		data.locale === 'sv'
-			? localePath('en', data.defaultLocale, currentPath)
-			: localePath('sv', data.defaultLocale, currentPath);
+			? localePath('en', data.defaultLocale, pagePaths[data.path]?.en)
+			: localePath('sv', data.defaultLocale, pagePaths[data.path]?.sv);
 
 	/** @param {string} path */
 	const isActive = (path) => {

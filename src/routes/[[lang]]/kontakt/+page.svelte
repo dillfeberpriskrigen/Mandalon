@@ -4,9 +4,6 @@
 </svelte:head>
 
 <script>
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import SiteFooter from '$lib/components/SiteFooter.svelte';
-
 	const { data } = $props();
 	const latitude = 58.448268;
 	const longitude = 15.826769;
@@ -20,8 +17,6 @@
 	const marker = `${latitude}%2C${longitude}`;
 	const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
 </script>
-
-<SiteHeader {data} currentPath={data.locale === 'sv' ? 'kontakt' : 'contact'} />
 
 <section class="info-page">
 	<div class="container">
@@ -80,8 +75,6 @@
 			</section>
 		</div>
 </section>
-
-<SiteFooter {data} />
 
 <style>
 	.info-page {

@@ -4,8 +4,6 @@
 </svelte:head>
 
 <script>
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import designGuideHtml from '$lib/content/designguide.html?raw';
 
 	const { data } = $props();
@@ -23,8 +21,6 @@
 		.replace('>Designguide</a>', `>${content.embeddedDownloadLabel}</a>`);
 </script>
 
-<SiteHeader {data} currentPath={data.locale === 'sv' ? 'designguide' : 'design-guide'} />
-
 <section class="guide-page">
 	<div class="container">
 		<h1 class="page-title">{content.title}</h1>
@@ -34,8 +30,6 @@
 		</div>
 	</div>
 </section>
-
-<SiteFooter {data} />
 
 <style>
 	.guide-page {

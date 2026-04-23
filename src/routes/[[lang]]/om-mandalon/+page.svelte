@@ -4,15 +4,11 @@
 </svelte:head>
 
 <script>
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
-
-<SiteHeader {data} currentPath={data.locale === 'sv' ? 'om-mandalon' : 'about'} />
 
 <section class="info-page">
 	<div class="container">
@@ -65,8 +61,6 @@
 		</div>
 	</div>
 </section>
-
-<SiteFooter {data} />
 
 <style>
 	.info-page {

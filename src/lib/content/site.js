@@ -2,6 +2,54 @@ export const defaultLocale = 'sv';
 
 export const locales = ['sv', 'en'];
 
+// Ugly reverse lookup table, replace with something better at some point..
+export const pagePaths = {
+	'kunskapsbank': {
+		sv: 'kunskapsbank',
+		en: 'knowledge-bank'
+	},
+	'knowledge-bank': {
+		sv: 'kunskapsbank',
+		en: 'knowledge-bank'
+	},
+
+	'kontakt': {
+		sv: 'kontakt',
+		en: 'contact'
+	},
+	'contact': {
+		sv: 'kontakt',
+		en: 'contact'
+	},
+
+	'om-mandalon': {
+		sv: 'om-mandalon',
+		en: 'about'
+	},
+	'about': {
+		sv: 'om-mandalon',
+		en: 'about'
+	},
+
+	'paketering': {
+		sv: 'paketering',
+		en: 'packaging'
+	},
+	'packaging': {
+		sv: 'paketering',
+		en: 'packaging'
+	},
+
+	'konsulttjanster': {
+		sv: 'konsulttjanster',
+		en: 'consulting'
+	},
+	'consulting': {
+		sv: 'konsulttjanster',
+		en: 'consulting'
+	}
+}
+
 export const siteContent = {
 	sv: {
 		meta: {

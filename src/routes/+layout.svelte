@@ -5,7 +5,11 @@
 	import { onMount } from 'svelte';
 	import { trackPageView } from '$lib/client/analytics';
 	import { getAlternateLinks } from '$lib/seo';
+	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
 
+	const { data, children } = $props();
+	
 	let lastTrackedPath = '';
 
 	function trackCurrentPage() {
@@ -25,21 +29,25 @@
 
 	if (browser) {
 		afterNavigate(() => {
-			trackCurrentPage();
+			//trackCurrentPage();
 		});
 	}
 
 	onMount(() => {
-		trackCurrentPage();
+		//trackCurrentPage();
 	});
 
 	const alternateLinks = $derived(getAlternateLinks(page.url.pathname));
 </script>
 
 <div class="app-shell">
+	<SiteHeader {data} currentPath={data.path} />
+
 	<div class="page-layer">
-		<slot />
+		{@render children()}
 	</div>
+
+	<SiteFooter {data} />
 </div>
 
 <svelte:head>

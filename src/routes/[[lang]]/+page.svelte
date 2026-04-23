@@ -6,8 +6,6 @@
 <script>
 	import useEmblaCarousel from 'embla-carousel-svelte';
 	import Autoplay from 'embla-carousel-autoplay';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
@@ -38,7 +36,6 @@
 </script>
 
 <div class="site-shell">
-	<SiteHeader {data} currentPath="" />
 
 	<section class="hero">
 		<div class="container hero-content">
@@ -120,7 +117,6 @@
 
 	</main>
 
-	<SiteFooter {data} />
 </div>
 
 <style>
