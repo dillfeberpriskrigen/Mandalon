@@ -1,12 +1,13 @@
 import { error } from '@sveltejs/kit';
 import { defaultLocale, locales, siteContent } from '$lib/content/site';
+import { getLocaleAndPathFromEvent } from '$lib/utils/routing.js'
 
-export function load({ params }) {
-	/** @type {'sv' | 'en'} */
-	const locale = params.lang === 'en' ? 'en' : defaultLocale;
+export function load(event) {
+    const {locale, path } = getLocaleAndPathFromEvent(event);
 
-	if (!locales.includes(locale)) {
-		throw error(404, 'Language not found');
+    if (path != '') {
+		// This means only a single parameter was given, but it didn't match with a locale and thus ends up in the path parameter
+		throw error(404, 'Sidan kunde inte hittas');
 	}
 
 	return {

@@ -4,13 +4,8 @@
 </svelte:head>
 
 <script>
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import SiteFooter from '$lib/components/SiteFooter.svelte';
-
 	const { data } = $props();
 </script>
-
-<SiteHeader {data} currentPath={data.locale === 'sv' ? 'paketering' : 'packaging'} />
 
 <section class="chip-page">
 	<div class="container">
@@ -55,8 +50,6 @@
 		</div>
 	</div>
 </section>
-
-<SiteFooter {data} />
 
 <style>
 	.chip-page {
