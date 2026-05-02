@@ -1,14 +1,17 @@
+<script lang="ts">
+	const { content } = $props();
+</script>
+
 <article class="designguide-article">
 	<h2 class="wp-block-heading" id="h-en-hj-lp-p-v-gen-kan-vara-den-designguide-vi-tagit-fram-f-r-n-gra-till-mpningar">
-		En hjälp på vägen kan vara den designguide vi tagit fram för några tillämpningar
+		{content.articleIntroTitle}
 	</h2>
 
 	<p>
-		2007 tog vi tillsammans med doktorander och personal vid Linköpings universitet och i samarbete med nano- och mikrosystemprogrammet minST fram en
-		designguide. Ta del av den i sin helhet här, eller ladda ner den i PDF-format.
+		{content.articleIntroBody}
 	</p>
 
-	<p><a class="designguide-download" href="/mandalon/designguide/mt-2007-011-dg-issue1_070416.pdf">Hämta designguide som pdf</a></p>
+	<p><a class="designguide-download" href="/mandalon/designguide/mt-2007-011-dg-issue1_070416.pdf">{content.downloadLabel}</a></p>
 
 	<h3 class="wp-block-heading" id="h-contents">Contents</h3>
 
@@ -70,8 +73,9 @@
 	<p>
 		This design guide is based on the experience which Mandalon Technologies has from ball bonding. The equipment, a K&amp;S 4124 is designed for gold bond
 		wires with a diameter between 17-50 µm. The information herein is specific for these circumstances.<br /><br />The design guide uses three different levels
-		of difficulties (time/cost consuming), with respect to the packaging work. The three different levels shall be considered as an indication.<br /><br />Time/Cost
-		levels<br />Level 1: Easy = 1 time/cost unit<br />Level 2: Normal = 3 time/cost units<br />Level 3: Close to the Limit = 10 time/cost units<br />
+		of difficulties (time/cost consuming), with respect to the packaging work. The three different levels shall be considered as an indication.<br /><br
+		/>Time/Cost levels<br />Level 1: Easy = 1 time/cost unit<br />Level 2: Normal = 3 time/cost units<br />Level 3: Close to the Limit = 10 time/cost units<br
+		/>
 	</p>
 
 	<h4 class="wp-block-heading" id="h-3-1-document-overview">3.1 Document Overview</h4>
@@ -107,7 +111,8 @@
 				height="337"
 				srcset="/mandalon/designguide/picture-1.png 385w, /mandalon/designguide/picture-1-300x175.png 300w"
 				sizes="(max-width: 578px) 100vw, 578px"
-		/></a>
+			/></a
+		>
 		<figcaption>Picture 1. A=effective pitch.</figcaption>
 	</figure>
 
@@ -130,7 +135,8 @@
 				height="326"
 				srcset="/mandalon/designguide/picture-2.jpg 360w, /mandalon/designguide/picture-2-300x168.jpg 300w"
 				sizes="(max-width: 584px) 100vw, 584px"
-		/></a>
+			/></a
+		>
 		<figcaption>Picture 2. Ball bonding with 25 µm wire and pitch 90 µm. A bottleneck capillary is used.</figcaption>
 	</figure>
 
@@ -146,7 +152,8 @@
 				height="353"
 				srcset="/mandalon/designguide/picture-3.jpg 369w, /mandalon/designguide/picture-3-300x180.jpg 300w"
 				sizes="auto, (max-width: 590px) 100vw, 590px"
-		/></a>
+			/></a
+		>
 		<figcaption>Picture 3. Ball bonding. The difference between 1st bond with the ball and 2nd bond.</figcaption>
 	</figure>
 
@@ -175,7 +182,8 @@
 				class="wp-image-1508"
 				srcset="/mandalon/designguide/picture-4.png 726w, /mandalon/designguide/picture-4-300x81.png 300w"
 				sizes="auto, (max-width: 726px) 100vw, 726px"
-		/></a>
+			/></a
+		>
 		<figcaption>Picture 4. Fan out.</figcaption>
 	</figure>
 
@@ -191,7 +199,8 @@
 				class="wp-image-1514"
 				srcset="/mandalon/designguide/picture-5.png 844w, /mandalon/designguide/picture-5-300x169.png 300w, /mandalon/designguide/picture-5-768x433.png 768w"
 				sizes="auto, (max-width: 844px) 100vw, 844px"
-		/></a>
+			/></a
+		>
 		<figcaption>Picture 5. The risk for short circuits increases when angle of fan out is above 45º.</figcaption>
 	</figure>
 
@@ -207,7 +216,8 @@
 				height="481"
 				srcset="/mandalon/designguide/picture-6.png 600w, /mandalon/designguide/picture-6-300x246.png 300w"
 				sizes="auto, (max-width: 588px) 100vw, 588px"
-		/></a>
+			/></a
+		>
 		<figcaption>Picture 6. Bonding under normal fan out conditions.</figcaption>
 	</figure>
 
@@ -223,7 +233,8 @@
 				height="510"
 				srcset="/mandalon/designguide/picture-7.png 666w, /mandalon/designguide/picture-7-300x262.png 300w"
 				sizes="auto, (max-width: 585px) 100vw, 585px"
-		/></a>
+			/></a
+		>
 		<figcaption>Picture 7. Bonding under difficult fan out conditions. Some fan out &gt;45º. (Cost level 3.)</figcaption>
 	</figure>
 
@@ -411,7 +422,8 @@
 							class="wp-image-1583"
 							srcset="/mandalon/designguide/picture-16.jpg 369w, /mandalon/designguide/picture-16-198x300.jpg 198w"
 							sizes="auto, (max-width: 369px) 100vw, 369px"
-					/></a>
+						/></a
+					>
 					<figcaption class="designguide-gallery-caption">Picture 16. Bond pads bumped in advance. Small open pad area.</figcaption>
 				</figure>
 			</li>
@@ -428,7 +440,8 @@
 							class="wp-image-1586"
 							srcset="/mandalon/designguide/picture-17.jpg 374w, /mandalon/designguide/picture-17-200x300.jpg 200w"
 							sizes="auto, (max-width: 374px) 100vw, 374px"
-					/></a>
+						/></a
+					>
 					<figcaption class="designguide-gallery-caption">Picture 17. Open area do not match pads.</figcaption>
 				</figure>
 			</li>
@@ -445,7 +458,8 @@
 							class="wp-image-1595"
 							srcset="/mandalon/designguide/picture-18.jpg 679w, /mandalon/designguide/picture-18-300x187.jpg 300w"
 							sizes="auto, (max-width: 679px) 100vw, 679px"
-					/></a>
+						/></a
+					>
 					<figcaption class="designguide-gallery-caption">Picture 18. Good bonding conditions with regard to open pad area.</figcaption>
 				</figure>
 			</li>
@@ -460,8 +474,8 @@
 
 	<p>Requirements: short and thick bond wires are required. Start placing the pads on the chip for the signals with the highest requirements.</p>
 	<p>
-		There must be enough space for 33µm bond wires for the RF signals.<br />Example 1:<br />If you have ca 5 pads with Straight Pitch: Minimum pitch is
-		100µm.<br />Example 2:<br />If you have ca 5 pads with Staggered Pads: Minimum effective pitch is 50µm.
+		There must be enough space for 33µm bond wires for the RF signals.<br />Example 1:<br />If you have ca 5 pads with Straight Pitch: Minimum pitch is 100µm.<br
+		/>Example 2:<br />If you have ca 5 pads with Staggered Pads: Minimum effective pitch is 50µm.
 	</p>
 	<p>For more examples, see table 1 and table 2 in table section.</p>
 	<p>
@@ -613,8 +627,8 @@
 	</figure>
 
 	<p>
-		<strong>Special cases:</strong> Reverse bonding (first bond with the ball on the PCB) could be used to reduce space needed on the chip, but it requires a
-		robust surface around the chip-pad.
+		<strong>Special cases:</strong> Reverse bonding (first bond with the ball on the PCB) could be used to reduce space needed on the chip, but it requires a robust
+		surface around the chip-pad.
 	</p>
 
 	<figure class="wp-block-image">

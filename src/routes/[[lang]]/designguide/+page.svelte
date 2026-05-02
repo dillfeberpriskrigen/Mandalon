@@ -1,16 +1,8 @@
 <script>
-	import designGuideHtml from '$lib/content/designguide.html?raw';
+	import DesignGuide from '$lib/content/DesignGuide.svelte';
 
 	const { data } = $props();
 	const content = data.content.designGuidePage;
-	const localizedDesignGuideHtml = designGuideHtml
-		.replace('En hjälp på vägen kan vara den designguide vi tagit fram för några tillämpningar ', content.articleIntroTitle)
-		.replace(
-			'2007 tog vi tillsammans med doktorander och personal vid Linköpings universitet och i samarbete med nano- och mikrosystemprogrammet minST fram en designguide. Ta del av den i sin helhet här, eller ladda ner den i PDF-format.',
-			content.articleIntroBody
-		)
-		.replace('>Hämta designguide som pdf</a>', `>${content.downloadLabel}</a>`)
-		.replace('>Designguide</a>', `>${content.embeddedDownloadLabel}</a>`);
 </script>
 
 <svelte:head>
@@ -23,7 +15,7 @@
 		<h1 class="page-title">{content.title}</h1>
 		<p class="guide-intro text-width">{content.intro}</p>
 		<div class="guide-content">
-			{@html localizedDesignGuideHtml}
+			<DesignGuide {content} />
 		</div>
 	</div>
 </section>
