@@ -4,7 +4,7 @@ export const locales = ['sv', 'en'];
 
 // Ugly reverse lookup table, replace with something better at some point..
 export const pagePaths = {
-	'kunskapsbank': {
+	kunskapsbank: {
 		sv: 'kunskapsbank',
 		en: 'knowledge-bank'
 	},
@@ -13,11 +13,11 @@ export const pagePaths = {
 		en: 'knowledge-bank'
 	},
 
-	'kontakt': {
+	kontakt: {
 		sv: 'kontakt',
 		en: 'contact'
 	},
-	'contact': {
+	contact: {
 		sv: 'kontakt',
 		en: 'contact'
 	},
@@ -26,29 +26,29 @@ export const pagePaths = {
 		sv: 'om-mandalon',
 		en: 'about'
 	},
-	'about': {
+	about: {
 		sv: 'om-mandalon',
 		en: 'about'
 	},
 
-	'paketering': {
+	paketering: {
 		sv: 'paketering',
 		en: 'packaging'
 	},
-	'packaging': {
+	packaging: {
 		sv: 'paketering',
 		en: 'packaging'
 	},
 
-	'konsulttjanster': {
+	konsulttjanster: {
 		sv: 'konsulttjanster',
 		en: 'consulting'
 	},
-	'consulting': {
+	consulting: {
 		sv: 'konsulttjanster',
 		en: 'consulting'
 	}
-}
+};
 
 export const siteContent = {
 	sv: {
@@ -70,8 +70,7 @@ export const siteContent = {
 		],
 		hero: {
 			title: 'När packaging måste fungera redan i första prototypen',
-			copy:
-				'Med över 25 års erfarenhet av projektledning, utveckling, bondning och design så hjälper Mandalon ditt team att gå från chip, sensor eller MEMS-idé till en monterbar, bondbar och fungerande lösning med praktisk erfarenhet från labb och produktion. '
+			copy: 'Med över 25 års erfarenhet av projektledning, utveckling, bondning och design så hjälper Mandalon ditt team att gå från chip, sensor eller MEMS-idé till en monterbar, bondbar och fungerande lösning med praktisk erfarenhet från labb och produktion. '
 		},
 		salesIntro: {
 			title: 'Packaging är ofta det lilla steget som avgör om resten faktiskt går att bygga.',
@@ -130,17 +129,16 @@ export const siteContent = {
 		chipSensorsPage: {
 			meta: {
 				title: 'Mandalon | Paketeringstjänster',
-				description:
-					'En översikt av hur Mandalon arbetar med chip, sensorer, MEMS, montering, bonding, kapsling och prototyper.'
+				description: 'En översikt av hur Mandalon arbetar med chip, sensorer, MEMS, montering, bonding, kapsling och prototyper.'
 			},
 			title: 'Paketering av Chip',
-			lead:
-				'Chip och sensorer hanterar vi dagligen',
+			lead: 'Chip och sensorer hanterar vi dagligen',
 			intro: [
 				'En stor del av det vi på Mandalon sysslar med är problemlösning. Rätt ofta dyker det upp flexkort, MEMS och udda limmer som vi genom åren lärt oss hur vi effektivt arbetar med.',
 				'Vi är vana att hantera känsliga chip och prototyper som för andra kan upplevas omöjliga att arbeta med. Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem och gör vårt yttersta för att få till en fungerande lösning till din produkt.'
 			],
-			capabilitiesPresentation: 'Listan nedan visar det som vi är mest vana att hantera gällande bondning. Kontakta oss ifall du har frågor eller behöver någonting som inte listas, listan är inte heltäckande.',
+			capabilitiesPresentation:
+				'Listan nedan visar det som vi är mest vana att hantera gällande bondning. Kontakta oss ifall du har frågor eller behöver någonting som inte listas, listan är inte heltäckande.',
 			capabilities: [
 				{ name: 'Guldtråd', description: '25µm, 17µm' },
 				{ name: 'Aluminiumtråd', description: '25µm, 17µm' },
@@ -149,11 +147,18 @@ export const siteContent = {
 				{ name: 'Manuell bondning', description: 'Ball och wedge' },
 				{ name: 'Automatisk bondning', description: 'Ball och wedge' },
 				{ name: 'Die bondning', description: 'Vi die-bondar manuellt' },
-				{ name: 'Lim', description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.' },
+				{
+					name: 'Lim',
+					description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.'
+				},
 				{ name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.' },
 				{ name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.' },
 				{ name: 'Dragprovare', description: 'Vi har möjlighet att dragprova bondtrådar för att utvärdera kvalitet' },
-				{ name: 'Plasmatvätt', description: 'Vår maskin använder atmosfärsplasma för att rengöra objekten som skall bondas. Det är extra viktigt för att automatbondning ska fungera bra.' },
+				{
+					name: 'Plasmatvätt',
+					description:
+						'Vår maskin använder atmosfärsplasma för att rengöra objekten som skall bondas. Det är extra viktigt för att automatbondning ska fungera bra.'
+				}
 			],
 			areas: [
 				{
@@ -208,16 +213,14 @@ export const siteContent = {
 					'Samlade konsulttjänster inom design, processutveckling, projektledning och ingenjörsstöd för team som behöver komma snabbare till en fungerande lösning.'
 			},
 			title: 'Konsulttjänster',
-			lead:
-				'Förutom det som görs i det egna labbet erbjuder Mandalon konsulttjänster som oftast sker hos kund och i nära samarbete med utvecklingsteamet. Det går också fint att kombinera dem med bonding, montering och paketering i vårt labb.',
+			lead: 'Förutom det som görs i det egna labbet erbjuder Mandalon konsulttjänster som oftast sker hos kund och i nära samarbete med utvecklingsteamet. Det går också fint att kombinera dem med bonding, montering och paketering i vårt labb.',
 			introTitle: 'Stöd där praktisk packaging-erfarenhet gör störst skillnad',
 			introText:
 				'Behovet ser olika ut från projekt till projekt. Ibland handlar det om att vässa en befintlig process, ibland om att undvika designval som senare gör montering och bonding onödigt svår. Därför samlar vi konsultstödet på en sida, så det blir tydligare hur Mandalon kan gå in där ni behöver mest avlastning.',
 			services: [
 				{
 					title: 'Design chip & sensorer',
-					text:
-						'Vi hjälper till med hur ert kisel bör designas för att det ska gå bra att montera och bonda. Ofta finns målkonflikter mellan liten yta, tät padpitch och vad som faktiskt går att få att fungera robust i prototyp och montering.',
+					text: 'Vi hjälper till med hur ert kisel bör designas för att det ska gå bra att montera och bonda. Ofta finns målkonflikter mellan liten yta, tät padpitch och vad som faktiskt går att få att fungera robust i prototyp och montering.',
 					points: [
 						'Stöd kring chip-design, pads och monterbarhet',
 						'Praktisk återkoppling innan konstruktionen låses',
@@ -226,8 +229,7 @@ export const siteContent = {
 				},
 				{
 					title: 'Processutveckling',
-					text:
-						'Mandalons mångåriga erfarenhet från vitt skilda projekt kan användas när ni behöver utveckla eller vässa en egen process. Fokus ligger på att hitta arbetssätt som fungerar i praktiken.',
+					text: 'Mandalons mångåriga erfarenhet från vitt skilda projekt kan användas när ni behöver utveckla eller vässa en egen process. Fokus ligger på att hitta arbetssätt som fungerar i praktiken.',
 					points: [
 						'Erfarenhetsbaserat stöd i processfrågor',
 						'Hjälp att vässa parametrar, upplägg och flöden',
@@ -236,8 +238,7 @@ export const siteContent = {
 				},
 				{
 					title: 'Projektledning',
-					text:
-						'Vid behov kan Mandalon också gå in med projektledning hos kund. Oftast fungerar vi sömlöst som packaging-partner i ett större projekt, men när det behövs kan vi också ta ett tydligare ledningsansvar.',
+					text: 'Vid behov kan Mandalon också gå in med projektledning hos kund. Oftast fungerar vi sömlöst som packaging-partner i ett större projekt, men när det behövs kan vi också ta ett tydligare ledningsansvar.',
 					points: [
 						'Projektledning på förfrågan',
 						'Packaging-perspektiv in i större utvecklingsprojekt',
@@ -246,8 +247,7 @@ export const siteContent = {
 				},
 				{
 					title: 'Ingenjörstjänster',
-					text:
-						'Ingenjörsstöd ingår ofta naturligt i Mandalons vanliga uppdrag, men kan också erbjudas separat när ni behöver en erfaren partner i utvecklingsarbetet utan att bygga en egen full intern funktion.',
+					text: 'Ingenjörsstöd ingår ofta naturligt i Mandalons vanliga uppdrag, men kan också erbjudas separat när ni behöver en erfaren partner i utvecklingsarbetet utan att bygga en egen full intern funktion.',
 					points: [
 						'Praktiskt ingenjörsstöd nära utvecklingsteamet',
 						'Bra komplement när intern specialisttid är begränsad',
@@ -259,12 +259,10 @@ export const siteContent = {
 		aboutPage: {
 			meta: {
 				title: 'Mandalon | Om Mandalon',
-				description:
-					'En kort presentation av Mandalon, bakgrunden i mikromontering och hur erfarenheten från forskning och labbarbete format erbjudandet.'
+				description: 'En kort presentation av Mandalon, bakgrunden i mikromontering och hur erfarenheten från forskning och labbarbete format erbjudandet.'
 			},
 			title: 'Erfarenhet från forskning, labb och praktisk montering.',
-			lead:
-				'Mandalon växte fram ur arbetet med sensorer och mikrosystem i Linköping och har sedan slutet av 1990-talet byggt upp ett tydligt fokus på chip packaging, bonding och designnära stöd.',
+			lead: 'Mandalon växte fram ur arbetet med sensorer och mikrosystem i Linköping och har sedan slutet av 1990-talet byggt upp ett tydligt fokus på chip packaging, bonding och designnära stöd.',
 			introTitle: 'En introduktion till Mandalon',
 			intro: [
 				'Kompetenscentret S-Sence på Linköpings universitet är starkt bidragande till att företaget alls existerar. Inom detta program utvecklades bland annat "den elektroniska näsan" under 90-talet. Monteringen av dessa är upprinnelsen till företaget.',
@@ -279,8 +277,7 @@ export const siteContent = {
 				'Mandalon Technologies AB är ISO 9001:2015-certifierat. Det innebär i praktiken att arbetssätt, kvalitetssäkring och uppföljning sker inom ett etablerat kvalitetsledningssystem, vilket gör det lättare att arbeta strukturerat och repeterbart även i tekniskt krävande uppdrag.',
 			certificationNote: 'Senaste Q-revision i referensmaterialet: 2024-03-20.',
 			referencesTitle: 'Referenser och forskningsprojekt',
-			referencesLead:
-				'Bakgrunden i forskning och längre industriprojekt är en viktig del av Mandalons trovärdighet. Här är några exempel som visar bredden.',
+			referencesLead: 'Bakgrunden i forskning och längre industriprojekt är en viktig del av Mandalons trovärdighet. Här är några exempel som visar bredden.',
 			references: [
 				'Autoliv, industrialiseringsprocess 2012-14',
 				'Neonode, industrialiseringsprocess 2015-16',
@@ -309,12 +306,10 @@ export const siteContent = {
 		contactPage: {
 			meta: {
 				title: 'Mandalon | Kontakt',
-				description:
-					'Kontaktuppgifter och ett enkelt sätt att nå Mandalon om ni vill diskutera bonding, design, packaging eller prototyparbete.'
+				description: 'Kontaktuppgifter och ett enkelt sätt att nå Mandalon om ni vill diskutera bonding, design, packaging eller prototyparbete.'
 			},
 			title: 'Låt oss prata om er konstruktion.',
-			lead:
-				'Om ni vill diskutera chip packaging, bonding, kapsling eller designfrågor är det enklast att börja med ett kort mejl.',
+			lead: 'Om ni vill diskutera chip packaging, bonding, kapsling eller designfrågor är det enklast att börja med ett kort mejl.',
 			people: [
 				{
 					name: 'Per-Erik Fägerman',
@@ -344,12 +339,10 @@ export const siteContent = {
 		glossaryPage: {
 			meta: {
 				title: 'Mandalon | Kunskapsbank',
-				description:
-					'En samlad guidesida med innehåll från Mandalons tidigare hjälpsidor: vanliga frågor, ASIC, MEMS, wafer, sensorer och mikrostrukturer.'
+				description: 'En samlad guidesida med innehåll från Mandalons tidigare hjälpsidor: vanliga frågor, ASIC, MEMS, wafer, sensorer och mikrostrukturer.'
 			},
 			title: 'Kunskapsbank för packaging, bonding och mikrostrukturer.',
-			lead:
-				'Det här är en samlad version av Mandalons tidigare hjälpsidor. Här finns både vanliga frågor och korta introduktioner till ASIC, MEMS, wafer, sensorer och mikrostrukturer.',
+			lead: 'Det här är en samlad version av Mandalons tidigare hjälpsidor. Här finns både vanliga frågor och korta introduktioner till ASIC, MEMS, wafer, sensorer och mikrostrukturer.',
 			intro: [
 				'Här finns information samlad om vad vi gör och hur vi jobbar.',
 				'Länkarna i den gamla hjälpsidan ledde vidare in i Mandalons micro-kosmos. Här har vi i stället samlat innehållet på ett ställe så att det blir lättare att läsa.'
@@ -379,7 +372,7 @@ export const siteContent = {
 					question: 'Transportlogistik?',
 					answer:
 						'För Mandalons del fungerar PostNord bäst både för in- och uttransporter. Andra transportföretag riskerar ibland att ta dagar längre, undantaget budfirmor där kostnadsbilden är en annan.'
-				},
+				}
 			],
 			guide: {
 				title: 'Designguide',
@@ -413,9 +406,7 @@ export const siteContent = {
 				{
 					title: 'WAFER',
 					subtitle: 'Mandalon hanterar sagade wafer',
-					paragraphs: [
-						'Vi sågar inte wafers själva men hanterar plockning av chip manuellt upp till hanterbara och ekonomiskt försvarbara volymer.'
-					],
+					paragraphs: ['Vi sågar inte wafers själva men hanterar plockning av chip manuellt upp till hanterbara och ekonomiskt försvarbara volymer.'],
 					image: '/mandalon/help-wafer.jpg',
 					imageAlt: 'Plockade chip i ask',
 					caption: 'Plockade chip i ask'
@@ -437,8 +428,7 @@ export const siteContent = {
 		designGuidePage: {
 			meta: {
 				title: 'Mandalon | Designguide',
-				description:
-					'Mandalons designguide med originalcopy, bilder och PDF för chipdesign, PCB-layout och bonding.'
+				description: 'Mandalons designguide med originalcopy, bilder och PDF för chipdesign, PCB-layout och bonding.'
 			},
 			title: 'Designguide',
 			intro:
@@ -477,8 +467,7 @@ export const siteContent = {
 		],
 		hero: {
 			title: 'When packaging has to work in the very first prototype',
-			copy:
-				'Mandalon helps teams move from chip, sensor or MEMS concept to a mountable, bondable and working solution, backed by practical lab and production experience.'
+			copy: 'Mandalon helps teams move from chip, sensor or MEMS concept to a mountable, bondable and working solution, backed by practical lab and production experience.'
 		},
 		salesIntro: {
 			title: 'Packaging is often the small step that determines whether the rest can actually be built.',
@@ -537,16 +526,16 @@ export const siteContent = {
 		chipSensorsPage: {
 			meta: {
 				title: 'Mandalon | Chip Packaging Services',
-				description:
-					'An overview of how Mandalon works with chips, sensors, MEMS, assembly, bonding, packaging and prototypes.'
-			}, title: 'Chip Packaging Services',
-			lead:
-				'We handle chips and sensors on a daily basis',
+				description: 'An overview of how Mandalon works with chips, sensors, MEMS, assembly, bonding, packaging and prototypes.'
+			},
+			title: 'Chip Packaging Services',
+			lead: 'We handle chips and sensors on a daily basis',
 			intro: [
 				'A large part of what we do at Mandalon is problem-solving. We often encounter flex PCBs, MEMS, and unusual adhesives that we have learned to work with efficiently over the years.',
 				'We are used to handling sensitive chips and prototypes that others may find impossible to work with. Did you forget to open the passivation layer for an important pad? We have saved many chips with issues and do our utmost to achieve a working solution for your product.'
 			],
-			capabilitiesPresentation: 'The list below shows what we are most experienced with regarding bonding. Contact us if you have questions or need something not listed, the list is not exhaustive.',
+			capabilitiesPresentation:
+				'The list below shows what we are most experienced with regarding bonding. Contact us if you have questions or need something not listed, the list is not exhaustive.',
 			capabilities: [
 				{ name: 'Gold wire', description: '25µm, 17µm' },
 				{ name: 'Aluminum wire', description: '25µm, 17µm' },
@@ -555,11 +544,22 @@ export const siteContent = {
 				{ name: 'Manual bonding', description: 'Ball and wedge' },
 				{ name: 'Automatic bonding', description: 'Ball and wedge' },
 				{ name: 'Die bonding', description: 'We perform die bonding manually' },
-				{ name: 'Adhesives', description: 'We have a wide range of adhesives and the ability to mix them using a precision scale. If you require a specific adhesive, we can source it or use yours.' },
-				{ name: 'Standard packages', description: 'We keep a limited selection of packages in stock but can source what is needed or use customer-supplied ones.' },
+				{
+					name: 'Adhesives',
+					description:
+						'We have a wide range of adhesives and the ability to mix them using a precision scale. If you require a specific adhesive, we can source it or use yours.'
+				},
+				{
+					name: 'Standard packages',
+					description: 'We keep a limited selection of packages in stock but can source what is needed or use customer-supplied ones.'
+				},
 				{ name: 'Glob top', description: 'We use silicone and epoxy for glob topping of chips and wires.' },
 				{ name: 'Pull tester', description: 'We have the capability to perform pull tests on bond wires to evaluate quality.' },
-{ name: 'Plasma cleaning', description: 'Our machine uses atmospheric plasma to clean the objects that are to be bonded. This is especially important for automatic bonding to work well.' },
+				{
+					name: 'Plasma cleaning',
+					description:
+						'Our machine uses atmospheric plasma to clean the objects that are to be bonded. This is especially important for automatic bonding to work well.'
+				}
 			],
 			areas: [
 				{
@@ -613,16 +613,14 @@ export const siteContent = {
 					'Combined consulting services in design, process development, project management and engineering support for teams that need to reach a working solution faster.'
 			},
 			title: 'Consulting Services',
-			lead:
-				'In addition to the work carried out in Mandalon’s own lab, we offer consulting services that are usually performed close to the customer team and can also be combined with bonding, assembly and packaging support.',
+			lead: 'In addition to the work carried out in Mandalon’s own lab, we offer consulting services that are usually performed close to the customer team and can also be combined with bonding, assembly and packaging support.',
 			introTitle: 'Support where practical packaging experience makes the biggest difference',
 			introText:
 				'The need varies from project to project. Sometimes it is about improving an existing process, sometimes about avoiding design decisions that later make assembly and bonding unnecessarily difficult. This page gathers those consulting services in one place so it is clearer where Mandalon can reduce risk and help your team move forward.',
 			services: [
 				{
 					title: 'Chip & sensor design',
-					text:
-						'We help shape silicon, pad placement and related design choices so assembly and bonding are practical in the real world. Small chips and tight pad pitch may look attractive on paper but often create unnecessary difficulty later.',
+					text: 'We help shape silicon, pad placement and related design choices so assembly and bonding are practical in the real world. Small chips and tight pad pitch may look attractive on paper but often create unnecessary difficulty later.',
 					points: [
 						'Support around chip design, pads and mountability',
 						'Practical feedback before the design is locked',
@@ -631,18 +629,12 @@ export const siteContent = {
 				},
 				{
 					title: 'Process development',
-					text:
-						'Mandalon’s long experience across very different projects is available when you need to build or sharpen your own process. The focus is on approaches that work in practice.',
-					points: [
-						'Experience-based process support',
-						'Help improving parameters, setup and flow',
-						'Relevant when building in-house capability or method'
-					]
+					text: 'Mandalon’s long experience across very different projects is available when you need to build or sharpen your own process. The focus is on approaches that work in practice.',
+					points: ['Experience-based process support', 'Help improving parameters, setup and flow', 'Relevant when building in-house capability or method']
 				},
 				{
 					title: 'Project management',
-					text:
-						'When needed, Mandalon can also provide project management support. Most often we integrate naturally as a packaging partner inside a broader project, but we can also take a more explicit coordination role when that is useful.',
+					text: 'When needed, Mandalon can also provide project management support. Most often we integrate naturally as a packaging partner inside a broader project, but we can also take a more explicit coordination role when that is useful.',
 					points: [
 						'Project management on request',
 						'A packaging perspective inside larger development efforts',
@@ -651,8 +643,7 @@ export const siteContent = {
 				},
 				{
 					title: 'Engineering services',
-					text:
-						'Engineering support is often part of Mandalon’s regular assignments, but it can also be offered separately when your team needs experienced hands in development work without building a full in-house specialty function.',
+					text: 'Engineering support is often part of Mandalon’s regular assignments, but it can also be offered separately when your team needs experienced hands in development work without building a full in-house specialty function.',
 					points: [
 						'Hands-on engineering support close to the team',
 						'Useful when internal specialist time is limited',
@@ -664,12 +655,10 @@ export const siteContent = {
 		aboutPage: {
 			meta: {
 				title: 'Mandalon | About Mandalon',
-				description:
-					'A short introduction to Mandalon, its background in micro-assembly and how experience from research and lab work shaped the offer.'
+				description: 'A short introduction to Mandalon, its background in micro-assembly and how experience from research and lab work shaped the offer.'
 			},
 			title: 'Experience from research, lab work and hands-on assembly.',
-			lead:
-				'Mandalon grew out of work with sensors and microsystems in Linköping and has, since the late 1990s, built a clear focus on chip packaging, bonding and design-oriented support.',
+			lead: 'Mandalon grew out of work with sensors and microsystems in Linköping and has, since the late 1990s, built a clear focus on chip packaging, bonding and design-oriented support.',
 			introTitle: 'An introduction to Mandalon',
 			intro: [
 				'The S-Sence competence centre at Linköping University played a major role in Mandalon’s origin. Among other things, "the electronic nose" was developed within that programme during the 1990s, and assembling those sensors became the starting point for the company.',
@@ -714,12 +703,10 @@ export const siteContent = {
 		contactPage: {
 			meta: {
 				title: 'Mandalon | Contact',
-				description:
-					'Contact details and a simple way to reach Mandalon if you want to discuss bonding, design, packaging or prototype work.'
+				description: 'Contact details and a simple way to reach Mandalon if you want to discuss bonding, design, packaging or prototype work.'
 			},
 			title: 'Let’s talk about your design.',
-			lead:
-				'If you want to discuss chip packaging, bonding, encapsulation or design-related questions, the easiest start is a short email.',
+			lead: 'If you want to discuss chip packaging, bonding, encapsulation or design-related questions, the easiest start is a short email.',
 			people: [
 				{
 					name: 'Per-Erik Fägerman',
@@ -749,12 +736,10 @@ export const siteContent = {
 		glossaryPage: {
 			meta: {
 				title: 'Mandalon | Knowledge Bank',
-				description:
-					'A collected help and glossary page based on Mandalon’s earlier help pages, including FAQ, ASIC, MEMS, wafer, sensors and microstructures.'
+				description: 'A collected help and glossary page based on Mandalon’s earlier help pages, including FAQ, ASIC, MEMS, wafer, sensors and microstructures.'
 			},
 			title: 'Knowledge bank for packaging, bonding and microstructures.',
-			lead:
-				'This page brings together material from Mandalon’s earlier help pages. It includes both common questions and short introductions to ASIC, MEMS, wafer handling, sensors and microstructures.',
+			lead: 'This page brings together material from Mandalon’s earlier help pages. It includes both common questions and short introductions to ASIC, MEMS, wafer handling, sensors and microstructures.',
 			intro: [
 				'This is where information about what Mandalon does and how the team works was originally collected.',
 				'Instead of splitting that material across many small help pages, it now lives here in one place.'
@@ -784,7 +769,7 @@ export const siteContent = {
 					question: 'What about transport logistics?',
 					answer:
 						'For Mandalon, PostNord has worked best for both incoming and outgoing deliveries. Other transport companies may sometimes take longer, with couriers being the main exception when the cost picture is different.'
-				},
+				}
 			],
 			guide: {
 				title: 'Design guide',
@@ -851,8 +836,7 @@ export const siteContent = {
 		designGuidePage: {
 			meta: {
 				title: 'Mandalon | Design guide',
-				description:
-					'Mandalon design guide with original copy, images and PDF for chip design, PCB layout and bonding.'
+				description: 'Mandalon design guide with original copy, images and PDF for chip design, PCB layout and bonding.'
 			},
 			title: 'Design guide',
 			intro:

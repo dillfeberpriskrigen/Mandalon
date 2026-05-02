@@ -1,14 +1,14 @@
-<svelte:head>
-	<title>{data.content.glossaryPage.meta.title}</title>
-	<meta name="description" content={data.content.glossaryPage.meta.description} />
-</svelte:head>
-
 <script>
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
+
+<svelte:head>
+	<title>{data.content.glossaryPage.meta.title}</title>
+	<meta name="description" content={data.content.glossaryPage.meta.description} />
+</svelte:head>
 
 <section class="info-page">
 	<div class="container">
@@ -22,11 +22,7 @@
 				{/each}
 			</div>
 
-			<img
-				class="intro-image"
-				src={data.content.glossaryPage.introImage.src}
-				alt={data.content.glossaryPage.introImage.alt}
-			/>
+			<img class="intro-image" src={data.content.glossaryPage.introImage.src} alt={data.content.glossaryPage.introImage.alt} />
 		</div>
 
 		<section class="faq-section">

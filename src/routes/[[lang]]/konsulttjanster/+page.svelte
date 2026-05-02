@@ -1,11 +1,11 @@
+<script>
+	const { data } = $props();
+</script>
+
 <svelte:head>
 	<title>{data.content.consultingPage.meta.title}</title>
 	<meta name="description" content={data.content.consultingPage.meta.description} />
 </svelte:head>
-
-<script>
-	const { data } = $props();
-</script>
 
 <section class="consulting-page">
 	<div class="container">

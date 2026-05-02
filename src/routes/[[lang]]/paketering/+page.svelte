@@ -1,11 +1,11 @@
+<script>
+	const { data } = $props();
+</script>
+
 <svelte:head>
 	<title>{data.content.chipSensorsPage.meta.title}</title>
 	<meta name="description" content={data.content.chipSensorsPage.meta.description} />
 </svelte:head>
-
-<script>
-	const { data } = $props();
-</script>
 
 <section class="chip-page">
 	<div class="container">
@@ -141,7 +141,7 @@
 		border-radius: 1rem;
 		border-collapse: separate;
 		border-spacing: 0;
-		margin-left:auto;
+		margin-left: auto;
 		margin-right: auto;
 	}
 

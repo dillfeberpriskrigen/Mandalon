@@ -24,8 +24,7 @@ function normalizePathname(pathname) {
 function getLocalizedEntry(pathname) {
 	const normalizedPath = normalizePathname(pathname);
 	const locale = normalizedPath === 'en' || normalizedPath.startsWith('en/') ? 'en' : defaultLocale;
-	const localizedPath =
-		locale === 'en' ? normalizedPath.replace(/^en\/?/, '') : normalizedPath;
+	const localizedPath = locale === 'en' ? normalizedPath.replace(/^en\/?/, '') : normalizedPath;
 
 	return localizedRouteEntries.find((entry) => entry[locale] === localizedPath) ?? null;
 }
@@ -60,9 +59,7 @@ export function getSitemapEntries() {
 			url: toAbsoluteUrl(localePath(locale, defaultLocale, entry[locale])),
 			alternates: locales.map((alternateLocale) => ({
 				hreflang: alternateLocale,
-				href: toAbsoluteUrl(
-					localePath(alternateLocale, defaultLocale, entry[alternateLocale])
-				)
+				href: toAbsoluteUrl(localePath(alternateLocale, defaultLocale, entry[alternateLocale]))
 			}))
 		}))
 	);

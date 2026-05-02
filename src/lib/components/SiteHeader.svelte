@@ -1,14 +1,12 @@
 <script>
 	import { localePath } from '$lib/utils/routing';
-	import { pagePaths } from '$lib/content/site'
+	import { pagePaths } from '$lib/content/site';
 
 	const { data, currentPath = '' } = $props();
 
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 	const getSwitchPath = () =>
-		data.locale === 'sv'
-			? localePath('en', data.defaultLocale, pagePaths[data.path]?.en)
-			: localePath('sv', data.defaultLocale, pagePaths[data.path]?.sv);
+		data.locale === 'sv' ? localePath('en', data.defaultLocale, pagePaths[data.path]?.en) : localePath('sv', data.defaultLocale, pagePaths[data.path]?.sv);
 
 	/** @param {string} path */
 	const isActive = (path) => {
@@ -26,11 +24,7 @@
 		<div class="nav-stack">
 			<nav class="main-nav" aria-label="Primary navigation">
 				{#each data.content.primaryLinks as link}
-					<a
-						class:active={isActive(link.path)}
-						class:contact-link={link.path === 'kontakt' || link.path === 'contact'}
-						href={toPath(link.path)}
-					>
+					<a class:active={isActive(link.path)} class:contact-link={link.path === 'kontakt' || link.path === 'contact'} href={toPath(link.path)}>
 						{link.label}
 					</a>
 				{/each}

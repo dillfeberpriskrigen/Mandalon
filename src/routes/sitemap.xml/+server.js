@@ -3,12 +3,7 @@ import { getSitemapEntries } from '$lib/seo';
 export const prerender = true;
 
 function escapeXml(value) {
-	return value
-		.replace(/&/g, '&amp;')
-		.replace(/"/g, '&quot;')
-		.replace(/'/g, '&apos;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;');
+	return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&apos;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 export function GET() {
@@ -17,10 +12,7 @@ export function GET() {
 			(entry) => `<url>
 	<loc>${escapeXml(entry.url)}</loc>
 ${entry.alternates
-	.map(
-		(alternate) =>
-			`	<xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}" />`
-	)
+	.map((alternate) => `	<xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}" />`)
 	.join('\n')}
 </url>`
 		)

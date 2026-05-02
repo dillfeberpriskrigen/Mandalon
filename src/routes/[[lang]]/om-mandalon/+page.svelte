@@ -1,14 +1,14 @@
-<svelte:head>
-	<title>{data.content.aboutPage.meta.title}</title>
-	<meta name="description" content={data.content.aboutPage.meta.description} />
-</svelte:head>
-
 <script>
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
+
+<svelte:head>
+	<title>{data.content.aboutPage.meta.title}</title>
+	<meta name="description" content={data.content.aboutPage.meta.description} />
+</svelte:head>
 
 <section class="info-page">
 	<div class="container">

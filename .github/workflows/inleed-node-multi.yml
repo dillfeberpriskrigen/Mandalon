@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: "24"
-  SERVER_NODE_VERSION: "18"
+  NODE_VERSION: '24'
+  SERVER_NODE_VERSION: '18'
 
 jobs:
   build:
@@ -90,8 +90,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "app.tar.gz"
-          target: "${{ env.APP_ROOT }}"
+          source: 'app.tar.gz'
+          target: '${{ env.APP_ROOT }}'
 
       - name: Install + start app
         uses: appleboy/ssh-action@v1
@@ -145,8 +145,8 @@ jobs:
           port: ${{ secrets.SSH_PORT_MAIN }}
           username: ${{ secrets.SSH_USER_MAIN }}
           key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
-          source: "app.tar.gz"
-          target: "${{ secrets.APP_ROOT_MAIN }}"
+          source: 'app.tar.gz'
+          target: '${{ secrets.APP_ROOT_MAIN }}'
 
       - name: Install + start app
         uses: appleboy/ssh-action@v1

@@ -1,22 +1,17 @@
-<svelte:head>
-	<title>{data.content.contactPage.meta.title}</title>
-	<meta name="description" content={data.content.contactPage.meta.description} />
-</svelte:head>
-
 <script>
 	const { data } = $props();
 	const latitude = 58.448268;
 	const longitude = 15.826769;
 	const delta = 0.012;
-	const bbox = [
-		(longitude - delta).toFixed(5),
-		(latitude - delta).toFixed(5),
-		(longitude + delta).toFixed(5),
-		(latitude + delta).toFixed(5)
-	].join('%2C');
+	const bbox = [(longitude - delta).toFixed(5), (latitude - delta).toFixed(5), (longitude + delta).toFixed(5), (latitude + delta).toFixed(5)].join('%2C');
 	const marker = `${latitude}%2C${longitude}`;
 	const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
 </script>
+
+<svelte:head>
+	<title>{data.content.contactPage.meta.title}</title>
+	<meta name="description" content={data.content.contactPage.meta.description} />
+</svelte:head>
 
 <section class="info-page">
 	<div class="container">
@@ -72,8 +67,8 @@
 					referrerpolicy="no-referrer-when-downgrade"
 				></iframe>
 			</div>
-			</section>
-		</div>
+		</section>
+	</div>
 </section>
 
 <style>

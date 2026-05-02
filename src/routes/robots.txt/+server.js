@@ -5,9 +5,7 @@ function isBlockedHost(hostname) {
 }
 
 export function GET({ url }) {
-	const robotsTxt = isBlockedHost(url.hostname)
-		? 'User-agent: *\nDisallow: /\n'
-		: `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`;
+	const robotsTxt = isBlockedHost(url.hostname) ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`;
 
 	return new Response(robotsTxt, {
 		headers: {

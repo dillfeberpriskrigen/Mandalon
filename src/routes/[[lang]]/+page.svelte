@@ -1,8 +1,3 @@
-<svelte:head>
-	<title>{data.content.meta.title}</title>
-	<meta name="description" content={data.content.meta.description} />
-</svelte:head>
-
 <script>
 	import useEmblaCarousel from 'embla-carousel-svelte';
 	import Autoplay from 'embla-carousel-autoplay';
@@ -35,13 +30,16 @@
 	};
 </script>
 
-<div class="site-shell">
+<svelte:head>
+	<title>{data.content.meta.title}</title>
+	<meta name="description" content={data.content.meta.description} />
+</svelte:head>
 
+<div class="site-shell">
 	<section class="hero">
 		<div class="container hero-content">
 			<h1>{data.content.hero.title}</h1>
 			<p class="hero-copy text-width">{data.content.hero.copy}</p>
-		
 		</div>
 	</section>
 
@@ -72,8 +70,6 @@
 							</div>
 						</div>
 					</div>
-
-					
 				</div>
 			</div>
 		</section>
@@ -108,15 +104,9 @@
 						{/each}
 					</div>
 				</div>
-
-			
 			</div>
 		</section>
-
-		
-
 	</main>
-
 </div>
 
 <style>
@@ -349,7 +339,6 @@
 		.process-grid {
 			grid-template-columns: 1fr 1fr;
 		}
-
 	}
 
 	@media (max-width: 640px) {
@@ -381,6 +370,5 @@
 			min-width: 0;
 			max-width: 100%;
 		}
-
 	}
 </style>

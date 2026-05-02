@@ -76,9 +76,7 @@
 		{:else if errorMessage}
 			<section class="panel">
 				<p class="empty-state">Kunde inte hämta statistik från <code>{statsUrl}</code>: {errorMessage}</p>
-				<button class="retry-button" type="button" on:click={() => void loadStats()}>
-					Försök igen
-				</button>
+				<button class="retry-button" type="button" on:click={() => void loadStats()}> Försök igen </button>
 			</section>
 		{:else if summary}
 			<section class="summary-grid" aria-label="Sammanfattning">
