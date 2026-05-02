@@ -17,7 +17,7 @@
 
 		<div class="intro-grid">
 			<div class="intro-copy text-width">
-				{#each data.content.glossaryPage.intro as paragraph}
+				{#each data.content.glossaryPage.intro as paragraph, i (i)}
 					<p>{paragraph}</p>
 				{/each}
 			</div>
@@ -29,7 +29,7 @@
 			<h2>{data.content.glossaryPage.faqTitle}</h2>
 
 			<div class="faq-list">
-				{#each data.content.glossaryPage.faqs as item}
+				{#each data.content.glossaryPage.faqs as item (item.question)}
 					<article class="faq-item">
 						<h3>{item.question}</h3>
 						<p>{item.answer}</p>
@@ -48,7 +48,7 @@
 		</section>
 
 		<div class="sections">
-			{#each data.content.glossaryPage.sections as item, index}
+			{#each data.content.glossaryPage.sections as item, index (item.title)}
 				<article class:reverse={index % 2 === 1} class="topic">
 					<div class="topic-copy">
 						<h2>{item.title}</h2>
@@ -56,7 +56,7 @@
 							<p class="subtitle">{item.subtitle}</p>
 						{/if}
 
-						{#each item.paragraphs as paragraph}
+						{#each item.paragraphs as paragraph, i (i)}
 							<p>{paragraph}</p>
 						{/each}
 					</div>

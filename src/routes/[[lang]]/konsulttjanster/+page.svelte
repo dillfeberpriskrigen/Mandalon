@@ -18,12 +18,12 @@
 		</section>
 
 		<div class="services-grid">
-			{#each data.content.consultingPage.services as service}
+			{#each data.content.consultingPage.services as service (service.title)}
 				<article class="service-card">
 					<h2>{service.title}</h2>
 					<p>{service.text}</p>
 					<ul>
-						{#each service.points as point}
+						{#each service.points as point (point)}
 							<li>{point}</li>
 						{/each}
 					</ul>

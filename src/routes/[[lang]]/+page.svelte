@@ -1,32 +1,18 @@
 <script>
 	import useEmblaCarousel from 'embla-carousel-svelte';
 	import Autoplay from 'embla-carousel-autoplay';
-	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
 
-	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
-	let activeConsulting = $state(0);
 	/** @type {import('embla-carousel').EmblaCarouselType | null} */
 	let emblaApi = null;
 	const emblaOptions = { loop: true };
 	const emblaPlugins = [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })];
 
-	const syncSelected = () => {
-		activeConsulting = emblaApi?.selectedScrollSnap() ?? 0;
-	};
-
 	/** @param {CustomEvent<import('embla-carousel').EmblaCarouselType>} event */
 	const handleEmblaInit = (event) => {
 		emblaApi = event.detail;
-		syncSelected();
-		emblaApi.on('select', syncSelected);
 		emblaApi.plugins().autoplay?.play();
-	};
-
-	/** @param {number} index */
-	const goToConsulting = (index) => {
-		emblaApi?.scrollTo(index);
 	};
 </script>
 
@@ -54,9 +40,9 @@
 			<div class="container">
 				<div class="consulting-spotlight">
 					<div class="embla">
-						<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblainit={handleEmblaInit}>
+						<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblaInit={handleEmblaInit}>
 							<div class="embla__container">
-								{#each data.content.consulting.features as feature}
+								{#each data.content.consulting.features as feature (feature.title)}
 									<article class="embla__slide consulting-slide">
 										<div class="consulting-media">
 											<img src={feature.image} alt={feature.title} />
@@ -77,7 +63,7 @@
 		<section class="intro">
 			<div class="container intro-copy intro-copy--wide">
 				<h2>{data.content.salesIntro.title}</h2>
-				{#each data.content.salesIntro.paragraphs as paragraph}
+				{#each data.content.salesIntro.paragraphs as paragraph (paragraph)}
 					<p>{paragraph}</p>
 				{/each}
 
@@ -96,7 +82,7 @@
 					<h3 class="intro-process-title">{data.content.process.title}</h3>
 
 					<div class="process-grid">
-						{#each data.content.process.steps as step}
+						{#each data.content.process.steps as step (step.title)}
 							<article class="process-card">
 								<h3>{step.title}</h3>
 								<p>{step.text}</p>

@@ -19,7 +19,7 @@
 		<p class="lead text-width">{data.content.contactPage.lead}</p>
 
 		<div class="people-flow">
-			{#each data.content.contactPage.people as person, index}
+			{#each data.content.contactPage.people as person, index (person.name)}
 				<article class:reverse={index % 2 === 1} class="person-row">
 					<div class="person-image">
 						<img src={person.image} alt={person.imageAlt} />
@@ -47,7 +47,7 @@
 		<section class="location">
 			<div class="location-copy">
 				<h2>{data.locale === 'sv' ? 'Besök oss' : 'Visit us'}</h2>
-				{#each data.content.contactPage.details as detail}
+				{#each data.content.contactPage.details as detail (detail.label)}
 					<p>
 						<strong>{detail.label}:</strong>
 						{#if detail.href}

@@ -13,7 +13,7 @@
 		<p class="lead text-width">{data.content.chipSensorsPage.lead}</p>
 
 		<div class="intro-stack text-width">
-			{#each data.content.chipSensorsPage.intro as paragraph}
+			{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
 				<p>{paragraph}</p>
 			{/each}
 		</div>
@@ -21,7 +21,7 @@
 		<p class="intro-stack text-width">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
 		<table class="capabilities-table">
 			<tbody>
-				{#each data.content.chipSensorsPage.capabilities as capability}
+				{#each data.content.chipSensorsPage.capabilities as capability (capability.name)}
 					<tr>
 						<td>{capability.name}</td>
 						<td>{capability.description}</td>
@@ -31,7 +31,7 @@
 		</table>
 
 		<div class="areas-flow">
-			{#each data.content.chipSensorsPage.areas as area, index}
+			{#each data.content.chipSensorsPage.areas as area, index (area.title)}
 				<article class:reverse={index % 2 === 1} class="area-section">
 					<div class="area-media">
 						<img src={area.image} alt={area.imageAlt} />
@@ -41,7 +41,7 @@
 						{#if area.subtitle}
 							<p class="subtitle">{area.subtitle}</p>
 						{/if}
-						{#each area.paragraphs as paragraph}
+						{#each area.paragraphs as paragraph, i (i)}
 							<p>{paragraph}</p>
 						{/each}
 					</div>

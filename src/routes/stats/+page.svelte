@@ -109,7 +109,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								{#each summary.topPages as page}
+								{#each summary.topPages as page (page.path)}
 									<tr>
 										<td><code>{page.path}</code></td>
 										<td>{page.views}</td>
@@ -136,7 +136,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								{#each summary.topCountries as country}
+								{#each summary.topCountries as country (country.country)}
 									<tr>
 										<td>{country.country}</td>
 										<td>{country.views}</td>
@@ -166,7 +166,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each summary.recentViews as view}
+							{#each summary.recentViews as view (view.path)}
 								<tr>
 									<td>{formatTimestamp(view.timestamp)}</td>
 									<td><code>{view.path}</code></td>

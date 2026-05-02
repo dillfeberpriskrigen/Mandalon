@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { defaultLocale, locales, siteContent } from '$lib/content/site';
+import { defaultLocale, siteContent } from '$lib/content/site';
 import { getLocaleAndPathFromEvent } from '$lib/utils/routing.js';
 
 export function load(event) {

@@ -13,7 +13,7 @@
 		</div>
 
 		<nav class="footer-nav" aria-label="Footer">
-			{#each data.content.footer.nav as link}
+			{#each data.content.footer.nav as link (link.label)}
 				<a href={toPath(link.path)}>{link.label}</a>
 			{/each}
 		</nav>

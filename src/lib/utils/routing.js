@@ -11,8 +11,8 @@ export function localePath(locale, defaultLocale, path = '') {
 }
 
 export function getLocaleAndPathFromEvent(event) {
-	let locale = null;
-	let path = '';
+	let locale;
+	let path;
 
 	const segments = event.url.pathname.split('/').filter(Boolean); // remove empty parts
 

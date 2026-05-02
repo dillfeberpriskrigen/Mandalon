@@ -1,8 +1,5 @@
 <script>
-	import { localePath } from '$lib/utils/routing';
-
 	const { data } = $props();
-	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
 
 <svelte:head>
@@ -17,7 +14,7 @@
 
 		<section class="narrative text-width">
 			<h2>{data.content.aboutPage.introTitle}</h2>
-			{#each data.content.aboutPage.intro as paragraph}
+			{#each data.content.aboutPage.intro as paragraph, i (i)}
 				<p>{paragraph}</p>
 			{/each}
 		</section>
@@ -42,7 +39,7 @@
 					<div>
 						<h3>{data.locale === 'sv' ? 'Utvalda referenser' : 'Selected references'}</h3>
 						<ul>
-							{#each data.content.aboutPage.references as item}
+							{#each data.content.aboutPage.references as item, i (i)}
 								<li>{item}</li>
 							{/each}
 						</ul>
@@ -51,7 +48,7 @@
 					<div>
 						<h3>{data.locale === 'sv' ? 'Forskningsprojekt' : 'Research projects'}</h3>
 						<ul>
-							{#each data.content.aboutPage.researchProjects as item}
+							{#each data.content.aboutPage.researchProjects as item (item.title)}
 								<li><a href={item.href} target="_blank" rel="noreferrer">{item.title}</a></li>
 							{/each}
 						</ul>

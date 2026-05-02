@@ -23,7 +23,7 @@
 
 		<div class="nav-stack">
 			<nav class="main-nav" aria-label="Primary navigation">
-				{#each data.content.primaryLinks as link}
+				{#each data.content.primaryLinks as link (link.label)}
 					<a class:active={isActive(link.path)} class:contact-link={link.path === 'kontakt' || link.path === 'contact'} href={toPath(link.path)}>
 						{link.label}
 					</a>
