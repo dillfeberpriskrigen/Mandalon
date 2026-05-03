@@ -79,13 +79,13 @@
 
 	:global(body) {
 		margin: 0;
-		font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+		font-family: 'Roboto', system-ui, sans-serif;
 		color: #10231c;
 		background: url('/mandalon/motherboard-bg.jpg') center top / cover no-repeat fixed;
 	}
 
 	:global(h1, h2, h3, h4, h5, h6) {
-		font-family: 'Roboto Condensed', 'Roboto', 'Segoe UI', system-ui, sans-serif;
+		font-family: 'Roboto Condensed', 'Roboto', system-ui, sans-serif;
 	}
 
 	:global(img) {
