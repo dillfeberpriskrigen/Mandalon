@@ -5,7 +5,7 @@
 
 <svelte:head>
 	<title>{content.meta.title}</title>
-	<meta name="description" content={data.content.designGuidePage.meta.description} />
+	<meta name="description" content={content.meta.description} />
 </svelte:head>
 
 <section class="guide-page">
@@ -694,8 +694,7 @@
 
 	.designguide-article h2,
 	.designguide-article h3,
-	.designguide-article h4,
-	.designguide-article h5 {
+	.designguide-article h4 {
 		margin: 1.6rem 0 0.75rem;
 		line-height: 1.15;
 		color: #10231c;
