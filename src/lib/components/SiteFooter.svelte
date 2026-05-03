@@ -22,6 +22,9 @@
 			<img src="/mandalon/cert.svg" alt="ISO 9001 certification" />
 		</div>
 	</div>
+	<div class="footer-bottom">
+		<p>&copy; {new Date().getFullYear()} Mandalon Technologies AB.</p>
+	</div>
 </footer>
 
 <style>
@@ -64,6 +67,9 @@
 	.footer-cert img {
 		width: 6.75rem;
 		height: auto;
+	}
+	.footer-bottom{
+		text-align: center;
 	}
 
 	@media (max-width: 960px) {
