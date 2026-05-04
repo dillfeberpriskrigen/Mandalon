@@ -1,35 +1,14 @@
 const ANALYTICS_ENABLED = true;
 const EXCLUDED_PATHS = new Set(['/stats']);
 
-function getAnalyticsBaseUrl() {
-	const configuredBaseUrl = import.meta.env.PUBLIC_ANALYTICS_BASE_URL;
-
-	if (configuredBaseUrl) {
-		return configuredBaseUrl;
-	}
-
-	if (typeof window !== 'undefined') {
-		const { hostname } = window.location;
-		if (hostname === 'localhost' || hostname === '127.0.0.1') {
-			return 'http://127.0.0.1:8001';
-		}
-	}
-
-	return '/analytics';
-}
-
 function getTrackingEndpoint() {
-	return `${getAnalyticsBaseUrl()}/pageview`;
+	return '/api/data/geo';
 }
 
-function getStatsEndpoint() {
-	return `${getAnalyticsBaseUrl()}/stats`;
+export function getAnalyticsStatsUrl() {
+	return '/api/data/stats';
 }
 
-/**
- * Sends a lightweight pageview event without blocking navigation.
- * The server enriches it with timestamp and best-effort geolocation.
- */
 export function trackPageView() {
 	if (typeof window === 'undefined' || !ANALYTICS_ENABLED) {
 		return;
@@ -49,7 +28,6 @@ export function trackPageView() {
 
 	void fetch(getTrackingEndpoint(), {
 		method: 'POST',
-		mode: 'cors',
 		headers: {
 			'content-type': 'application/json'
 		},
@@ -58,8 +36,4 @@ export function trackPageView() {
 	}).catch((error) => {
 		console.warn('Analytics pageview failed', error);
 	});
-}
-
-export function getAnalyticsStatsUrl() {
-	return getStatsEndpoint();
 }

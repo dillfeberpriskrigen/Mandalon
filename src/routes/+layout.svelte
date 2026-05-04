@@ -41,6 +41,24 @@
 	});
 
 	const alternateLinks = $derived(getAlternateLinks(page.url.pathname));
+
+
+//Analytics
+	afterNavigate(({ to }) => {
+		if (!browser || !to?.url) return;
+
+		fetch('/api/data/geo', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({
+				path: to.url.pathname,
+				search: to.url.search
+			})
+		});
+	});
+
 </script>
 
 <div class="app-shell">

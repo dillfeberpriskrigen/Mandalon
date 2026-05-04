@@ -34,6 +34,7 @@
 		"@sveltejs/adapter-node": "^5.5.4",
 		"embla-carousel": "^8.6.0",
 		"embla-carousel-autoplay": "^8.6.0",
-		"embla-carousel-svelte": "^8.6.0"
+		"embla-carousel-svelte": "^8.6.0",
+		"mysql2": "^3.22.3"
 	}
 }
