@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 
 function inferLocale(pathname: string) {
 	return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'sv';
@@ -14,7 +15,7 @@ function getCountry(request: Request) {
 	);
 }
 
-export async function POST({ request }) {
+export const POST: RequestHandler = async({ request }) => {
 	const body = await request.json().catch(() => ({}));
 
 	const page = typeof body.path === 'string' ? body.path : '/';

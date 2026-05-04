@@ -1,5 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { db } from '$lib/server/db';
+import type { RequestHandler } from './$types';
 
 function normalizeText(value: unknown, maxLength: number) {
 	if (typeof value !== 'string') return null;
@@ -64,7 +65,7 @@ function getGeo(request: Request) {
 	};
 }
 
-export async function POST({ request }) {
+export const POST: RequestHandler = async ({ request }) =>  {
 	const body = await request.json().catch(() => ({}));
 
 	const path = normalizePath(body.path);

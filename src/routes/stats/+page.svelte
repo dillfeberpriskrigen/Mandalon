@@ -10,15 +10,14 @@
 		recentViews: {
 			timestamp: string;
 			path: string;
-			geo: { country: string | null; city: string | null };
+			geo_country: string | null;
+			geo_city: string | null;
 		}[];
 	};
-
-	let summary: AnalyticsSummary | null = null;
-	let loading = true;
-	let errorMessage = '';
-	let statsUrl = '';
-
+	let statsUrl = $state('');
+	let loading = $state(true);
+	let error = $state<string | null>(null);
+	let summary = $state<AnalyticsSummary | null>(null);
 	function formatTimestamp(value: string) {
 		return new Date(value).toLocaleString('sv-SE', {
 			dateStyle: 'short',
@@ -28,7 +27,7 @@
 
 	async function loadStats() {
 		loading = true;
-		errorMessage = '';
+		error = null;
 		statsUrl = getAnalyticsStatsUrl();
 
 		try {
@@ -43,14 +42,13 @@
 			}
 
 			summary = await response.json();
-		} catch (error) {
+		} catch (err) {
 			summary = null;
-			errorMessage = error instanceof Error ? error.message : 'Okänt fel';
+			error = err instanceof Error ? err.message : 'Okänt fel';
 		} finally {
 			loading = false;
 		}
 	}
-
 	onMount(() => {
 		void loadStats();
 	});
@@ -73,10 +71,10 @@
 			<section class="panel">
 				<p class="empty-state">Laddar statistik...</p>
 			</section>
-		{:else if errorMessage}
+		{:else if error}
 			<section class="panel">
-				<p class="empty-state">Kunde inte hämta statistik från <code>{statsUrl}</code>: {errorMessage}</p>
-				<button class="retry-button" type="button" on:click={() => void loadStats()}> Försök igen </button>
+				<p class="empty-state">Kunde inte hämta statistik från <code>{statsUrl}</code>: {error}</p>
+				<button class="retry-button" type="button" onclick={() => void loadStats()}> Försök igen </button>
 			</section>
 		{:else if summary}
 			<section class="summary-grid" aria-label="Sammanfattning">
@@ -166,12 +164,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each summary.recentViews as view (view.path)}
+							{#each summary.recentViews as view (`${view.timestamp}-${view.path}`)}
 								<tr>
 									<td>{formatTimestamp(view.timestamp)}</td>
 									<td><code>{view.path}</code></td>
-									<td>{view.geo.country ?? 'Okänt'}</td>
-									<td>{view.geo.city ?? 'Okänd'}</td>
+									<td>{view.geo_country ?? 'Okänt'}</td>
+									<td>{view.geo_city ?? 'Okänd'}</td>
 								</tr>
 							{/each}
 						</tbody>
