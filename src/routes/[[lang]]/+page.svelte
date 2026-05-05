@@ -21,7 +21,7 @@
 	<meta name="description" content={data.content.meta.description} />
 </svelte:head>
 
-<div class="site-shell">
+<div class="container-wide">
 	<section class="hero">
 		<div class="container hero-content">
 			<h1>{data.content.hero.title}</h1>
@@ -29,106 +29,77 @@
 		</div>
 	</section>
 
-	<main>
-		<section class="consulting">
-			<div class="consulting-header container">
-				<div class="section-heading section-heading--tight">
-					<h2>{data.content.consulting.title}</h2>
-				</div>
+	<section class="carousel">
+		<div class="carousel-header container">
+			<div class="section-heading section-heading--tight">
+				<h2>{data.content.consulting.title}</h2>
 			</div>
+		</div>
 
-			<div class="container">
-				<div class="consulting-spotlight">
-					<div class="embla">
-						<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblaInit={handleEmblaInit}>
-							<div class="embla__container">
-								{#each data.content.consulting.features as feature (feature.title)}
-									<article class="embla__slide consulting-slide">
-										<div class="consulting-media">
-											<img src={feature.image} alt={feature.title} />
-										</div>
-										<div class="consulting-copy">
-											<h3>{feature.title}</h3>
-											<p>{feature.text}</p>
-										</div>
-									</article>
-								{/each}
-							</div>
+		<div class="container">
+			<div class="carousel-spotlight">
+				<div class="embla">
+					<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblaInit={handleEmblaInit}>
+						<div class="embla__container">
+							{#each data.content.consulting.features as feature (feature.title)}
+								<article class="embla__slide carousel-slide">
+									<div class="carousel-media">
+										<img src={feature.image} alt={feature.title} />
+									</div>
+									<div class="carousel-copy">
+										<h3>{feature.title}</h3>
+										<p>{feature.text}</p>
+									</div>
+								</article>
+							{/each}
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<section class="intro">
-			<div class="container intro-copy intro-copy--wide">
-				<h2>{data.content.salesIntro.title}</h2>
-				{#each data.content.salesIntro.paragraphs as paragraph (paragraph)}
-					<p>{paragraph}</p>
-				{/each}
+	<section class="intro">
+		<div class="container intro-copy intro-copy--wide">
+			<h2>{data.content.salesIntro.title}</h2>
+			{#each data.content.salesIntro.paragraphs as paragraph (paragraph)}
+				<p>{paragraph}</p>
+			{/each}
 
-				<p class="intro-resource">
-					<a href={data.content.salesIntro.resource.href} target="_blank" rel="noreferrer">
-						{data.content.salesIntro.resource.label}
-					</a>
-					<span>{data.content.salesIntro.resource.text}</span>
-				</p>
+			<p class="intro-resource">
+				<a href={data.content.salesIntro.resource.href} target="_blank" rel="noreferrer">
+					{data.content.salesIntro.resource.label}
+				</a>
+				<span>{data.content.salesIntro.resource.text}</span>
+			</p>
 
-				<section class="divider-banner" aria-hidden="true">
-					<div class="divider-banner__image"></div>
-				</section>
+			<section class="divider-banner" aria-hidden="true">
+				<div class="divider-banner__image"></div>
+			</section>
 
-				<div class="intro-process">
-					<h3 class="intro-process-title">{data.content.process.title}</h3>
+			<div class="intro-process">
+				<h3 class="intro-process-title">{data.content.process.title}</h3>
 
-					<div class="process-grid">
-						{#each data.content.process.steps as step (step.title)}
-							<article class="process-card">
-								<h3>{step.title}</h3>
-								<p>{step.text}</p>
-							</article>
-						{/each}
-					</div>
+				<div class="process-grid">
+					{#each data.content.process.steps as step (step.title)}
+						<article class="process-card">
+							<h3>{step.title}</h3>
+							<p>{step.text}</p>
+						</article>
+					{/each}
 				</div>
 			</div>
-		</section>
-	</main>
+		</div>
+	</section>
 </div>
 
 <style>
-	:global(:root) {
-		--bg: #edf1e4;
-		--bg-soft: #f7f8f1;
-		--surface: rgba(255, 255, 255, 0.88);
-		--surface-strong: #0f2a20;
-		--ink: #10231c;
-		--muted: #506458;
-		--accent: #f0b437;
-		--accent-deep: #d09212;
-		--line: rgba(16, 35, 28, 0.1);
-	}
-
-	.site-shell {
-		--container-width: var(--container-width-wide);
-		min-height: 100vh;
-	}
-
-	.intro-actions a {
-		border: 0;
-		border-radius: 999px;
-		padding: 0.85rem 1.25rem;
-		text-decoration: none;
-		font-weight: 700;
-	}
-
 	.hero {
 		position: relative;
 		min-height: 21rem;
 		display: grid;
 		place-items: center;
-		background:
-			linear-gradient(45deg, rgba(52, 57, 114, 0.94) 0%, rgba(79, 84, 137, 0.94) 100%),
-			url('/mandalon/motherboard-bg.jpg') center top / cover no-repeat;
+		background: linear-gradient(45deg, rgba(52, 57, 114, 0.94) 0%, rgba(52, 57, 114, 0.84) 100%);
 	}
 
 	.hero-content {
@@ -137,13 +108,6 @@
 		padding: 5.5rem 0 4.5rem;
 		text-align: center;
 		color: white;
-	}
-
-	h1,
-	h2,
-	h3,
-	p {
-		margin: 0;
 	}
 
 	h1 {
@@ -173,11 +137,6 @@
 			url('/mandalon/help-asic.jpg') center 65% / cover no-repeat;
 	}
 
-	.intro-actions a:first-child {
-		background: var(--surface-strong);
-		color: white;
-	}
-
 	h2 {
 		font-size: clamp(2rem, 3.5vw, 3.6rem);
 		line-height: 1;
@@ -186,7 +145,7 @@
 
 	.intro-copy p,
 	.process-card p,
-	.consulting-copy p {
+	.carousel-copy p {
 		line-height: 1.7;
 		color: var(--muted);
 	}
@@ -212,7 +171,7 @@
 	}
 
 	.intro,
-	.consulting,
+	.carousel,
 	:global(footer.site-footer) {
 		padding: 5rem 0;
 	}
@@ -237,19 +196,6 @@
 		line-height: 1.15;
 		color: var(--ink);
 	}
-
-	.intro-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.85rem;
-		padding-top: 0.4rem;
-	}
-
-	.intro-actions a:nth-child(2) {
-		background: rgba(16, 35, 28, 0.08);
-		color: var(--ink);
-	}
-
 	.process-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -261,20 +207,20 @@
 		border-left: 3px solid rgba(16, 35, 28, 0.2);
 	}
 
-	.consulting-copy h3 {
+	.carousel-copy h3 {
 		font-size: 1.4rem;
 		margin-bottom: 0.7rem;
 	}
 
-	.consulting-header {
+	.carousel-header {
 		margin-bottom: 2rem;
 	}
 
-	.consulting .container {
+	.carousel .container {
 		max-width: 48rem;
 	}
 
-	.consulting-spotlight {
+	.carousel-spotlight {
 		display: grid;
 		gap: 1rem;
 		min-width: 0;
@@ -299,7 +245,7 @@
 		min-width: 0;
 	}
 
-	.consulting-slide {
+	.carousel-slide {
 		display: grid;
 		grid-template-columns: 1fr;
 		border-radius: 1.5rem;
@@ -307,17 +253,17 @@
 		overflow: hidden;
 	}
 
-	.consulting-media {
+	.carousel-media {
 		aspect-ratio: 16 / 9;
 	}
 
-	.consulting-media img {
+	.carousel-media img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
 
-	.consulting-copy {
+	.carousel-copy {
 		padding: 1.5rem;
 	}
 
@@ -340,19 +286,19 @@
 			padding-top: 4.5rem;
 		}
 
-		.consulting-slide {
+		.carousel-slide {
 			min-height: 0;
 		}
 
-		.consulting .container,
-		.consulting-spotlight,
+		.carousel .container,
+		.carousel-spotlight,
 		.embla,
 		.embla__viewport,
 		.embla__container,
 		.embla__slide,
-		.consulting-slide,
-		.consulting-copy,
-		.consulting-media {
+		.carousel-slide,
+		.carousel-copy,
+		.carousel-media {
 			min-width: 0;
 			max-width: 100%;
 		}

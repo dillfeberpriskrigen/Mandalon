@@ -1,3 +1,6 @@
+@import 'style-resets.css';
+
+/* Global variables */
 :root {
 	--container-width-default: 1080px;
 	--container-width-wide: 1140px;
@@ -7,6 +10,18 @@
 	--page-title-width: 20ch;
 	--page-title-size: clamp(3rem, 8vw, 5.6rem);
 	--page-title-line-height: 0.95;
+	--border-radius: 1.5rem;
+
+	--bg: #edf1e4;
+	--bg-soft: #f7f8f1;
+	--surface: rgba(255, 255, 255, 0.88);
+	--surface-strong: #0f2a20;
+	--ink: #10231c;
+	--muted: #506458;
+	--accent: #f0b437;
+	--accent-deep: #d09212;
+	--line: rgba(16, 35, 28, 0.1);
+	--content-background: rgba(255, 255, 255, 0.85);
 }
 
 html,
@@ -30,26 +45,60 @@ h6 {
 	font-family: 'Roboto Condensed', 'Roboto', system-ui, sans-serif;
 }
 
-img {
-	max-width: 100%;
-	display: block;
-}
-
 a {
 	color: inherit;
 }
 
+.container-wide {
+	--container-width: var(--container-width-wide);
+	min-height: 100vh;
+}
+
+.container-narrow {
+	--container-width: var(--container-width-narrow);
+	padding: 4rem 0 6rem;
+}
+
 .container {
+	/* Makes container maximum --container-width if defined, otherwise --container-width-default
+    unless the parent is more narrow that that, then the container just --container-gutter smaller
+    than the parents width */
 	width: min(var(--container-width, var(--container-width-default)), calc(100vw - var(--container-gutter)));
+	/* Center horizontally */
 	margin: 0 auto;
 }
 
+/* Max width for some text sections otherwise unbound or too largely bound */
 .text-width {
 	max-width: var(--text-width);
 }
 
+/* Usually h1 */
 .page-title {
 	max-width: var(--page-title-width);
 	font-size: var(--page-title-size);
 	line-height: var(--page-title-line-height);
+}
+
+/* Usually h2 */
+.page-header {
+	font-size: 1.8rem;
+	line-height: 1.05;
+}
+
+/* Usually h3 */
+.page-sub-section {
+	margin-bottom: 0.6rem;
+	font-size: 1.15rem;
+	line-height: 1.4;
+}
+
+.lead {
+	margin-top: 1.25rem;
+	font-size: 1.12rem;
+	line-height: 1.8;
+}
+
+.page-content {
+	padding: 4rem 0 6rem;
 }

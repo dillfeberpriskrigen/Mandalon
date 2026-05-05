@@ -1,4 +1,8 @@
 <script>
+	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import ParagraphArray from '$lib/components/ParagraphArray.svelte';
+	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
+
 	const { data } = $props();
 </script>
 
@@ -7,8 +11,8 @@
 	<meta name="description" content={data.content.chipSensorsPage.meta.description} />
 </svelte:head>
 
-<section class="chip-page">
-	<div class="container">
+<div class="container page-content">
+	<section>
 		<h1 class="page-title">{data.content.chipSensorsPage.title}</h1>
 		<p class="lead text-width">{data.content.chipSensorsPage.lead}</p>
 
@@ -30,107 +34,31 @@
 			</tbody>
 		</table>
 
-		<div class="areas-flow">
-			{#each data.content.chipSensorsPage.areas as area, index (area.title)}
-				<article class:reverse={index % 2 === 1} class="area-section">
-					<div class="area-media">
+		<PageContent>
+			{#each data.content.chipSensorsPage.areas as area, i (area.title)}
+				<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
+					{#snippet content()}
+						<ParagraphArray paragraphs={area.paragraphs} />
+					{/snippet}
+					{#snippet media()}
 						<img src={area.image} alt={area.imageAlt} />
-					</div>
-					<div class="area-copy">
-						<h2>{area.title}</h2>
-						{#if area.subtitle}
-							<p class="subtitle">{area.subtitle}</p>
-						{/if}
-						{#each area.paragraphs as paragraph, i (i)}
-							<p>{paragraph}</p>
-						{/each}
-					</div>
-				</article>
+					{/snippet}
+				</MediaArticleSection>
 			{/each}
-		</div>
-	</div>
-</section>
+		</PageContent>
+	</section>
+</div>
 
 <style>
-	.chip-page {
-		padding: 4rem 0 6rem;
-	}
-
-	h1,
-	h2,
-	p {
-		margin: 0;
-	}
-
-	.lead {
-		margin-top: 1.25rem;
-		font-size: 1.12rem;
-		line-height: 1.8;
-	}
-
 	.intro-stack {
 		display: grid;
 		gap: 1rem;
 		margin-top: 2rem;
 	}
 
-	.intro-stack p,
-	.area-copy p {
+	.intro-stack p {
 		line-height: 1.75;
 		color: #506458;
-	}
-
-	.areas-flow {
-		display: grid;
-		gap: 1.5rem;
-		margin-top: 2.5rem;
-	}
-
-	.area-section {
-		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-		align-items: center;
-		gap: 1.5rem;
-		padding: 1.35rem;
-		border-radius: 1.5rem;
-		background: rgba(255, 255, 255, 0.95);
-	}
-
-	.area-section.reverse {
-		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-	}
-
-	.area-section.reverse .area-media {
-		order: 2;
-	}
-
-	.area-section.reverse .area-copy {
-		order: 1;
-	}
-
-	.area-media img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		min-height: 260px;
-		object-fit: cover;
-		border-radius: 1.1rem;
-	}
-
-	.area-copy {
-		display: grid;
-		gap: 0.9rem;
-	}
-
-	.area-copy h2 {
-		font-size: 1.8rem;
-		line-height: 1.05;
-	}
-
-	.subtitle {
-		font-size: 1.05rem;
-		font-weight: 700;
-		color: #10231c;
 	}
 
 	.capabilities-table {
@@ -151,17 +79,5 @@
 
 	.capabilities-table tr:not(:last-child) td {
 		border-bottom: 1px solid rgba(16, 35, 28, 0.12);
-	}
-
-	@media (max-width: 780px) {
-		.area-section,
-		.area-section.reverse {
-			grid-template-columns: 1fr;
-		}
-
-		.area-section.reverse .area-media,
-		.area-section.reverse .area-copy {
-			order: initial;
-		}
 	}
 </style>

@@ -46,9 +46,9 @@
 <div class="app-shell">
 	<SiteHeader {data} currentPath={data.path} />
 
-	<div class="page-layer">
+	<main class="page-layer">
 		{@render children()}
-	</div>
+	</main>
 
 	<SiteFooter {data} />
 </div>
@@ -65,9 +65,11 @@
 <style>
 	.app-shell {
 		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.page-layer {
-		min-height: 100vh;
+		flex: 1;
 	}
 </style>

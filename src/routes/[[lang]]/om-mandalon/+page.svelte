@@ -13,26 +13,26 @@
 		<p class="lead text-width">{data.content.aboutPage.lead}</p>
 
 		<section class="narrative text-width">
-			<h2>{data.content.aboutPage.introTitle}</h2>
+			<h2 class="page-header">{data.content.aboutPage.introTitle}</h2>
 			{#each data.content.aboutPage.intro as paragraph, i (i)}
 				<p>{paragraph}</p>
 			{/each}
 		</section>
 
 		<section class="story text-width">
-			<h2>{data.content.aboutPage.storyTitle}</h2>
+			<h2 class="page-header">{data.content.aboutPage.storyTitle}</h2>
 			<p>{data.content.aboutPage.story}</p>
 		</section>
 
 		<div class="trust-grid">
 			<section class="panel">
-				<h2>{data.content.aboutPage.certificationTitle}</h2>
+				<h2 class="page-header">{data.content.aboutPage.certificationTitle}</h2>
 				<p>{data.content.aboutPage.certification}</p>
 				<p class="note">{data.content.aboutPage.certificationNote}</p>
 			</section>
 
 			<section class="panel">
-				<h2>{data.content.aboutPage.referencesTitle}</h2>
+				<h2 class="page-header">{data.content.aboutPage.referencesTitle}</h2>
 				<p>{data.content.aboutPage.referencesLead}</p>
 
 				<div class="lists">
@@ -65,20 +65,6 @@
 		padding: 4rem 0 6rem;
 	}
 
-	h1,
-	h2,
-	h3,
-	p,
-	ul {
-		margin: 0;
-	}
-
-	.lead {
-		margin-top: 1.25rem;
-		font-size: 1.12rem;
-		line-height: 1.8;
-	}
-
 	.narrative,
 	.story {
 		display: grid;
@@ -90,13 +76,6 @@
 		padding: 1.6rem;
 		border-radius: 1.5rem;
 		background: rgba(255, 255, 255, 0.95);
-	}
-
-	.narrative h2,
-	.story h2,
-	.panel h2 {
-		margin-bottom: 0.7rem;
-		font-size: 1.5rem;
 	}
 
 	.narrative p,

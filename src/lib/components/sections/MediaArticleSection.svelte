@@ -1,0 +1,98 @@
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	interface Props {
+		title?: string;
+		subtitle?: string;
+		content?: Snippet;
+		media?: Snippet;
+		reverse?: boolean;
+	}
+	let { title, subtitle, content, reverse, media }: Props = $props();
+</script>
+
+<article class:reverse class:twocolumn={(title || subtitle || content) && media}>
+	<div class="media">
+		{#if media}
+			{@render media()}
+		{/if}
+	</div>
+
+	<div class="topic">
+		{#if title}
+			<h2>{title}</h2>
+		{/if}
+
+		{#if subtitle}
+			<p class="subtitle">{subtitle}</p>
+		{/if}
+
+		{#if content}
+			<p class="content">{@render content()}</p>
+		{/if}
+	</div>
+</article>
+
+<style>
+	*,
+	article :global(*) {
+		outline: none 0.1px red;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		line-height: 1.05;
+	}
+
+	article {
+		display: grid;
+		align-items: center;
+		gap: 1.5rem;
+		padding: 1.35rem;
+		border-radius: var(--border-radius);
+		background: var(--content-background);
+	}
+
+	/* Make the topic grid slightly larger than the media grid */
+	.twocolumn {
+		grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+	}
+	.twocolumn.reverse {
+		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+	}
+
+	.subtitle {
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--ink);
+	}
+
+	/* All paragraphs within this article */
+	article :global(p) {
+		line-height: 1.75;
+		color: var(--muted);
+		margin: 1ch 0ch;
+	}
+
+	.media {
+		display: block;
+
+		object-fit: cover;
+		border-radius: 1.1rem;
+	}
+
+	.reverse .media {
+		order: 1;
+	}
+
+	@media (max-width: 780px) {
+		/* 1 column if narrow */
+		.twocolumn {
+			grid-template-columns: 1fr;
+		}
+		/* Ensure the media with its header comes before the topic */
+		.reverse .media {
+			order: 0;
+		}
+	}
+</style>

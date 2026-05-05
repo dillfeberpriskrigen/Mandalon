@@ -10,7 +10,7 @@
 	<meta name="description" content={data.content.glossaryPage.meta.description} />
 </svelte:head>
 
-<section class="info-page">
+<section class="container-narrow">
 	<div class="container">
 		<h1 class="page-title">{data.content.glossaryPage.title}</h1>
 		<p class="lead text-width">{data.content.glossaryPage.lead}</p>
@@ -76,23 +76,6 @@
 </section>
 
 <style>
-	.info-page {
-		--container-width: var(--container-width-narrow);
-		padding: 4rem 0 6rem;
-	}
-
-	h1,
-	h2,
-	p {
-		margin: 0;
-	}
-
-	.lead {
-		margin-top: 1.25rem;
-		font-size: 1.12rem;
-		line-height: 1.8;
-	}
-
 	.intro-grid,
 	.topic {
 		display: grid;
@@ -103,6 +86,7 @@
 
 	.intro-grid {
 		margin-top: 2rem;
+		border: 1px black dashed;
 	}
 
 	.intro-copy,

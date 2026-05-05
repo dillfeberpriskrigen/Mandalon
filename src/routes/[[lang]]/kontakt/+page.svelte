@@ -76,18 +76,6 @@
 		padding: 4rem 0 6rem;
 	}
 
-	h1,
-	h2,
-	p {
-		margin: 0;
-	}
-
-	.lead {
-		margin-top: 1.25rem;
-		font-size: 1.12rem;
-		line-height: 1.8;
-	}
-
 	.people-flow {
 		display: grid;
 		gap: 2.5rem;

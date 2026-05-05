@@ -7,7 +7,7 @@
 	<meta name="description" content={data.content.consultingPage.meta.description} />
 </svelte:head>
 
-<section class="consulting-page">
+<section class="page-content">
 	<div class="container">
 		<h1 class="page-title">{data.content.consultingPage.title}</h1>
 		<p class="lead text-width">{data.content.consultingPage.lead}</p>
@@ -34,23 +34,6 @@
 </section>
 
 <style>
-	.consulting-page {
-		padding: 4rem 0 6rem;
-	}
-
-	h1,
-	h2,
-	p,
-	ul {
-		margin: 0;
-	}
-
-	.lead {
-		margin-top: 1.25rem;
-		font-size: 1.12rem;
-		line-height: 1.8;
-	}
-
 	.intro-panel {
 		margin-top: 2.2rem;
 		padding: 1.7rem 1.8rem;
