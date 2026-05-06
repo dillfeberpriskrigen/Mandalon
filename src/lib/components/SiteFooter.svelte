@@ -68,7 +68,7 @@
 		width: 6.75rem;
 		height: auto;
 	}
-	.footer-bottom{
+	.footer-bottom {
 		text-align: center;
 	}
 
