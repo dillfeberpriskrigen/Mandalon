@@ -323,7 +323,7 @@ export const siteContent = {
 				},
 				{
 					name: 'Jonatan Gezelius',
-					role: 'Teknisk Säljare/Bondlärling',
+					role: 'Teknisk Säljare',
 					image: '/mandalon/Jonatan.jpg',
 					imageAlt: 'Jonatan',
 					phone: '073 58 48 690',
@@ -720,7 +720,7 @@ export const siteContent = {
 				},
 				{
 					name: 'Jonatan Gezelius',
-					role: 'Technical sales / Bonding apprentice',
+					role: 'Technical sales',
 					image: '/mandalon/Jonatan.jpg',
 					imageAlt: 'Jonatan',
 					phone: '+46 73 58 48 690',
