@@ -18,6 +18,8 @@
 	div {
 		max-width: var(--container-width-default);
 		margin: 0 auto;
+		/*background: linear-gradient(hsla(180, 80%, 50%, 10%), hsla(180, 80%, 50%, 100%));*/
+		min-height: 100%;
 	}
 
 	.narrow {

@@ -49,8 +49,10 @@
 		align-items: center;
 		gap: 1.5rem;
 		padding: 1.35rem;
+		margin: 1rem;
 		border-radius: var(--border-radius);
 		background: var(--content-background);
+		box-shadow: 0px 0px 0px 3px hsla(0, 100%, 50%, 0.2);
 	}
 
 	/* Make the topic grid slightly larger than the media grid */

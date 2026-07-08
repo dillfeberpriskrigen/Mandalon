@@ -10,7 +10,7 @@
 	--page-title-width: 20ch;
 	--page-title-size: clamp(3rem, 8vw, 5.6rem);
 	--page-title-line-height: 0.95;
-	--border-radius: 1.5rem;
+	--border-radius: 1rem;
 
 	--bg: #edf1e4;
 	--bg-soft: #f7f8f1;
@@ -21,7 +21,7 @@
 	--accent: #f0b437;
 	--accent-deep: #d09212;
 	--line: rgba(16, 35, 28, 0.1);
-	--content-background: rgba(255, 255, 255, 0.85);
+	--content-background: hsla(0, 0%, 92%, 0.785);
 }
 
 html,
