@@ -1,0 +1,75 @@
+/* Surface related styles */
+
+.surface {
+	background: var(--surface-background);
+	color: var(--text-color);
+}
+
+.surface-default {
+	--surface-background: var(--color-surface);
+}
+
+.surface-muted {
+	--surface-background: var(--color-surface-muted);
+}
+
+.surface-accent {
+	--surface-background: var(--color-accent);
+}
+
+.surface-warning {
+	--surface-background: var(--color-warning);
+}
+
+
+/* Radius */
+
+.surface-radius-none {
+	border-radius: 0;
+}
+
+.surface-radius-sm {
+	border-radius: var(--radius-sm);
+}
+
+.surface-radius-md {
+	border-radius: var(--radius-md);
+}
+
+.surface-radius-lg {
+	border-radius: var(--radius-lg);
+}
+
+
+/* Padding */
+
+.surface-padding-none {
+	padding: 0;
+}
+
+.surface-padding-sm {
+	padding: var(--space-sm);
+}
+
+.surface-padding-md {
+	padding: var(--space-md);
+}
+
+.surface-padding-lg {
+	padding: var(--space-lg);
+}
+
+
+/* Shadow */
+
+.surface-shadow-none {
+	box-shadow: none;
+}
+
+.surface-shadow-sm {
+	box-shadow: var(--shadow-sm);
+}
+
+.surface-shadow-md {
+	box-shadow: var(--shadow-md);
+}

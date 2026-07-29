@@ -1,0 +1,36 @@
+
+/* Typography styles */
+.text {
+	font-family: var(--font-body);
+}
+
+.text-body {
+	font-size: var(--text-body-size);
+	line-height: var(--text-body-line);
+}
+
+.text-lead {
+	font-size: var(--text-lead-size);
+	line-height: var(--text-lead-line);
+}
+
+.text-caption {
+	font-size: var(--text-caption-size);
+	line-height: var(--text-caption-line);
+}
+
+.text-weight-thin {
+	font-weight: var(--weight-thin);
+}
+
+.text-weight-normal {
+	font-weight: var(--weight-normal);
+}
+
+.text-weight-bold {
+	font-weight: var(--weight-bold);
+}
+
+.text-weight-boldest {
+	font-weight: var(--weight-boldest);
+}

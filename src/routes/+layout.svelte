@@ -54,9 +54,11 @@
 </div>
 
 <svelte:head>
+<!--
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+	-->
 	{#each alternateLinks as link (link.hreflang)}
 		<link rel="alternate" hreflang={link.hreflang} href={link.href} />
 	{/each}
