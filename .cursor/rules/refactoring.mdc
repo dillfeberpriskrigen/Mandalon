@@ -11,11 +11,39 @@ Break pages into reusable components and unify styling from `app.css` and `src/l
 
 Current priorities:
 
-1. **Typography** — few consistent text styles across the site; finish WIP typography components (`Heading`, `Link`)
-2. **Layout** — standardize content width via `PageContent` and `.text-width`
-3. **Sections** — extract repeated page patterns into `src/lib/components/sections/`
-4. **Page migration** — one page at a time, starting with simpler routes
-5. **Experiment page** - Use `experiment/+page.svelte` to show the developer how components will look in different situations using various demos.
+1. **Component structure** — typography option A, move header/footer to `layout/`, move `ParagraphArray` to `content/` (see `todo.md`)
+2. **Typography** — finish WIP components (`Heading`, `Link`); remove `Typography.svelte`
+3. **Layout** — add `PageHeader` / `PageShell`; standardize width via `PageContent` and `.text-width`
+4. **Sections** — extend `MediaArticleSection`; extract `FaqSection`, grids, callouts as patterns repeat
+5. **Page migration** — one page at a time; `paketering` is the reference implementation
+6. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
+
+## Target component structure
+
+```
+src/lib/components/
+  layout/       PageContent, PageHeader, PageShell, SiteHeader, SiteFooter
+  typography/   Text, Heading, Link
+  primitives/   Button, Surface
+  content/      ParagraphArray
+  sections/     MediaArticleSection, FaqSection, …
+  data/         Table
+  icons/        SVG icon components
+```
+
+- No `Typography.svelte` — use `Text` + `Heading` + `Link` instead
+- `media/Image.svelte` — keep only if lazy loading, aspect ratio, or captions are needed; otherwise remove
+- Panels/cards should use `Surface`, not new one-off card components
+
+## High-value extractions (from existing pages)
+
+| Component | Pattern seen on | Action |
+|-----------|-----------------|--------|
+| `PageHeader` | kontakt, om-mandalon, konsulttjanster, kunskapsbank | Extract repeated `h1.page-title` + `p.lead` |
+| `MediaArticleSection` | paketering, kunskapsbank `.topic`, kontakt `.person-row` | Unify alternating media+text grids |
+| `Surface` | om-mandalon `.panel`, konsulttjanster `.service-card` | Replace duplicate panel styles |
+| `FaqSection` | kunskapsbank | Extract when migrating that page |
+| `HeroSection`, carousel | home only | Defer until phase 2 home refactor |
 
 ## Workflow for each task
 
@@ -50,6 +78,15 @@ Ask: Is this used (or will be used) on 2+ pages?
 - **No** → keep in the page with scoped styles for now
 
 New section components go in `sections/`. Name by purpose (`HeroSection`, `FeatureGrid`), not by page.
+
+## Component extraction rule of thumb
+
+1. **Used on 2+ pages (or 2+ times on home)?** → extract to `sections/` or `layout/`
+2. **Small, style-only, no layout?** → `typography/` or `primitives/`
+3. **Renders content arrays from props?** → `content/`
+4. **Used once and unlikely to repeat?** → keep in the page with scoped styles
+
+Do not add categories (atoms/molecules) or generic wrappers (`Grid`, `Stack`) — CSS variables and `PageContent` are enough for this site.
 
 ## Out of scope unless asked
 

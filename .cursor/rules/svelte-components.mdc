@@ -17,14 +17,17 @@ alwaysApply: false
 
 ```
 src/lib/components/
-  typography/   Text, Heading, Link, Typography
+  layout/       PageContent, PageHeader (planned), SiteHeader, SiteFooter (to move here)
+  typography/   Text, Heading, Link
   primitives/   Button, Surface
-  layout/       PageContent
+  content/      ParagraphArray (to move here)
   sections/     MediaArticleSection
-  media/        Image
   data/         Table
   icons/        SVG icon components
 ```
+
+- **No `Typography.svelte`** — typography is `Text` + `Heading` + `Link` only
+- **`Image.svelte`** — under evaluation; remove if lazy loading / aspect ratio / captions are not needed
 
 - New shared UI goes here — not inline in route pages
 - Page files in `src/routes/` should stay thin: load data, compose components, set `<svelte:head>`
@@ -33,7 +36,7 @@ src/lib/components/
 
 | Ready | WIP (empty or incomplete) |
 |-------|---------------------------|
-| `Text`, `Surface`, `PageContent`, `MediaArticleSection` | `Heading`, `Link`, `Button`, `Typography`, `Image` |
+| `Text`, `Surface`, `PageContent`, `MediaArticleSection`, `ParagraphArray` | `Heading`, `Link`, `Button`, `Table`, `Image` (evaluate/remove) |
 
 Do not assume WIP components exist — use global typography classes from `app.css` until they are implemented.
 
@@ -77,8 +80,17 @@ Some locale pairs share one implementation:
 
 When refactoring, edit the canonical page (usually the Swedish slug) — wrappers should stay as one-liners.
 
+## Component extraction rule of thumb
+
+1. **2+ pages (or 2+ times on home)?** → `sections/` or `layout/`
+2. **Style-only, no layout?** → `typography/` or `primitives/`
+3. **Renders content arrays?** → `content/`
+4. **Used once?** → keep in the page for now
+
 ## Do not
 
 - Introduce Svelte 4 patterns (`export let`, `$$props`, slots without snippets)
 - Add component-scoped styles that duplicate tokens already in `app.css`
 - Create one-off components for content that belongs in `site.js`
+- Add `Typography.svelte` or duplicate typography abstractions
+- Use CRLF line endings — all files must use LF (`\n`)

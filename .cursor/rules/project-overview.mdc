@@ -12,6 +12,7 @@ SvelteKit remake of [mandalon.se](https://mandalon.se). B2B site for chip packag
 - **JS + JSDoc** with `checkJs: true` — TypeScript used selectively (`lang="ts"` in some components)
 - **Lint/format:** ESLint + Prettier (`npm run lint`, `npm run format`)
 - **Type check:** `npm run check` (svelte-check)
+- **Line endings:** LF only (Unix newlines) — enforced via `.gitattributes` (`* text=auto eol=lf`). Do not use CRLF (carriage return). New and edited files must end lines with `\n` only.
 ## Commands
 ```bash
 npm install
@@ -19,3 +20,10 @@ npm run dev      # local development
 npm run build    # production build
 npm run check    # svelte-check
 npm run lint     # prettier + eslint
+```
+## Conventions
+
+- **Language:** User-facing copy in `site.js`; code comments may be Swedish or English
+- **Canonical pages:** Swedish slugs (e.g. `paketering/+page.svelte`); EN routes are thin wrappers
+- **Reference page:** `paketering/+page.svelte` — target structure for migrated pages
+- **Line endings:** All text files use LF, not CRLF (see Stack above)
