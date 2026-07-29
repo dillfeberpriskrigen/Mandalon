@@ -66,7 +66,8 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 ## Fonts
 
 - Body: Roboto (`body` in `app.css`)
-- Headings: Roboto Condensed (`h1–h6` in `app.css`, `--font-body` for Text component)
+- Headings: Roboto Condensed (`h1–h6` in `app.css`)
+- Shared token: `--font-body` (`'Roboto Condensed', 'Roboto', …`) — used by the `Text` component
 - Self-hosted in `static/fonts/` — do not add Google Fonts CDN links
 
 ## Containers & page layout

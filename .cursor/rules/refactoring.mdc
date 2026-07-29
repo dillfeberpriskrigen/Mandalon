@@ -1,6 +1,7 @@
 ---
 description: Active refactoring goals and workflow for component/styling consolidation
-alwaysApply: true
+globs: "src/**/*.{svelte,js,css}"
+alwaysApply: false
 ---
 
 # Refactoring guide
@@ -18,22 +19,7 @@ Current priorities:
 5. **Page migration** — one page at a time; `paketering` is the reference implementation
 6. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
 
-## Target component structure
-
-```
-src/lib/components/
-  layout/       PageContent, PageHeader, PageShell, SiteHeader, SiteFooter
-  typography/   Text, Heading, Link
-  primitives/   Button, Surface
-  content/      ParagraphArray
-  sections/     MediaArticleSection, FaqSection, …
-  data/         Table
-  icons/        SVG icon components
-```
-
-- No `Typography.svelte` — use `Text` + `Heading` + `Link` instead
-- `media/Image.svelte` — keep only if lazy loading, aspect ratio, or captions are needed; otherwise remove
-- Panels/cards should use `Surface`, not new one-off card components
+Component structure, WIP status, and extraction rules: see `svelte-components.mdc`.
 
 ## High-value extractions (from existing pages)
 
@@ -56,11 +42,11 @@ src/lib/components/
 
 ## Refactoring rules
 
-- **Preserve behavior** — i18n, SEO meta, hreflang, links, and all copy from `site.js` must stay intact
+- **Preserve behavior** — i18n, SEO meta, hreflang, links, and all copy from `src/lib/content/site.js` must stay intact
 - **Minimal scope** — do not refactor unrelated pages or rename routes
 - **Reuse first** — extend existing components before creating new ones
-- **No copy in components** — text stays in `siteContent`; components receive props
-- **Unify visuals** — Some visuals are intended to be the same but have diverged. Unify these into one visual, rather than having many suble variants.
+- **No copy in components** — text stays in `siteContent` / `data.content`; components receive props
+- **Unify visuals** — follow the one-visual-treatment principle in `product-design.mdc`
 
 ## Suggested page order
 
@@ -69,24 +55,6 @@ src/lib/components/
 | 1 | `kontakt`, `om-mandalon`, `konsulttjanster`, `kunskapsbank` | Canonical SV pages; EN routes are thin wrappers |
 | 2 | `+page.svelte` (home) | Complex — hero, carousel, multiple sections |
 | 3 | `designguide` | Large (700+ lines), many bespoke styles — do last |
-
-## When extracting a component
-
-Ask: Is this used (or will be used) on 2+ pages?
-
-- **Yes** → `src/lib/components/` in the appropriate subfolder
-- **No** → keep in the page with scoped styles for now
-
-New section components go in `sections/`. Name by purpose (`HeroSection`, `FeatureGrid`), not by page.
-
-## Component extraction rule of thumb
-
-1. **Used on 2+ pages (or 2+ times on home)?** → extract to `sections/` or `layout/`
-2. **Small, style-only, no layout?** → `typography/` or `primitives/`
-3. **Renders content arrays from props?** → `content/`
-4. **Used once and unlikely to repeat?** → keep in the page with scoped styles
-
-Do not add categories (atoms/molecules) or generic wrappers (`Grid`, `Stack`) — CSS variables and `PageContent` are enough for this site.
 
 ## Out of scope unless asked
 

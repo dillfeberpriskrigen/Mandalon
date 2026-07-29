@@ -28,6 +28,7 @@ src/lib/components/
 
 - **No `Typography.svelte`** — typography is `Text` + `Heading` + `Link` only
 - **`Image.svelte`** — under evaluation; remove if lazy loading / aspect ratio / captions are not needed
+- **Panels/cards** — use `Surface`, not new one-off card components
 
 - New shared UI goes here — not inline in route pages
 - Page files in `src/routes/` should stay thin: load data, compose components, set `<svelte:head>`
@@ -61,7 +62,7 @@ Do not assume WIP components exist — use global typography classes from `app.c
 ## Composition
 
 - Pass copy via props or snippets — do not hardcode user-facing text in components
-- Page content comes from `data.content` (loaded in `+layout.js` from `site.js`)
+- Page content comes from `data.content` (sourced from `siteContent` in `src/lib/content/site.js`, loaded in `+layout.js`)
 - Use `PageContent` for page width constraints; use `Surface` for card/panel backgrounds
 - Use `Text` with `variant` (`body` | `lead` | `caption` | `label`) instead of ad-hoc font sizes
 
@@ -82,15 +83,20 @@ When refactoring, edit the canonical page (usually the Swedish slug) — wrapper
 
 ## Component extraction rule of thumb
 
+Ask: is this used (or will be used) on 2+ pages?
+
 1. **2+ pages (or 2+ times on home)?** → `sections/` or `layout/`
 2. **Style-only, no layout?** → `typography/` or `primitives/`
 3. **Renders content arrays?** → `content/`
 4. **Used once?** → keep in the page for now
 
+New section components go in `sections/`. Name by purpose (`HeroSection`, `FeatureGrid`), not by page.
+
+Do not add categories (atoms/molecules) or generic wrappers (`Grid`, `Stack`) — CSS variables and `PageContent` are enough for this site.
+
 ## Do not
 
 - Introduce Svelte 4 patterns (`export let`, `$$props`, slots without snippets)
 - Add component-scoped styles that duplicate tokens already in `app.css`
-- Create one-off components for content that belongs in `site.js`
+- Create one-off components for content that belongs in `src/lib/content/site.js`
 - Add `Typography.svelte` or duplicate typography abstractions
-- Use CRLF line endings — all files must use LF (`\n`)

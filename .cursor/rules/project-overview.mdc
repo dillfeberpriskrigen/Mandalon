@@ -21,9 +21,15 @@ npm run build    # production build
 npm run check    # svelte-check
 npm run lint     # prettier + eslint
 ```
+## i18n
+
+- Routes live under `src/routes/[[lang]]/` — Swedish is default (`/paketering`), English uses `/en/…` (`/en/packaging`)
+- Copy is keyed by locale in `src/lib/content/site.js` (`siteContent`); `+layout.js` passes it to pages as `data.content`
+- Canonical pages use Swedish slugs; EN routes are thin wrappers that import the SV page (see `svelte-components.mdc`)
+
 ## Conventions
 
-- **Language:** User-facing copy in `site.js`; code comments may be Swedish or English
-- **Canonical pages:** Swedish slugs (e.g. `paketering/+page.svelte`); EN routes are thin wrappers
+- **Copy:** User-facing text lives in `src/lib/content/site.js` — pages consume it as `data.content`; components receive copy via props (never hardcoded)
+- **Code comments:** Swedish or English
 - **Reference page:** `paketering/+page.svelte` — target structure for migrated pages
-- **Line endings:** All text files use LF, not CRLF (see Stack above)
+- **Active refactor:** component/style consolidation — see `refactoring.mdc`
