@@ -6,6 +6,13 @@
 
 ## Low
 
+## Samordning av komponenter och formatmallar
+
+Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanvändbara komponenter och säkerställ en enhetlig styling som främst styrs från `app.css` och de CSS-filer som importeras därifrån.
+
+- Skapa en enhetlig hantering av text så att endast ett fåtal textstilar används konsekvent på hela webbplatsen.
+- Implementera någon form av textbehållare (eller några få varianter) för att säkerställa enhetlig bredd, placering och läsbarhet.
+
 # Fixed
 
 - Favicon (ikon på fliken)
