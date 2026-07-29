@@ -21,7 +21,6 @@
 	--surface-background: var(--color-warning);
 }
 
-
 /* Radius */
 
 .surface-radius-none {
@@ -40,7 +39,6 @@
 	border-radius: var(--radius-lg);
 }
 
-
 /* Padding */
 
 .surface-padding-none {
@@ -58,7 +56,6 @@
 .surface-padding-lg {
 	padding: var(--space-lg);
 }
-
 
 /* Shadow */
 

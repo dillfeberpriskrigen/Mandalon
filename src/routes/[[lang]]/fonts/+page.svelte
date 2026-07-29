@@ -1,7 +1,5 @@
 <script lang="ts">
-	const fonts = [
-		{ name: 'Roboto and Roboto Condensed', file: '/fonts/Roboto-OFL.txt' }
-	];
+	const fonts = [{ name: 'Roboto and Roboto Condensed', file: '/fonts/Roboto-OFL.txt' }];
 </script>
 
 <h1>Open source licenses</h1>
