@@ -15,6 +15,7 @@ Current priorities:
 2. **Layout** — standardize content width via `PageContent` and `.text-width`
 3. **Sections** — extract repeated page patterns into `src/lib/components/sections/`
 4. **Page migration** — one page at a time, starting with simpler routes
+5. **Experiment page** - Use `experiment/+page.svelte` to show the developer how components will look in different situations using various demos.
 
 ## Workflow for each task
 
@@ -31,7 +32,7 @@ Current priorities:
 - **Minimal scope** — do not refactor unrelated pages or rename routes
 - **Reuse first** — extend existing components before creating new ones
 - **No copy in components** — text stays in `siteContent`; components receive props
-- **Match existing visuals** — refactoring unifies structure, not redesign (unless asked)
+- **Unify visuals** — Some visuals are intended to be the same but have diverged. Unify these into one visual, rather than having many suble variants.
 
 ## Suggested page order
 

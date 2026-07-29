@@ -8,18 +8,11 @@ alwaysApply: false
 
 ## Source of truth
 
-Global styles flow from `src/app.css`, which imports:
-
-```
-src/lib/styles/style-resets.css
-src/lib/styles/fonts.css
-src/lib/styles/typography.css
-src/lib/styles/surface.css
-```
+Global styles flow from `src/app.css`, which imports utilities and component specific styles from `src/lib/styles/*.css`
 
 - **Design tokens** live in `:root` in `app.css` — colors, spacing, container widths, typography scale
 - **Component CSS classes** for typography (`.text-*`) and surfaces (`.surface-*`) live in `src/lib/styles/`
-- **Layout utilities** (`.container`, `.text-width`, `.page-title`, `.page-content`) live in `app.css`
+- **Layout utilities** (`.container`, `.text-width`, `.page-title`, `.page-content`) live in `app.css` but should be moved to relevant CSS files in `src/lib/styles/` during refactoring.
 
 ## Use tokens, not hardcoded values
 
@@ -35,6 +28,9 @@ padding: var(--space-medium);
 
 Key tokens: `--ink`, `--muted`, `--accent`, `--bg`, `--surface`, `--line`, `--border-radius`, `--text-width`, container width vars.
 
+## Dark mode
+Not supported currently. But will be added in future.
+
 ## Typography
 
 Two parallel systems exist during the refactor — prefer components where ready:
@@ -48,6 +44,10 @@ Two parallel systems exist during the refactor — prefer components where ready
 | Constrained width | `PageContent` or `.text-width` | `.text-width` |
 
 Typography component classes: `.text-body`, `.text-lead`, `.text-caption` with `.text-weight-*` — defined in `typography.css`.
+
+Create additional typography classes if needed, but ask first.
+
+
 
 ## Component-scoped styles
 
@@ -80,7 +80,7 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 </div>
 ```
 
-Variants: `.container-narrow`, `.container-wide`, `PageContent` with `narrow` / `wide` props.
+Variants: Will be phased out during refactoring, but currently support exists for `.container-narrow`, `.container-wide`, `PageContent` with `narrow` / `wide` props.
 
 ## Do not
 
