@@ -1,0 +1,65 @@
+---
+description: Active refactoring goals and workflow for component/styling consolidation
+alwaysApply: true
+---
+
+# Refactoring guide
+
+## Goal
+
+Break pages into reusable components and unify styling from `app.css` and `src/lib/styles/`. See `todo.md` for the full backlog.
+
+Current priorities:
+
+1. **Typography** — few consistent text styles across the site; finish WIP typography components (`Heading`, `Link`)
+2. **Layout** — standardize content width via `PageContent` and `.text-width`
+3. **Sections** — extract repeated page patterns into `src/lib/components/sections/`
+4. **Page migration** — one page at a time, starting with simpler routes
+
+## Workflow for each task
+
+1. Pick **one page or one pattern** (not the whole site)
+2. Identify existing components/classes that already match the target look
+3. Refactor the **canonical page** (Swedish slug, e.g. `paketering/+page.svelte`) — locale wrappers stay untouched
+4. Run `npm run check` and `npm run lint`
+5. Verify visually in the browser
+6. Update `todo.md` when done
+
+## Refactoring rules
+
+- **Preserve behavior** — i18n, SEO meta, hreflang, links, and all copy from `site.js` must stay intact
+- **Minimal scope** — do not refactor unrelated pages or rename routes
+- **Reuse first** — extend existing components before creating new ones
+- **No copy in components** — text stays in `siteContent`; components receive props
+- **Match existing visuals** — refactoring unifies structure, not redesign (unless asked)
+
+## Suggested page order
+
+| Phase | Pages | Notes |
+|-------|-------|-------|
+| 1 | `kontakt`, `om-mandalon`, `konsulttjanster`, `kunskapsbank` | Canonical SV pages; EN routes are thin wrappers |
+| 2 | `+page.svelte` (home) | Complex — hero, carousel, multiple sections |
+| 3 | `designguide` | Large (700+ lines), many bespoke styles — do last |
+
+## When extracting a component
+
+Ask: Is this used (or will be used) on 2+ pages?
+
+- **Yes** → `src/lib/components/` in the appropriate subfolder
+- **No** → keep in the page with scoped styles for now
+
+New section components go in `sections/`. Name by purpose (`HeroSection`, `FeatureGrid`), not by page.
+
+## Out of scope unless asked
+
+- `analytics_wsgi/` Python backend
+- Analytics tracking wiring in `+layout.svelte` (currently commented out)
+- TypeScript migration of all route pages
+- Route slug or locale structure changes
+
+## Definition of done (per page)
+
+- [ ] Uses shared layout/typography components or global classes consistently
+- [ ] No hardcoded user-facing strings (all from `data.content`)
+- [ ] Passes `npm run check` and `npm run lint`
+- [ ] Both SV and EN URLs render correctly

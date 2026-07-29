@@ -1,0 +1,90 @@
+---
+description: CSS tokens, typography, and styling conventions
+globs: "**/*.{css,svelte}"
+alwaysApply: false
+---
+
+# Styling conventions
+
+## Source of truth
+
+Global styles flow from `src/app.css`, which imports:
+
+```
+src/lib/styles/style-resets.css
+src/lib/styles/fonts.css
+src/lib/styles/typography.css
+src/lib/styles/surface.css
+```
+
+- **Design tokens** live in `:root` in `app.css` — colors, spacing, container widths, typography scale
+- **Component CSS classes** for typography (`.text-*`) and surfaces (`.surface-*`) live in `src/lib/styles/`
+- **Layout utilities** (`.container`, `.text-width`, `.page-title`, `.page-content`) live in `app.css`
+
+## Use tokens, not hardcoded values
+
+```css
+/* ❌ BAD */
+color: #506458;
+padding: 16px;
+
+/* ✅ GOOD */
+color: var(--muted);
+padding: var(--space-medium);
+```
+
+Key tokens: `--ink`, `--muted`, `--accent`, `--bg`, `--surface`, `--line`, `--border-radius`, `--text-width`, container width vars.
+
+## Typography
+
+Two parallel systems exist during the refactor — prefer components where ready:
+
+| Need | Preferred | Legacy (until migrated) |
+|------|-----------|-------------------------|
+| Body text | `<Text variant="body">` | `.lead`, default `<p>` |
+| Page title | `<Heading>` (when ready) | `.page-title` on `<h1>` |
+| Section heading | `<Heading>` (when ready) | `.page-header` on `<h2>` |
+| Sub-section | — | `.page-sub-section` on `<h3>` |
+| Constrained width | `PageContent` or `.text-width` | `.text-width` |
+
+Typography component classes: `.text-body`, `.text-lead`, `.text-caption` with `.text-weight-*` — defined in `typography.css`.
+
+## Component-scoped styles
+
+Use `<style>` in `.svelte` files only for layout or structure unique to that component (grid, flex, responsive breakpoints). Pull colors, fonts, and spacing from CSS variables.
+
+```svelte
+<style>
+	article {
+		border-radius: var(--border-radius);
+		background: var(--content-background);
+		color: var(--muted);
+	}
+</style>
+```
+
+## Fonts
+
+- Body: Roboto (`body` in `app.css`)
+- Headings: Roboto Condensed (`h1–h6` in `app.css`, `--font-body` for Text component)
+- Self-hosted in `static/fonts/` — do not add Google Fonts CDN links
+
+## Containers & page layout
+
+```html
+<div class="container-wide">   <!-- full-page shell -->
+  <div class="container">      <!-- centered content column -->
+    <h1 class="page-title">…</h1>
+    <p class="text-width">…</p>
+  </div>
+</div>
+```
+
+Variants: `.container-narrow`, `.container-wide`, `PageContent` with `narrow` / `wide` props.
+
+## Do not
+
+- Add new global CSS files without importing them from `app.css`
+- Introduce CSS frameworks (Tailwind, Bootstrap, etc.)
+- Duplicate token values inline in component styles
+- Remove debug/outline styles from WIP components unless asked (e.g. `MediaArticleSection` dev outlines)

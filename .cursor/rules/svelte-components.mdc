@@ -1,0 +1,84 @@
+---
+description: Svelte 5 component conventions for Mandalon
+globs: **/*.svelte
+alwaysApply: false
+---
+
+# Svelte component conventions
+
+## Svelte 5 runes (required)
+
+- Use `$props()` for component input — no `export let`
+- Use `$derived()` for computed values
+- Use `{@render children()}` for default slot content; typed as `Snippet` when using TypeScript
+- Runes mode is forced project-wide in `svelte.config.js`
+
+## Where components live
+
+```
+src/lib/components/
+  typography/   Text, Heading, Link, Typography
+  primitives/   Button, Surface
+  layout/       PageContent
+  sections/     MediaArticleSection
+  media/        Image
+  data/         Table
+  icons/        SVG icon components
+```
+
+- New shared UI goes here — not inline in route pages
+- Page files in `src/routes/` should stay thin: load data, compose components, set `<svelte:head>`
+
+## Component status (check before using)
+
+| Ready | WIP (empty or incomplete) |
+|-------|---------------------------|
+| `Text`, `Surface`, `PageContent`, `MediaArticleSection` | `Heading`, `Link`, `Button`, `Typography`, `Image` |
+
+Do not assume WIP components exist — use global typography classes from `app.css` until they are implemented.
+
+## Props pattern
+
+```svelte
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	interface Props {
+		children: Snippet;
+		narrow?: boolean;
+	}
+
+	let { children, narrow = false }: Props = $props();
+</script>
+```
+
+- Prefer `lang="ts"` for new components in `src/lib/components/`
+- Route pages may stay plain JS with JSDoc (`/** @type {...} */`)
+
+## Composition
+
+- Pass copy via props or snippets — do not hardcode user-facing text in components
+- Page content comes from `data.content` (loaded in `+layout.js` from `site.js`)
+- Use `PageContent` for page width constraints; use `Surface` for card/panel backgrounds
+- Use `Text` with `variant` (`body` | `lead` | `caption` | `label`) instead of ad-hoc font sizes
+
+## i18n route wrappers
+
+Some locale pairs share one implementation:
+
+```svelte
+<script>
+	import Page from '../paketering/+page.svelte';
+	const { data } = $props();
+</script>
+
+<Page {data} />
+```
+
+When refactoring, edit the canonical page (usually the Swedish slug) — wrappers should stay as one-liners.
+
+## Do not
+
+- Introduce Svelte 4 patterns (`export let`, `$$props`, slots without snippets)
+- Add component-scoped styles that duplicate tokens already in `app.css`
+- Create one-off components for content that belongs in `site.js`
