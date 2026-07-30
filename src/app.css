@@ -37,13 +37,18 @@
 	--font-body: 'Roboto Condensed', 'Roboto', system-ui, sans-serif;
 
 	--text-body-size: 1rem;
-	--text-body-line: 1.5;
+	--text-body-line: 1.75;
 
-	--text-lead-size: 1.25rem;
-	--text-lead-line: 1.6;
+	--text-lead-size: 1.12rem;
+	--text-lead-line: 1.8;
 
-	--text-caption-size: 0.875rem;
+	--text-caption-size: 0.95rem;
 	--text-caption-line: 1.4;
+
+	--page-header-size: 1.8rem;
+	--page-header-line: 1.05;
+	--page-sub-section-size: 1.15rem;
+	--page-sub-section-line: 1.4;
 
 	--weight-thin: 200;
 	--weight-normal: 400;
@@ -108,32 +113,6 @@ a {
 /* Max width for some text sections otherwise unbound or too largely bound */
 .text-width {
 	max-width: var(--text-width);
-}
-
-/* Usually h1 */
-.page-title {
-	max-width: var(--page-title-width);
-	font-size: var(--page-title-size);
-	line-height: var(--page-title-line-height);
-}
-
-/* Usually h2 */
-.page-header {
-	font-size: 1.8rem;
-	line-height: 1.05;
-}
-
-/* Usually h3 */
-.page-sub-section {
-	margin-bottom: 0.6rem;
-	font-size: 1.15rem;
-	line-height: 1.4;
-}
-
-.lead {
-	margin-top: 1.25rem;
-	font-size: 1.12rem;
-	line-height: 1.8;
 }
 
 .page-content {

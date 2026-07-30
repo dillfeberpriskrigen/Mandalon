@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import Heading from '$lib/components/typography/Heading.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
 
 	interface Props {
 		title?: string;
@@ -20,11 +22,13 @@
 
 	<div class="topic">
 		{#if title}
-			<h2>{title}</h2>
+			<Heading as="h2">{title}</Heading>
 		{/if}
 
 		{#if subtitle}
-			<p class="subtitle">{subtitle}</p>
+			<div class="subtitle">
+				<Text as="p" weight="bold">{subtitle}</Text>
+			</div>
 		{/if}
 
 		{#if content}
@@ -37,11 +41,6 @@
 	*,
 	article :global(*) {
 		outline: none 0.1px red;
-	}
-
-	h2 {
-		font-size: 1.8rem;
-		line-height: 1.05;
 	}
 
 	article {
@@ -63,15 +62,12 @@
 		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 	}
 
-	.subtitle {
-		font-size: 1.05rem;
-		font-weight: 700;
+	.subtitle :global(p) {
 		color: var(--ink);
 	}
 
 	/* All paragraphs within this article */
 	article :global(p) {
-		line-height: 1.75;
 		color: var(--muted);
 		margin: 1ch 0ch;
 	}

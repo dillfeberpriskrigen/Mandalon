@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Text from '$lib/components/typography/Text.svelte';
+
 	interface Props {
 		paragraphs: string[];
 	}
@@ -7,5 +9,5 @@
 </script>
 
 {#each paragraphs as paragraph (paragraph)}
-	<p>{paragraph}</p>
+	<Text as="p">{paragraph}</Text>
 {/each}

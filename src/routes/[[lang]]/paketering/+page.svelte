@@ -4,6 +4,7 @@
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
 
 	const { data } = $props();
 </script>
@@ -18,11 +19,13 @@
 
 	<div class="intro-stack text-width">
 		{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
-			<p>{paragraph}</p>
+			<Text as="p">{paragraph}</Text>
 		{/each}
 	</div>
 
-	<p class="intro-stack text-width">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
+	<div class="intro-stack text-width">
+		<Text as="p">{data.content.chipSensorsPage.capabilitiesPresentation}</Text>
+	</div>
 	<table class="capabilities-table">
 		<tbody>
 			{#each data.content.chipSensorsPage.capabilities as capability (capability.name)}
@@ -55,14 +58,12 @@
 		margin-top: 2rem;
 	}
 
-	.intro-stack p {
-		line-height: 1.75;
-		color: #506458;
+	.intro-stack :global(p) {
+		color: var(--muted);
 	}
 
 	.capabilities-table {
 		max-width: 48rem;
-		margin-top: 5rem;
 		margin-top: 5rem;
 		border: 1px solid rgba(16, 35, 28, 0.18);
 		border-radius: 1rem;

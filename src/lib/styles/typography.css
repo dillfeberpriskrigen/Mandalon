@@ -1,4 +1,36 @@
-/* Typography styles */
+/* Typography styles — allowed text variants:
+   Headings: .page-title (h1), .page-header (h2), .page-sub-section (h3) via Heading
+   Body:     .text-body | .text-lead | .text-caption | .text-label via Text
+   Links:    .link via Link
+   Do not add ad-hoc font-size in page scoped CSS; use these classes/components. */
+
+/* Usually h1 */
+.page-title {
+	max-width: var(--page-title-width);
+	font-size: var(--page-title-size);
+	line-height: var(--page-title-line-height);
+}
+
+/* Usually h2 */
+.page-header {
+	font-size: var(--page-header-size);
+	line-height: var(--page-header-line);
+}
+
+/* Usually h3 */
+.page-sub-section {
+	margin-bottom: 0.6rem;
+	font-size: var(--page-sub-section-size);
+	line-height: var(--page-sub-section-line);
+}
+
+/* Page lead — alias of text-lead with spacing after page title */
+.lead {
+	margin-top: 1.25rem;
+	font-size: var(--text-lead-size);
+	line-height: var(--text-lead-line);
+}
+
 .text {
 	font-family: var(--font-body);
 }

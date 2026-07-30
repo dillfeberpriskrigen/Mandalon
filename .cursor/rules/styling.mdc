@@ -33,19 +33,23 @@ Not supported currently. But will be added in future.
 
 ## Typography
 
-Two parallel systems exist during the refactor — prefer components where ready:
+Allowed variants only — no ad-hoc `font-size` in page scoped CSS:
 
-| Need | Preferred | Legacy (until migrated) |
-|------|-----------|-------------------------|
-| Body text | `<Text variant="body">` | `.lead`, default `<p>` |
-| Page title | `<Heading>` (when ready) | `.page-title` on `<h1>` |
-| Section heading | `<Heading>` (when ready) | `.page-header` on `<h2>` |
-| Sub-section | — | `.page-sub-section` on `<h3>` |
-| Constrained width | `PageContent` or `.text-width` | `.text-width` |
+| Need | Component / class |
+|------|-------------------|
+| Body text | `<Text variant="body">` (`.text-body`) |
+| Page lead | `<Text variant="lead">` or `.lead` |
+| Caption / note | `<Text variant="caption">` |
+| Label | `<Text variant="label">` |
+| Page title | `<Heading as="h1">` (`.page-title`) |
+| Section heading | `<Heading as="h2">` (`.page-header`) |
+| Sub-section | `<Heading as="h3">` (`.page-sub-section`) |
+| Links | `<Link>` (`.link`) |
+| Constrained width | `PageContent` or `.text-width` |
 
-Typography component classes: `.text-body`, `.text-lead`, `.text-caption` with `.text-weight-*` — defined in `typography.css`.
+Tokens live in `:root` (`--text-*`, `--page-header-*`, `--page-sub-section-*`). Classes in `typography.css`.
 
-Create additional typography classes if needed, but ask first.
+Create additional typography classes if needed, but ask first. Remaining ad-hoc sizes on kontakt, kunskapsbank, home, and designguide are cleaned during those page migrations.
 
 
 

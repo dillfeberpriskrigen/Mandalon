@@ -4,6 +4,7 @@
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
 
 	const { data } = $props();
 </script>
@@ -19,25 +20,27 @@
 	<section class="narrative text-width">
 		<Heading as="h2">{data.content.aboutPage.introTitle}</Heading>
 		{#each data.content.aboutPage.intro as paragraph, i (i)}
-			<p>{paragraph}</p>
+			<Text as="p">{paragraph}</Text>
 		{/each}
 	</section>
 
 	<section class="story text-width">
 		<Heading as="h2">{data.content.aboutPage.storyTitle}</Heading>
-		<p>{data.content.aboutPage.story}</p>
+		<Text as="p">{data.content.aboutPage.story}</Text>
 	</section>
 
 	<div class="trust-grid">
 		<Surface as="section" radius="large" padding="large">
 			<Heading as="h2">{data.content.aboutPage.certificationTitle}</Heading>
-			<p>{data.content.aboutPage.certification}</p>
-			<p class="note">{data.content.aboutPage.certificationNote}</p>
+			<Text as="p">{data.content.aboutPage.certification}</Text>
+			<div class="note">
+				<Text as="p" variant="caption">{data.content.aboutPage.certificationNote}</Text>
+			</div>
 		</Surface>
 
 		<Surface as="section" radius="large" padding="large">
 			<Heading as="h2">{data.content.aboutPage.referencesTitle}</Heading>
-			<p>{data.content.aboutPage.referencesLead}</p>
+			<Text as="p">{data.content.aboutPage.referencesLead}</Text>
 
 			<div class="lists">
 				<div>
@@ -72,11 +75,10 @@
 		gap: 1rem;
 	}
 
-	.narrative p,
-	.story p,
+	.narrative :global(p),
+	.story :global(p),
 	.trust-grid :global(p),
 	.trust-grid :global(li) {
-		line-height: 1.75;
 		color: var(--muted);
 	}
 
@@ -89,7 +91,6 @@
 
 	.note {
 		margin-top: 0.85rem;
-		font-size: 0.95rem;
 	}
 
 	.lists {

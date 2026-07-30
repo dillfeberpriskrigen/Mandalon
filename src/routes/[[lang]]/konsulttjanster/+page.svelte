@@ -3,6 +3,7 @@
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
 
 	const { data } = $props();
 </script>
@@ -19,7 +20,7 @@
 		<Surface as="section" radius="large" padding="large">
 			<div class="text-width">
 				<Heading as="h2">{data.content.consultingPage.introTitle}</Heading>
-				<p>{data.content.consultingPage.introText}</p>
+				<Text as="p">{data.content.consultingPage.introText}</Text>
 			</div>
 		</Surface>
 	</div>
@@ -28,7 +29,7 @@
 		{#each data.content.consultingPage.services as service (service.title)}
 			<Surface as="article" radius="large" padding="large">
 				<Heading as="h2">{service.title}</Heading>
-				<p>{service.text}</p>
+				<Text as="p">{service.text}</Text>
 				<ul>
 					{#each service.points as point (point)}
 						<li>{point}</li>
@@ -44,9 +45,8 @@
 		margin-top: 2.2rem;
 	}
 
-	.intro p,
+	.intro :global(p),
 	.services-grid :global(p) {
-		line-height: 1.75;
 		color: var(--muted);
 	}
 

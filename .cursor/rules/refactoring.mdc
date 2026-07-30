@@ -12,13 +12,12 @@ Break pages into reusable components and unify styling from `app.css` and `src/l
 
 Current priorities:
 
-1. **Typography** — implement `Heading` and `Link` (option A); use global heading classes until ready
-2. **Surface** — fix token/class mismatch, then replace duplicate `.panel` / `.service-card` styles
-3. **Sections** — extend `MediaArticleSection`; extract `FaqSection`, grids, callouts as patterns repeat
-4. **Page migration** — one page at a time; `paketering` is the reference implementation
-5. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
+1. **Text container** — remove `narrow` / `wide` from `PageContent`; unify page width
+2. **Sections** — extend `MediaArticleSection` for kontakt / kunskapsbank; extract `FaqSection`, grids, callouts as patterns repeat
+3. **Page migration** — one page at a time; `paketering` is the reference implementation (finish typography cleanup on remaining pages)
+4. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
 
-Done: site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages.
+Done: typography option A + unified text tokens; Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages.
 
 Component structure, WIP status, and extraction rules: see `svelte-components.mdc`.
 
