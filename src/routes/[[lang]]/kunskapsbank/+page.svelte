@@ -1,5 +1,6 @@
 <script>
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
@@ -11,69 +12,67 @@
 	<meta name="description" content={data.content.glossaryPage.meta.description} />
 </svelte:head>
 
-<section class="container-narrow">
-	<div class="container">
-		<PageHeader title={data.content.glossaryPage.title} lead={data.content.glossaryPage.lead} />
+<PageShell narrow>
+	<PageHeader title={data.content.glossaryPage.title} lead={data.content.glossaryPage.lead} />
 
-		<div class="intro-grid">
-			<div class="intro-copy text-width">
-				{#each data.content.glossaryPage.intro as paragraph, i (i)}
-					<p>{paragraph}</p>
-				{/each}
-			</div>
-
-			<img class="intro-image" src={data.content.glossaryPage.introImage.src} alt={data.content.glossaryPage.introImage.alt} />
+	<div class="intro-grid">
+		<div class="intro-copy text-width">
+			{#each data.content.glossaryPage.intro as paragraph, i (i)}
+				<p>{paragraph}</p>
+			{/each}
 		</div>
 
-		<section class="faq-section">
-			<h2>{data.content.glossaryPage.faqTitle}</h2>
+		<img class="intro-image" src={data.content.glossaryPage.introImage.src} alt={data.content.glossaryPage.introImage.alt} />
+	</div>
 
-			<div class="faq-list">
-				{#each data.content.glossaryPage.faqs as item (item.question)}
-					<article class="faq-item">
-						<h3>{item.question}</h3>
-						<p>{item.answer}</p>
-					</article>
-				{/each}
-			</div>
-		</section>
+	<section class="faq-section">
+		<h2>{data.content.glossaryPage.faqTitle}</h2>
 
-		<section class="guide-callout">
-			<div>
-				<h2>{data.content.glossaryPage.guide.title}</h2>
-				<p>{data.content.glossaryPage.guide.text}</p>
-			</div>
-
-			<a href={toPath(data.content.glossaryPage.guide.path)}>{data.content.glossaryPage.guide.label}</a>
-		</section>
-
-		<div class="sections">
-			{#each data.content.glossaryPage.sections as item, index (item.title)}
-				<article class:reverse={index % 2 === 1} class="topic">
-					<div class="topic-copy">
-						<h2>{item.title}</h2>
-						{#if item.subtitle}
-							<p class="subtitle">{item.subtitle}</p>
-						{/if}
-
-						{#each item.paragraphs as paragraph, i (i)}
-							<p>{paragraph}</p>
-						{/each}
-					</div>
-
-					{#if item.image}
-						<figure class="topic-media">
-							<img src={item.image} alt={item.imageAlt} />
-							{#if item.caption}
-								<figcaption>{item.caption}</figcaption>
-							{/if}
-						</figure>
-					{/if}
+		<div class="faq-list">
+			{#each data.content.glossaryPage.faqs as item (item.question)}
+				<article class="faq-item">
+					<h3>{item.question}</h3>
+					<p>{item.answer}</p>
 				</article>
 			{/each}
 		</div>
+	</section>
+
+	<section class="guide-callout">
+		<div>
+			<h2>{data.content.glossaryPage.guide.title}</h2>
+			<p>{data.content.glossaryPage.guide.text}</p>
+		</div>
+
+		<a href={toPath(data.content.glossaryPage.guide.path)}>{data.content.glossaryPage.guide.label}</a>
+	</section>
+
+	<div class="sections">
+		{#each data.content.glossaryPage.sections as item, index (item.title)}
+			<article class:reverse={index % 2 === 1} class="topic">
+				<div class="topic-copy">
+					<h2>{item.title}</h2>
+					{#if item.subtitle}
+						<p class="subtitle">{item.subtitle}</p>
+					{/if}
+
+					{#each item.paragraphs as paragraph, i (i)}
+						<p>{paragraph}</p>
+					{/each}
+				</div>
+
+				{#if item.image}
+					<figure class="topic-media">
+						<img src={item.image} alt={item.imageAlt} />
+						{#if item.caption}
+							<figcaption>{item.caption}</figcaption>
+						{/if}
+					</figure>
+				{/if}
+			</article>
+		{/each}
 	</div>
-</section>
+</PageShell>
 
 <style>
 	.intro-grid,
@@ -191,10 +190,6 @@
 	}
 
 	@media (max-width: 820px) {
-		.info-page {
-			padding: 3rem 0 5rem;
-		}
-
 		.intro-grid,
 		.topic,
 		.topic.reverse {

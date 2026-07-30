@@ -1,6 +1,7 @@
 <script>
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 
@@ -12,42 +13,40 @@
 	<meta name="description" content={data.content.chipSensorsPage.meta.description} />
 </svelte:head>
 
-<div class="container page-content">
-	<section>
-		<PageHeader title={data.content.chipSensorsPage.title} lead={data.content.chipSensorsPage.lead} />
+<PageShell>
+	<PageHeader title={data.content.chipSensorsPage.title} lead={data.content.chipSensorsPage.lead} />
 
-		<div class="intro-stack text-width">
-			{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
-				<p>{paragraph}</p>
+	<div class="intro-stack text-width">
+		{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
+			<p>{paragraph}</p>
+		{/each}
+	</div>
+
+	<p class="intro-stack text-width">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
+	<table class="capabilities-table">
+		<tbody>
+			{#each data.content.chipSensorsPage.capabilities as capability (capability.name)}
+				<tr>
+					<td>{capability.name}</td>
+					<td>{capability.description}</td>
+				</tr>
 			{/each}
-		</div>
+		</tbody>
+	</table>
 
-		<p class="intro-stack text-width">{data.content.chipSensorsPage.capabilitiesPresentation}</p>
-		<table class="capabilities-table">
-			<tbody>
-				{#each data.content.chipSensorsPage.capabilities as capability (capability.name)}
-					<tr>
-						<td>{capability.name}</td>
-						<td>{capability.description}</td>
-					</tr>
-				{/each}
-			</tbody>
-		</table>
-
-		<PageContent>
-			{#each data.content.chipSensorsPage.areas as area, i (area.title)}
-				<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
-					{#snippet content()}
-						<ParagraphArray paragraphs={area.paragraphs} />
-					{/snippet}
-					{#snippet media()}
-						<img src={area.image} alt={area.imageAlt} />
-					{/snippet}
-				</MediaArticleSection>
-			{/each}
-		</PageContent>
-	</section>
-</div>
+	<PageContent>
+		{#each data.content.chipSensorsPage.areas as area, i (area.title)}
+			<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
+				{#snippet content()}
+					<ParagraphArray paragraphs={area.paragraphs} />
+				{/snippet}
+				{#snippet media()}
+					<img src={area.image} alt={area.imageAlt} />
+				{/snippet}
+			</MediaArticleSection>
+		{/each}
+	</PageContent>
+</PageShell>
 
 <style>
 	.intro-stack {

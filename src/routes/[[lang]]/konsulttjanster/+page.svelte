@@ -1,5 +1,6 @@
 <script>
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageShell from '$lib/components/layout/PageShell.svelte';
 
 	const { data } = $props();
 </script>
@@ -9,30 +10,28 @@
 	<meta name="description" content={data.content.consultingPage.meta.description} />
 </svelte:head>
 
-<section class="page-content">
-	<div class="container">
-		<PageHeader title={data.content.consultingPage.title} lead={data.content.consultingPage.lead} />
+<PageShell>
+	<PageHeader title={data.content.consultingPage.title} lead={data.content.consultingPage.lead} />
 
-		<section class="intro-panel text-width">
-			<h2>{data.content.consultingPage.introTitle}</h2>
-			<p>{data.content.consultingPage.introText}</p>
-		</section>
+	<section class="intro-panel text-width">
+		<h2>{data.content.consultingPage.introTitle}</h2>
+		<p>{data.content.consultingPage.introText}</p>
+	</section>
 
-		<div class="services-grid">
-			{#each data.content.consultingPage.services as service (service.title)}
-				<article class="service-card">
-					<h2>{service.title}</h2>
-					<p>{service.text}</p>
-					<ul>
-						{#each service.points as point (point)}
-							<li>{point}</li>
-						{/each}
-					</ul>
-				</article>
-			{/each}
-		</div>
+	<div class="services-grid">
+		{#each data.content.consultingPage.services as service (service.title)}
+			<article class="service-card">
+				<h2>{service.title}</h2>
+				<p>{service.text}</p>
+				<ul>
+					{#each service.points as point (point)}
+						<li>{point}</li>
+					{/each}
+				</ul>
+			</article>
+		{/each}
 	</div>
-</section>
+</PageShell>
 
 <style>
 	.intro-panel {

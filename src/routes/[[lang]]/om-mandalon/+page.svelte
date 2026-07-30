@@ -1,5 +1,6 @@
 <script>
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageShell from '$lib/components/layout/PageShell.svelte';
 
 	const { data } = $props();
 </script>
@@ -9,63 +10,56 @@
 	<meta name="description" content={data.content.aboutPage.meta.description} />
 </svelte:head>
 
-<section class="info-page">
-	<div class="container">
-		<PageHeader title={data.content.aboutPage.title} lead={data.content.aboutPage.lead} />
+<PageShell narrow>
+	<PageHeader title={data.content.aboutPage.title} lead={data.content.aboutPage.lead} />
 
-		<section class="narrative text-width">
-			<h2 class="page-header">{data.content.aboutPage.introTitle}</h2>
-			{#each data.content.aboutPage.intro as paragraph, i (i)}
-				<p>{paragraph}</p>
-			{/each}
+	<section class="narrative text-width">
+		<h2 class="page-header">{data.content.aboutPage.introTitle}</h2>
+		{#each data.content.aboutPage.intro as paragraph, i (i)}
+			<p>{paragraph}</p>
+		{/each}
+	</section>
+
+	<section class="story text-width">
+		<h2 class="page-header">{data.content.aboutPage.storyTitle}</h2>
+		<p>{data.content.aboutPage.story}</p>
+	</section>
+
+	<div class="trust-grid">
+		<section class="panel">
+			<h2 class="page-header">{data.content.aboutPage.certificationTitle}</h2>
+			<p>{data.content.aboutPage.certification}</p>
+			<p class="note">{data.content.aboutPage.certificationNote}</p>
 		</section>
 
-		<section class="story text-width">
-			<h2 class="page-header">{data.content.aboutPage.storyTitle}</h2>
-			<p>{data.content.aboutPage.story}</p>
-		</section>
+		<section class="panel">
+			<h2 class="page-header">{data.content.aboutPage.referencesTitle}</h2>
+			<p>{data.content.aboutPage.referencesLead}</p>
 
-		<div class="trust-grid">
-			<section class="panel">
-				<h2 class="page-header">{data.content.aboutPage.certificationTitle}</h2>
-				<p>{data.content.aboutPage.certification}</p>
-				<p class="note">{data.content.aboutPage.certificationNote}</p>
-			</section>
-
-			<section class="panel">
-				<h2 class="page-header">{data.content.aboutPage.referencesTitle}</h2>
-				<p>{data.content.aboutPage.referencesLead}</p>
-
-				<div class="lists">
-					<div>
-						<h3>{data.locale === 'sv' ? 'Utvalda referenser' : 'Selected references'}</h3>
-						<ul>
-							{#each data.content.aboutPage.references as item, i (i)}
-								<li>{item}</li>
-							{/each}
-						</ul>
-					</div>
-
-					<div>
-						<h3>{data.locale === 'sv' ? 'Forskningsprojekt' : 'Research projects'}</h3>
-						<ul>
-							{#each data.content.aboutPage.researchProjects as item (item.title)}
-								<li><a href={item.href} target="_blank" rel="noreferrer">{item.title}</a></li>
-							{/each}
-						</ul>
-					</div>
+			<div class="lists">
+				<div>
+					<h3>{data.locale === 'sv' ? 'Utvalda referenser' : 'Selected references'}</h3>
+					<ul>
+						{#each data.content.aboutPage.references as item, i (i)}
+							<li>{item}</li>
+						{/each}
+					</ul>
 				</div>
-			</section>
-		</div>
+
+				<div>
+					<h3>{data.locale === 'sv' ? 'Forskningsprojekt' : 'Research projects'}</h3>
+					<ul>
+						{#each data.content.aboutPage.researchProjects as item (item.title)}
+							<li><a href={item.href} target="_blank" rel="noreferrer">{item.title}</a></li>
+						{/each}
+					</ul>
+				</div>
+			</div>
+		</section>
 	</div>
-</section>
+</PageShell>
 
 <style>
-	.info-page {
-		--container-width: var(--container-width-narrow);
-		padding: 4rem 0 6rem;
-	}
-
 	.narrative,
 	.story {
 		display: grid;

@@ -12,12 +12,13 @@ Break pages into reusable components and unify styling from `app.css` and `src/l
 
 Current priorities:
 
-1. **Component structure** — typography option A, move header/footer to `layout/`, move `ParagraphArray` to `content/` (see `todo.md`)
-2. **Typography** — finish WIP components (`Heading`, `Link`); remove `Typography.svelte`
-3. **Layout** — add `PageHeader` / `PageShell`; standardize width via `PageContent` and `.text-width`
-4. **Sections** — extend `MediaArticleSection`; extract `FaqSection`, grids, callouts as patterns repeat
-5. **Page migration** — one page at a time; `paketering` is the reference implementation
-6. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
+1. **Typography** — implement `Heading` and `Link` (option A); use global heading classes until ready
+2. **Surface** — fix token/class mismatch, then replace duplicate `.panel` / `.service-card` styles
+3. **Sections** — extend `MediaArticleSection`; extract `FaqSection`, grids, callouts as patterns repeat
+4. **Page migration** — one page at a time; `paketering` is the reference implementation
+5. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
+
+Done: site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages.
 
 Component structure, WIP status, and extraction rules: see `svelte-components.mdc`.
 
@@ -25,9 +26,8 @@ Component structure, WIP status, and extraction rules: see `svelte-components.md
 
 | Component | Pattern seen on | Action |
 |-----------|-----------------|--------|
-| `PageHeader` | kontakt, om-mandalon, konsulttjanster, kunskapsbank | Extract repeated `h1.page-title` + `p.lead` |
 | `MediaArticleSection` | paketering, kunskapsbank `.topic`, kontakt `.person-row` | Unify alternating media+text grids |
-| `Surface` | om-mandalon `.panel`, konsulttjanster `.service-card` | Replace duplicate panel styles |
+| `Surface` | om-mandalon `.panel`, konsulttjanster `.service-card` | Fix tokens, then replace duplicate panel styles |
 | `FaqSection` | kunskapsbank | Extract when migrating that page |
 | `HeroSection`, carousel | home only | Defer until phase 2 home refactor |
 

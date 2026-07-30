@@ -17,17 +17,17 @@ alwaysApply: false
 
 ```
 src/lib/components/
-  layout/       PageContent, PageHeader (planned), SiteHeader, SiteFooter (to move here)
+  layout/       PageContent, PageHeader, PageShell, SiteHeader, SiteFooter
   typography/   Text, Heading, Link
   primitives/   Button, Surface
-  content/      ParagraphArray (to move here)
+  content/      ParagraphArray
   sections/     MediaArticleSection
   data/         Table
   icons/        SVG icon components
 ```
 
 - **No `Typography.svelte`** — typography is `Text` + `Heading` + `Link` only
-- **`Image.svelte`** — under evaluation; remove if lazy loading / aspect ratio / captions are not needed
+- **No `Image.svelte`** — use `<img>` directly until lazy loading / aspect ratio / captions are needed
 - **Panels/cards** — use `Surface`, not new one-off card components
 
 - New shared UI goes here — not inline in route pages
@@ -37,7 +37,7 @@ src/lib/components/
 
 | Ready | WIP (empty or incomplete) |
 |-------|---------------------------|
-| `Text`, `Surface`, `PageContent`, `MediaArticleSection`, `ParagraphArray` | `Heading`, `Link`, `Button`, `Table`, `Image` (evaluate/remove) |
+| `Text`, `Surface`, `PageContent`, `PageHeader`, `PageShell`, `MediaArticleSection`, `ParagraphArray` | `Heading`, `Link`, `Button`, `Table` |
 
 Do not assume WIP components exist — use global typography classes from `app.css` until they are implemented.
 
@@ -63,7 +63,7 @@ Do not assume WIP components exist — use global typography classes from `app.c
 
 - Pass copy via props or snippets — do not hardcode user-facing text in components
 - Page content comes from `data.content` (sourced from `siteContent` in `src/lib/content/site.js`, loaded in `+layout.js`)
-- Use `PageContent` for page width constraints; use `Surface` for card/panel backgrounds
+- Use `PageShell` for page padding + `.container`; use `PageContent` for inner width constraints; use `Surface` for card/panel backgrounds
 - Use `Text` with `variant` (`body` | `lead` | `caption` | `label`) instead of ad-hoc font sizes
 
 ## i18n route wrappers

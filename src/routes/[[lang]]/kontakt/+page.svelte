@@ -1,5 +1,6 @@
 <script>
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageShell from '$lib/components/layout/PageShell.svelte';
 
 	const { data } = $props();
 	const latitude = 58.448268;
@@ -15,68 +16,62 @@
 	<meta name="description" content={data.content.contactPage.meta.description} />
 </svelte:head>
 
-<section class="info-page">
-	<div class="container">
-		<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />
+<PageShell>
+	<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />
 
-		<div class="people-flow">
-			{#each data.content.contactPage.people as person, index (person.name)}
-				<article class:reverse={index % 2 === 1} class="person-row">
-					<div class="person-image">
-						<img src={person.image} alt={person.imageAlt} />
-					</div>
+	<div class="people-flow">
+		{#each data.content.contactPage.people as person, index (person.name)}
+			<article class:reverse={index % 2 === 1} class="person-row">
+				<div class="person-image">
+					<img src={person.image} alt={person.imageAlt} />
+				</div>
 
-					<div class="person-copy">
-						<h2>{person.name}</h2>
-						{#if person.role}
-							<p class="role">{person.role}</p>
+				<div class="person-copy">
+					<h2>{person.name}</h2>
+					{#if person.role}
+						<p class="role">{person.role}</p>
+					{/if}
+
+					<div class="person-details">
+						{#if person.phone}
+							<p><a href={person.phoneHref}>{person.phone}</a></p>
 						{/if}
-
-						<div class="person-details">
-							{#if person.phone}
-								<p><a href={person.phoneHref}>{person.phone}</a></p>
-							{/if}
-							{#if person.email}
-								<p><a href={person.emailHref}>{person.email}</a></p>
-							{/if}
-						</div>
+						{#if person.email}
+							<p><a href={person.emailHref}>{person.email}</a></p>
+						{/if}
 					</div>
-				</article>
+				</div>
+			</article>
+		{/each}
+	</div>
+
+	<section class="location">
+		<div class="location-copy">
+			<h2>{data.locale === 'sv' ? 'Besök oss' : 'Visit us'}</h2>
+			{#each data.content.contactPage.details as detail (detail.label)}
+				<p>
+					<strong>{detail.label}:</strong>
+					{#if detail.href}
+						<a href={detail.href}>{detail.value}</a>
+					{:else}
+						{detail.value}
+					{/if}
+				</p>
 			{/each}
 		</div>
 
-		<section class="location">
-			<div class="location-copy">
-				<h2>{data.locale === 'sv' ? 'Besök oss' : 'Visit us'}</h2>
-				{#each data.content.contactPage.details as detail (detail.label)}
-					<p>
-						<strong>{detail.label}:</strong>
-						{#if detail.href}
-							<a href={detail.href}>{detail.value}</a>
-						{:else}
-							{detail.value}
-						{/if}
-					</p>
-				{/each}
-			</div>
-
-			<div class="map-wrap">
-				<iframe
-					title={data.locale === 'sv' ? 'Karta till Mandalon' : 'Map to Mandalon'}
-					src={mapEmbedUrl}
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
-				></iframe>
-			</div>
-		</section>
-	</div>
-</section>
+		<div class="map-wrap">
+			<iframe
+				title={data.locale === 'sv' ? 'Karta till Mandalon' : 'Map to Mandalon'}
+				src={mapEmbedUrl}
+				loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"
+			></iframe>
+		</div>
+	</section>
+</PageShell>
 
 <style>
-	.info-page {
-		padding: 4rem 0 6rem;
-	}
-
 	.people-flow {
 		display: grid;
 		gap: 2.5rem;
