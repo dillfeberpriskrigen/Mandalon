@@ -1,7 +1,9 @@
 <script>
+	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
@@ -52,62 +54,50 @@
 
 	<div class="sections">
 		{#each data.content.glossaryPage.sections as item, index (item.title)}
-			<article class:reverse={index % 2 === 1} class="topic">
-				<div class="topic-copy">
-					<h2>{item.title}</h2>
-					{#if item.subtitle}
-						<p class="subtitle">{item.subtitle}</p>
-					{/if}
-
-					{#each item.paragraphs as paragraph, i (i)}
-						<p>{paragraph}</p>
-					{/each}
-				</div>
-
-				{#if item.image}
-					<figure class="topic-media">
-						<img src={item.image} alt={item.imageAlt} />
+			{#if item.image}
+				<MediaArticleSection title={item.title} subtitle={item.subtitle} reverse={index % 2 === 1}>
+					{#snippet content()}
+						<ParagraphArray paragraphs={item.paragraphs} />
+					{/snippet}
+					{#snippet media()}
 						{#if item.caption}
-							<figcaption>{item.caption}</figcaption>
+							<figure>
+								<img src={item.image} alt={item.imageAlt} />
+								<figcaption>{item.caption}</figcaption>
+							</figure>
+						{:else}
+							<img src={item.image} alt={item.imageAlt} />
 						{/if}
-					</figure>
-				{/if}
-			</article>
+					{/snippet}
+				</MediaArticleSection>
+			{:else}
+				<MediaArticleSection title={item.title} subtitle={item.subtitle} reverse={index % 2 === 1}>
+					{#snippet content()}
+						<ParagraphArray paragraphs={item.paragraphs} />
+					{/snippet}
+				</MediaArticleSection>
+			{/if}
 		{/each}
 	</div>
 </PageShell>
 
 <style>
-	.intro-grid,
-	.topic {
+	.intro-grid {
 		display: grid;
 		grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
 		gap: 2rem;
 		align-items: start;
-	}
-
-	.intro-grid {
 		margin-top: 2rem;
-		border: 1px black dashed;
-	}
-
-	.intro-copy,
-	.topic-copy {
-		display: grid;
-		gap: 1rem;
 	}
 
 	.intro-copy p,
-	.topic-copy p,
 	.faq-item p,
-	.guide-callout p,
-	.subtitle {
+	.guide-callout p {
 		line-height: 1.8;
 		color: #44574e;
 	}
 
-	.intro-image,
-	.topic-media img {
+	.intro-image {
 		display: block;
 		width: 100%;
 		border-radius: 1.5rem;
@@ -120,7 +110,6 @@
 	}
 
 	.faq-section h2,
-	.topic h2,
 	.guide-callout h2 {
 		font-size: clamp(1.7rem, 3vw, 2.5rem);
 		line-height: 1.05;
@@ -161,47 +150,9 @@
 		text-decoration: none;
 	}
 
-	.topic {
-		padding: 2rem 0;
-		border-top: 1px solid rgba(40, 74, 117, 0.16);
-	}
-
-	.topic.reverse {
-		grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-	}
-
-	.topic.reverse .topic-copy {
-		order: 2;
-	}
-
-	.topic.reverse .topic-media {
-		order: 1;
-	}
-
-	.subtitle {
-		font-weight: 700;
-	}
-
-	.topic-media {
-		margin: 0;
-	}
-
-	figcaption {
-		margin-top: 0.7rem;
-		font-size: 0.95rem;
-		color: #5a6e63;
-	}
-
 	@media (max-width: 820px) {
-		.intro-grid,
-		.topic,
-		.topic.reverse {
+		.intro-grid {
 			grid-template-columns: 1fr;
-		}
-
-		.topic.reverse .topic-copy,
-		.topic.reverse .topic-media {
-			order: initial;
 		}
 	}
 </style>

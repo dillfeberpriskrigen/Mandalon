@@ -12,6 +12,7 @@
 
 - [ ] Migrera helt och hållet till typescript istället för javascript.
 - [ ] Om möjligt i komponenten `Link` Detektera automatiskt ifall en länk leder till en extern sajt, eller är en fil, och ge den `target="_blank"`
+- [ ] Se till att inga globala stilar appliceras av komponenter eller sidor. All global styling ska ske via app.css. Om en sida behöver "pierce the scope boundry" känns det som att komponenten i fråga behöver få mer optioner eller något.
 
 ## Konsolidering av komponenter och formatmallar
 
@@ -36,7 +37,7 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 
 - [x] **`PageHeader`** / [x] **`PageShell`** — gemensamt sidhuvud (`h1` + lead) och sid-padding som upprepas på de flesta sidor.
 - [x] **`Heading` och `Link`** — implementera WIP-komponenterna så typografilagret (option A) kan användas konsekvent på sidor.
-- [ ] **Utöka `MediaArticleSection`** — `kontakt` person-rader migrerade; kvar: `kunskapsbank` (topic-rader).
+- [x] **Utöka `MediaArticleSection`** — `kontakt` person-rader och `kunskapsbank` topic-rader migrerade.
 - [x] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
 - [ ] **`Table`** — migrera capabilities-tabellen på paketering när komponenten implementeras.
 - [ ] **`FaqSection`** — extrahera från kunskapsbank vid sidmigration.

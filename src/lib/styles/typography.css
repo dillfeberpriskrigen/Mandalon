@@ -35,6 +35,11 @@
 	font-family: var(--font-body);
 }
 
+/* Space consecutive paragraphs (global reset clears default margins) */
+p + p {
+	margin-top: var(--text-paragraph-gap);
+}
+
 .text-body {
 	font-size: var(--text-body-size);
 	line-height: var(--text-body-line);

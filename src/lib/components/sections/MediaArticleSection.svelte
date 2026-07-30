@@ -64,7 +64,6 @@
 
 	article :global(p) {
 		color: var(--muted);
-		margin: 1ch 0;
 	}
 
 	.media {
@@ -72,11 +71,21 @@
 		border-radius: 1.1rem;
 	}
 
+	.media :global(figure) {
+		margin: 0;
+	}
+
 	.media :global(img) {
 		display: block;
 		width: 100%;
 		height: auto;
 		border-radius: inherit;
+	}
+
+	.media :global(figcaption) {
+		margin-top: 0.7rem;
+		font-size: 0.95rem;
+		color: var(--muted);
 	}
 
 	.reverse .media {

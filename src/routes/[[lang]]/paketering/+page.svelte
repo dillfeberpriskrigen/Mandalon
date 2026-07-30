@@ -55,8 +55,6 @@
 
 <style>
 	.intro-stack {
-		display: grid;
-		gap: 1rem;
 		margin-top: 2rem;
 	}
 

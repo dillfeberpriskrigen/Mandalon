@@ -87,6 +87,10 @@
 		margin-top: 0.5rem;
 	}
 
+	.person-details :global(p + p) {
+		margin-top: 0;
+	}
+
 	.location {
 		display: grid;
 		gap: 1rem;

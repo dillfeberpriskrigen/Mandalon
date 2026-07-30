@@ -75,9 +75,7 @@
 <style>
 	.narrative,
 	.story {
-		display: grid;
 		margin-top: 2rem;
-		gap: 1rem;
 	}
 
 	.narrative :global(p),
