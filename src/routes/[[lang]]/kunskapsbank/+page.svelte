@@ -3,7 +3,12 @@
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
+	import FaqSection from '$lib/components/sections/FaqSection.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
+	import Heading from '$lib/components/typography/Heading.svelte';
+	import Link from '$lib/components/typography/Link.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
@@ -22,7 +27,7 @@
 		<div class="intro-copy">
 			<PageContent>
 				{#each data.content.glossaryPage.intro as paragraph, i (i)}
-					<p>{paragraph}</p>
+					<Text as="p">{paragraph}</Text>
 				{/each}
 			</PageContent>
 		</div>
@@ -30,27 +35,20 @@
 		<img class="intro-image" src={data.content.glossaryPage.introImage.src} alt={data.content.glossaryPage.introImage.alt} />
 	</div>
 
-	<section class="faq-section">
-		<h2>{data.content.glossaryPage.faqTitle}</h2>
+	<FaqSection title={data.content.glossaryPage.faqTitle} items={data.content.glossaryPage.faqs} />
 
-		<div class="faq-list">
-			{#each data.content.glossaryPage.faqs as item (item.question)}
-				<article class="faq-item">
-					<h3>{item.question}</h3>
-					<p>{item.answer}</p>
-				</article>
-			{/each}
-		</div>
-	</section>
+	<div class="guide-callout">
+		<Surface as="section" radius="large" padding="large">
+			<div class="guide-callout-inner">
+				<div>
+					<Heading as="h2">{data.content.glossaryPage.guide.title}</Heading>
+					<Text as="p">{data.content.glossaryPage.guide.text}</Text>
+				</div>
 
-	<section class="guide-callout">
-		<div>
-			<h2>{data.content.glossaryPage.guide.title}</h2>
-			<p>{data.content.glossaryPage.guide.text}</p>
-		</div>
-
-		<a href={toPath(data.content.glossaryPage.guide.path)}>{data.content.glossaryPage.guide.label}</a>
-	</section>
+				<Link href={toPath(data.content.glossaryPage.guide.path)}>{data.content.glossaryPage.guide.label}</Link>
+			</div>
+		</Surface>
+	</div>
 
 	<div class="sections">
 		{#each data.content.glossaryPage.sections as item, index (item.title)}
@@ -90,64 +88,42 @@
 		margin-top: 2rem;
 	}
 
-	.intro-copy p,
-	.faq-item p,
-	.guide-callout p {
-		line-height: 1.8;
-		color: #44574e;
+	.intro-copy :global(p) {
+		color: var(--muted);
 	}
 
 	.intro-image {
 		display: block;
 		width: 100%;
-		border-radius: 1.5rem;
+		border-radius: var(--radius-large);
 	}
 
-	.faq-section,
 	.guide-callout,
 	.sections {
 		margin-top: 3rem;
 	}
 
-	.faq-section h2,
-	.guide-callout h2 {
-		font-size: clamp(1.7rem, 3vw, 2.5rem);
-		line-height: 1.05;
-	}
-
-	.faq-list,
-	.sections {
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.faq-item {
-		padding: 1.4rem 1.6rem;
-		background: rgba(255, 255, 255, 0.88);
-		border-radius: 1.35rem;
-	}
-
-	.faq-item h3 {
-		margin-bottom: 0.6rem;
-		font-size: 1.15rem;
-		line-height: 1.4;
-	}
-
-	.guide-callout {
+	.guide-callout-inner {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: end;
 		justify-content: space-between;
 		gap: 1rem 2rem;
-		padding: 1.6rem 1.8rem;
-		background: rgba(255, 255, 255, 0.88);
-		border-radius: 1.5rem;
 	}
 
-	.guide-callout a {
-		color: #0f4d78;
-		font-weight: 700;
+	.guide-callout :global(p) {
+		color: var(--muted);
+	}
+
+	.guide-callout :global(.link) {
+		font-weight: var(--weight-bold);
 		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.sections {
+		display: grid;
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 820px) {
