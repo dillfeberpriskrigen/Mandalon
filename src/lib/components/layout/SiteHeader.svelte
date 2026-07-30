@@ -2,11 +2,26 @@
 	import { localePath } from '$lib/utils/routing';
 	import { pagePaths } from '$lib/content/site';
 
+	/**
+	 * @typedef {Object} LayoutData
+	 * @property {string} path
+	 * @property {import('$lib/content/site').Locale} locale
+	 * @property {import('$lib/content/site').Locale} defaultLocale
+	 * @property {(typeof import('$lib/content/site').siteContent)['sv']} content
+	 */
+
+	/** @type {{ data: LayoutData, currentPath?: string }} */
 	const { data, currentPath = '' } = $props();
 
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
-	const getSwitchPath = () =>
-		data.locale === 'sv' ? localePath('en', data.defaultLocale, pagePaths[data.path]?.en) : localePath('sv', data.defaultLocale, pagePaths[data.path]?.sv);
+
+	/** @param {string} path */
+	const getLocalizedSlug = (path) => (Object.hasOwn(pagePaths, path) ? pagePaths[/** @type {keyof typeof pagePaths} */ (path)] : undefined);
+
+	const getSwitchPath = () => {
+		const slugs = getLocalizedSlug(data.path);
+		return data.locale === 'sv' ? localePath('en', data.defaultLocale, slugs?.en) : localePath('sv', data.defaultLocale, slugs?.sv);
+	};
 
 	/** @param {string} path */
 	const isActive = (path) => {

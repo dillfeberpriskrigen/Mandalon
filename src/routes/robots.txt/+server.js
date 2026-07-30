@@ -1,5 +1,8 @@
 import { siteUrl } from '$lib/seo';
 
+/**
+ * @param {string} hostname
+ */
 function isBlockedHost(hostname) {
 	return hostname === 'develop.mandalon.se' || hostname.endsWith('.develop.mandalon.se');
 }

@@ -1,8 +1,11 @@
 import { defaultLocale, locales } from '$lib/content/site';
 import { localePath } from '$lib/utils/routing';
 
+/** @typedef {{ sv: string, en: string }} LocalizedRouteEntry */
+
 export const siteUrl = 'https://mandalon.se';
 
+/** @type {LocalizedRouteEntry[]} */
 const localizedRouteEntries = [
 	{ sv: '', en: '' },
 	{ sv: 'paketering', en: 'packaging' },
@@ -13,6 +16,9 @@ const localizedRouteEntries = [
 	{ sv: 'designguide', en: 'design-guide' }
 ];
 
+/**
+ * @param {string} pathname
+ */
 function normalizePathname(pathname) {
 	if (!pathname || pathname === '/') {
 		return '';
@@ -21,18 +27,29 @@ function normalizePathname(pathname) {
 	return pathname.replace(/^\/+|\/+$/g, '');
 }
 
+/**
+ * @param {string} pathname
+ * @returns {LocalizedRouteEntry | null}
+ */
 function getLocalizedEntry(pathname) {
 	const normalizedPath = normalizePathname(pathname);
+	/** @type {import('$lib/content/site').Locale} */
 	const locale = normalizedPath === 'en' || normalizedPath.startsWith('en/') ? 'en' : defaultLocale;
 	const localizedPath = locale === 'en' ? normalizedPath.replace(/^en\/?/, '') : normalizedPath;
 
 	return localizedRouteEntries.find((entry) => entry[locale] === localizedPath) ?? null;
 }
 
+/**
+ * @param {string} path
+ */
 export function toAbsoluteUrl(path) {
 	return path === '/' ? siteUrl : `${siteUrl}${path}`;
 }
 
+/**
+ * @param {string} pathname
+ */
 export function getAlternateLinks(pathname) {
 	const entry = getLocalizedEntry(pathname);
 
@@ -40,6 +57,7 @@ export function getAlternateLinks(pathname) {
 		return [];
 	}
 
+	/** @type {{ hreflang: string, href: string }[]} */
 	const links = locales.map((locale) => ({
 		hreflang: locale,
 		href: toAbsoluteUrl(localePath(locale, defaultLocale, entry[locale]))

@@ -1,5 +1,9 @@
+/** @typedef {'sv' | 'en'} Locale */
+
+/** @type {Locale} */
 export const defaultLocale = 'sv';
 
+/** @type {readonly Locale[]} */
 export const locales = ['sv', 'en'];
 
 // Ugly reverse lookup table, replace with something better at some point..

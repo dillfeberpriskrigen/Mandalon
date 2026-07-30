@@ -2,6 +2,9 @@ import { getSitemapEntries } from '$lib/seo';
 
 export const prerender = true;
 
+/**
+ * @param {string} value
+ */
 function escapeXml(value) {
 	return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&apos;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

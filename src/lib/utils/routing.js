@@ -1,8 +1,8 @@
 import { locales, defaultLocale } from '$lib/content/site';
 
 /**
- * @param {string} locale
- * @param {string} defaultLocale
+ * @param {import('$lib/content/site').Locale | string} locale
+ * @param {import('$lib/content/site').Locale | string} defaultLocale
  * @param {string} [path='']
  */
 export function localePath(locale, defaultLocale, path = '') {
@@ -10,7 +10,20 @@ export function localePath(locale, defaultLocale, path = '') {
 	return locale === defaultLocale ? `/${normalizedPath}`.replace(/\/+/g, '/') : `/${locale}${normalizedPath}`;
 }
 
+/**
+ * @param {string} value
+ * @returns {value is import('$lib/content/site').Locale}
+ */
+function isLocale(value) {
+	return /** @type {readonly string[]} */ (locales).includes(value);
+}
+
+/**
+ * @param {{ url: URL }} event
+ * @returns {{ locale: import('$lib/content/site').Locale | null, path: string }}
+ */
 export function getLocaleAndPathFromEvent(event) {
+	/** @type {import('$lib/content/site').Locale | null} */
 	let locale;
 	let path;
 
@@ -21,7 +34,7 @@ export function getLocaleAndPathFromEvent(event) {
 		//console.log("Root page accesed, use default locale")
 		locale = defaultLocale;
 		path = '';
-	} else if (locales.includes(segments[0])) {
+	} else if (isLocale(segments[0])) {
 		// The first part of the url is a known locale, use it
 		//console.log("The first part of the url is a known locale, use it")
 		locale = segments[0];

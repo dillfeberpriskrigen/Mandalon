@@ -14,10 +14,10 @@
 		}[];
 	};
 
-	let summary: AnalyticsSummary | null = null;
-	let loading = true;
-	let errorMessage = '';
-	let statsUrl = '';
+	let summary = $state<AnalyticsSummary | null>(null);
+	let loading = $state(true);
+	let errorMessage = $state('');
+	let statsUrl = $state('');
 
 	function formatTimestamp(value: string) {
 		return new Date(value).toLocaleString('sv-SE', {
@@ -76,7 +76,7 @@
 		{:else if errorMessage}
 			<section class="panel">
 				<p class="empty-state">Kunde inte hämta statistik från <code>{statsUrl}</code>: {errorMessage}</p>
-				<button class="retry-button" type="button" on:click={() => void loadStats()}> Försök igen </button>
+				<button class="retry-button" type="button" onclick={() => void loadStats()}> Försök igen </button>
 			</section>
 		{:else if summary}
 			<section class="summary-grid" aria-label="Sammanfattning">

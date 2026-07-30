@@ -13,6 +13,6 @@ export function load(event) {
 	return {
 		locale,
 		defaultLocale,
-		content: siteContent[locale]
+		content: siteContent[locale ?? defaultLocale]
 	};
 }

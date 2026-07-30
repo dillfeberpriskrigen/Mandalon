@@ -2,7 +2,7 @@
 
 ## Vital fixes
 
-- [ ] Se till att **npm run check** kan köras utan att retunera fel.
+- [x] Se till att **npm run check** kan köras utan att retunera fel.
 
 ## Medium
 
