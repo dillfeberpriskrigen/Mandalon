@@ -1,6 +1,9 @@
 <script>
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
+	import Link from '$lib/components/typography/Link.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
 
 	const { data } = $props();
 	const latitude = 58.448268;
@@ -21,27 +24,25 @@
 
 	<div class="people-flow">
 		{#each data.content.contactPage.people as person, index (person.name)}
-			<article class:reverse={index % 2 === 1} class="person-row">
-				<div class="person-image">
-					<img src={person.image} alt={person.imageAlt} />
-				</div>
-
-				<div class="person-copy">
-					<h2>{person.name}</h2>
-					{#if person.role}
-						<p class="role">{person.role}</p>
-					{/if}
-
+			<MediaArticleSection title={person.name} subtitle={person.role} reverse={index % 2 === 1}>
+				{#snippet content()}
 					<div class="person-details">
 						{#if person.phone}
-							<p><a href={person.phoneHref}>{person.phone}</a></p>
+							<Text as="p">
+								<Link href={person.phoneHref}>{person.phone}</Link>
+							</Text>
 						{/if}
 						{#if person.email}
-							<p><a href={person.emailHref}>{person.email}</a></p>
+							<Text as="p">
+								<Link href={person.emailHref}>{person.email}</Link>
+							</Text>
 						{/if}
 					</div>
-				</div>
-			</article>
+				{/snippet}
+				{#snippet media()}
+					<img src={person.image} alt={person.imageAlt} />
+				{/snippet}
+			</MediaArticleSection>
 		{/each}
 	</div>
 
@@ -73,68 +74,17 @@
 
 <style>
 	.people-flow {
-		display: grid;
-		gap: 2.5rem;
 		margin-top: 2.5rem;
 	}
 
-	.person-row {
-		display: grid;
-		grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1.45fr);
-		gap: 2rem;
-		align-items: center;
-	}
-
-	.person-row.reverse {
-		grid-template-columns: minmax(0, 1.45fr) minmax(180px, 0.55fr);
-	}
-
-	.person-row.reverse .person-image {
-		order: 2;
-	}
-
-	.person-row.reverse .person-copy {
-		order: 1;
-	}
-
-	.person-image img {
-		display: block;
-		width: 100%;
+	.people-flow :global(.media img) {
 		max-width: 240px;
-		height: auto;
-		border-radius: 1rem;
-		opacity: 0.92;
-	}
-
-	.person-copy {
-		max-width: 32rem;
-	}
-
-	.person-copy h2,
-	.location h2 {
-		font-size: clamp(2rem, 4vw, 3rem);
-		line-height: 1;
-	}
-
-	.role {
-		margin-top: 0.35rem;
-		font-size: 1.05rem;
-		font-weight: 700;
-		color: #506458;
 	}
 
 	.person-details {
 		display: grid;
 		gap: 0.35rem;
-		margin-top: 1rem;
-	}
-
-	.person-details p,
-	.person-details a,
-	.location p,
-	.location a {
-		line-height: 1.75;
-		color: #506458;
+		margin-top: 0.5rem;
 	}
 
 	.location {
@@ -149,26 +99,24 @@
 
 	.location-copy h2 {
 		margin-bottom: 0.8rem;
+		font-size: clamp(2rem, 4vw, 3rem);
+		line-height: 1;
+	}
+
+	.location p,
+	.location a {
+		line-height: 1.75;
+		color: var(--muted);
 	}
 
 	.map-wrap iframe {
 		width: 100%;
 		height: 26rem;
 		border: 0;
-		border-radius: 1rem;
+		border-radius: var(--border-radius);
 	}
 
 	@media (max-width: 900px) {
-		.person-row,
-		.person-row.reverse {
-			grid-template-columns: 1fr;
-		}
-
-		.person-row.reverse .person-image,
-		.person-row.reverse .person-copy {
-			order: initial;
-		}
-
 		.map-wrap iframe {
 			height: 20rem;
 		}

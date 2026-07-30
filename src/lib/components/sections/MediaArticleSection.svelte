@@ -10,7 +10,7 @@
 		media?: Snippet;
 		reverse?: boolean;
 	}
-	let { title, subtitle, content, reverse, media }: Props = $props();
+	let { title, subtitle, content, reverse = false, media }: Props = $props();
 </script>
 
 <article class:reverse class:twocolumn={(title || subtitle || content) && media}>
@@ -38,27 +38,22 @@
 </article>
 
 <style>
-	*,
-	article :global(*) {
-		outline: none 0.1px red;
-	}
-
 	article {
 		display: grid;
 		align-items: center;
 		gap: 1.5rem;
 		padding: 1.35rem;
-		margin: 1rem;
+		margin: 1rem 0;
 		border-radius: var(--border-radius);
 		background: var(--content-background);
-		box-shadow: 2px 2px 5px 5px hsla(235, 31%, 80%, 0.5);
-		outline: solid 0.1px hsla(235, 31%, 70%, 1);
+		box-shadow: var(--shadow-medium);
 	}
 
-	/* Make the topic grid slightly larger than the media grid */
+	/* Topic column slightly larger than media */
 	.twocolumn {
 		grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
 	}
+
 	.twocolumn.reverse {
 		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 	}
@@ -67,17 +62,21 @@
 		color: var(--ink);
 	}
 
-	/* All paragraphs within this article */
 	article :global(p) {
 		color: var(--muted);
-		margin: 1ch 0ch;
+		margin: 1ch 0;
 	}
 
 	.media {
 		display: block;
-
-		object-fit: cover;
 		border-radius: 1.1rem;
+	}
+
+	.media :global(img) {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: inherit;
 	}
 
 	.reverse .media {
@@ -85,11 +84,10 @@
 	}
 
 	@media (max-width: 780px) {
-		/* 1 column if narrow */
 		.twocolumn {
 			grid-template-columns: 1fr;
 		}
-		/* Ensure the media with its header comes before the topic */
+
 		.reverse .media {
 			order: 0;
 		}
