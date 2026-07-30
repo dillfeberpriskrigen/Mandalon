@@ -28,7 +28,7 @@ B2B website for Mandalon — chip packaging, wire bonding, and consulting.
 ## Usability
 
 - Pages must be **scannable** — clear headings, lead text, logical sections
-- **Readable line length** — use `.text-width` or `PageContent`
+- **Readable line length** — use `PageContent` (applies `.text-width`)
 - **Contact path** must stay obvious from main pages
 - **Mobile:** usable down to ~320px; test breakpoints around 780–900px
 - **Languages:** Swedish default, English via `/en/…` — no hardcoded locale strings in pages

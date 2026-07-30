@@ -45,7 +45,7 @@ Allowed variants only — no ad-hoc `font-size` in page scoped CSS:
 | Section heading | `<Heading as="h2">` (`.page-header`) |
 | Sub-section | `<Heading as="h3">` (`.page-sub-section`) |
 | Links | `<Link>` (`.link`) |
-| Constrained width | `PageContent` or `.text-width` |
+| Constrained width | `PageContent` (applies `.text-width`) |
 
 Tokens live in `:root` (`--text-*`, `--page-header-*`, `--page-sub-section-*`). Classes in `typography.css`.
 
@@ -77,15 +77,15 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 ## Containers & page layout
 
 ```html
-<div class="container-wide">   <!-- full-page shell -->
-  <div class="container">      <!-- centered content column -->
-    <h1 class="page-title">…</h1>
-    <p class="text-width">…</p>
-  </div>
-</div>
+<PageShell>
+  <PageHeader title="…" lead="…" />
+  <PageContent>…</PageContent>   <!-- readable line length via .text-width -->
+</PageShell>
 ```
 
-Variants: Will be phased out during refactoring, but currently support exists for `.container-narrow`, `.container-wide`, `PageContent` with `narrow` / `wide` props.
+- **Page chrome:** `PageShell` → padding + `.container` (default `--container-width-default`)
+- **Body copy:** `PageContent` → `.text-width` (`--text-width`)
+- Leftover `.container-narrow` / `.container-wide` remain only on home / designguide until those page migrations
 
 ## Do not
 

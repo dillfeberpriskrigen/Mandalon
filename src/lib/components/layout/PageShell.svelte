@@ -3,13 +3,12 @@
 
 	interface Props {
 		children: Snippet;
-		narrow?: boolean;
 	}
 
-	let { children, narrow = false }: Props = $props();
+	let { children }: Props = $props();
 </script>
 
-<section class="page-shell" class:narrow>
+<section class="page-shell">
 	<div class="container">
 		{@render children()}
 	</div>
@@ -18,9 +17,5 @@
 <style>
 	.page-shell {
 		padding: 4rem 0 6rem;
-	}
-
-	.narrow {
-		--container-width: var(--container-width-narrow);
 	}
 </style>

@@ -1,4 +1,5 @@
 <script>
+	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import { localePath } from '$lib/utils/routing';
@@ -12,14 +13,16 @@
 	<meta name="description" content={data.content.glossaryPage.meta.description} />
 </svelte:head>
 
-<PageShell narrow>
+<PageShell>
 	<PageHeader title={data.content.glossaryPage.title} lead={data.content.glossaryPage.lead} />
 
 	<div class="intro-grid">
-		<div class="intro-copy text-width">
-			{#each data.content.glossaryPage.intro as paragraph, i (i)}
-				<p>{paragraph}</p>
-			{/each}
+		<div class="intro-copy">
+			<PageContent>
+				{#each data.content.glossaryPage.intro as paragraph, i (i)}
+					<p>{paragraph}</p>
+				{/each}
+			</PageContent>
 		</div>
 
 		<img class="intro-image" src={data.content.glossaryPage.introImage.src} alt={data.content.glossaryPage.introImage.alt} />

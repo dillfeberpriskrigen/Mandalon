@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 
@@ -12,8 +13,10 @@
 
 <Heading as="h1">{title}</Heading>
 {#if lead}
-	<div class="lead-wrap text-width">
-		<Text as="p" variant="lead">{lead}</Text>
+	<div class="lead-wrap">
+		<PageContent>
+			<Text as="p" variant="lead">{lead}</Text>
+		</PageContent>
 	</div>
 {/if}
 

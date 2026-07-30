@@ -1,4 +1,5 @@
 <script>
+	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
@@ -18,10 +19,10 @@
 
 	<div class="intro">
 		<Surface as="section" radius="large" padding="large">
-			<div class="text-width">
+			<PageContent>
 				<Heading as="h2">{data.content.consultingPage.introTitle}</Heading>
 				<Text as="p">{data.content.consultingPage.introText}</Text>
-			</div>
+			</PageContent>
 		</Surface>
 	</div>
 

@@ -1,4 +1,5 @@
 <script>
+	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
@@ -14,20 +15,24 @@
 	<meta name="description" content={data.content.aboutPage.meta.description} />
 </svelte:head>
 
-<PageShell narrow>
+<PageShell>
 	<PageHeader title={data.content.aboutPage.title} lead={data.content.aboutPage.lead} />
 
-	<section class="narrative text-width">
-		<Heading as="h2">{data.content.aboutPage.introTitle}</Heading>
-		{#each data.content.aboutPage.intro as paragraph, i (i)}
-			<Text as="p">{paragraph}</Text>
-		{/each}
-	</section>
+	<PageContent>
+		<section class="narrative">
+			<Heading as="h2">{data.content.aboutPage.introTitle}</Heading>
+			{#each data.content.aboutPage.intro as paragraph, i (i)}
+				<Text as="p">{paragraph}</Text>
+			{/each}
+		</section>
+	</PageContent>
 
-	<section class="story text-width">
-		<Heading as="h2">{data.content.aboutPage.storyTitle}</Heading>
-		<Text as="p">{data.content.aboutPage.story}</Text>
-	</section>
+	<PageContent>
+		<section class="story">
+			<Heading as="h2">{data.content.aboutPage.storyTitle}</Heading>
+			<Text as="p">{data.content.aboutPage.story}</Text>
+		</section>
+	</PageContent>
 
 	<div class="trust-grid">
 		<Surface as="section" radius="large" padding="large">

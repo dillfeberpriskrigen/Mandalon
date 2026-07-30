@@ -49,10 +49,9 @@ Prefer typography components (`Text`, `Heading`, `Link`) where ready; global hea
 
 	interface Props {
 		children: Snippet;
-		narrow?: boolean;
 	}
 
-	let { children, narrow = false }: Props = $props();
+	let { children }: Props = $props();
 </script>
 ```
 
@@ -63,7 +62,7 @@ Prefer typography components (`Text`, `Heading`, `Link`) where ready; global hea
 
 - Pass copy via props or snippets — do not hardcode user-facing text in components
 - Page content comes from `data.content` (sourced from `siteContent` in `src/lib/content/site.js`, loaded in `+layout.js`)
-- Use `PageShell` for page padding + `.container`; use `PageContent` for inner width constraints; use `Surface` for card/panel backgrounds
+- Use `PageShell` for page padding + `.container` (one page width; no `narrow`/`wide`); use `PageContent` for readable body width (`.text-width`); use `Surface` for card/panel backgrounds
 - Use `Text` with `variant` (`body` | `lead` | `caption` | `label`) instead of ad-hoc font sizes
 
 ## i18n route wrappers

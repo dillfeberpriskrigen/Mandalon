@@ -110,7 +110,7 @@ a {
 	margin: 0 auto;
 }
 
-/* Max width for some text sections otherwise unbound or too largely bound */
+/* Readable line length — prefer <PageContent> over applying this class directly */
 .text-width {
 	max-width: var(--text-width);
 }

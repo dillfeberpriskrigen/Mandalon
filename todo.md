@@ -26,7 +26,7 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 
 - [x] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion). (`.text-label` tillagt)
 - [x] **Enhetlig textstil:** Inventera textklasser/stilar i sidor och scoped CSS; begränsa till få tillåtna varianter (`Text` + `Heading` + globala heading-klasser) och migrera bort ad-hoc fontstorlekar. (kvar: kontakt, kunskapsbank, home, designguide vid sidmigration)
-- [ ] **Textbehållare:** Ta bort `narrow` / `wide` från `PageContent`; använd en gemensam bredd på alla sidor. Ersätt blandade container-/bredd-mönster (inkl. `.text-width` där det behövs) så brödtext får enhetlig bredd, placering och läsbarhet.
+- [x] **Textbehållare:** Ta bort `narrow` / `wide` från `PageContent`; använd en gemensam bredd på alla sidor. Ersätt blandade container-/bredd-mönster (inkl. `.text-width` där det behövs) så brödtext får enhetlig bredd, placering och läsbarhet. (`PageContent` = `.text-width`; `PageShell` utan `narrow`; kvar: home / designguide container-varianter vid sidmigration)
 - [ ] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints).
 - [x] **Flytta site chrome:** Flytta `SiteHeader.svelte` och `SiteFooter.svelte` till `src/lib/components/layout/` och uppdatera imports.
 - [x] **Flytta innehållskomponenter:** Flytta `ParagraphArray.svelte` till `src/lib/components/content/` och uppdatera imports.

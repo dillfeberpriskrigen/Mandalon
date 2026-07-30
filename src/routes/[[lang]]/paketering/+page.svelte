@@ -17,15 +17,19 @@
 <PageShell>
 	<PageHeader title={data.content.chipSensorsPage.title} lead={data.content.chipSensorsPage.lead} />
 
-	<div class="intro-stack text-width">
-		{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
-			<Text as="p">{paragraph}</Text>
-		{/each}
-	</div>
+	<PageContent>
+		<div class="intro-stack">
+			{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
+				<Text as="p">{paragraph}</Text>
+			{/each}
+		</div>
+	</PageContent>
 
-	<div class="intro-stack text-width">
-		<Text as="p">{data.content.chipSensorsPage.capabilitiesPresentation}</Text>
-	</div>
+	<PageContent>
+		<div class="intro-stack">
+			<Text as="p">{data.content.chipSensorsPage.capabilitiesPresentation}</Text>
+		</div>
+	</PageContent>
 	<table class="capabilities-table">
 		<tbody>
 			{#each data.content.chipSensorsPage.capabilities as capability (capability.name)}
@@ -37,18 +41,16 @@
 		</tbody>
 	</table>
 
-	<PageContent>
-		{#each data.content.chipSensorsPage.areas as area, i (area.title)}
-			<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
-				{#snippet content()}
-					<ParagraphArray paragraphs={area.paragraphs} />
-				{/snippet}
-				{#snippet media()}
-					<img src={area.image} alt={area.imageAlt} />
-				{/snippet}
-			</MediaArticleSection>
-		{/each}
-	</PageContent>
+	{#each data.content.chipSensorsPage.areas as area, i (area.title)}
+		<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
+			{#snippet content()}
+				<ParagraphArray paragraphs={area.paragraphs} />
+			{/snippet}
+			{#snippet media()}
+				<img src={area.image} alt={area.imageAlt} />
+			{/snippet}
+		</MediaArticleSection>
+	{/each}
 </PageShell>
 
 <style>

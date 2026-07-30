@@ -12,12 +12,12 @@ Break pages into reusable components and unify styling from `app.css` and `src/l
 
 Current priorities:
 
-1. **Text container** — remove `narrow` / `wide` from `PageContent`; unify page width
-2. **Sections** — extend `MediaArticleSection` for kontakt / kunskapsbank; extract `FaqSection`, grids, callouts as patterns repeat
-3. **Page migration** — one page at a time; `paketering` is the reference implementation (finish typography cleanup on remaining pages)
+1. **Sections** — extend `MediaArticleSection` for kontakt / kunskapsbank; extract `FaqSection`, grids, callouts as patterns repeat
+2. **Page migration** — one page at a time; `paketering` is the reference implementation (finish typography cleanup on remaining pages); drop leftover `.container-narrow` / `.container-wide` on home / designguide
+3. **Reduce scoped styles** — audit each `+page.svelte`; move shared styling to components or `src/lib/styles/`
 4. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
 
-Done: typography option A + unified text tokens; Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages.
+Done: typography option A + unified text tokens; text container (`PageContent` = `.text-width`, `PageShell` single width); Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages.
 
 Component structure, WIP status, and extraction rules: see `svelte-components.mdc`.
 
