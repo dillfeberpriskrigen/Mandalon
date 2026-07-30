@@ -27,7 +27,7 @@
 	--accent: #f0b437;
 	--accent-deep: #d09212;
 	--line: rgba(16, 35, 28, 0.1);
-	--content-background: hsla(0, 0%, 92%, 0.785);
+	--content-background: rgb(255, 255, 255);
 
 	--radius-small: 0.25rem;
 	--radius-medium: 0.5rem;

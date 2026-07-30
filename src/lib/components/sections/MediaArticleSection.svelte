@@ -51,7 +51,8 @@
 		margin: 1rem;
 		border-radius: var(--border-radius);
 		background: var(--content-background);
-		box-shadow: 0px 0px 0px 3px hsla(0, 100%, 50%, 0.2);
+		box-shadow: 2px 2px 5px 5px hsla(235, 31%, 80%, 0.5);
+		outline: solid 0.1px hsla(235, 31%, 70%, 1);
 	}
 
 	/* Make the topic grid slightly larger than the media grid */
