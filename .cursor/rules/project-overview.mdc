@@ -9,6 +9,7 @@ SvelteKit remake of [mandalon.se](https://mandalon.se). B2B site for chip packag
 - **SvelteKit 2** with **Vite 5**
 - **Node 18.20.8** (see `.nvmrc`)
 - **Adapter:** `@sveltejs/adapter-node` (README also mentions static deploy to `build/` but this is obsolete information and should be updated in the future)
+- **TS** used in all new files, phasing out js
 - **JS + JSDoc** with `checkJs: true` — TypeScript used selectively (`lang="ts"` in some components)
 - **Lint/format:** ESLint + Prettier (`npm run lint`, `npm run format`)
 - **Type check:** `npm run check` (svelte-check)
