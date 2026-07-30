@@ -6,6 +6,8 @@
 
 ## Medium
 
+- [x] Ta bort /empty som använts för att testa layout
+
 ## Low
 
 - [ ] Migrera helt och hållet till typescript istället för javascript.
