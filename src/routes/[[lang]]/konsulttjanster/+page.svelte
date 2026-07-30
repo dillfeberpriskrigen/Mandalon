@@ -1,4 +1,6 @@
 <script>
+	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+
 	const { data } = $props();
 </script>
 
@@ -9,8 +11,7 @@
 
 <section class="page-content">
 	<div class="container">
-		<h1 class="page-title">{data.content.consultingPage.title}</h1>
-		<p class="lead text-width">{data.content.consultingPage.lead}</p>
+		<PageHeader title={data.content.consultingPage.title} lead={data.content.consultingPage.lead} />
 
 		<section class="intro-panel text-width">
 			<h2>{data.content.consultingPage.introTitle}</h2>

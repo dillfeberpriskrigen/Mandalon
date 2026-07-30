@@ -1,4 +1,5 @@
 <script>
+	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import { localePath } from '$lib/utils/routing';
 
 	const { data } = $props();
@@ -12,8 +13,7 @@
 
 <section class="container-narrow">
 	<div class="container">
-		<h1 class="page-title">{data.content.glossaryPage.title}</h1>
-		<p class="lead text-width">{data.content.glossaryPage.lead}</p>
+		<PageHeader title={data.content.glossaryPage.title} lead={data.content.glossaryPage.lead} />
 
 		<div class="intro-grid">
 			<div class="intro-copy text-width">

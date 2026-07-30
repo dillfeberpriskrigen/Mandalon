@@ -1,4 +1,6 @@
 <script>
+	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+
 	const { data } = $props();
 	const latitude = 58.448268;
 	const longitude = 15.826769;
@@ -15,8 +17,7 @@
 
 <section class="info-page">
 	<div class="container">
-		<h1 class="page-title">{data.content.contactPage.title}</h1>
-		<p class="lead text-width">{data.content.contactPage.lead}</p>
+		<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />
 
 		<div class="people-flow">
 			{#each data.content.contactPage.people as person, index (person.name)}

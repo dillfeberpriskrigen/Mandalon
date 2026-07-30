@@ -1,6 +1,7 @@
 <script>
 	import PageContent from '$lib/components/layout/PageContent.svelte';
-	import ParagraphArray from '$lib/components/ParagraphArray.svelte';
+	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 
 	const { data } = $props();
@@ -13,8 +14,7 @@
 
 <div class="container page-content">
 	<section>
-		<h1 class="page-title">{data.content.chipSensorsPage.title}</h1>
-		<p class="lead text-width">{data.content.chipSensorsPage.lead}</p>
+		<PageHeader title={data.content.chipSensorsPage.title} lead={data.content.chipSensorsPage.lead} />
 
 		<div class="intro-stack text-width">
 			{#each data.content.chipSensorsPage.intro as paragraph, i (i)}

@@ -5,8 +5,8 @@
 	import { onMount } from 'svelte';
 	import { trackPageView } from '$lib/client/analytics';
 	import { getAlternateLinks } from '$lib/seo';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import SiteHeader from '$lib/components/layout/SiteHeader.svelte';
+	import SiteFooter from '$lib/components/layout/SiteFooter.svelte';
 	import '../app.css';
 
 	const { data, children } = $props();

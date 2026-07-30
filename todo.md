@@ -16,13 +16,13 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 ### Komponentstruktur
 
 - [ ] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion).
-- [ ] **Flytta site chrome:** Flytta `SiteHeader.svelte` och `SiteFooter.svelte` till `src/lib/components/layout/` och uppdatera imports.
-- [ ] **Flytta innehållskomponenter:** Flytta `ParagraphArray.svelte` till `src/lib/components/content/` och uppdatera imports.
-- [ ] **Utvärdera Image:** Behåll `Image.svelte` endast om den behövs (t.ex. lazy loading, aspect ratio, caption). Annars ta bort komponenten och använd `<img>` direkt tills behov uppstår.
+- [x] **Flytta site chrome:** Flytta `SiteHeader.svelte` och `SiteFooter.svelte` till `src/lib/components/layout/` och uppdatera imports.
+- [x] **Flytta innehållskomponenter:** Flytta `ParagraphArray.svelte` till `src/lib/components/content/` och uppdatera imports.
+- [x] **Utvärdera Image:** Behåll `Image.svelte` endast om den behövs (t.ex. lazy loading, aspect ratio, caption). Annars ta bort komponenten och använd `<img>` direkt tills behov uppstår.
 
 ### Komponenter att bygga (efter strukturen ovan)
 
-- [ ] **`PageHeader` / `PageShell`** — gemensamt sidhuvud (`h1` + lead) och sid-padding som upprepas på de flesta sidor.
+- [x] **`PageHeader`** / [ ] **`PageShell`** — gemensamt sidhuvud (`h1` + lead) och sid-padding som upprepas på de flesta sidor.
 - [ ] **Utöka `MediaArticleSection`** — täck samma mönster som `kontakt` (person-rader) och `kunskapsbank` (topic-rader).
 - [ ] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
 - [ ] **`Table`** — migrera capabilities-tabellen på paketering när komponenten implementeras.

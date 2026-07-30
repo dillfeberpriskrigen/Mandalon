@@ -1,12 +1,7 @@
 <script>
 	import PageContent from '$lib/components/layout/PageContent.svelte';
-	import ParagraphArray from '$lib/components/ParagraphArray.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
-	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
-	import { siteContent } from '$lib/content/site';
-
-	const content = siteContent.sv;
 </script>
 
 <PageContent>
