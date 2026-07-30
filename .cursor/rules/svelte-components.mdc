@@ -37,9 +37,9 @@ src/lib/components/
 
 | Ready | WIP (empty or incomplete) |
 |-------|---------------------------|
-| `Text`, `Surface`, `PageContent`, `PageHeader`, `PageShell`, `MediaArticleSection`, `ParagraphArray` | `Heading`, `Link`, `Button`, `Table` |
+| `Text`, `Heading`, `Link`, `Surface`, `PageContent`, `PageHeader`, `PageShell`, `MediaArticleSection`, `ParagraphArray` | `Button`, `Table` |
 
-Do not assume WIP components exist — use global typography classes from `app.css` until they are implemented.
+Prefer typography components (`Text`, `Heading`, `Link`) where ready; global heading classes remain valid during page migration.
 
 ## Props pattern
 

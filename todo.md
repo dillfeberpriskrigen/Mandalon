@@ -21,7 +21,7 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 
 ### Komponentstruktur
 
-- [ ] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion).
+- [x] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion). (`.text-label` tillagt)
 - [ ] **Enhetlig textstil:** Inventera textklasser/stilar i sidor och scoped CSS; begränsa till få tillåtna varianter (`Text` + `Heading` + globala heading-klasser) och migrera bort ad-hoc fontstorlekar.
 - [ ] **Textbehållare:** Ta bort `narrow` / `wide` från `PageContent`; använd en gemensam bredd på alla sidor. Ersätt blandade container-/bredd-mönster (inkl. `.text-width` där det behövs) så brödtext får enhetlig bredd, placering och läsbarhet.
 - [ ] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints).
@@ -32,9 +32,9 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 ### Komponenter att bygga (efter strukturen ovan)
 
 - [x] **`PageHeader`** / [x] **`PageShell`** — gemensamt sidhuvud (`h1` + lead) och sid-padding som upprepas på de flesta sidor.
-- [ ] **`Heading` och `Link`** — implementera WIP-komponenterna så typografilagret (option A) kan användas konsekvent på sidor.
+- [x] **`Heading` och `Link`** — implementera WIP-komponenterna så typografilagret (option A) kan användas konsekvent på sidor.
 - [ ] **Utöka `MediaArticleSection`** — täck samma mönster som `kontakt` (person-rader) och `kunskapsbank` (topic-rader).
-- [ ] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
+- [x] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
 - [ ] **`Table`** — migrera capabilities-tabellen på paketering när komponenten implementeras.
 - [ ] **`FaqSection`** — extrahera från kunskapsbank vid sidmigration.
 - [ ] **Övriga upprepningar** — vid sidmigration: extrahera till `sections/` / `content/` när samma mönster syns på 2+ sidor (t.ex. callouts, feature-rader); behåll engångsmönster i sidan.

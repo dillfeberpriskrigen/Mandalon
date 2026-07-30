@@ -18,6 +18,13 @@
 	line-height: var(--text-caption-line);
 }
 
+.text-label {
+	font-size: var(--text-caption-size);
+	line-height: var(--text-caption-line);
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
 .text-weight-thin {
 	font-weight: var(--weight-thin);
 }
@@ -32,4 +39,14 @@
 
 .text-weight-boldest {
 	font-weight: var(--weight-boldest);
+}
+
+.link {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.link:hover {
+	color: var(--ink);
 }

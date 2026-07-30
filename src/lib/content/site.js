@@ -282,6 +282,8 @@ export const siteContent = {
 			certificationNote: 'Senaste Q-revision i referensmaterialet: 2024-03-20.',
 			referencesTitle: 'Referenser och forskningsprojekt',
 			referencesLead: 'Bakgrunden i forskning och längre industriprojekt är en viktig del av Mandalons trovärdighet. Här är några exempel som visar bredden.',
+			referencesHeading: 'Utvalda referenser',
+			researchProjectsHeading: 'Forskningsprojekt',
 			references: [
 				'Autoliv, industrialiseringsprocess 2012-14',
 				'Neonode, industrialiseringsprocess 2015-16',
@@ -679,6 +681,8 @@ export const siteContent = {
 			referencesTitle: 'References and research projects',
 			referencesLead:
 				'The combination of research background and longer industrial assignments is an important part of Mandalon’s credibility. These are a few examples.',
+			referencesHeading: 'Selected references',
+			researchProjectsHeading: 'Research projects',
 			references: [
 				'Autoliv, industrialisation process 2012-14',
 				'Neonode, industrialisation process 2015-16',

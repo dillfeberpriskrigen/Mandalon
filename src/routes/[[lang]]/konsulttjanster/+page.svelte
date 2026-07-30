@@ -1,6 +1,8 @@
 <script>
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
+	import Heading from '$lib/components/typography/Heading.svelte';
 
 	const { data } = $props();
 </script>
@@ -13,44 +15,39 @@
 <PageShell>
 	<PageHeader title={data.content.consultingPage.title} lead={data.content.consultingPage.lead} />
 
-	<section class="intro-panel text-width">
-		<h2>{data.content.consultingPage.introTitle}</h2>
-		<p>{data.content.consultingPage.introText}</p>
-	</section>
+	<div class="intro">
+		<Surface as="section" radius="large" padding="large">
+			<div class="text-width">
+				<Heading as="h2">{data.content.consultingPage.introTitle}</Heading>
+				<p>{data.content.consultingPage.introText}</p>
+			</div>
+		</Surface>
+	</div>
 
 	<div class="services-grid">
 		{#each data.content.consultingPage.services as service (service.title)}
-			<article class="service-card">
-				<h2>{service.title}</h2>
+			<Surface as="article" radius="large" padding="large">
+				<Heading as="h2">{service.title}</Heading>
 				<p>{service.text}</p>
 				<ul>
 					{#each service.points as point (point)}
 						<li>{point}</li>
 					{/each}
 				</ul>
-			</article>
+			</Surface>
 		{/each}
 	</div>
 </PageShell>
 
 <style>
-	.intro-panel {
+	.intro {
 		margin-top: 2.2rem;
-		padding: 1.7rem 1.8rem;
-		border-radius: 1.5rem;
-		background: rgba(255, 255, 255, 0.92);
 	}
 
-	.intro-panel h2 {
-		margin-bottom: 0.7rem;
-		font-size: 1.55rem;
-		line-height: 1.1;
-	}
-
-	.intro-panel p,
-	.service-card p {
+	.intro p,
+	.services-grid :global(p) {
 		line-height: 1.75;
-		color: #506458;
+		color: var(--muted);
 	}
 
 	.services-grid {
@@ -60,29 +57,17 @@
 		margin-top: 1.4rem;
 	}
 
-	.service-card {
-		padding: 1.7rem;
-		border-radius: 1.5rem;
-		background: rgba(255, 255, 255, 0.95);
-	}
-
-	.service-card h2 {
-		margin-bottom: 0.75rem;
-		font-size: 1.8rem;
-		line-height: 1.05;
-	}
-
-	.service-card ul {
+	ul {
 		margin-top: 1rem;
 		padding-left: 1.1rem;
-		color: #10231c;
+		color: var(--ink);
 	}
 
-	.service-card li::marker {
-		color: #d09212;
+	li::marker {
+		color: var(--accent-deep);
 	}
 
-	.service-card li + li {
+	li + li {
 		margin-top: 0.55rem;
 	}
 
