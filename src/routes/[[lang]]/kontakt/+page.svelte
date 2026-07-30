@@ -1,7 +1,9 @@
 <script>
+	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
+	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 
@@ -47,27 +49,24 @@
 	</div>
 
 	<section class="location">
-		<div class="location-copy">
-			<h2>{data.locale === 'sv' ? 'Besök oss' : 'Visit us'}</h2>
-			{#each data.content.contactPage.details as detail (detail.label)}
-				<p>
-					<strong>{detail.label}:</strong>
-					{#if detail.href}
-						<a href={detail.href}>{detail.value}</a>
-					{:else}
-						{detail.value}
-					{/if}
-				</p>
-			{/each}
-		</div>
+		<PageContent>
+			<div class="location-copy">
+				<Heading as="h2">{data.content.contactPage.locationTitle}</Heading>
+				{#each data.content.contactPage.details as detail (detail.label)}
+					<Text as="p">
+						<Text as="span" weight="bold">{detail.label}: </Text>
+						{#if detail.href}
+							<Link href={detail.href}>{detail.value}</Link>
+						{:else}
+							{detail.value}
+						{/if}
+					</Text>
+				{/each}
+			</div>
+		</PageContent>
 
 		<div class="map-wrap">
-			<iframe
-				title={data.locale === 'sv' ? 'Karta till Mandalon' : 'Map to Mandalon'}
-				src={mapEmbedUrl}
-				loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"
-			></iframe>
+			<iframe title={data.content.contactPage.mapTitle} src={mapEmbedUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 		</div>
 	</section>
 </PageShell>
@@ -97,19 +96,11 @@
 		margin-top: 3rem;
 	}
 
-	.location-copy {
-		max-width: 40rem;
-	}
-
-	.location-copy h2 {
+	.location-copy :global(.page-header) {
 		margin-bottom: 0.8rem;
-		font-size: clamp(2rem, 4vw, 3rem);
-		line-height: 1;
 	}
 
-	.location p,
-	.location a {
-		line-height: 1.75;
+	.location-copy :global(p) {
 		color: var(--muted);
 	}
 

@@ -340,7 +340,9 @@ export const siteContent = {
 				{ label: 'E-post', value: 'info@mandalon.se', href: 'mailto:info@mandalon.se' },
 				{ label: 'Hjälp', value: 'help@mandalon.se', href: 'mailto:help@mandalon.se' },
 				{ label: 'Adress', value: 'Bjärby Himmelslund 1, 585 61 Linghem' }
-			]
+			],
+			locationTitle: 'Besök oss',
+			mapTitle: 'Karta till Mandalon'
 		},
 		glossaryPage: {
 			meta: {
@@ -739,7 +741,9 @@ export const siteContent = {
 				{ label: 'Email', value: 'info@mandalon.se', href: 'mailto:info@mandalon.se' },
 				{ label: 'Support', value: 'help@mandalon.se', href: 'mailto:help@mandalon.se' },
 				{ label: 'Address', value: 'Bjärby Himmelslund 1, 585 61 Linghem, Sweden' }
-			]
+			],
+			locationTitle: 'Visit us',
+			mapTitle: 'Map to Mandalon'
 		},
 		glossaryPage: {
 			meta: {
