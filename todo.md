@@ -9,6 +9,7 @@
 ## Low
 
 - [ ] Migrera helt och hållet till typescript istället för javascript.
+- [ ] Om möjligt i komponenten `Link` Detektera automatiskt ifall en länk leder till en extern sajt, eller är en fil, och ge den `target="_blank"`
 
 ## Konsolidering av komponenter och formatmallar
 
