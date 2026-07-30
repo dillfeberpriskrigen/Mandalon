@@ -28,7 +28,7 @@
 		{/if}
 
 		{#if content}
-			<p class="content">{@render content()}</p>
+			<div class="content">{@render content()}</div>
 		{/if}
 	</div>
 </article>
