@@ -2,6 +2,8 @@
 
 ## Vital fixes
 
+- [ ] Se till att **npm run check** kan köras utan att retunera fel.
+
 ## Medium
 
 ## Low
