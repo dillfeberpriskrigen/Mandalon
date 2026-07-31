@@ -1,7 +1,9 @@
 <script>
 	import useEmblaCarousel from 'embla-carousel-svelte';
 	import Autoplay from 'embla-carousel-autoplay';
+	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
@@ -46,15 +48,17 @@
 					<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblaInit={handleEmblaInit}>
 						<div class="embla__container">
 							{#each data.content.consulting.features as feature (feature.title)}
-								<article class="embla__slide carousel-slide">
-									<div class="carousel-media">
-										<img src={feature.image} alt={feature.title} />
-									</div>
-									<div class="carousel-copy">
-										<Heading as="h3">{feature.title}</Heading>
-										<Text as="p">{feature.text}</Text>
-									</div>
-								</article>
+								<div class="embla__slide">
+									<Surface as="article" radius="large" padding="none">
+										<div class="carousel-media">
+											<img src={feature.image} alt={feature.title} />
+										</div>
+										<div class="carousel-copy">
+											<Heading as="h3">{feature.title}</Heading>
+											<Text as="p">{feature.text}</Text>
+										</div>
+									</Surface>
+								</div>
 							{/each}
 						</div>
 					</div>
@@ -69,9 +73,7 @@
 		<PageContent>
 			<div class="intro-copy">
 				<Heading as="h2">{data.content.salesIntro.title}</Heading>
-				{#each data.content.salesIntro.paragraphs as paragraph (paragraph)}
-					<Text as="p">{paragraph}</Text>
-				{/each}
+				<ParagraphArray paragraphs={data.content.salesIntro.paragraphs} />
 
 				<div class="intro-resource">
 					<Link href={data.content.salesIntro.resource.href} target="_blank" rel="noreferrer">
@@ -144,12 +146,6 @@
 			url('/mandalon/help-asic.jpg') center 65% / cover no-repeat;
 	}
 
-	.intro-copy :global(p),
-	.process-card :global(p),
-	.carousel-copy :global(p) {
-		color: var(--muted);
-	}
-
 	.intro-resource {
 		display: grid;
 		gap: 0.3rem;
@@ -167,8 +163,7 @@
 	}
 
 	.intro,
-	.carousel,
-	:global(footer.site-footer) {
+	.carousel {
 		padding: 5rem 0;
 	}
 
@@ -227,11 +222,9 @@
 		min-width: 0;
 	}
 
-	.carousel-slide {
+	.embla__slide :global(.surface) {
 		display: grid;
 		grid-template-columns: 1fr;
-		border-radius: 1.5rem;
-		background: #fff;
 		overflow: hidden;
 	}
 
@@ -268,16 +261,11 @@
 			padding-top: 4.5rem;
 		}
 
-		.carousel-slide {
-			min-height: 0;
-		}
-
 		.carousel-spotlight,
 		.embla,
 		.embla__viewport,
 		.embla__container,
 		.embla__slide,
-		.carousel-slide,
 		.carousel-copy,
 		.carousel-media {
 			min-width: 0;

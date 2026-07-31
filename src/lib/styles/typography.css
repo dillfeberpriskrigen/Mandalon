@@ -43,6 +43,7 @@ p + p {
 .text-body {
 	font-size: var(--text-body-size);
 	line-height: var(--text-body-line);
+	color: var(--muted);
 }
 
 .text-lead {
