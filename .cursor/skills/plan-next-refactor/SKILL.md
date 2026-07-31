@@ -33,11 +33,11 @@ Follow this priority order (from `refactoring.mdc`):
 
 Page migration order when choosing a page:
 
-| Phase | Pages |
-|-------|-------|
-| 1 | `kontakt`, `om-mandalon`, `konsulttjanster`, `kunskapsbank` |
-| 2 | home (`[[lang]]/+page.svelte`) |
-| 3 | `designguide` (last) |
+| Phase | Pages                                                       |
+| ----- | ----------------------------------------------------------- |
+| 1     | `kontakt`, `om-mandalon`, `konsulttjanster`, `kunskapsbank` |
+| 2     | home (`[[lang]]/+page.svelte`)                              |
+| 3     | `designguide` (last)                                        |
 
 Within a phase, prefer the open backlog item that unlocks the most reuse (e.g. extend `MediaArticleSection` before page-only cleanups that depend on it).
 
@@ -64,21 +64,25 @@ Use this template (fill every section; keep it short):
 **Out of scope:** <related files/pages not to touch>
 
 ### Steps
+
 1. ...
 2. ...
 3. ...
 
 ### Reuse
+
 - Existing: <components/classes to extend>
 - New (only if needed): <name + folder under src/lib/components/>
 
 ### Verify
+
 - [ ] `npm run check`
 - [ ] `npm run lint`
 - [ ] Visual check SV + EN URLs
 - [ ] Update matching checkboxes in `todo.md` when done
 
 ### Definition of done
+
 - Shared layout/typography/global classes used consistently on the target
 - No hardcoded user-facing strings (copy from `data.content` / `siteContent`)
 - Behavior preserved (i18n, SEO meta, hreflang, links)

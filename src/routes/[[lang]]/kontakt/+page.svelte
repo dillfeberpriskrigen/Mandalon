@@ -54,7 +54,7 @@
 				<Heading as="h2">{data.content.contactPage.locationTitle}</Heading>
 				{#each data.content.contactPage.details as detail (detail.label)}
 					<Text as="p">
-						<Text as="span" weight="bold">{detail.label}: </Text>
+						<Text as="span" weight="bold">{detail.label}:</Text>
 						{#if detail.href}
 							<Link href={detail.href}>{detail.value}</Link>
 						{:else}

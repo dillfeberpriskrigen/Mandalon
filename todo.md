@@ -6,7 +6,6 @@
 
 ## High
 
-
 ## Medium
 
 - [x] Ta bort /empty som använts för att testa layout
