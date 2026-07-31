@@ -13,7 +13,7 @@ Break pages into reusable components and unify styling from `app.css` and `src/l
 Current priorities:
 
 1. **Sections** — extend `MediaArticleSection` for kontakt / kunskapsbank; extract `FaqSection`, grids, callouts as patterns repeat
-2. **Page migration** — one page at a time; `paketering` is the reference implementation (finish typography cleanup on remaining pages); drop leftover `.container-narrow` / `.container-wide` on home / designguide
+2. **Page migration** — one page at a time; `paketering` is the reference implementation (finish typography cleanup on remaining pages); designguide still uses `--container-width-narrow` locally
 3. **Reduce scoped styles** — audit each `+page.svelte`; move shared styling to components or `src/lib/styles/`
 4. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
 

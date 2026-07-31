@@ -85,7 +85,7 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 
 - **Page chrome:** `PageShell` → padding + `.container` (default `--container-width-default`)
 - **Body copy:** `PageContent` → `.text-width` (`--text-width`)
-- Leftover `.container-narrow` / `.container-wide` remain only on home / designguide until those page migrations
+- `.container-narrow` / `.container-wide` removed; designguide still sets `--container-width-narrow` locally until phase-3 migration
 
 ## Do not
 

@@ -92,16 +92,6 @@ a {
 	color: inherit;
 }
 
-.container-wide {
-	--container-width: var(--container-width-wide);
-	min-height: 100vh;
-}
-
-.container-narrow {
-	--container-width: var(--container-width-narrow);
-	padding: 4rem 0 6rem;
-}
-
 .container {
 	/* Makes container maximum --container-width if defined, otherwise --container-width-default
     unless the parent is more narrow that that, then the container just --container-gutter smaller

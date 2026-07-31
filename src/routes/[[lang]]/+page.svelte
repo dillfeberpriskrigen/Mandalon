@@ -1,6 +1,10 @@
 <script>
 	import useEmblaCarousel from 'embla-carousel-svelte';
 	import Autoplay from 'embla-carousel-autoplay';
+	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import Heading from '$lib/components/typography/Heading.svelte';
+	import Link from '$lib/components/typography/Link.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
 
 	const { data } = $props();
 
@@ -21,22 +25,22 @@
 	<meta name="description" content={data.content.meta.description} />
 </svelte:head>
 
-<div class="container-wide">
-	<section class="hero">
-		<div class="container hero-content">
-			<h1>{data.content.hero.title}</h1>
-			<p class="hero-copy text-width">{data.content.hero.copy}</p>
+<section class="hero">
+	<div class="container hero-content">
+		<Heading as="h1">{data.content.hero.title}</Heading>
+		<div class="hero-copy">
+			<Text as="p" variant="lead">{data.content.hero.copy}</Text>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<section class="carousel">
-		<div class="carousel-header container">
-			<div class="section-heading section-heading--tight">
-				<h2>{data.content.consulting.title}</h2>
+<section class="carousel">
+	<div class="container">
+		<PageContent>
+			<div class="carousel-header">
+				<Heading as="h2">{data.content.consulting.title}</Heading>
 			</div>
-		</div>
 
-		<div class="container">
 			<div class="carousel-spotlight">
 				<div class="embla">
 					<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblaInit={handleEmblaInit}>
@@ -47,8 +51,8 @@
 										<img src={feature.image} alt={feature.title} />
 									</div>
 									<div class="carousel-copy">
-										<h3>{feature.title}</h3>
-										<p>{feature.text}</p>
+										<Heading as="h3">{feature.title}</Heading>
+										<Text as="p">{feature.text}</Text>
 									</div>
 								</article>
 							{/each}
@@ -56,42 +60,46 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</PageContent>
+	</div>
+</section>
 
-	<section class="intro">
-		<div class="container intro-copy intro-copy--wide">
-			<h2>{data.content.salesIntro.title}</h2>
-			{#each data.content.salesIntro.paragraphs as paragraph (paragraph)}
-				<p>{paragraph}</p>
-			{/each}
+<section class="intro">
+	<div class="container">
+		<PageContent>
+			<div class="intro-copy">
+				<Heading as="h2">{data.content.salesIntro.title}</Heading>
+				{#each data.content.salesIntro.paragraphs as paragraph (paragraph)}
+					<Text as="p">{paragraph}</Text>
+				{/each}
 
-			<p class="intro-resource">
-				<a href={data.content.salesIntro.resource.href} target="_blank" rel="noreferrer">
-					{data.content.salesIntro.resource.label}
-				</a>
-				<span>{data.content.salesIntro.resource.text}</span>
-			</p>
+				<div class="intro-resource">
+					<Link href={data.content.salesIntro.resource.href} target="_blank" rel="noreferrer">
+						{data.content.salesIntro.resource.label}
+					</Link>
+					<Text as="span">{data.content.salesIntro.resource.text}</Text>
+				</div>
+			</div>
 
 			<section class="divider-banner" aria-hidden="true">
 				<div class="divider-banner__image"></div>
 			</section>
 
 			<div class="intro-process">
-				<h3 class="intro-process-title">{data.content.process.title}</h3>
+				<Heading as="h3">{data.content.process.title}</Heading>
 
 				<div class="process-grid">
 					{#each data.content.process.steps as step (step.title)}
 						<article class="process-card">
-							<h3>{step.title}</h3>
-							<p>{step.text}</p>
+							<Heading as="h3">{step.title}</Heading>
+							<Text as="p">{step.text}</Text>
 						</article>
 					{/each}
 				</div>
 			</div>
-		</div>
-	</section>
-</div>
+		</PageContent>
+	</div>
+</section>
 
 <style>
 	.hero {
@@ -110,18 +118,17 @@
 		color: white;
 	}
 
-	h1 {
-		max-width: 22ch;
+	.hero-content :global(.page-title) {
 		margin-inline: auto;
-		font-size: clamp(1.7rem, 4vw, 3rem);
-		line-height: 1.05;
 		text-wrap: balance;
 	}
 
 	.hero-copy {
 		margin: 1.4rem auto 0;
-		font-size: 1.12rem;
-		line-height: 1.7;
+		max-width: var(--text-width);
+	}
+
+	.hero-copy :global(p) {
 		color: rgba(255, 255, 255, 0.9);
 	}
 
@@ -137,16 +144,9 @@
 			url('/mandalon/help-asic.jpg') center 65% / cover no-repeat;
 	}
 
-	h2 {
-		font-size: clamp(2rem, 3.5vw, 3.6rem);
-		line-height: 1;
-		text-wrap: balance;
-	}
-
-	.intro-copy p,
-	.process-card p,
-	.carousel-copy p {
-		line-height: 1.7;
+	.intro-copy :global(p),
+	.process-card :global(p),
+	.carousel-copy :global(p) {
 		color: var(--muted);
 	}
 
@@ -156,18 +156,14 @@
 		padding-top: 0.15rem;
 	}
 
-	.intro-resource a {
-		font-weight: 700;
-		color: var(--ink);
+	.intro-resource :global(.link) {
+		font-weight: var(--weight-bold);
 		text-decoration: none;
+		color: var(--ink);
 	}
 
-	.intro-resource a:hover {
+	.intro-resource :global(.link:hover) {
 		color: var(--accent-deep);
-	}
-
-	.intro-resource span {
-		color: var(--muted);
 	}
 
 	.intro,
@@ -181,21 +177,16 @@
 		gap: 1.2rem;
 	}
 
-	.intro-copy--wide {
-		max-width: 48rem;
-	}
-
 	.intro-process {
 		display: grid;
 		gap: 1rem;
 		padding-top: 0.5rem;
 	}
 
-	.intro-process-title {
-		font-size: clamp(1.45rem, 2.6vw, 2rem);
-		line-height: 1.15;
+	.intro-process :global(.page-sub-section) {
 		color: var(--ink);
 	}
+
 	.process-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -207,17 +198,8 @@
 		border-left: 3px solid rgba(16, 35, 28, 0.2);
 	}
 
-	.carousel-copy h3 {
-		font-size: 1.4rem;
-		margin-bottom: 0.7rem;
-	}
-
 	.carousel-header {
 		margin-bottom: 2rem;
-	}
-
-	.carousel .container {
-		max-width: 48rem;
 	}
 
 	.carousel-spotlight {
@@ -290,7 +272,6 @@
 			min-height: 0;
 		}
 
-		.carousel .container,
 		.carousel-spotlight,
 		.embla,
 		.embla__viewport,
