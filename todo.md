@@ -37,7 +37,7 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 - [x] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion). (`.text-label` tillagt)
 - [x] **Enhetlig textstil:** Inventera textklasser/stilar i sidor och scoped CSS; begränsa till få tillåtna varianter (`Text` + `Heading` + globala heading-klasser) och migrera bort ad-hoc fontstorlekar. (kvar: designguide vid sidmigration)
 - [x] **Textbehållare:** Ta bort `narrow` / `wide` från `PageContent`; använd en gemensam bredd på alla sidor. Ersätt blandade container-/bredd-mönster (inkl. `.text-width` där det behövs) så brödtext får enhetlig bredd, placering och läsbarhet. (`PageContent` = `.text-width`; `PageShell` utan `narrow`; `.container-wide` / `.container-narrow` borttagna; kvar: designguide `--container-width-narrow` vid sidmigration)
-- [ ] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints). (delvis: `.surface-grid` i `surface.css`; `.text-body` muted; muted `:global(p)` pierces borttagna på phase-1 + paketering + sections; kvar: home — Surface carousel + hero/process page-local; page-unique layout på kontakt / kunskapsbank / konsulttjanster listor)
+- [ ] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints). (delvis: `.surface-grid` i `surface.css`; `.text-body` muted; muted `:global(p)` pierces borttagna på phase-1 + paketering + sections; kunskapsbank intro → `MediaArticleSection`, kvar guide-callout page-local; kvar: home — Surface carousel + hero/process page-local; page-unique layout på kontakt / konsulttjanster listor)
 - [x] **Flytta site chrome:** Flytta `SiteHeader.svelte` och `SiteFooter.svelte` till `src/lib/components/layout/` och uppdatera imports.
 - [x] **Flytta innehållskomponenter:** Flytta `ParagraphArray.svelte` till `src/lib/components/content/` och uppdatera imports.
 - [x] **Utvärdera Image:** Behåll `Image.svelte` endast om den behövs (t.ex. lazy loading, aspect ratio, caption). Annars ta bort komponenten och använd `<img>` direkt tills behov uppstår.
@@ -46,11 +46,11 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 
 - [x] **`PageHeader`** / [x] **`PageShell`** — gemensamt sidhuvud (`h1` + lead) och sid-padding som upprepas på de flesta sidor.
 - [x] **`Heading` och `Link`** — implementera WIP-komponenterna så typografilagret (option A) kan användas konsekvent på sidor.
-- [x] **Utöka `MediaArticleSection`** — `kontakt` person-rader och `kunskapsbank` topic-rader migrerade.
+- [x] **Utöka `MediaArticleSection`** — `kontakt` person-rader och `kunskapsbank` intro + topic-rader migrerade.
 - [x] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
 - [ ] **`Table`** — migrera capabilities-tabellen på paketering när komponenten implementeras.
 - [x] **`FaqSection`** — extrahera från kunskapsbank vid sidmigration.
-- [ ] **Övriga upprepningar** — vid sidmigration: extrahera till `sections/` / `content/` när samma mönster syns på 2+ sidor (t.ex. callouts, feature-rader); behåll engångsmönster i sidan. (delvis: 2-col Surface-grid → global `.surface-grid`)
+- [ ] **Övriga upprepningar** — vid sidmigration: extrahera till `sections/` / `content/` när samma mönster syns på 2+ sidor (t.ex. callouts, feature-rader); behåll engångsmönster i sidan. (delvis: 2-col Surface-grid → global `.surface-grid`; kunskapsbank guide-callout behålls page-local)
 
 # Fixed
 
