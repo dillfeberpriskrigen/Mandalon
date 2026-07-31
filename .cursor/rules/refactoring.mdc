@@ -17,7 +17,7 @@ Current priorities:
 3. **Reduce scoped styles** — audit each `+page.svelte`; move shared styling to components or `src/lib/styles/`
 4. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
 
-Done: typography option A + unified text tokens; text container (`PageContent` = `.text-width`, `PageShell` single width); Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages.
+Done: typography option A + unified text tokens; text container (`PageContent` = `.text-width`, `PageShell` single width); Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages; home phase 2 (`HeroSection`, `FeatureCarousel`).
 
 Component structure, WIP status, and extraction rules: see `svelte-components.mdc`.
 
@@ -28,7 +28,7 @@ Component structure, WIP status, and extraction rules: see `svelte-components.md
 | `MediaArticleSection` | paketering, kunskapsbank `.topic`, kontakt `.person-row` | Unify alternating media+text grids |
 | `Surface` | om-mandalon `.panel`, konsulttjanster `.service-card` | Fix tokens, then replace duplicate panel styles |
 | `FaqSection` | kunskapsbank | Extract when migrating that page |
-| `HeroSection`, carousel | home only | Defer until phase 2 home refactor |
+| `HeroSection`, `FeatureCarousel` | home only | Extracted in phase 2 home refactor |
 
 ## Workflow for each task
 
