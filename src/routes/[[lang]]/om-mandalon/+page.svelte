@@ -50,7 +50,7 @@
 			<div class="lists">
 				<div>
 					<Heading as="h3">{data.content.aboutPage.referencesHeading}</Heading>
-					<ul>
+					<ul class="content-list">
 						{#each data.content.aboutPage.references as item, i (i)}
 							<li>{item}</li>
 						{/each}
@@ -59,7 +59,7 @@
 
 				<div>
 					<Heading as="h3">{data.content.aboutPage.researchProjectsHeading}</Heading>
-					<ul>
+					<ul class="content-list">
 						{#each data.content.aboutPage.researchProjects as item (item.title)}
 							<li>
 								<Link href={item.href} target="_blank" rel="noreferrer">{item.title}</Link>
@@ -90,17 +90,5 @@
 		display: grid;
 		gap: 1.2rem;
 		margin-top: 1rem;
-	}
-
-	ul {
-		padding-left: 1.1rem;
-	}
-
-	li {
-		color: var(--muted);
-	}
-
-	li + li {
-		margin-top: 0.45rem;
 	}
 </style>

@@ -31,7 +31,7 @@
 			<Surface as="article" radius="large" padding="large">
 				<Heading as="h2">{service.title}</Heading>
 				<Text as="p">{service.text}</Text>
-				<ul>
+				<ul class="content-list">
 					{#each service.points as point (point)}
 						<li>{point}</li>
 					{/each}
@@ -44,19 +44,5 @@
 <style>
 	.intro {
 		margin-top: 2.2rem;
-	}
-
-	ul {
-		margin-top: 1rem;
-		padding-left: 1.1rem;
-		color: var(--ink);
-	}
-
-	li::marker {
-		color: var(--accent-deep);
-	}
-
-	li + li {
-		margin-top: 0.55rem;
 	}
 </style>

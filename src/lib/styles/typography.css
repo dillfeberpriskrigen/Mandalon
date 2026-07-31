@@ -2,6 +2,7 @@
    Headings: .page-title (h1), .page-header (h2), .page-sub-section (h3) via Heading
    Body:     .text-body | .text-lead | .text-caption | .text-label via Text
    Links:    .link via Link
+   Lists:    .content-list for shared bullet lists
    Do not add ad-hoc font-size in page scoped CSS; use these classes/components. */
 
 /* Usually h1 */
@@ -87,4 +88,25 @@ p + p {
 
 .link:hover {
 	color: var(--ink);
+}
+
+/* Shared bullet lists (Surface panels, service cards, etc.) */
+.content-list {
+	padding-left: 1.1rem;
+}
+
+p + .content-list {
+	margin-top: 1rem;
+}
+
+.content-list li {
+	color: var(--muted);
+}
+
+.content-list li::marker {
+	color: var(--accent-deep);
+}
+
+.content-list li + li {
+	margin-top: 0.55rem;
 }
