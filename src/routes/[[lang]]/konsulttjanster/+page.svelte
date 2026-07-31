@@ -46,11 +46,6 @@
 		margin-top: 2.2rem;
 	}
 
-	.intro :global(p),
-	.services :global(p) {
-		color: var(--muted);
-	}
-
 	ul {
 		margin-top: 1rem;
 		padding-left: 1.1rem;

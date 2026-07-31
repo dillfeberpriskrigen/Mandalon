@@ -62,10 +62,6 @@
 		color: var(--ink);
 	}
 
-	article :global(p) {
-		color: var(--muted);
-	}
-
 	.media {
 		display: block;
 		border-radius: 1.1rem;

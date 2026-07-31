@@ -78,13 +78,6 @@
 		margin-top: 2rem;
 	}
 
-	.narrative :global(p),
-	.story :global(p),
-	.trust-panels :global(p),
-	.trust-panels :global(li) {
-		color: var(--muted);
-	}
-
 	.trust-panels {
 		margin-top: var(--space-large);
 	}
@@ -101,6 +94,10 @@
 
 	ul {
 		padding-left: 1.1rem;
+	}
+
+	li {
+		color: var(--muted);
 	}
 
 	li + li {

@@ -39,8 +39,4 @@
 		gap: 1.5rem;
 		margin-top: 1.5rem;
 	}
-
-	.faq-list :global(p) {
-		color: var(--muted);
-	}
 </style>

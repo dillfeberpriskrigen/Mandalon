@@ -88,10 +88,6 @@
 		margin-top: 2rem;
 	}
 
-	.intro-copy :global(p) {
-		color: var(--muted);
-	}
-
 	.intro-image {
 		display: block;
 		width: 100%;
@@ -109,10 +105,6 @@
 		align-items: end;
 		justify-content: space-between;
 		gap: 1rem 2rem;
-	}
-
-	.guide-callout :global(p) {
-		color: var(--muted);
 	}
 
 	.guide-callout :global(.link) {

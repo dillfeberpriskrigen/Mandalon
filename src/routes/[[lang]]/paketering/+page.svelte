@@ -58,10 +58,6 @@
 		margin-top: 2rem;
 	}
 
-	.intro-stack :global(p) {
-		color: var(--muted);
-	}
-
 	.capabilities-table {
 		max-width: 48rem;
 		margin-top: 5rem;

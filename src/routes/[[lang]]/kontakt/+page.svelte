@@ -100,10 +100,6 @@
 		margin-bottom: 0.8rem;
 	}
 
-	.location-copy :global(p) {
-		color: var(--muted);
-	}
-
 	.map-wrap iframe {
 		width: 100%;
 		height: 26rem;
