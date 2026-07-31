@@ -4,15 +4,25 @@
 
 - [x] Se till att **npm run check** kan köras utan att retunera fel.
 
+## High
+
+
 ## Medium
 
 - [x] Ta bort /empty som använts för att testa layout
+- [ ] English / Swedish toggle fungerar inte på Design guide sidan
+- [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra.
+- [ ] Lägg in stöd för permalinks eller åtminstone redirects, för att lätt kunna hantera flyttade sidor och URL:er. Ta hänsyende till hur svelte och sveltekit arbetar effektivt och vad som kan göras på klienten respektive vad som måste göras på servern. Försök göra allt så det går att köras på klienten.
+- [ ] Utvärdera hantering av locales och förbättra vid behov. Det är dumt ifall det finns tvetydigheter i tolkning av URL:er och det är dumt ifall något av detta förhindrar svelte och sveltekit att arbeta effektivt.
+- [ ] Gör det tydligare i menyn i sidhuvudet vilken sida som är aktiv.
+- [ ] Flytta språkvalet till en EN / SV knapp istället, och gör så att Contact har en liten telefon-ikon. Det känns märkligt med en orange knapp "mitt i" menyn just nu.
 
 ## Low
 
 - [ ] Migrera helt och hållet till typescript istället för javascript.
 - [ ] Om möjligt i komponenten `Link` Detektera automatiskt ifall en länk leder till en extern sajt, eller är en fil, och ge den `target="_blank"`
 - [ ] Se till att inga globala stilar appliceras av komponenter eller sidor. All global styling ska ske via app.css. Om en sida behöver "pierce the scope boundry" känns det som att komponenten i fråga behöver få mer optioner eller något.
+- [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer.
 
 ## Konsolidering av komponenter och formatmallar
 
