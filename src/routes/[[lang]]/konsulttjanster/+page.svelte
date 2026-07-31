@@ -26,7 +26,7 @@
 		</Surface>
 	</div>
 
-	<div class="services-grid">
+	<div class="surface-grid services">
 		{#each data.content.consultingPage.services as service (service.title)}
 			<Surface as="article" radius="large" padding="large">
 				<Heading as="h2">{service.title}</Heading>
@@ -47,15 +47,8 @@
 	}
 
 	.intro :global(p),
-	.services-grid :global(p) {
+	.services :global(p) {
 		color: var(--muted);
-	}
-
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 1.4rem;
 	}
 
 	ul {
@@ -70,11 +63,5 @@
 
 	li + li {
 		margin-top: 0.55rem;
-	}
-
-	@media (max-width: 780px) {
-		.services-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 </style>

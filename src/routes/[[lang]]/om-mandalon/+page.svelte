@@ -34,7 +34,7 @@
 		</section>
 	</PageContent>
 
-	<div class="trust-grid">
+	<div class="surface-grid trust-panels">
 		<Surface as="section" radius="large" padding="large">
 			<Heading as="h2">{data.content.aboutPage.certificationTitle}</Heading>
 			<Text as="p">{data.content.aboutPage.certification}</Text>
@@ -80,16 +80,13 @@
 
 	.narrative :global(p),
 	.story :global(p),
-	.trust-grid :global(p),
-	.trust-grid :global(li) {
+	.trust-panels :global(p),
+	.trust-panels :global(li) {
 		color: var(--muted);
 	}
 
-	.trust-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 2rem;
+	.trust-panels {
+		margin-top: var(--space-large);
 	}
 
 	.note {
@@ -108,11 +105,5 @@
 
 	li + li {
 		margin-top: 0.45rem;
-	}
-
-	@media (max-width: 780px) {
-		.trust-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 </style>

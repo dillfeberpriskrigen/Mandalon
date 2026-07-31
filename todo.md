@@ -28,7 +28,7 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 - [x] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion). (`.text-label` tillagt)
 - [x] **Enhetlig textstil:** Inventera textklasser/stilar i sidor och scoped CSS; begränsa till få tillåtna varianter (`Text` + `Heading` + globala heading-klasser) och migrera bort ad-hoc fontstorlekar. (kvar: home, designguide vid sidmigration)
 - [x] **Textbehållare:** Ta bort `narrow` / `wide` från `PageContent`; använd en gemensam bredd på alla sidor. Ersätt blandade container-/bredd-mönster (inkl. `.text-width` där det behövs) så brödtext får enhetlig bredd, placering och läsbarhet. (`PageContent` = `.text-width`; `PageShell` utan `narrow`; kvar: home / designguide container-varianter vid sidmigration)
-- [ ] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints).
+- [ ] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints). (delvis: `.surface-grid` i `surface.css`; om-mandalon / konsulttjanster / experiment)
 - [x] **Flytta site chrome:** Flytta `SiteHeader.svelte` och `SiteFooter.svelte` till `src/lib/components/layout/` och uppdatera imports.
 - [x] **Flytta innehållskomponenter:** Flytta `ParagraphArray.svelte` till `src/lib/components/content/` och uppdatera imports.
 - [x] **Utvärdera Image:** Behåll `Image.svelte` endast om den behövs (t.ex. lazy loading, aspect ratio, caption). Annars ta bort komponenten och använd `<img>` direkt tills behov uppstår.
@@ -41,7 +41,7 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 - [x] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
 - [ ] **`Table`** — migrera capabilities-tabellen på paketering när komponenten implementeras.
 - [x] **`FaqSection`** — extrahera från kunskapsbank vid sidmigration.
-- [ ] **Övriga upprepningar** — vid sidmigration: extrahera till `sections/` / `content/` när samma mönster syns på 2+ sidor (t.ex. callouts, feature-rader); behåll engångsmönster i sidan.
+- [ ] **Övriga upprepningar** — vid sidmigration: extrahera till `sections/` / `content/` när samma mönster syns på 2+ sidor (t.ex. callouts, feature-rader); behåll engångsmönster i sidan. (delvis: 2-col Surface-grid → global `.surface-grid`)
 
 # Fixed
 
