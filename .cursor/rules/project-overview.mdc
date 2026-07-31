@@ -21,6 +21,7 @@ npm run dev      # local development
 npm run build    # production build
 npm run check    # svelte-check
 npm run lint     # prettier + eslint
+npm run format   # Perform formatting, prettier + svelte
 ```
 ## i18n
 
@@ -34,3 +35,4 @@ npm run lint     # prettier + eslint
 - **Code comments:** Swedish or English
 - **Reference page:** `paketering/+page.svelte` — target structure for migrated pages
 - **Active refactor:** component/style consolidation — see `refactoring.mdc`
+- **Code format:** After any code change, run `npm run format` before considering the task done (before check/lint/final verification).

@@ -35,7 +35,7 @@ Component structure, WIP status, and extraction rules: see `svelte-components.md
 1. Pick **one page or one pattern** (not the whole site)
 2. Identify existing components/classes that already match the target look
 3. Refactor the **canonical page** (Swedish slug, e.g. `paketering/+page.svelte`) — locale wrappers stay untouched
-4. Run `npm run check` and `npm run lint`
+4. Run `npm run format`, then `npm run check` and `npm run lint`
 5. Verify visually in the browser
 6. Update `todo.md` when done
 
@@ -66,5 +66,6 @@ Component structure, WIP status, and extraction rules: see `svelte-components.md
 
 - [ ] Uses shared layout/typography components or global classes consistently
 - [ ] No hardcoded user-facing strings (all from `data.content`)
+- [ ] Formatted with `npm run format`
 - [ ] Passes `npm run check` and `npm run lint`
 - [ ] Both SV and EN URLs render correctly
