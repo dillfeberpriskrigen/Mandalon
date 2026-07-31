@@ -21,7 +21,7 @@ src/lib/components/
   typography/   Text, Heading, Link
   primitives/   Button, Surface
   content/      ParagraphArray
-  sections/     MediaArticleSection, FaqSection, HeroSection, FeatureCarousel
+  sections/     MediaArticleSection, FaqSection, HeroSection, FeatureCarousel, SalesIntroSection
   data/         Table
   icons/        SVG icon components
 ```
@@ -37,7 +37,7 @@ src/lib/components/
 
 | Ready | WIP (empty or incomplete) |
 |-------|---------------------------|
-| `Text`, `Heading`, `Link`, `Surface`, `PageContent`, `PageHeader`, `PageShell`, `MediaArticleSection`, `FaqSection`, `HeroSection`, `FeatureCarousel`, `ParagraphArray` | `Button`, `Table` |
+| `Text`, `Heading`, `Link`, `Surface`, `PageContent`, `PageHeader`, `PageShell`, `MediaArticleSection`, `FaqSection`, `HeroSection`, `FeatureCarousel`, `SalesIntroSection`, `ParagraphArray` | `Button`, `Table` |
 
 Prefer typography components (`Text`, `Heading`, `Link`) where ready; global heading classes remain valid during page migration.
 
