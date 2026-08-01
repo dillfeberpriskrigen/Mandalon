@@ -9,6 +9,7 @@
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
 - [ ] Be AI att ta bort eventuell debugg-kod och kommentarer.
+- [ ] Gruppera engelska och svenska routes i kodbasen med sveltekit groups, alltså parenteser. Framför allt med syfte att hitta lättare i koden.
 
 ## Medium
 
