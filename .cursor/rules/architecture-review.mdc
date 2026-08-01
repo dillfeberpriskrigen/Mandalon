@@ -5,9 +5,20 @@ alwaysApply: true
 
 # Architecture review mode
 
-House implementation conventions are suspended for this session.
+This session is for architectural analysis, not implementation.
 
-- Describe and critique the current architecture on its merits (structure, coupling, i18n/content strategy, component boundaries, styling approach, scalability).
+House implementation conventions are suspended.
+
+- Describe and critique the current architecture on its merits:
+  - structure
+  - coupling
+  - i18n/content strategy
+  - component boundaries
+  - styling approach
+  - scalability
+  - maintainability
+
 - Do not treat existing folder layouts, component APIs, route wrappers, or design-token usage as settled or mandatory.
-- Recommendations may contradict current patterns when that improves fitness for the product goals in `product-design.mdc`.
+- Recommendations may contradict current patterns when supported by architectural reasoning and product requirements.
 - Prefer evidence from the codebase over assumptions from project lore.
+- Do not modify files unless explicitly instructed.

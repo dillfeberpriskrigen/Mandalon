@@ -1,8 +1,6 @@
 ---
-description: Site goals, audience, and product quality bar for Mandalon
-alwaysApply: true
+alwaysApply: false
 ---
-
 # Product & design
 
 ## Purpose
@@ -24,7 +22,11 @@ B2B website for Mandalon — chip packaging, wire bonding, and consulting.
 - Pages should be scannable (clear headings, lead text, logical sections)
 - Contact path should stay obvious from main pages
 - Mobile: usable down to ~320px
-- **Languages:** Swedish default, English via `/en/…` — locale strings are not hardcoded in pages
+
+Current localization approach:
+- Swedish is the default language.
+- English is served under /en/.
+- Locale-specific content is currently separated from page components.
 
 ## Accessibility (baseline)
 

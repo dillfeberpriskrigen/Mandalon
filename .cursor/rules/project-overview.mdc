@@ -1,5 +1,5 @@
 ---
-description: Mandalon project overview — stack and current architecture facts
+description: Mandalon project overview — stack and current implementation context
 alwaysApply: true
 ---
 
@@ -28,10 +28,25 @@ npm run lint     # prettier + eslint
 npm run format   # prettier + svelte
 ```
 
-## Current i18n and content layout (descriptive)
+## Current i18n and content layout (descriptive; subject to review)
 
 - Public pages live under `src/routes/(site)/[[lang]]/` — Swedish is default (`/paketering`), English uses `/en/…` (`/en/packaging`)
 - Route groups: `(site)` for public pages, `(en)` for English slug routes, `(stats)` for `/stats` — parentheses do not appear in URLs
 - Content is keyed by locale in `src/lib/content/site.ts` (`siteContent`); `+layout.ts` passes it to pages as `data.content`
 - Content shapes live in `src/lib/content/types.ts`; shared page loads use `loadLocalePage`
-- Today, Swedish-slug pages are the primary page modules; English slug routes under `(en)/` typically re-export those modules
+- English slug routes currently re-export Swedish page modules.
+
+## Project goals
+
+- Maintainable solo-developer codebase.
+- Prefer native SvelteKit solutions over additional frameworks.
+- Keep the site easy to extend with new content and languages.
+- Favor clear, explicit code over heavy abstraction.
+- Structure the project so future AI-assisted development is safe and predictable.
+
+## Product context
+
+- B2B website for chip packaging, wire bonding, and consulting.
+- Primary goal: generate contact inquiries from technical buyers.
+- Secondary goals: educate, build trust, showcase expertise.
+- Audience: technical decision makers, R&D leads, CTOs, project managers.
