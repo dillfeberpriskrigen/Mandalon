@@ -215,7 +215,7 @@ Land these before any structural change, so routing work surfaces failures visib
 
 ## T06 — Add a build-output smoke check · **M**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
@@ -659,6 +659,8 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 2. Remove `experiment` and `fonts` from the expected list in `scripts/check-build.mjs`; `npm run check:build` passes.
 3. `npm run dev`: `/experiment` and `/fonts` render.
 
+**Note from T06:** `/experiment` and `/fonts` currently have no `<title>`; `check-build.mjs` treats title as optional for those two paths until this task removes them from the expected list.
+
 ---
 
 # Phase 7 — Media delivery
@@ -830,10 +832,11 @@ Recorded so the reasoning is not relitigated.
 
 Append one row per completed task. Newest last.
 
-| Date       | Task | Verified by                                                                      | Notes                                                 |
-| ---------- | ---- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import        | Archive deleted; architecture-review remains dormant  |
-| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                                   | Kept analytics.ts; icons/ directory removed           |
-| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                        | Normal Roboto face now loads VariableFont, not Italic |
-| 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact | EN action path fixed to packaging; locale null-safe   |
-| 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                     | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24 |
+| Date       | Task | Verified by                                                                      | Notes                                                             |
+| ---------- | ---- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import        | Archive deleted; architecture-review remains dormant              |
+| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                                   | Kept analytics.ts; icons/ directory removed                       |
+| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                        | Normal Roboto face now loads VariableFont, not Italic             |
+| 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact | EN action path fixed to packaging; locale null-safe               |
+| 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                        | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24 |
+| 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                  | Title optional for experiment/fonts; EN lang needs T07 in tree   |
