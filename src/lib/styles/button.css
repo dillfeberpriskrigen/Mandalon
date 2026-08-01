@@ -1,0 +1,37 @@
+/* Button primitives */
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35rem;
+	padding: 0.7rem 1.15rem;
+	border-radius: var(--border-radius);
+	font-family: var(--font-body);
+	font-size: var(--text-body-size);
+	font-weight: var(--weight-bold);
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+
+.button-primary {
+	background: var(--accent);
+	color: var(--ink);
+	border-color: var(--accent-deep);
+}
+
+.button-primary:hover {
+	background: var(--accent-deep);
+}
+
+.button-secondary {
+	background: var(--content-background);
+	color: var(--ink);
+	border-color: var(--line);
+}
+
+.button-secondary:hover {
+	background: var(--bg-soft);
+}

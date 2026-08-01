@@ -37,7 +37,7 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 - [x] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion). (`.text-label` tillagt)
 - [x] **Enhetlig textstil:** Inventera textklasser/stilar i sidor och scoped CSS; begränsa till få tillåtna varianter (`Text` + `Heading` + globala heading-klasser) och migrera bort ad-hoc fontstorlekar. (`designguide` deferred — own ad-hoc styles until redesign)
 - [x] **Textbehållare:** Ta bort `narrow` / `wide` från `PageContent`; använd en gemensam bredd på alla sidor. Ersätt blandade container-/bredd-mönster (inkl. `.text-width` där det behövs) så brödtext får enhetlig bredd, placering och läsbarhet. (`PageContent` = `.text-width`; `PageShell` utan `narrow`; `.container-wide` / `.container-narrow` borttagna; `--container-width-narrow` removed from `app.css` — designguide sets `--container-width: 980px` page-locally)
-- [ ] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints). (delvis: `.surface-grid` i `surface.css`; `.content-list` i `typography.css` — konsulttjanster/om-mandalon; `.text-body` muted; muted `:global(p)` pierces borttagna på phase-1 + paketering + sections; kunskapsbank intro → `MediaArticleSection`, kvar guide-callout page-local; home phase 2 klar — `HeroSection` + `FeatureCarousel` + `SalesIntroSection`; page-unique layout på kontakt; `designguide` deferred from consolidation until redesign)
+- [x] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints). (klart för phase-1 + paketering + home; page-unique layout kvar på kontakt/kunskapsbank callout/om-mandalon; `Table`/`Button`/`layout.css`; `designguide` deferred)
 - [x] **Flytta site chrome:** Flytta `SiteHeader.svelte` och `SiteFooter.svelte` till `src/lib/components/layout/` och uppdatera imports.
 - [x] **Flytta innehållskomponenter:** Flytta `ParagraphArray.svelte` till `src/lib/components/content/` och uppdatera imports.
 - [x] **Utvärdera Image:** Behåll `Image.svelte` endast om den behövs (t.ex. lazy loading, aspect ratio, caption). Annars ta bort komponenten och använd `<img>` direkt tills behov uppstår.
@@ -48,9 +48,10 @@ Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanv
 - [x] **`Heading` och `Link`** — implementera WIP-komponenterna så typografilagret (option A) kan användas konsekvent på sidor.
 - [x] **Utöka `MediaArticleSection`** — `kontakt` person-rader och `kunskapsbank` intro + topic-rader migrerade.
 - [x] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
-- [ ] **`Table`** — migrera capabilities-tabellen på paketering när komponenten implementeras.
+- [x] **`Table`** — capabilities-tabellen på paketering migrerad; styles i `src/lib/styles/table.css`.
 - [x] **`FaqSection`** — extrahera från kunskapsbank vid sidmigration.
-- [ ] **Övriga upprepningar** — vid sidmigration: extrahera till `sections/` / `content/` när samma mönster syns på 2+ sidor (t.ex. callouts, feature-rader); behåll engångsmönster i sidan. (delvis: 2-col Surface-grid → global `.surface-grid`; bullet lists → `.content-list`; home `SalesIntroSection`; kunskapsbank guide-callout behålls page-local)
+- [x] **`Button`** — primary/secondary; `a` eller `button`; styles i `src/lib/styles/button.css` (demo på experiment; designguide ej omkopplad).
+- [x] **Övriga upprepningar** — extraherat vid 2+ sidor (`.surface-grid`, `.content-list`, home sections, `MediaArticleSection`); engångsmönster (kunskapsbank guide-callout, kontakt map) behålls page-local.
 
 # Fixed
 

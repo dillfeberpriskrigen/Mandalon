@@ -9,11 +9,13 @@
 		content?: Snippet;
 		media?: Snippet;
 		reverse?: boolean;
+		/** Caps media column width (e.g. portrait photos on contact). */
+		mediaMaxWidth?: string;
 	}
-	let { title, subtitle, content, reverse = false, media }: Props = $props();
+	let { title, subtitle, content, reverse = false, media, mediaMaxWidth }: Props = $props();
 </script>
 
-<article class:reverse class:twocolumn={(title || subtitle || content) && media}>
+<article class:reverse class:twocolumn={(title || subtitle || content) && media} style:--media-max-width={mediaMaxWidth}>
 	<div class="media">
 		{#if media}
 			{@render media()}
@@ -65,6 +67,7 @@
 	.media {
 		display: block;
 		border-radius: 1.1rem;
+		max-width: var(--media-max-width, none);
 	}
 
 	.media :global(figure) {
@@ -80,7 +83,8 @@
 
 	.media :global(figcaption) {
 		margin-top: 0.7rem;
-		font-size: 0.95rem;
+		font-size: var(--text-caption-size);
+		line-height: var(--text-caption-line);
 		color: var(--muted);
 	}
 

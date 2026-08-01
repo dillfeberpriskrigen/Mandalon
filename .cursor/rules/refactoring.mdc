@@ -10,14 +10,15 @@ alwaysApply: false
 
 Break pages into reusable components and unify styling from `app.css` and `src/lib/styles/`. See `todo.md` for the full backlog.
 
+**Consolidation status:** Complete for phases 1–2 (marketing pages + home). Remaining deferred work is `designguide` redesign only.
+
 Current priorities:
 
-1. **Sections** — extend `MediaArticleSection` for kontakt / kunskapsbank; extract `FaqSection`, grids, callouts as patterns repeat
-2. **Page migration** — one page at a time; `paketering` is the reference implementation; phases 1–2 done; `designguide` deferred (see page order)
-3. **Reduce scoped styles** — audit each `+page.svelte`; move shared styling to components or `src/lib/styles/` (skip deferred `designguide`)
-4. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
+1. **Deferred: `designguide`** — keep page-local until a future docs-style redesign; do not block other work
+2. **Experiment page** — `experiment/+page.svelte` demos shared components; extend when adding new primitives
+3. **Non-consolidation backlog** — see medium/low items in `todo.md` (lang toggle, text backgrounds, nav polish, etc.)
 
-Done: typography option A + unified text tokens; text container (`PageContent` = `.text-width`, `PageShell` single width); Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages; home phase 2 (`HeroSection`, `FeatureCarousel`, `SalesIntroSection`); `--container-width-narrow` removed from `app.css` (designguide width quarantined page-locally).
+Done: typography option A + unified text tokens; text container (`PageContent` = `.text-width`, `PageShell` single width); Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages; home phase 2 (`HeroSection`, `FeatureCarousel`, `SalesIntroSection`); `Table` + paketering capabilities; `Button`; layout utilities in `layout.css`; experiment lab expanded; `--container-width-narrow` removed from `app.css` (designguide width quarantined page-locally).
 
 Component structure, WIP status, and extraction rules: see `svelte-components.mdc`.
 
@@ -25,10 +26,12 @@ Component structure, WIP status, and extraction rules: see `svelte-components.md
 
 | Component | Pattern seen on | Action |
 |-----------|-----------------|--------|
-| `MediaArticleSection` | paketering, kunskapsbank `.topic`, kontakt `.person-row` | Unify alternating media+text grids |
-| `Surface` | om-mandalon `.panel`, konsulttjanster `.service-card` | Fix tokens, then replace duplicate panel styles |
-| `FaqSection` | kunskapsbank | Extract when migrating that page |
-| `HeroSection`, `FeatureCarousel`, `SalesIntroSection` | home only | Extracted in phase 2 home refactor |
+| `MediaArticleSection` | paketering, kunskapsbank `.topic`, kontakt `.person-row` | Done — optional `mediaMaxWidth` |
+| `Surface` | om-mandalon `.panel`, konsulttjanster `.service-card` | Done |
+| `FaqSection` | kunskapsbank | Done |
+| `Table` | paketering capabilities | Done |
+| `Button` | design system / experiment | Done (designguide download still page-local) |
+| `HeroSection`, `FeatureCarousel`, `SalesIntroSection` | home only | Done |
 
 ## Workflow for each task
 

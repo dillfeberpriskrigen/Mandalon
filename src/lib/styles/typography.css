@@ -90,6 +90,14 @@ p + p {
 	color: var(--ink);
 }
 
+.link-plain {
+	text-decoration: none;
+}
+
+.link-nowrap {
+	white-space: nowrap;
+}
+
 /* Shared bullet lists (Surface panels, service cards, etc.) */
 .content-list {
 	padding-left: 1.1rem;

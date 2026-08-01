@@ -35,9 +35,9 @@ src/lib/components/
 
 ## Component status (check before using)
 
-| Ready | WIP (empty or incomplete) |
-|-------|---------------------------|
-| `Text`, `Heading`, `Link`, `Surface`, `PageContent`, `PageHeader`, `PageShell`, `MediaArticleSection`, `FaqSection`, `HeroSection`, `FeatureCarousel`, `SalesIntroSection`, `ParagraphArray` | `Button`, `Table` |
+| Ready |
+|-------|
+| `Text`, `Heading`, `Link`, `Surface`, `Button`, `PageContent`, `PageHeader`, `PageShell`, `MediaArticleSection`, `FaqSection`, `HeroSection`, `FeatureCarousel`, `SalesIntroSection`, `ParagraphArray`, `Table` |
 
 Prefer typography components (`Text`, `Heading`, `Link`) where ready; global heading classes remain valid during page migration.
 

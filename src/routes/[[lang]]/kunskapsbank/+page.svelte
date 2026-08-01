@@ -41,7 +41,7 @@
 					<Text as="p">{data.content.glossaryPage.guide.text}</Text>
 				</div>
 
-				<Link href={toPath(data.content.glossaryPage.guide.path)}>{data.content.glossaryPage.guide.label}</Link>
+				<Link href={toPath(data.content.glossaryPage.guide.path)} weight="bold" underline={false} nowrap>{data.content.glossaryPage.guide.label}</Link>
 			</div>
 		</Surface>
 	</div>
@@ -80,12 +80,6 @@
 		align-items: end;
 		justify-content: space-between;
 		gap: 1rem 2rem;
-	}
-
-	.guide-callout :global(.link) {
-		font-weight: var(--weight-bold);
-		text-decoration: none;
-		white-space: nowrap;
 	}
 
 	.sections {

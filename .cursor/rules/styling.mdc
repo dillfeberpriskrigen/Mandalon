@@ -11,8 +11,8 @@ alwaysApply: false
 Global styles flow from `src/app.css`, which imports utilities and component specific styles from `src/lib/styles/*.css`
 
 - **Design tokens** live in `:root` in `app.css` — colors, spacing, container widths, typography scale
-- **Component CSS classes** for typography (`.text-*`) and surfaces (`.surface-*`) live in `src/lib/styles/`
-- **Layout utilities** (`.container`, `.text-width`, `.page-title`, `.page-content`) live in `app.css` but should be moved to relevant CSS files in `src/lib/styles/` during refactoring.
+- **Component CSS classes** for typography (`.text-*`), surfaces (`.surface-*`), tables (`.table`), and buttons (`.button-*`) live in `src/lib/styles/`
+- **Layout utilities** (`.container`, `.text-width`) live in `src/lib/styles/layout.css` (imported from `app.css`)
 
 ## Use tokens, not hardcoded values
 
@@ -49,7 +49,7 @@ Allowed variants only — no ad-hoc `font-size` in page scoped CSS:
 
 Tokens live in `:root` (`--text-*`, `--page-header-*`, `--page-sub-section-*`). Classes in `typography.css`.
 
-Create additional typography classes if needed, but ask first. Remaining ad-hoc sizes on kontakt / kunskapsbank are page-unique leftovers; `designguide` keeps its own scoped styles until a future redesign (deferred from consolidation).
+Create additional typography classes if needed, but ask first. Page-unique layout leftovers (kontakt map, kunskapsbank callout) are intentional; `designguide` keeps its own scoped styles until a future redesign (deferred from consolidation).
 
 
 

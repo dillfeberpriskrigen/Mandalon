@@ -26,7 +26,7 @@
 
 	<div class="people-flow">
 		{#each data.content.contactPage.people as person, index (person.name)}
-			<MediaArticleSection title={person.name} subtitle={person.role} reverse={index % 2 === 1}>
+			<MediaArticleSection title={person.name} subtitle={person.role} reverse={index % 2 === 1} mediaMaxWidth="240px">
 				{#snippet content()}
 					<div class="person-details">
 						{#if person.phone}
@@ -76,10 +76,6 @@
 		margin-top: 2.5rem;
 	}
 
-	.people-flow :global(.media img) {
-		max-width: 240px;
-	}
-
 	.person-details {
 		display: grid;
 		gap: 0.35rem;
@@ -94,10 +90,6 @@
 		display: grid;
 		gap: 1rem;
 		margin-top: 3rem;
-	}
-
-	.location-copy :global(.page-header) {
-		margin-bottom: 0.8rem;
 	}
 
 	.map-wrap iframe {

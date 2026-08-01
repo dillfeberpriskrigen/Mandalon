@@ -3,10 +3,17 @@
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
+	import Table from '$lib/components/data/Table.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 
 	const { data } = $props();
+
+	const capabilityRows = $derived(
+		data.content.chipSensorsPage.capabilities.map((capability) => ({
+			cells: [capability.name, capability.description]
+		}))
+	);
 </script>
 
 <svelte:head>
@@ -30,16 +37,7 @@
 			<Text as="p">{data.content.chipSensorsPage.capabilitiesPresentation}</Text>
 		</div>
 	</PageContent>
-	<table class="capabilities-table">
-		<tbody>
-			{#each data.content.chipSensorsPage.capabilities as capability (capability.name)}
-				<tr>
-					<td>{capability.name}</td>
-					<td>{capability.description}</td>
-				</tr>
-			{/each}
-		</tbody>
-	</table>
+	<Table rows={capabilityRows} />
 
 	{#each data.content.chipSensorsPage.areas as area, i (area.title)}
 		<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
@@ -56,24 +54,5 @@
 <style>
 	.intro-stack {
 		margin-top: 2rem;
-	}
-
-	.capabilities-table {
-		max-width: 48rem;
-		margin-top: 5rem;
-		border: 1px solid rgba(16, 35, 28, 0.18);
-		border-radius: 1rem;
-		border-collapse: separate;
-		border-spacing: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.capabilities-table td {
-		padding: 1rem 1.25rem;
-	}
-
-	.capabilities-table tr:not(:last-child) td {
-		border-bottom: 1px solid rgba(16, 35, 28, 0.12);
 	}
 </style>

@@ -1,0 +1,15 @@
+/* Layout utilities */
+
+.container {
+	/* Makes container maximum --container-width if defined, otherwise --container-width-default
+    unless the parent is more narrow that that, then the container just --container-gutter smaller
+    than the parents width */
+	width: min(var(--container-width, var(--container-width-default)), calc(100vw - var(--container-gutter)));
+	/* Center horizontally */
+	margin: 0 auto;
+}
+
+/* Readable line length — prefer <PageContent> over applying this class directly */
+.text-width {
+	max-width: var(--text-width);
+}
