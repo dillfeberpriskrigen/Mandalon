@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Link from '$lib/components/typography/Link.svelte';
+
 	const fonts = [{ name: 'Roboto and Roboto Condensed', file: '/fonts/Roboto-OFL.txt' }];
 </script>
 
@@ -7,7 +9,7 @@
 <ul>
 	{#each fonts as license (license.file)}
 		<li>
-			<a href={license.file}>{license.name}</a>
+			<Link href={license.file} target="_blank" rel="noreferrer">{license.name}</Link>
 		</li>
 	{/each}
 </ul>
