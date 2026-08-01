@@ -1,6 +1,6 @@
 # Architecture review roadmap
 
-Incremental implementation plan derived from the architecture review of 2026-08-01.
+Incremental implementation plan derived from the [architecture review](architecture-review.md) of 2026-08-01.
 
 Each task below is **independently executable** and **leaves the project in a working, shippable state**. Tasks are ordered by dependency. Do not run two tasks in the same change set.
 
