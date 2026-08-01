@@ -4,6 +4,7 @@
 **Scope:** `src/` (36 Svelte files, ~4 200 lines), build and deploy configuration, convention rules.
 **Method:** full read of the source tree. Analysis only — no files were modified during the review.
 **Follow-up:** the implementation plan derived from this review is in [`review-roadmap.md`](review-roadmap.md).
+**Amended 2026-08-01:** sections 2.1, 2.7, 4.1, 4.4 and R2 were corrected after the roadmap was reviewed and the URL claims were measured against a real `adapter-node` build. Two claims were wrong and one problem was larger than reported; the corrections are marked inline.
 
 ---
 
@@ -23,16 +24,25 @@ The recommended target is not a rewrite. It is a **single route registry** that 
 
 All public pages live under `src/routes/(site)/[[lang]]/`. Swedish slugs are canonical; English slug routes sit in a `(en)` group **inside** `[[lang]]` and re-export the Swedish page module.
 
-Because `[[lang]]` is optional and `(en)` is nested inside it, the parameter can be absent while an English slug still matches. The result is four resolvable URLs per page:
+Because `[[lang]]` is optional and `(en)` is nested inside it, the parameter can be absent while an English slug still matches. Measured against `node build/index.js`:
 
-| URL           | Resolves                             | Content served | Correct? |
-| ------------- | ------------------------------------ | -------------- | -------- |
-| `/kontakt`    | `[[lang]]/kontakt`, lang absent      | Swedish        | yes      |
-| `/en/contact` | `[[lang]]/(en)/contact`, lang=`en`   | English        | yes      |
-| `/contact`    | `[[lang]]/(en)/contact`, lang absent | **Swedish**    | no       |
-| `/en/kontakt` | `[[lang]]/kontakt`, lang=`en`        | **English**    | no       |
+| URL            | Resolves                             | Content served     | Correct? |
+| -------------- | ------------------------------------ | ------------------ | -------- |
+| `/kontakt`     | `[[lang]]/kontakt`, lang absent      | Swedish            | yes      |
+| `/en/contact`  | `[[lang]]/(en)/contact`, lang=`en`   | English            | yes      |
+| `/contact`     | `[[lang]]/(en)/contact`, lang absent | **Swedish**        | no       |
+| `/en/kontakt`  | `[[lang]]/kontakt`, lang=`en`        | 404                | n/a      |
+| `/foo/kontakt` | `[[lang]]/kontakt`, lang=`foo`       | **301 → /kontakt** | no       |
 
-No canonical tags exist anywhere, and `getAlternateLinks` returns an empty array for the two hybrids because they match no entry in `localizedRouteEntries`, so they emit no hreflang either.
+**Correction.** The original review claimed four resolvable URLs per page. It is three, and the third one is unbounded.
+
+`/en/kontakt` and its five siblings **return 404**, not English content. The route matches, but the prerenderer cannot enumerate a value for `[[lang]]`, so no file is generated and the runtime has nothing to serve.
+
+`/contact` and its five siblings resolve and serve Swedish, and they are worse than described: they are **prerendered to static files**. `build/prerendered/contact.html` exists with `<title>Mandalon | Kontakt</title>`. SvelteKit's default entry enumeration includes each route once with optional parameters omitted, so every `(en)` route is baked at the root. Nothing links to them; the route shape alone is enough to generate them.
+
+The unbounded case was missed entirely. `/<anything>/<any-valid-slug>` matches `[[lang]]/<slug>` with junk in the parameter, `getLocaleAndPathFromEvent` returns `locale: null`, and the root layout permanently redirects to the last segment. Confirmed: `/foo/kontakt` → `301 /kontakt`. Every valid slug has infinitely many 301 sources. Nothing links to them either, so the practical impact is low, but it makes a hard 404 impossible for a whole class of mistyped URLs.
+
+No canonical tags exist anywhere, and `getAlternateLinks` returns an empty array for the hybrids because they match no entry in `localizedRouteEntries`, so they emit no hreflang either.
 
 This is not purely theoretical: the English homepage links into it. `salesIntro.resource.href` is the bare string `'design-guide'` rendered as a relative link, so from `/en` the browser resolves it to `/design-guide` — the Swedish design guide — and it opens in a new tab (`target="_blank"` on an internal link, which also bypasses client-side routing). That is one crawlable path into the duplicate-URL space, which means the prerenderer follows it too.
 
@@ -113,7 +123,7 @@ Since `body` is `font-family: 'Roboto'`, every piece of text _not_ routed throug
 
 Fully prerendered, `adapter-node`, Passenger on CloudLinux, GitHub Actions building on Node 24 and deploying to Node 18. `data-sveltekit-preload-data="hover"` is set.
 
-`robots.txt` branches on `url.hostname` to block the develop subdomain — a request-time decision sitting under a layout that declares `prerender = true`, which is worth verifying against the actual build output. `README.md` still documents `adapter-static` and a `build/` upload flow. `package.json` has no `engines` field despite the README citing an engine requirement, and it pins `@types/node@^24` against a Node 18 runtime.
+`robots.txt` branches on `url.hostname` to block the develop subdomain — a request-time decision sitting under a layout that declares `prerender = true`. **Resolved:** the build was checked and `build/prerendered/` contains no `robots.txt`; the endpoint is served at runtime and returns the correct variant per hostname. No change is needed. `README.md` still documents `adapter-static` and a `build/` upload flow. `package.json` has no `engines` field despite the README citing an engine requirement, and it pins `@types/node@^24` against a Node 18 runtime.
 
 ---
 
@@ -143,9 +153,9 @@ These are load-bearing and should survive any refactor.
 
 ### 4.1 Critical
 
-**C1 — Four URLs per page, two serving the wrong language, no canonical tags.**
-_Where:_ `src/routes/(site)/[[lang]]/(en)/**`, `src/lib/seo.ts`, `src/routes/+layout.svelte`.
-_Why it matters:_ The site's stated primary goal is inbound leads from technical buyers, which makes search visibility a business function, not a nicety. Duplicate URLs split ranking signals, and `/contact` serving Swedish copy is a broken experience for anyone who reaches it. This is reachable in practice via the English homepage's relative design guide link, and the prerender crawler follows it.
+**C1 — Six prerendered wrong-language duplicate pages, plus an unbounded 301 space, and no canonical tags.**
+_Where:_ `src/routes/(site)/[[lang]]/(en)/**`, `src/routes/+layout.ts`, `src/lib/seo.ts`, `src/routes/+layout.svelte`.
+_Why it matters:_ The site's stated primary goal is inbound leads from technical buyers, which makes search visibility a business function, not a nicety. Duplicate URLs split ranking signals, and `/contact` serving Swedish copy is a broken experience for anyone who reaches it. As corrected in 2.1, these six pages are not merely reachable — they are **built as static files on every deploy**, independent of whether anything links to them, so a crawler that discovers one by any route gets a permanent, indexable copy. The `/<junk>/<slug>` 301 space compounds it by guaranteeing that mistyped URLs redirect somewhere plausible instead of failing.
 
 **C2 — `<html lang="sv">` is hardcoded for every page.**
 _Where:_ `src/app.html`.
@@ -205,7 +215,8 @@ _Why it matters:_ Highly visible across the whole site, trivially fixable, and i
 **L6** — `background-attachment: fixed` on a 131 KB body image; scroll repaint cost, poor iOS behavior.
 **L7** — `target="_blank"` on internal links (`SalesIntroSection`), bypassing client-side routing.
 **L8** — Embla plus autoplay plugin for three static cards on an otherwise nearly JS-free site.
-**L9** — `robots.txt` hostname branching under a prerendering layout; verify the built output.
+**L9** — ~~`robots.txt` hostname branching under a prerendering layout~~. **Resolved, not a defect:** verified absent from `build/prerendered/`; served at runtime. See 2.7.
+**L10** — `src/routes/+layout.ts` 301-redirects any unmatched two-segment URL to its last segment (see 2.1). Dead weight once locale is structural.
 
 ---
 
@@ -254,7 +265,9 @@ Because a child layout cannot feed locale up to the root layout, the site chrome
 
 **Reasoning.** This makes the wrong-language URLs from C1 _unrepresentable_: `/contact` matches nothing, `/en/kontakt` matches nothing, both return a real 404. It also deletes `getLocaleAndPathFromEvent` and the hand-rolled 404 in the root `+page.ts`, and it structurally resolves the `/sv/en` collision ambiguity `todo.md` worries about — a Swedish page named `en` can no longer be created by accident.
 
-**If a smaller step is preferred first:** a param matcher at `src/params/locale.ts` restricting `[[lang=locale]]` to `'en'` removes the 404 hack and blocks `/xyz/contact`, but does **not** fix the four-URL problem, because `/contact` still matches with the parameter absent. Treat it as a stepping stone, not a substitute.
+**On the smaller step.** A param matcher at `src/params/locale.ts` restricting `[[lang=locale]]` to `'en'` removes the 404 hack and closes the unbounded `/xyz/contact` redirect space, but does **not** fix the duplicate-page problem, because `/contact` still matches with the parameter absent — and that is the case the prerenderer actually bakes to disk. Since everything the matcher fixes is also fixed here, and the matcher would then be deleted, the roadmap rejects it rather than treating it as a stepping stone.
+
+**Sequencing.** Because the six duplicates are live, prerendered and possibly indexed, retiring them must ship together with 301 redirects to their correct-language equivalents. A hard 404 discards whatever link equity they hold, and the redirects double as the permalink support `todo.md` lists under High priority.
 
 **Affected:** the entire `src/routes/(site)/` tree (folder moves; page contents largely unchanged), `src/lib/utils/routing.ts`, `src/routes/+layout.ts`, `src/routes/+layout.svelte`.
 
@@ -299,7 +312,9 @@ Optionally split `site.ts` into one module per page (`src/lib/content/pages/cont
 
 ### R6 — An image component with a delivery convention
 
-**Shape.** A small `Image.svelte` requiring `width`, `height`, and `alt`, defaulting to `loading="lazy"` with an `eager` opt-out for above-the-fold media, and rendering `srcset` from pre-generated variants. If build-time optimization is wanted, `@sveltejs/enhanced-img` can consume string paths via `import.meta.glob(..., { query: { enhanced: true } })` over assets moved into `src/lib/assets` — a larger step, worth deferring.
+**Shape.** A small `Image.svelte` requiring `width`, `height`, and `alt`, defaulting to `loading="lazy"` with an `eager` opt-out for above-the-fold media.
+
+**Amendment on variants.** This originally recommended pre-generated `srcset` variants over `@sveltejs/enhanced-img`, on the grounds that hand-generated files add no dependency. For a solo developer that is the wrong trade: it converts a one-time first-party dependency into a permanent manual asset pipeline across 40-plus images that must be re-run and kept in sync forever. The roadmap therefore takes the one-time WebP conversion, which captures most of the saving at almost no ongoing cost, and reserves `enhanced-img` for the day per-width variants are genuinely needed.
 
 **Reasoning.** The archived rule says "No `Image.svelte` — use `<img>` directly **until lazy loading / aspect ratio / captions are needed**." All three are now needed: `MediaArticleSection` already hand-styles `figure`/`figcaption` through `:global()`, and layout shift is present on every content page. The rule's own escape clause has triggered.
 
@@ -313,7 +328,9 @@ Optionally split `site.ts` into one module per page (`src/lib/content/pages/cont
 
 **Dev routes (M3).** Guard `(dev)`-grouped routes with `export const prerender = dev` plus a `!dev → error(404)` check in the group layout. Keeps the experiment lab useful locally without shipping it.
 
-**Design guide (H2, M9).** Treat as its own project. Its content belongs in a structured content module keyed by section so it can be localized and so `todo.md`'s "read the docs" restructure becomes possible. Not urgent, but it should stop being treated as a page.
+**Design guide (H2, M9).** Treat as its own project. Its content belongs in a structured content module keyed by section so `todo.md`'s "read the docs" restructure becomes possible. Not urgent, but it should stop being treated as a page.
+
+**Amendment:** this section originally assumed localization was required. It is a product decision, and the cheaper answer deserves a hearing. English is the working language of chip design, so an English-only technical guide, labelled as such in Swedish, is defensible and costs a day rather than a week. The roadmap puts the choice to the developer before any restructuring begins. The `alt=""` problem and the structural work are worth doing either way.
 
 ---
 

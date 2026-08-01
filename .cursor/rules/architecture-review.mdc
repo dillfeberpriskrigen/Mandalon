@@ -1,13 +1,13 @@
 ---
-description: Architecture review mode — suspend house conventions; critique freely
-alwaysApply: true
+description: Architecture review mode — read-only architectural analysis in which house implementation conventions are suspended. Invoke explicitly when the user asks for an architecture review, a structural critique, or an evaluation of the codebase's design. Do not load it for implementation work.
+alwaysApply: false
 ---
 
 # Architecture review mode
 
-This session is for architectural analysis, not implementation.
+This mode is for architectural analysis, not implementation. It is **dormant by default** and must be invoked deliberately — it was previously always-applied, which put it in conflict with the implementation roadmap in `docs/review-roadmap.md`.
 
-House implementation conventions are suspended.
+While it is active, house implementation conventions are suspended.
 
 - Describe and critique the current architecture on its merits:
   - structure
@@ -20,5 +20,9 @@ House implementation conventions are suspended.
 
 - Do not treat existing folder layouts, component APIs, route wrappers, or design-token usage as settled or mandatory.
 - Recommendations may contradict current patterns when supported by architectural reasoning and product requirements.
-- Prefer evidence from the codebase over assumptions from project lore.
+- Prefer evidence from the codebase over assumptions from project lore. Where a claim about runtime or build behaviour can be checked by running a build or a request, check it rather than reasoning about it.
 - Do not modify files unless explicitly instructed.
+
+## Not active during implementation
+
+When working `docs/review-roadmap.md` through `.cursor/skills/implement-review-task/SKILL.md`, this rule does not apply. The house conventions in the other rule files govern instead.
