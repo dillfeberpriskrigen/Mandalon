@@ -5,10 +5,6 @@
 - [ ] Be AI att se över om något borde struktureras om, förenklas eller refaktoreras för att göra kodbasen enklare att underhålla.
 - [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras?
 
-## Vital fixes
-
-- [x] Se till att **npm run check** kan köras utan att retunera fel.
-
 ## High
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
@@ -16,7 +12,6 @@
 
 ## Medium
 
-- [x] Ta bort /empty som använts för att testa layout
 - [ ] English / Swedish toggle fungerar inte på Design guide sidan
 - [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra.
 - [ ] Lägg in stöd för permalinks eller åtminstone redirects, för att lätt kunna hantera flyttade sidor och URL:er. Ta hänsyende till hur svelte och sveltekit arbetar effektivt och vad som kan göras på klienten respektive vad som måste göras på servern. Försök göra allt så det går att köras på klienten.
@@ -37,17 +32,3 @@
 - [ ] Kanske gruppera sidor i projektet efter typ: site, statistik, eventuellt någon för verktyg. Alltså på sveltekit-sätt, en mapp med parentes runt namnet.
 - [ ] Önska något lättare sätt att hantera språkfilen för hemsidan och hur innehållet hamnar på sidor.
 - [ ] Stöd för dark mode.
-
-# Fixed
-
-- Favicon (ikon på fliken)
-- Göra så att "Hero"-delen på startsidan inte tar upp hela sidan på höjden, nu blir allt lila och inga kontraster
-
-- Fixa till en vit mandalon-logga uppe till vänster istället för inverterade färger
-- Knappen för nedladdning av designguiden är svart, ser knas ut, går inte att läsa
-
-- Jag gillar inte att menyn känns som den är till höger om mitten. Åtminstone inte så mycket. Kanske göra så att loggan + menyn är centrerad?
-
-- Gör en sektion "Bonding Services", kanske istället för "Chip & Sensors"
-
-- Bottenmenyn är överflödig
