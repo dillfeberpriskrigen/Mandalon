@@ -16,4 +16,4 @@
 
 <FeatureCarousel title={data.content.consulting.title} features={data.content.consulting.features} />
 
-<SalesIntroSection salesIntro={data.content.salesIntro} process={data.content.process} />
+<SalesIntroSection salesIntro={data.content.salesIntro} process={data.content.process} locale={data.locale} defaultLocale={data.defaultLocale} />

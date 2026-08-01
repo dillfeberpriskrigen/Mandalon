@@ -1,9 +1,12 @@
 <script lang="ts">
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import Button from '$lib/components/primitives/Button.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import type { Locale, NavLink } from '$lib/content/types';
+	import { localePath } from '$lib/utils/routing';
 
 	interface SalesIntro {
 		title: string;
@@ -13,6 +16,7 @@
 			href: string;
 			text: string;
 		};
+		actions: NavLink[];
 	}
 
 	interface ProcessStep {
@@ -28,9 +32,13 @@
 	interface Props {
 		salesIntro: SalesIntro;
 		process: Process;
+		locale: Locale | null;
+		defaultLocale: Locale;
 	}
 
-	let { salesIntro, process }: Props = $props();
+	let { salesIntro, process, locale, defaultLocale }: Props = $props();
+
+	const toPath = (path = '') => localePath(locale ?? defaultLocale, defaultLocale, path);
 </script>
 
 <section class="intro">
@@ -39,6 +47,14 @@
 			<div class="intro-copy">
 				<Heading as="h2">{salesIntro.title}</Heading>
 				<ParagraphArray paragraphs={salesIntro.paragraphs} />
+
+				<div class="intro-actions">
+					{#each salesIntro.actions as action, index (action.path)}
+						<Button href={toPath(action.path)} variant={index === 0 ? 'primary' : 'secondary'}>
+							{action.label}
+						</Button>
+					{/each}
+				</div>
 
 				<div class="intro-resource">
 					<Link href={salesIntro.resource.href} target="_blank" rel="noreferrer">
@@ -79,6 +95,12 @@
 		background:
 			linear-gradient(90deg, rgba(16, 35, 28, 0.24) 0%, rgba(16, 35, 28, 0.08) 100%),
 			url('/mandalon/help-asic.jpg') center 65% / cover no-repeat;
+	}
+
+	.intro-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-medium);
 	}
 
 	.intro-resource {

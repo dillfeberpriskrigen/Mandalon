@@ -490,7 +490,7 @@ export const siteContent = {
 				text: 'The design guide is a concrete example of how Mandalon works with transparency and practical guidance early in the process.'
 			},
 			actions: [
-				{ label: 'Chip & Sensors', path: 'paketering' },
+				{ label: 'Chip & Sensors', path: 'packaging' },
 				{ label: 'Contact', path: 'contact' }
 			]
 		},

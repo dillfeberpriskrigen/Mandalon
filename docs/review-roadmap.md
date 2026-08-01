@@ -162,7 +162,7 @@ The other two: `trackCurrentPage` in the root layout is defined, suppressed with
 
 ## T04 — Render the homepage call-to-action buttons · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Why:** `salesIntro.actions` is authored in both locales and required by `SalesIntroContent`, but `SalesIntroSection` never destructures it, so the homepage has no CTA buttons. The site's primary goal is generating contact inquiries. The English entry also points at the Swedish slug `paketering`.
 
@@ -830,8 +830,9 @@ Recorded so the reasoning is not relitigated.
 
 Append one row per completed task. Newest last.
 
-| Date       | Task | Verified by                                                               | Notes                                                |
-| ---------- | ---- | ------------------------------------------------------------------------- | ---------------------------------------------------- |
-| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import | Archive deleted; architecture-review remains dormant |
-| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                            | Kept analytics.ts; icons/ directory removed          |
+| Date       | Task | Verified by                                                               | Notes                                                 |
+| ---------- | ---- | ------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import | Archive deleted; architecture-review remains dormant  |
+| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                            | Kept analytics.ts; icons/ directory removed           |
 | 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                 | Normal Roboto face now loads VariableFont, not Italic |
+| 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact | EN action path fixed to packaging; locale null-safe   |
