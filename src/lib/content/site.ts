@@ -454,6 +454,12 @@ export const siteContent = {
 				{ label: 'Kunskapsbank', path: 'kunskapsbank' },
 				{ label: 'Designguide', path: 'designguide' }
 			]
+		},
+		errorPage: {
+			title: 'Sidan hittades inte',
+			notFound: 'Sidan kunde inte hittas.',
+			generic: 'Något gick fel.',
+			homeLabel: 'Till startsidan'
 		}
 	},
 	en: {
@@ -866,6 +872,12 @@ export const siteContent = {
 				{ label: 'Knowledge bank', path: 'knowledge-bank' },
 				{ label: 'Design guide', path: 'design-guide' }
 			]
+		},
+		errorPage: {
+			title: 'Page not found',
+			notFound: 'The page could not be found.',
+			generic: 'Something went wrong.',
+			homeLabel: 'Back to home'
 		}
 	}
 } satisfies Record<Locale, LocaleContent>;

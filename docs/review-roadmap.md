@@ -268,7 +268,7 @@ This is not the test suite the review ruled out. It has no runtime, no framework
 
 ## T08 — Add a site-styled error page · **M**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
@@ -839,5 +839,5 @@ Append one row per completed task. Newest last.
 | 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                        | Normal Roboto face now loads VariableFont, not Italic             |
 | 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact | EN action path fixed to packaging; locale null-safe               |
 | 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                        | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24 |
-| 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                  | Title optional for experiment/fonts; EN lang needs T07 in tree   |
-| 2026-08-01 | T07  | format/check/lint; build+check:build; kontakt=sv contact=en; no %lang%           | hooks.server.ts path-prefix lang until T14 route.id              |
+| 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                  | Title optional for experiment/fonts; EN lang needs T07 in tree    |
+| 2026-08-01 | T07  | format/check/lint; build+check:build; kontakt=sv contact=en; no %lang%           | hooks.server.ts path-prefix lang until T14 route.id               |

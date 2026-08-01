@@ -8,7 +8,7 @@ export const load: PageLoad = (event) => {
 
 	if (path != '') {
 		// This means only a single parameter was given, but it didn't match with a locale and thus ends up in the path parameter
-		throw error(404, 'Sidan kunde inte hittas');
+		throw error(404);
 	}
 
 	return {

@@ -175,6 +175,13 @@ export type FooterContent = {
 	nav: NavLink[];
 };
 
+export type ErrorPageContent = {
+	title: string;
+	notFound: string;
+	generic: string;
+	homeLabel: string;
+};
+
 export type LocaleContent = {
 	meta: Meta;
 	switchLabel: string;
@@ -191,4 +198,5 @@ export type LocaleContent = {
 	glossaryPage: GlossaryPageContent;
 	designGuidePage: DesignGuidePageContent;
 	footer: FooterContent;
+	errorPage: ErrorPageContent;
 };
