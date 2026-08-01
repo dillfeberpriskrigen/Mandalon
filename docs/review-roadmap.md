@@ -94,7 +94,7 @@ No dependencies. Small, isolated, mostly deletions.
 
 ## T01 — Leave architecture-review mode and restore the implementer rules · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Why:** the real implementer rules — `svelte-components.mdc` and the full `project-overview.mdc` / `product-design.mdc` — are sitting in `.cursor/rules-archive/` and are **not** loaded, while `.cursor/rules/` holds slimmed review copies. Every remaining task should be written under the project's actual conventions, so this goes first, not last. Restoring them at the end of the roadmap, as originally planned, meant implementing thirty tasks with the conventions unloaded.
 
@@ -832,4 +832,4 @@ Append one row per completed task. Newest last.
 
 | Date | Task | Verified by | Notes |
 | ---- | ---- | ----------- | ----- |
-|      |      |             |       |
+| 2026-08-01 | T01 | rules restored; format/check pass; lint fails on known T02 Surface import | Archive deleted; architecture-review remains dormant |
