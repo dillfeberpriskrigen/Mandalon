@@ -1,15 +1,13 @@
+import type { RequestHandler } from './$types';
 import { getSitemapEntries } from '$lib/seo';
 
 export const prerender = true;
 
-/**
- * @param {string} value
- */
-function escapeXml(value) {
+function escapeXml(value: string): string {
 	return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&apos;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-export function GET() {
+export const GET: RequestHandler = () => {
 	const urls = getSitemapEntries()
 		.map(
 			(entry) => `<url>
@@ -31,4 +29,4 @@ ${urls}
 			'Content-Type': 'application/xml; charset=utf-8'
 		}
 	});
-}
+};

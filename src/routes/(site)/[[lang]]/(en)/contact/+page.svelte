@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 	import Page from '../../kontakt/+page.svelte';
+	import type { PageData } from './$types';
 
-	const { data } = $props();
+	let { data }: { data: PageData } = $props();
 </script>
 
 <Page {data} />

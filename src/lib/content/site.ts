@@ -1,13 +1,13 @@
-/** @typedef {'sv' | 'en'} Locale */
+import type { Locale, LocaleContent, LocalizedSlugs } from './types';
 
-/** @type {Locale} */
-export const defaultLocale = 'sv';
+export type { Locale, LocaleContent } from './types';
 
-/** @type {readonly Locale[]} */
-export const locales = ['sv', 'en'];
+export const defaultLocale: Locale = 'sv';
+
+export const locales: readonly Locale[] = ['sv', 'en'];
 
 // Ugly reverse lookup table, replace with something better at some point..
-export const pagePaths = {
+export const pagePaths: Record<string, LocalizedSlugs> = {
 	kunskapsbank: {
 		sv: 'kunskapsbank',
 		en: 'knowledge-bank'
@@ -868,4 +868,4 @@ export const siteContent = {
 			]
 		}
 	}
-};
+} satisfies Record<Locale, LocaleContent>;

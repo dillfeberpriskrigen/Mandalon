@@ -1,12 +1,14 @@
-import { defaultLocale, locales } from '$lib/content/site';
+import { defaultLocale, locales, type Locale } from '$lib/content/site';
 import { localePath } from '$lib/utils/routing';
 
-/** @typedef {{ sv: string, en: string }} LocalizedRouteEntry */
+type LocalizedRouteEntry = {
+	sv: string;
+	en: string;
+};
 
 export const siteUrl = 'https://mandalon.se';
 
-/** @type {LocalizedRouteEntry[]} */
-const localizedRouteEntries = [
+const localizedRouteEntries: LocalizedRouteEntry[] = [
 	{ sv: '', en: '' },
 	{ sv: 'paketering', en: 'packaging' },
 	{ sv: 'konsulttjanster', en: 'consulting' },
@@ -16,10 +18,7 @@ const localizedRouteEntries = [
 	{ sv: 'designguide', en: 'design-guide' }
 ];
 
-/**
- * @param {string} pathname
- */
-function normalizePathname(pathname) {
+function normalizePathname(pathname: string): string {
 	if (!pathname || pathname === '/') {
 		return '';
 	}
@@ -27,38 +26,26 @@ function normalizePathname(pathname) {
 	return pathname.replace(/^\/+|\/+$/g, '');
 }
 
-/**
- * @param {string} pathname
- * @returns {LocalizedRouteEntry | null}
- */
-function getLocalizedEntry(pathname) {
+function getLocalizedEntry(pathname: string): LocalizedRouteEntry | null {
 	const normalizedPath = normalizePathname(pathname);
-	/** @type {import('$lib/content/site').Locale} */
-	const locale = normalizedPath === 'en' || normalizedPath.startsWith('en/') ? 'en' : defaultLocale;
+	const locale: Locale = normalizedPath === 'en' || normalizedPath.startsWith('en/') ? 'en' : defaultLocale;
 	const localizedPath = locale === 'en' ? normalizedPath.replace(/^en\/?/, '') : normalizedPath;
 
 	return localizedRouteEntries.find((entry) => entry[locale] === localizedPath) ?? null;
 }
 
-/**
- * @param {string} path
- */
-export function toAbsoluteUrl(path) {
+export function toAbsoluteUrl(path: string): string {
 	return path === '/' ? siteUrl : `${siteUrl}${path}`;
 }
 
-/**
- * @param {string} pathname
- */
-export function getAlternateLinks(pathname) {
+export function getAlternateLinks(pathname: string): { hreflang: string; href: string }[] {
 	const entry = getLocalizedEntry(pathname);
 
 	if (!entry) {
 		return [];
 	}
 
-	/** @type {{ hreflang: string, href: string }[]} */
-	const links = locales.map((locale) => ({
+	const links: { hreflang: string; href: string }[] = locales.map((locale) => ({
 		hreflang: locale,
 		href: toAbsoluteUrl(localePath(locale, defaultLocale, entry[locale]))
 	}));

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Table from '$lib/components/data/Table.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';

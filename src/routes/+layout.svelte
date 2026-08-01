@@ -1,15 +1,17 @@
-<script>
+<script lang="ts">
 	import { browser } from '$app/environment';
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
+	import type { Snippet } from 'svelte';
 	import { onMount } from 'svelte';
 	import { trackPageView } from '$lib/client/analytics';
 	import { getAlternateLinks } from '$lib/seo';
 	import SiteHeader from '$lib/components/layout/SiteHeader.svelte';
 	import SiteFooter from '$lib/components/layout/SiteFooter.svelte';
+	import type { LayoutData } from './$types';
 	import '../app.css';
 
-	const { data, children } = $props();
+	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
 	let lastTrackedPath = '';
 

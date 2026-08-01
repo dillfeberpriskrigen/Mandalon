@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
 	import FeatureCarousel from '$lib/components/sections/FeatureCarousel.svelte';
 	import HeroSection from '$lib/components/sections/HeroSection.svelte';
 	import SalesIntroSection from '$lib/components/sections/SalesIntroSection.svelte';
+	import type { PageData } from './$types';
 
-	const { data } = $props();
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>

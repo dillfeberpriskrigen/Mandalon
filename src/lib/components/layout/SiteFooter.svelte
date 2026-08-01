@@ -1,7 +1,18 @@
-<script>
+<script lang="ts">
+	import type { Locale, LocaleContent } from '$lib/content/site';
 	import { localePath } from '$lib/utils/routing';
 
-	const { data } = $props();
+	type FooterData = {
+		locale: Locale;
+		defaultLocale: Locale;
+		content: LocaleContent;
+	};
+
+	interface Props {
+		data: FooterData;
+	}
+
+	let { data }: Props = $props();
 
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>

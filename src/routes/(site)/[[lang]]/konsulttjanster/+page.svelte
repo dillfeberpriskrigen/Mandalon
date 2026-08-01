@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import type { PageData } from './$types';
 
-	const { data } = $props();
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>

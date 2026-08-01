@@ -51,13 +51,13 @@ Prefer typography components (`Text`, `Heading`, `Link`); global heading classes
 </script>
 ```
 
-- Prefer `lang="ts"` for new components in `src/lib/components/`
-- Route pages may stay plain JS with JSDoc (`/** @type {...} */`)
+- Require `lang="ts"` for components and route pages
+- Prefer `PageData` / `LayoutData` from `./$types` on routes
 
 ## Composition
 
 - Pass copy via props or snippets — do not hardcode user-facing text in components
-- Page content comes from `data.content` (sourced from `siteContent` in `src/lib/content/site.js`, loaded in `+layout.js`)
+- Page content comes from `data.content` (sourced from `siteContent` in `src/lib/content/site.ts`, loaded in `+layout.ts`)
 - Use `PageShell` for page padding + `.container` (one page width; no `narrow`/`wide`); use `PageContent` for readable body width (`.text-width`); use `Surface` for card/panel backgrounds
 - Use `Text` with `variant` (`body` | `lead` | `caption` | `label`) instead of ad-hoc font sizes
 
@@ -66,15 +66,17 @@ Prefer typography components (`Text`, `Heading`, `Link`); global heading classes
 English slug wrappers live under `(en)/` and re-export the Swedish canonical page:
 
 ```svelte
-<script>
+<script lang="ts">
 	import Page from '../../paketering/+page.svelte';
-	const { data } = $props();
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 </script>
 
 <Page {data} />
 ```
 
-Edit the canonical page (usually the Swedish slug) — wrappers should stay as one-liners.
+Edit the canonical page (usually the Swedish slug) — wrappers should stay thin.
 
 ## Component extraction rule of thumb
 
@@ -93,5 +95,6 @@ Do not add categories (atoms/molecules) or generic wrappers (`Grid`, `Stack`) �
 
 - Introduce Svelte 4 patterns (`export let`, `$$props`, slots without snippets)
 - Add component-scoped styles that duplicate tokens already in `app.css`
-- Create one-off components for content that belongs in `src/lib/content/site.js`
+- Create one-off components for content that belongs in `src/lib/content/site.ts`
 - Add `Typography.svelte` or duplicate typography abstractions
+- Add new `.js` modules under `src/` — use TypeScript

@@ -1,8 +1,9 @@
 import { error } from '@sveltejs/kit';
+import type { PageLoad } from './$types';
 import { defaultLocale, siteContent } from '$lib/content/site';
-import { getLocaleAndPathFromEvent } from '$lib/utils/routing.js';
+import { getLocaleAndPathFromEvent } from '$lib/utils/routing';
 
-export function load(event) {
+export const load: PageLoad = (event) => {
 	const { locale, path } = getLocaleAndPathFromEvent(event);
 
 	if (path != '') {
@@ -15,4 +16,4 @@ export function load(event) {
 		defaultLocale,
 		content: siteContent[locale ?? defaultLocale]
 	};
-}
+};

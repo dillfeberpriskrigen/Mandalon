@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
@@ -6,8 +6,10 @@
 	import Table from '$lib/components/data/Table.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
+	import type { PageData } from './$types';
 
-	const { data } = $props();
+	let { data }: { data: PageData } = $props();
 
 	const capabilityRows = $derived(
 		data.content.chipSensorsPage.capabilities.map((capability) => ({

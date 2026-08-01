@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
@@ -9,8 +9,9 @@
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import { localePath } from '$lib/utils/routing';
+	import type { PageData } from './$types';
 
-	const { data } = $props();
+	let { data }: { data: PageData } = $props();
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
 

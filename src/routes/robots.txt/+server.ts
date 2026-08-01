@@ -1,13 +1,11 @@
+import type { RequestHandler } from './$types';
 import { siteUrl } from '$lib/seo';
 
-/**
- * @param {string} hostname
- */
-function isBlockedHost(hostname) {
+function isBlockedHost(hostname: string): boolean {
 	return hostname === 'develop.mandalon.se' || hostname.endsWith('.develop.mandalon.se');
 }
 
-export function GET({ url }) {
+export const GET: RequestHandler = ({ url }) => {
 	const robotsTxt = isBlockedHost(url.hostname) ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`;
 
 	return new Response(robotsTxt, {
@@ -15,4 +13,4 @@ export function GET({ url }) {
 			'Content-Type': 'text/plain; charset=utf-8'
 		}
 	});
-}
+};

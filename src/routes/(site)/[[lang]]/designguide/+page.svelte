@@ -1,5 +1,7 @@
-<script>
-	const { data } = $props();
+<script lang="ts">
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 	const content = $derived(data.content.designGuidePage);
 </script>
 

@@ -1,10 +1,11 @@
 import { redirect } from '@sveltejs/kit';
+import type { LayoutLoad } from './$types';
 import { defaultLocale, siteContent } from '$lib/content/site';
-import { getLocaleAndPathFromEvent } from '$lib/utils/routing.js';
+import { getLocaleAndPathFromEvent } from '$lib/utils/routing';
 
 export const prerender = true;
 
-export function load(event) {
+export const load: LayoutLoad = (event) => {
 	const { locale, path } = getLocaleAndPathFromEvent(event);
 
 	if (locale == null) {
@@ -18,4 +19,4 @@ export function load(event) {
 		defaultLocale,
 		content: siteContent[locale ?? defaultLocale] // Ensures that some content is provided, even if locale invalid
 	};
-}
+};

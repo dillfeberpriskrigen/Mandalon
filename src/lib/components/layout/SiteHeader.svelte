@@ -1,30 +1,31 @@
-<script>
+<script lang="ts">
 	import { localePath } from '$lib/utils/routing';
-	import { pagePaths } from '$lib/content/site';
+	import { pagePaths, type Locale, type LocaleContent } from '$lib/content/site';
 
-	/**
-	 * @typedef {Object} LayoutData
-	 * @property {string} path
-	 * @property {import('$lib/content/site').Locale} locale
-	 * @property {import('$lib/content/site').Locale} defaultLocale
-	 * @property {(typeof import('$lib/content/site').siteContent)['sv']} content
-	 */
+	type HeaderData = {
+		path: string;
+		locale: Locale;
+		defaultLocale: Locale;
+		content: LocaleContent;
+	};
 
-	/** @type {{ data: LayoutData, currentPath?: string }} */
-	const { data, currentPath = '' } = $props();
+	interface Props {
+		data: HeaderData;
+		currentPath?: string;
+	}
+
+	let { data, currentPath = '' }: Props = $props();
 
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 
-	/** @param {string} path */
-	const getLocalizedSlug = (path) => (Object.hasOwn(pagePaths, path) ? pagePaths[/** @type {keyof typeof pagePaths} */ (path)] : undefined);
+	const getLocalizedSlug = (path: string) => (Object.hasOwn(pagePaths, path) ? pagePaths[path] : undefined);
 
 	const getSwitchPath = () => {
 		const slugs = getLocalizedSlug(data.path);
 		return data.locale === 'sv' ? localePath('en', data.defaultLocale, slugs?.en) : localePath('sv', data.defaultLocale, slugs?.sv);
 	};
 
-	/** @param {string} path */
-	const isActive = (path) => {
+	const isActive = (path: string) => {
 		if (!path) return currentPath === '';
 		return currentPath === path;
 	};
