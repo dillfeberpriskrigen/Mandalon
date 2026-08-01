@@ -10,13 +10,13 @@
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
 - [ ] Be AI att ta bort eventuell debugg-kod och kommentarer.
 - [x] Gruppera engelska och svenska routes i kodbasen med sveltekit groups, alltså parenteser. Framför allt med syfte att hitta lättare i koden.
+- [ ] Lägg in stöd för permalinks eller åtminstone redirects, för att lätt kunna hantera flyttade sidor och URL:er. Ta hänsyende till hur svelte och sveltekit arbetar effektivt och vad som kan göras på klienten respektive vad som måste göras på servern. Försök göra allt så det går att köras på klienten.
 
 ## Medium
 
 - [ ] English / Swedish toggle fungerar inte på Design guide sidan
 - [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra.
-- [ ] Lägg in stöd för permalinks eller åtminstone redirects, för att lätt kunna hantera flyttade sidor och URL:er. Ta hänsyende till hur svelte och sveltekit arbetar effektivt och vad som kan göras på klienten respektive vad som måste göras på servern. Försök göra allt så det går att köras på klienten.
-- [ ] Utvärdera hantering av locales och förbättra vid behov. Det är dumt ifall det finns tvetydigheter i tolkning av URL:er och det är dumt ifall något av detta förhindrar svelte och sveltekit att arbeta effektivt.
+- [ ] Utvärdera hantering av locales och förbättra vid behov. Det är dumt ifall det finns tvetydigheter i tolkning av URL:er och det är dumt ifall något av detta förhindrar svelte och sveltekit att arbeta effektivt. Tänk särskilt på hantering av default locale och om denna innehåller en sida vars namn kan förväxlas en en annan locale, typ /sv/en och man väljer sv som default locale och därmed förväntas /en fungera, det bästa är nog att förbjuda sidnamn som kolliderar på det viset men fundera över alternativen.
 - [ ] Gör det tydligare i menyn i sidhuvudet vilken sida som är aktiv.
 - [ ] Flytta språkvalet till en EN / SV knapp istället, och gör så att Contact har en liten telefon-ikon. Det känns märkligt med en orange knapp "mitt i" menyn just nu.
 - [ ] Ge länkar ett tydligare utseende. Den på designguide sidan ser bara ut som vanlig tjock text. Alla länkar borde ha liknande utseende. De på kontakt sidan ser bättre ut. Det tyck vara den som kalla callout-style som inte ser ut som en länk.
