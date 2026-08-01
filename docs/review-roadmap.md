@@ -144,7 +144,7 @@ The other two: `trackCurrentPage` in the root layout is defined, suppressed with
 
 ## T03 — Point the Roboto font face at the upright font file · **XS**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T02 — until the failing lint is fixed, this task cannot pass its own verification.
 
@@ -834,3 +834,4 @@ Append one row per completed task. Newest last.
 | ---------- | ---- | ------------------------------------------------------------------------- | ---------------------------------------------------- |
 | 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import | Archive deleted; architecture-review remains dormant |
 | 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                            | Kept analytics.ts; icons/ directory removed          |
+| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                 | Normal Roboto face now loads VariableFont, not Italic |
