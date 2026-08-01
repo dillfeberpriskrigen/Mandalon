@@ -189,7 +189,7 @@ The other two: `trackCurrentPage` in the root layout is defined, suppressed with
 
 ## T05 — Correct repository metadata · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Why:** `README.md` documents `@sveltejs/adapter-static` and a static `build/` upload, but the project uses `adapter-node` behind Passenger. `package.json` has no `engines` field despite the README citing an engine requirement.
 
@@ -830,9 +830,10 @@ Recorded so the reasoning is not relitigated.
 
 Append one row per completed task. Newest last.
 
-| Date       | Task | Verified by                                                               | Notes                                                 |
-| ---------- | ---- | ------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import | Archive deleted; architecture-review remains dormant  |
-| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                            | Kept analytics.ts; icons/ directory removed           |
-| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                 | Normal Roboto face now loads VariableFont, not Italic |
+| Date       | Task | Verified by                                                                      | Notes                                                 |
+| ---------- | ---- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import        | Archive deleted; architecture-review remains dormant  |
+| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                                   | Kept analytics.ts; icons/ directory removed           |
+| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                        | Normal Roboto face now loads VariableFont, not Italic |
 | 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact | EN action path fixed to packaging; locale null-safe   |
+| 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                     | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24 |
