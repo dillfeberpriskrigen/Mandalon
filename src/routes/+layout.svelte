@@ -1,10 +1,6 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import type { Snippet } from 'svelte';
-	import { onMount } from 'svelte';
-	import { trackPageView } from '$lib/client/analytics';
 	import { getAlternateLinks } from '$lib/seo';
 	import SiteHeader from '$lib/components/layout/SiteHeader.svelte';
 	import SiteFooter from '$lib/components/layout/SiteFooter.svelte';
@@ -12,35 +8,6 @@
 	import '../app.css';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
-
-	let lastTrackedPath = '';
-
-	/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-	function trackCurrentPage() {
-		// TODO: Fix new tracking implementation
-		if (!browser) {
-			return;
-		}
-
-		const currentPath = `${window.location.pathname}${window.location.search}`;
-
-		if (currentPath === lastTrackedPath) {
-			return;
-		}
-
-		lastTrackedPath = currentPath;
-		trackPageView();
-	}
-
-	if (browser) {
-		afterNavigate(() => {
-			//trackCurrentPage();
-		});
-	}
-
-	onMount(() => {
-		//trackCurrentPage();
-	});
 
 	const alternateLinks = $derived(getAlternateLinks(page.url.pathname));
 </script>

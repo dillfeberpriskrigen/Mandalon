@@ -112,7 +112,7 @@ No dependencies. Small, isolated, mostly deletions.
 
 ## T02 — Delete dead code and fix the failing lint · **XS**
 
-- [ ] Complete
+- [x] Complete
 
 **Why:** three small pieces of dead code, batched because each is a two-minute deletion and separate commits for them are pure overhead.
 
@@ -830,6 +830,7 @@ Recorded so the reasoning is not relitigated.
 
 Append one row per completed task. Newest last.
 
-| Date | Task | Verified by | Notes |
-| ---- | ---- | ----------- | ----- |
-| 2026-08-01 | T01 | rules restored; format/check pass; lint fails on known T02 Surface import | Archive deleted; architecture-review remains dormant |
+| Date       | Task | Verified by                                                               | Notes                                                |
+| ---------- | ---- | ------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import | Archive deleted; architecture-review remains dormant |
+| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                            | Kept analytics.ts; icons/ directory removed          |
