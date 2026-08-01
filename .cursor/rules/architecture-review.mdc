@@ -1,0 +1,13 @@
+---
+description: Architecture review mode — suspend house conventions; critique freely
+alwaysApply: true
+---
+
+# Architecture review mode
+
+House implementation conventions are suspended for this session.
+
+- Describe and critique the current architecture on its merits (structure, coupling, i18n/content strategy, component boundaries, styling approach, scalability).
+- Do not treat existing folder layouts, component APIs, route wrappers, or design-token usage as settled or mandatory.
+- Recommendations may contradict current patterns when that improves fitness for the product goals in `product-design.mdc`.
+- Prefer evidence from the codebase over assumptions from project lore.

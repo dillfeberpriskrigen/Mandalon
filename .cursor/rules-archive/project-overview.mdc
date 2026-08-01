@@ -1,0 +1,38 @@
+---
+description: Mandalon project overview — architecture, i18n, and conventions
+alwaysApply: true
+---
+# Mandalon
+SvelteKit remake of [mandalon.se](https://mandalon.se). B2B site for chip packaging, bonding, and consulting services.
+## Stack
+- **Svelte 5** with runes mode forced project-wide (`$props()`, `$derived()`, `{@render children()}`)
+- **SvelteKit 2** with **Vite 5**
+- **Node 18.20.8** (see `.nvmrc`)
+- **Adapter:** `@sveltejs/adapter-node` (README also mentions static deploy to `build/` but this is obsolete information and should be updated in the future)
+- **TypeScript** throughout (`lang="ts"` in Svelte; `.ts` for lib modules and route loaders)
+- **Lint/format:** ESLint + Prettier (`npm run lint`, `npm run format`)
+- **Type check:** `npm run check` (svelte-check via `tsconfig.json`)
+- **Line endings:** LF only (Unix newlines) — enforced via `.gitattributes` (`* text=auto eol=lf`). Do not use CRLF (carriage return). New and edited files must end lines with `\n` only.
+## Commands
+```bash
+npm install
+npm run dev      # local development
+npm run build    # production build
+npm run check    # svelte-check
+npm run lint     # prettier + eslint
+npm run format   # Perform formatting, prettier + svelte
+```
+## i18n
+
+- Public pages live under `src/routes/(site)/[[lang]]/` — Swedish is default (`/paketering`), English uses `/en/…` (`/en/packaging`)
+- Route groups: `(site)` for public pages, `(en)` for English thin wrappers, `(stats)` for `/stats` — parentheses do not appear in URLs
+- Content is keyed by locale in `src/lib/content/site.ts` (`siteContent`); `+layout.ts` passes it to pages as `data.content`
+- Content shapes live in `src/lib/content/types.ts`; shared page loads use `loadLocalePage`
+- Canonical pages use Swedish slugs; EN routes under `(en)/` are thin wrappers that import the SV page (see `svelte-components.mdc`)
+
+## Conventions
+
+- **Content:** User-facing text lives in `src/lib/content/site.ts` — pages consume it as `data.content`; components receive content via props (never hardcoded)
+- **Code comments:** Swedish or English
+- **Reference page:** `(site)/[[lang]]/paketering/+page.svelte` — canonical example of page structure
+- **Before done:** After any code change, run `npm run format`, then `npm run check`, then `npm run lint`. Do not consider the task done until all three pass.

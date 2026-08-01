@@ -1,0 +1,47 @@
+---
+description: Site goals, audience, and design/usability principles for Mandalon
+alwaysApply: true
+---
+
+# Product & design
+
+## Purpose
+
+B2B website for Mandalon — chip packaging, wire bonding, and consulting.
+
+- **Primary goal:** Generate contact inquiries from technical buyers
+- **Secondary goals:** Educate, build trust, showcase expertise
+- **Not:** e-commerce, consumer marketing, app-style UI
+
+## Audience
+
+- **Who:** CEO, R&D leads, CTO, project managers
+- **What they need:** proof of expertise, practical capability info, easy contact, emergency help with wire bonding
+- **Tone:** Professional, practical, experience-based, clarity over hype
+
+## Design principles
+
+- Prefer **clarity and trust** over visual flair
+- **One visual treatment per pattern** — unify similar elements; avoid subtle one-off variants
+- Use design tokens from `app.css` — see `styling.mdc` for CSS details
+
+## Usability
+
+- Pages must be **scannable** — clear headings, lead text, logical sections
+- **Readable line length** — use `PageContent` (applies `.text-width`)
+- **Contact path** must stay obvious from main pages
+- **Mobile:** usable down to ~320px; test breakpoints around 780–900px
+- **Languages:** Swedish default, English via `/en/…` — no hardcoded locale strings in pages
+
+## Accessibility (baseline)
+
+- One `<h1>` per page; logical heading order
+- Meaningful `alt` on content images; `aria-hidden="true"` on decorative icons
+- Iframes need a descriptive `title` (see contact map)
+- Links readable without color alone; do not remove focus styles
+- Be mindful with semantic elements to help screen readers work properly
+
+## When designing new UI
+
+- Reuse shared components before inventing page-specific layouts
+- Demo new variants on the experiment page before using in production pages
