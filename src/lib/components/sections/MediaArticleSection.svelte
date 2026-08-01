@@ -93,7 +93,8 @@
 	}
 
 	@media (max-width: 780px) {
-		.twocolumn {
+		.twocolumn,
+		.twocolumn.reverse {
 			grid-template-columns: 1fr;
 		}
 
