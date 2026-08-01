@@ -25,13 +25,14 @@ npm run format   # Perform formatting, prettier + svelte
 ```
 ## i18n
 
-- Routes live under `src/routes/[[lang]]/` — Swedish is default (`/paketering`), English uses `/en/…` (`/en/packaging`)
+- Public pages live under `src/routes/(site)/[[lang]]/` — Swedish is default (`/paketering`), English uses `/en/…` (`/en/packaging`)
+- Route groups: `(site)` for public pages, `(en)` for English thin wrappers, `(stats)` for `/stats` — parentheses do not appear in URLs
 - Copy is keyed by locale in `src/lib/content/site.js` (`siteContent`); `+layout.js` passes it to pages as `data.content`
-- Canonical pages use Swedish slugs; EN routes are thin wrappers that import the SV page (see `svelte-components.mdc`)
+- Canonical pages use Swedish slugs; EN routes under `(en)/` are thin wrappers that import the SV page (see `svelte-components.mdc`)
 
 ## Conventions
 
 - **Copy:** User-facing text lives in `src/lib/content/site.js` — pages consume it as `data.content`; components receive copy via props (never hardcoded)
 - **Code comments:** Swedish or English
-- **Reference page:** `paketering/+page.svelte` — canonical example of page structure
+- **Reference page:** `(site)/[[lang]]/paketering/+page.svelte` — canonical example of page structure
 - **Code format:** After any code change, run `npm run format` before considering the task done (before check/lint/final verification).

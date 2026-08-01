@@ -63,11 +63,11 @@ Prefer typography components (`Text`, `Heading`, `Link`); global heading classes
 
 ## i18n route wrappers
 
-Some locale pairs share one implementation:
+English slug wrappers live under `(en)/` and re-export the Swedish canonical page:
 
 ```svelte
 <script>
-	import Page from '../paketering/+page.svelte';
+	import Page from '../../paketering/+page.svelte';
 	const { data } = $props();
 </script>
 

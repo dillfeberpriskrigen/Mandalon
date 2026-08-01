@@ -1,5 +1,5 @@
 <script>
-	import Page from '../kunskapsbank/+page.svelte';
+	import Page from '../../kontakt/+page.svelte';
 
 	const { data } = $props();
 </script>

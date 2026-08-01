@@ -9,7 +9,7 @@
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
 - [ ] Be AI att ta bort eventuell debugg-kod och kommentarer.
-- [ ] Gruppera engelska och svenska routes i kodbasen med sveltekit groups, alltså parenteser. Framför allt med syfte att hitta lättare i koden.
+- [x] Gruppera engelska och svenska routes i kodbasen med sveltekit groups, alltså parenteser. Framför allt med syfte att hitta lättare i koden.
 
 ## Medium
 
@@ -30,6 +30,6 @@
 - [ ] Om möjligt i komponenten `Link` Detektera automatiskt ifall en länk leder till en extern sajt, eller är en fil, och ge den `target="_blank"`
 - [ ] Se till att inga globala stilar appliceras av komponenter eller sidor. All global styling ska ske via app.css. Om en sida behöver "pierce the scope boundry" känns det som att komponenten i fråga behöver få mer optioner eller något.
 - [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer.
-- [ ] Kanske gruppera sidor i projektet efter typ: site, statistik, eventuellt någon för verktyg. Alltså på sveltekit-sätt, en mapp med parentes runt namnet.
+- [x] Kanske gruppera sidor i projektet efter typ: site, statistik, eventuellt någon för verktyg. Alltså på sveltekit-sätt, en mapp med parentes runt namnet. (Gjort: `(site)`, `(en)`, `(stats)`; verktyg/dev-grupp kan tillkomma senare.)
 - [ ] Önska något lättare sätt att hantera språkfilen för hemsidan och hur innehållet hamnar på sidor.
 - [ ] Stöd för dark mode.

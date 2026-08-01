@@ -1,5 +1,5 @@
 <script>
-	import Page from '../om-mandalon/+page.svelte';
+	import Page from '../../om-mandalon/+page.svelte';
 
 	const { data } = $props();
 </script>
