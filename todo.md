@@ -1,6 +1,7 @@
 # Todo
 
 ## Fråga AI
+
 - [ ] Be AI att se över om något borde struktureras om, förenklas eller refaktoreras för att göra kodbasen enklare att underhålla.
 - [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras?
 
@@ -9,6 +10,7 @@
 - [x] Se till att **npm run check** kan köras utan att retunera fel.
 
 ## High
+
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
 - [ ] Be AI att ta bort eventuell debugg-kod och kommentarer.
 
@@ -35,36 +37,6 @@
 - [ ] Kanske gruppera sidor i projektet efter typ: site, statistik, eventuellt någon för verktyg. Alltså på sveltekit-sätt, en mapp med parentes runt namnet.
 - [ ] Önska något lättare sätt att hantera språkfilen för hemsidan och hur innehållet hamnar på sidor.
 - [ ] Stöd för dark mode.
-
-## Konsolidering av komponenter och formatmallar
-
-Det här är en stor punkt. Bryt ut de flesta delar av webbplatsen till återanvändbara komponenter och säkerställ en enhetlig styling som främst styrs från `app.css` och de CSS-filer som importeras därifrån.
-
-- Minimera antalet scoped styles direkt i +page.svelte filer och se till att detta styrs via komponenter och/eller app.css och dess importer
-- Skapa en enhetlig hantering av text så att endast ett fåtal textstilar används konsekvent på hela webbplatsen.
-- Implementera en textbehållare för att säkerställa enhetlig bredd, placering och läsbarhet på alla sidor.
-- Skapa ytterligare komponenter för kod som upprepas på flera sidor eller som kan bli vanligt använda.
-
-### Komponentstruktur
-
-- [x] **Typografi (option A):** Använd `Text`, `Heading` och `Link` som typografilager — ta bort `Typography.svelte` (undvik dubbel abstraktion). (`.text-label` tillagt)
-- [x] **Enhetlig textstil:** Inventera textklasser/stilar i sidor och scoped CSS; begränsa till få tillåtna varianter (`Text` + `Heading` + globala heading-klasser) och migrera bort ad-hoc fontstorlekar. (`designguide` deferred — own ad-hoc styles until redesign)
-- [x] **Textbehållare:** Ta bort `narrow` / `wide` från `PageContent`; använd en gemensam bredd på alla sidor. Ersätt blandade container-/bredd-mönster (inkl. `.text-width` där det behövs) så brödtext får enhetlig bredd, placering och läsbarhet. (`PageContent` = `.text-width`; `PageShell` utan `narrow`; `.container-wide` / `.container-narrow` borttagna; `--container-width-narrow` removed from `app.css` — designguide sets `--container-width: 980px` page-locally)
-- [x] **Minska scoped styles i sidor:** Audit varje `+page.svelte`; flytta delad styling till komponenter eller `src/lib/styles/` (via `app.css`). Lämna kvar endast layout unik för sidan (grid/flex/breakpoints). (klart för phase-1 + paketering + home; page-unique layout kvar på kontakt/kunskapsbank callout/om-mandalon; `Table`/`Button`/`layout.css`; `designguide` deferred)
-- [x] **Flytta site chrome:** Flytta `SiteHeader.svelte` och `SiteFooter.svelte` till `src/lib/components/layout/` och uppdatera imports.
-- [x] **Flytta innehållskomponenter:** Flytta `ParagraphArray.svelte` till `src/lib/components/content/` och uppdatera imports.
-- [x] **Utvärdera Image:** Behåll `Image.svelte` endast om den behövs (t.ex. lazy loading, aspect ratio, caption). Annars ta bort komponenten och använd `<img>` direkt tills behov uppstår.
-
-### Komponenter att bygga (efter strukturen ovan)
-
-- [x] **`PageHeader`** / [x] **`PageShell`** — gemensamt sidhuvud (`h1` + lead) och sid-padding som upprepas på de flesta sidor.
-- [x] **`Heading` och `Link`** — implementera WIP-komponenterna så typografilagret (option A) kan användas konsekvent på sidor.
-- [x] **Utöka `MediaArticleSection`** — `kontakt` person-rader och `kunskapsbank` intro + topic-rader migrerade.
-- [x] **Paneler/kort via `Surface`** — ersätt duplicerade `.panel` / `.service-card` / `.intro-panel`-stilar på t.ex. om-mandalon och konsulttjanster.
-- [x] **`Table`** — capabilities-tabellen på paketering migrerad; styles i `src/lib/styles/table.css`.
-- [x] **`FaqSection`** — extrahera från kunskapsbank vid sidmigration.
-- [x] **`Button`** — primary/secondary; `a` eller `button`; styles i `src/lib/styles/button.css` (demo på experiment; designguide ej omkopplad).
-- [x] **Övriga upprepningar** — extraherat vid 2+ sidor (`.surface-grid`, `.content-list`, home sections, `MediaArticleSection`); engångsmönster (kunskapsbank guide-callout, kontakt map) behålls page-local.
 
 # Fixed
 

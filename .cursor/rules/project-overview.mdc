@@ -33,6 +33,5 @@ npm run format   # Perform formatting, prettier + svelte
 
 - **Copy:** User-facing text lives in `src/lib/content/site.js` — pages consume it as `data.content`; components receive copy via props (never hardcoded)
 - **Code comments:** Swedish or English
-- **Reference page:** `paketering/+page.svelte` — target structure for migrated pages
-- **Active refactor:** component/style consolidation — see `refactoring.mdc`
+- **Reference page:** `paketering/+page.svelte` — canonical example of page structure
 - **Code format:** After any code change, run `npm run format` before considering the task done (before check/lint/final verification).

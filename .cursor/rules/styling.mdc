@@ -49,7 +49,7 @@ Allowed variants only — no ad-hoc `font-size` in page scoped CSS:
 
 Tokens live in `:root` (`--text-*`, `--page-header-*`, `--page-sub-section-*`). Classes in `typography.css`.
 
-Create additional typography classes if needed, but ask first. Page-unique layout leftovers (kontakt map, kunskapsbank callout) are intentional; `designguide` keeps its own scoped styles until a future redesign (deferred from consolidation).
+Create additional typography classes if needed, but ask first. Page-unique layout leftovers (kontakt map, kunskapsbank callout) are intentional; `designguide` keeps its own scoped styles until a future redesign.
 
 
 
@@ -85,11 +85,10 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 
 - **Page chrome:** `PageShell` → padding + `.container` (default `--container-width-default`)
 - **Body copy:** `PageContent` → `.text-width` (`--text-width`)
-- `.container-narrow` / `.container-wide` / `--container-width-narrow` removed; designguide overrides `--container-width` page-locally (deferred from consolidation)
+- Do not reintroduce `.container-narrow` / `.container-wide` / `--container-width-narrow`; designguide overrides `--container-width` page-locally until redesigned
 
 ## Do not
 
 - Add new global CSS files without importing them from `app.css`
 - Introduce CSS frameworks (Tailwind, Bootstrap, etc.)
 - Duplicate token values inline in component styles
-- Remove debug/outline styles from WIP components unless asked (e.g. `MediaArticleSection` dev outlines)

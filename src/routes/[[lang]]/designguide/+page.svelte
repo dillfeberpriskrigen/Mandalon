@@ -670,7 +670,7 @@
 
 <style>
 	.guide-page {
-		/* Page-local width — not a shared token (designguide deferred from consolidation) */
+		/* Page-local width override — not a shared token */
 		--container-width: 980px;
 		padding: 4rem 0 6rem;
 	}
