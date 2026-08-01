@@ -13,11 +13,11 @@ Break pages into reusable components and unify styling from `app.css` and `src/l
 Current priorities:
 
 1. **Sections** — extend `MediaArticleSection` for kontakt / kunskapsbank; extract `FaqSection`, grids, callouts as patterns repeat
-2. **Page migration** — one page at a time; `paketering` is the reference implementation (finish typography cleanup on remaining pages); designguide still uses `--container-width-narrow` locally
-3. **Reduce scoped styles** — audit each `+page.svelte`; move shared styling to components or `src/lib/styles/`
+2. **Page migration** — one page at a time; `paketering` is the reference implementation; phases 1–2 done; `designguide` deferred (see page order)
+3. **Reduce scoped styles** — audit each `+page.svelte`; move shared styling to components or `src/lib/styles/` (skip deferred `designguide`)
 4. **Experiment page** — use `experiment/+page.svelte` to demo components in different situations
 
-Done: typography option A + unified text tokens; text container (`PageContent` = `.text-width`, `PageShell` single width); Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages; home phase 2 (`HeroSection`, `FeatureCarousel`, `SalesIntroSection`).
+Done: typography option A + unified text tokens; text container (`PageContent` = `.text-width`, `PageShell` single width); Surface panels on om-mandalon / konsulttjanster; site chrome / `ParagraphArray` folder moves; `PageHeader` and `PageShell` on phase-1 pages; home phase 2 (`HeroSection`, `FeatureCarousel`, `SalesIntroSection`); `--container-width-narrow` removed from `app.css` (designguide width quarantined page-locally).
 
 Component structure, WIP status, and extraction rules: see `svelte-components.mdc`.
 
@@ -51,9 +51,9 @@ Component structure, WIP status, and extraction rules: see `svelte-components.md
 
 | Phase | Pages | Notes |
 |-------|-------|-------|
-| 1 | `kontakt`, `om-mandalon`, `konsulttjanster`, `kunskapsbank` | Canonical SV pages; EN routes are thin wrappers |
-| 2 | `+page.svelte` (home) | Complex — hero, carousel, multiple sections |
-| 3 | `designguide` | Large (700+ lines), many bespoke styles — do last |
+| 1 | `kontakt`, `om-mandalon`, `konsulttjanster`, `kunskapsbank` | Done — canonical SV pages; EN routes are thin wrappers |
+| 2 | `+page.svelte` (home) | Done — hero, carousel, multiple sections |
+| 3 | `designguide` | **Deferred** — keep page-local until a future docs-style redesign; do not block other consolidation. Width is quarantined on the page (`--container-width: 980px`), not in `app.css`. |
 
 ## Out of scope unless asked
 
@@ -61,6 +61,7 @@ Component structure, WIP status, and extraction rules: see `svelte-components.md
 - Analytics tracking wiring in `+layout.svelte` (currently commented out)
 - TypeScript migration of all route pages
 - Route slug or locale structure changes
+- `designguide` page migration / redesign (deferred; quarantine globals only if it pollutes shared CSS)
 
 ## Definition of done (per page)
 

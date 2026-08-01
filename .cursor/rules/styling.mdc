@@ -49,7 +49,7 @@ Allowed variants only — no ad-hoc `font-size` in page scoped CSS:
 
 Tokens live in `:root` (`--text-*`, `--page-header-*`, `--page-sub-section-*`). Classes in `typography.css`.
 
-Create additional typography classes if needed, but ask first. Remaining ad-hoc sizes on kontakt, kunskapsbank, home, and designguide are cleaned during those page migrations.
+Create additional typography classes if needed, but ask first. Remaining ad-hoc sizes on kontakt / kunskapsbank are page-unique leftovers; `designguide` keeps its own scoped styles until a future redesign (deferred from consolidation).
 
 
 
@@ -85,7 +85,7 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 
 - **Page chrome:** `PageShell` → padding + `.container` (default `--container-width-default`)
 - **Body copy:** `PageContent` → `.text-width` (`--text-width`)
-- `.container-narrow` / `.container-wide` removed; designguide still sets `--container-width-narrow` locally until phase-3 migration
+- `.container-narrow` / `.container-wide` / `--container-width-narrow` removed; designguide overrides `--container-width` page-locally (deferred from consolidation)
 
 ## Do not
 
