@@ -482,7 +482,7 @@ src/routes/(site)/en/design-guide/+page.svelte
 
 ## T16 — Add organization structured data · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T15
 
@@ -849,3 +849,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T13  | format/check/lint; build+check:build; prerender markup identical (noise stripped) | SiteChrome owns shell/header/footer/hreflang; root layout imports app.css      |
 | 2026-08-02 | T14  | format/check/lint; build+check:build(18); 301s+404s+toggles+error chrome-less     | (sv)/+en layouts; retired EN-slug 301s from pages registry; deleted routing.ts |
 | 2026-08-02 | T15  | format/check/lint; build+check:build; kontakt/contact canonical+hreflang×3        | PageMeta; hreflang left SiteChrome; check-build asserts canonical URLs         |
+| 2026-08-02 | T16  | format/check/lint; Rich Results Test on /kontakt — no errors                      | Organization sitewide + LocalBusiness on contact; values from site content     |
