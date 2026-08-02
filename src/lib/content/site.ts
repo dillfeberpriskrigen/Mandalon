@@ -15,14 +15,14 @@ export const siteContent = {
 		},
 		switchLabel: 'English',
 		topLinks: [
-			{ label: 'Kunskapsbank', path: 'kunskapsbank' },
-			{ label: 'Kontakt', path: 'kontakt' },
-			{ label: 'Om Mandalon', path: 'om-mandalon' }
+			{ label: 'Kunskapsbank', page: 'knowledge' },
+			{ label: 'Kontakt', page: 'contact' },
+			{ label: 'Om Mandalon', page: 'about' }
 		],
 		primaryLinks: [
-			{ label: 'Paketering av Chip', path: 'paketering' },
-			{ label: 'Konsulttjänster', path: 'konsulttjanster' },
-			{ label: 'Kontakt', path: 'kontakt' }
+			{ label: 'Paketering av Chip', page: 'packaging' },
+			{ label: 'Konsulttjänster', page: 'consulting' },
+			{ label: 'Kontakt', page: 'contact' }
 		],
 		hero: {
 			title: 'När packaging måste fungera redan i första prototypen',
@@ -37,12 +37,12 @@ export const siteContent = {
 			],
 			resource: {
 				label: 'Läs Mandalons designguide',
-				href: 'designguide',
+				page: 'designGuide',
 				text: 'Designguiden är ett bra exempel på hur Mandalon arbetar transparent och informativt redan tidigt i processen.'
 			},
 			actions: [
-				{ label: 'Paketering av Chip', path: 'paketering' },
-				{ label: 'Kontakt', path: 'kontakt' }
+				{ label: 'Paketering av Chip', page: 'packaging' },
+				{ label: 'Kontakt', page: 'contact' }
 			]
 		},
 		process: {
@@ -338,7 +338,7 @@ export const siteContent = {
 				title: 'Designguide',
 				text: 'Designguiden togs fram tillsammans med doktorander vid Linköpings universitet och ar ett bra komplement om ni vill förstå fler vanliga fallgropar tidigt i processen.',
 				label: 'Till designguiden',
-				path: 'designguide'
+				page: 'designGuide'
 			},
 			sections: [
 				{
@@ -401,10 +401,10 @@ export const siteContent = {
 		},
 		footer: {
 			nav: [
-				{ label: 'Om Mandalon', path: 'om-mandalon' },
-				{ label: 'Kontakt', path: 'kontakt' },
-				{ label: 'Kunskapsbank', path: 'kunskapsbank' },
-				{ label: 'Designguide', path: 'designguide' }
+				{ label: 'Om Mandalon', page: 'about' },
+				{ label: 'Kontakt', page: 'contact' },
+				{ label: 'Kunskapsbank', page: 'knowledge' },
+				{ label: 'Designguide', page: 'designGuide' }
 			]
 		},
 		errorPage: {
@@ -422,14 +422,14 @@ export const siteContent = {
 		},
 		switchLabel: 'Svenska',
 		topLinks: [
-			{ label: 'Knowledge bank', path: 'knowledge-bank' },
-			{ label: 'Contact', path: 'contact' },
-			{ label: 'About Mandalon', path: 'about' }
+			{ label: 'Knowledge bank', page: 'knowledge' },
+			{ label: 'Contact', page: 'contact' },
+			{ label: 'About Mandalon', page: 'about' }
 		],
 		primaryLinks: [
-			{ label: 'Chip Packaging', path: 'packaging' },
-			{ label: 'Consulting Services', path: 'consulting' },
-			{ label: 'Contact', path: 'contact' }
+			{ label: 'Chip Packaging', page: 'packaging' },
+			{ label: 'Consulting Services', page: 'consulting' },
+			{ label: 'Contact', page: 'contact' }
 		],
 		hero: {
 			title: 'When packaging has to work in the very first prototype',
@@ -444,12 +444,12 @@ export const siteContent = {
 			],
 			resource: {
 				label: 'Read Mandalon’s design guide',
-				href: 'design-guide',
+				page: 'designGuide',
 				text: 'The design guide is a concrete example of how Mandalon works with transparency and practical guidance early in the process.'
 			},
 			actions: [
-				{ label: 'Chip & Sensors', path: 'packaging' },
-				{ label: 'Contact', path: 'contact' }
+				{ label: 'Chip & Sensors', page: 'packaging' },
+				{ label: 'Contact', page: 'contact' }
 			]
 		},
 		process: {
@@ -745,7 +745,7 @@ export const siteContent = {
 				title: 'Design guide',
 				text: 'The design guide was developed together with doctoral researchers at Linköping University and is still a useful complement if you want to understand common packaging pitfalls early.',
 				label: 'Open the design guide',
-				path: 'design-guide'
+				page: 'designGuide'
 			},
 			sections: [
 				{
@@ -819,10 +819,10 @@ export const siteContent = {
 		},
 		footer: {
 			nav: [
-				{ label: 'About Mandalon', path: 'about' },
-				{ label: 'Contact', path: 'contact' },
-				{ label: 'Knowledge bank', path: 'knowledge-bank' },
-				{ label: 'Design guide', path: 'design-guide' }
+				{ label: 'About Mandalon', page: 'about' },
+				{ label: 'Contact', page: 'contact' },
+				{ label: 'Knowledge bank', page: 'knowledge' },
+				{ label: 'Design guide', page: 'designGuide' }
 			]
 		},
 		errorPage: {

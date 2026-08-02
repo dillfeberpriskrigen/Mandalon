@@ -8,11 +8,10 @@
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
-	import { localePath } from '$lib/utils/routing';
+	import { hrefFor } from '$lib/routes';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
 
 <svelte:head>
@@ -42,7 +41,9 @@
 					<Text as="p">{data.content.glossaryPage.guide.text}</Text>
 				</div>
 
-				<Link href={toPath(data.content.glossaryPage.guide.path)} weight="bold" underline={false} nowrap>{data.content.glossaryPage.guide.label}</Link>
+				<Link href={hrefFor(data.content.glossaryPage.guide.page, data.locale ?? data.defaultLocale)} weight="bold" underline={false} nowrap
+					>{data.content.glossaryPage.guide.label}</Link
+				>
 			</div>
 		</Surface>
 	</div>

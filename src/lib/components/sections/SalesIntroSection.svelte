@@ -6,14 +6,15 @@
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import type { Locale, NavLink } from '$lib/content/types';
-	import { localePath } from '$lib/utils/routing';
+	import type { PageKey } from '$lib/routes';
+	import { hrefFor } from '$lib/routes';
 
 	interface SalesIntro {
 		title: string;
 		paragraphs: string[];
 		resource: {
 			label: string;
-			href: string;
+			page: PageKey;
 			text: string;
 		};
 		actions: NavLink[];
@@ -38,7 +39,7 @@
 
 	let { salesIntro, process, locale, defaultLocale }: Props = $props();
 
-	const toPath = (path = '') => localePath(locale ?? defaultLocale, defaultLocale, path);
+	const activeLocale = $derived(locale ?? defaultLocale);
 </script>
 
 <section class="intro">
@@ -49,15 +50,15 @@
 				<ParagraphArray paragraphs={salesIntro.paragraphs} />
 
 				<div class="intro-actions">
-					{#each salesIntro.actions as action, index (action.path)}
-						<Button href={toPath(action.path)} variant={index === 0 ? 'primary' : 'secondary'}>
+					{#each salesIntro.actions as action, index (action.page)}
+						<Button href={hrefFor(action.page, activeLocale)} variant={index === 0 ? 'primary' : 'secondary'}>
 							{action.label}
 						</Button>
 					{/each}
 				</div>
 
 				<div class="intro-resource">
-					<Link href={salesIntro.resource.href} target="_blank" rel="noreferrer">
+					<Link href={hrefFor(salesIntro.resource.page, activeLocale)}>
 						{salesIntro.resource.label}
 					</Link>
 					<Text as="span">{salesIntro.resource.text}</Text>

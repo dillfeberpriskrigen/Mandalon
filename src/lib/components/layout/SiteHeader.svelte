@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { localePath } from '$lib/utils/routing';
 	import { type Locale, type LocaleContent } from '$lib/content/site';
 	import { hrefFor, pageKeyFromPathname } from '$lib/routes';
 
@@ -16,9 +15,7 @@
 		currentPath?: string;
 	}
 
-	let { data, currentPath = '' }: Props = $props();
-
-	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
+	let { data }: Props = $props();
 
 	const getSwitchPath = () => {
 		const otherLocale: Locale = data.locale === 'sv' ? 'en' : 'sv';
@@ -26,22 +23,22 @@
 		return key ? hrefFor(key, otherLocale) : hrefFor('home', otherLocale);
 	};
 
-	const isActive = (path: string) => {
-		if (!path) return currentPath === '';
-		return currentPath === path;
+	const isActive = (pageKey: string) => {
+		const current = pageKeyFromPathname(page.url.pathname);
+		return current === pageKey;
 	};
 </script>
 
 <header class="site-header">
 	<div class="container header-grid">
-		<a class="brand" href={toPath()} aria-label="Mandalon home">
+		<a class="brand" href={hrefFor('home', data.locale)} aria-label="Mandalon home">
 			<img src="/mandalon/mandalon-logo-white.svg" alt="Mandalon" />
 		</a>
 
 		<div class="nav-stack">
 			<nav class="main-nav" aria-label="Primary navigation">
 				{#each data.content.primaryLinks as link (link.label)}
-					<a class:active={isActive(link.path)} class:contact-link={link.path === 'kontakt' || link.path === 'contact'} href={toPath(link.path)}>
+					<a class:active={isActive(link.page)} class:contact-link={link.page === 'contact'} href={hrefFor(link.page, data.locale)}>
 						{link.label}
 					</a>
 				{/each}

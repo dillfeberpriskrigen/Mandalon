@@ -1,3 +1,5 @@
+import type { PageKey } from '$lib/routes';
+
 export type Locale = 'sv' | 'en';
 
 export type Meta = {
@@ -7,7 +9,7 @@ export type Meta = {
 
 export type NavLink = {
 	label: string;
-	path: string;
+	page: PageKey;
 };
 
 export type HeroContent = {
@@ -20,7 +22,7 @@ export type SalesIntroContent = {
 	paragraphs: string[];
 	resource: {
 		label: string;
-		href: string;
+		page: PageKey;
 		text: string;
 	};
 	actions: NavLink[];
@@ -151,7 +153,7 @@ export type GlossaryPageContent = {
 		title: string;
 		text: string;
 		label: string;
-		path: string;
+		page: PageKey;
 	};
 	sections: GlossarySection[];
 };

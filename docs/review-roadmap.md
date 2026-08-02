@@ -340,7 +340,7 @@ Collapses the five independent slug sources into one. Each task migrates one con
 
 ## T11 — Type navigation links by page key · **M**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T09, T10
 
@@ -844,3 +844,4 @@ Append one row per completed task. Newest last.
 | 2026-08-01 | T08  | format/check/lint; /finns-inte SV chrome; /en/does-not-exist EN no throw         | Imports siteContent directly; error(404) message removed          |
 | 2026-08-02 | T09  | format/check/lint; sitemap before/after identical; /kontakt hreflang ×3          | pages registry + hrefFor; localizedRouteEntries deleted           |
 | 2026-08-02 | T10  | format/check/lint; lang toggle on all 14 canonical pages incl. design guide      | Deleted pagePaths and LocalizedSlugs                              |
+| 2026-08-02 | T11  | format/check/lint; nav/CTA/callout hrefs both locales; no localePath in src      | NavLink.page: PageKey; deleted localePath                         |

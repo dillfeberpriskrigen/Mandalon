@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Locale, LocaleContent } from '$lib/content/site';
-	import { localePath } from '$lib/utils/routing';
+	import { hrefFor } from '$lib/routes';
 
 	type FooterData = {
 		locale: Locale;
@@ -13,8 +13,6 @@
 	}
 
 	let { data }: Props = $props();
-
-	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 </script>
 
 <footer class="site-footer">
@@ -25,7 +23,7 @@
 
 		<nav class="footer-nav" aria-label="Footer">
 			{#each data.content.footer.nav as link (link.label)}
-				<a href={toPath(link.path)}>{link.label}</a>
+				<a href={hrefFor(link.page, data.locale)}>{link.label}</a>
 			{/each}
 		</nav>
 

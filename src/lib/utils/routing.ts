@@ -1,10 +1,5 @@
 import { locales, defaultLocale, type Locale } from '$lib/content/site';
 
-export function localePath(locale: Locale | string, defaultLocaleArg: Locale | string, path = ''): string {
-	const normalizedPath = path ? `/${path}` : '';
-	return locale === defaultLocaleArg ? `/${normalizedPath}`.replace(/\/+/g, '/') : `/${locale}${normalizedPath}`;
-}
-
 function isLocale(value: string): value is Locale {
 	return (locales as readonly string[]).includes(value);
 }
