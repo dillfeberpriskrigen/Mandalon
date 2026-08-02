@@ -614,7 +614,7 @@ Scheduled **before** T25 deliberately: `FeatureCarousel` is on T25's list of com
 
 Blocked by T14 and T24 only because both of those move the files this task edits. There is no logical dependency.
 
-**Affected files:** `src/lib/components/data/Table.svelte`, `src/lib/styles/table.css`, `src/routes/(site)/(sv)/paketering/+page.svelte`, the experiment page at its post-T24 location
+**Affected files:** `src/lib/components/data/Table.svelte`, `src/lib/styles/table.css`, `src/routes/(site)/(sv)/paketering/+page.svelte`, `src/routes/(dev)/experiment/+page.svelte`
 
 **Steps:** replace `Table` with a `DescriptionList` component rendering `<dl>`/`<dt>`/`<dd>`, and update both call sites. (Previously offered as a choice between adding `<th>` semantics and switching to a description list; the content is a name/description pairing, so the description list is the answer and the task should not ask again.)
 
@@ -643,7 +643,7 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 ## T24 — Keep development-only routes out of production · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T14
 
@@ -856,3 +856,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T20  | format/check/lint; focus-visible outline on header/body/footer                    | Accent outline in style-resets.css                                              |
 | 2026-08-02 | T21  | format/check/lint; aria-current=page on SV/EN primary nav; underline+weight       | Shared [aria-current=page] in typography.css; header underline override         |
 | 2026-08-02 | T23  | format/check/lint; /stats→/ SPA keeps body background-attachment fixed            | Removed :global(body); no app.css change needed                                 |
+| 2026-08-02 | T24  | format/check/lint; build+check:build(16); /experiment+/fonts in dev only          | (dev) group prerender=dev + 404 when !dev; T22 path noted                       |

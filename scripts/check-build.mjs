@@ -3,8 +3,7 @@ import path from 'node:path';
 
 /**
  * Expected prerendered pages (URL paths).
- * Update this list when a task adds, removes, or renames public URLs:
- * T14 (route-group move / duplicate retirement), T24 (hide experiment/fonts/stats).
+ * Update this list when a task adds, removes, or renames public URLs.
  */
 const EXPECTED_PAGES = [
 	// Canonical Swedish
@@ -23,9 +22,7 @@ const EXPECTED_PAGES = [
 	'/en/about',
 	'/en/knowledge-bank',
 	'/en/design-guide',
-	// Internal / non-nav — addressed by T24
-	'/experiment',
-	'/fonts',
+	// Internal (production-visible, noindex)
 	'/stats',
 	// Endpoints
 	'/sitemap.xml'
@@ -34,8 +31,8 @@ const EXPECTED_PAGES = [
 const PRERENDERED_DIR = path.join(process.cwd(), 'build', 'prerendered');
 const SITE_URL = 'https://mandalon.se';
 
-/** Pages that intentionally omit PageMeta / canonical (dev labs + stats). */
-const CANONICAL_OPTIONAL = new Set(['/experiment', '/fonts', '/stats']);
+/** Pages that intentionally omit PageMeta / canonical (stats). */
+const CANONICAL_OPTIONAL = new Set(['/stats']);
 
 /** @param {string} urlPath */
 function urlPathToFile(urlPath) {
@@ -120,15 +117,7 @@ function main() {
 		}
 
 		const titles = [...html.matchAll(/<title>([^<]*)<\/title>/gi)];
-		// experiment + fonts currently ship without <svelte:head> titles (see T24 note).
-		const titleOptional = urlPath === '/experiment' || urlPath === '/fonts';
-		if (titleOptional) {
-			if (titles.length > 1) {
-				fail(`${file}: expected at most one <title>, found ${titles.length}`);
-			} else if (titles.length === 1 && !titles[0][1].trim()) {
-				fail(`${file}: <title> is empty`);
-			}
-		} else if (titles.length !== 1) {
+		if (titles.length !== 1) {
 			fail(`${file}: expected exactly one <title>, found ${titles.length}`);
 		} else if (!titles[0][1].trim()) {
 			fail(`${file}: <title> is empty`);
