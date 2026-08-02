@@ -626,7 +626,7 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 ## T23 — Remove the stats page's global background override · **XS**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
@@ -855,3 +855,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T19  | format/check/lint; keyboard reaches all slides; reduced-motion skips autoplay     | Option B; control labels via homepage props (content files out of scope)        |
 | 2026-08-02 | T20  | format/check/lint; focus-visible outline on header/body/footer                    | Accent outline in style-resets.css                                              |
 | 2026-08-02 | T21  | format/check/lint; aria-current=page on SV/EN primary nav; underline+weight       | Shared [aria-current=page] in typography.css; header underline override         |
+| 2026-08-02 | T23  | format/check/lint; /stats→/ SPA keeps body background-attachment fixed            | Removed :global(body); no app.css change needed                                 |

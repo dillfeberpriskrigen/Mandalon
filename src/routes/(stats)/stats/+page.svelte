@@ -185,11 +185,6 @@
 </section>
 
 <style>
-	:global(body) {
-		background-position: center top;
-		background-attachment: scroll;
-	}
-
 	.stats-page {
 		padding: 4rem 0 5rem;
 	}
