@@ -8,6 +8,8 @@ disable-model-invocation: true
 
 Executes a single task from `docs/review-roadmap.md`, end to end, and stops.
 
+To run an entire phase with one commit per task, use `.cursor/skills/implement-review-phase/SKILL.md` instead.
+
 ## Absolute rules
 
 1. **One task per invocation.** Never start a second task, even a trivial one, even if it is related.
