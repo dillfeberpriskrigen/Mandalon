@@ -195,21 +195,28 @@ export type ErrorPageContent = {
 	homeLabel: string;
 };
 
-export type LocaleContent = {
+export type SharedContent = {
 	meta: Meta;
 	switchLabel: string;
 	topLinks: NavLink[];
 	primaryLinks: NavLink[];
+	footer: FooterContent;
+	errorPage: ErrorPageContent;
+};
+
+export type HomeContent = {
 	hero: HeroContent;
 	salesIntro: SalesIntroContent;
 	process: ProcessContent;
 	consulting: ConsultingHomeContent;
-	chipSensorsPage: ChipSensorsPageContent;
-	consultingPage: ConsultingPageContent;
-	aboutPage: AboutPageContent;
-	contactPage: ContactPageContent;
-	glossaryPage: GlossaryPageContent;
-	designGuidePage: DesignGuidePageContent;
-	footer: FooterContent;
-	errorPage: ErrorPageContent;
 };
+
+export type LocaleContent = SharedContent &
+	HomeContent & {
+		chipSensorsPage: ChipSensorsPageContent;
+		consultingPage: ConsultingPageContent;
+		aboutPage: AboutPageContent;
+		contactPage: ContactPageContent;
+		glossaryPage: GlossaryPageContent;
+		designGuidePage: DesignGuidePageContent;
+	};

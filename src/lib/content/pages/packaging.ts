@@ -1,0 +1,168 @@
+import type { ChipSensorsPageContent } from '../types';
+
+export const chipSensorsPage = {
+	sv: {
+		meta: {
+			title: 'Mandalon | Paketeringstjänster',
+			description: 'En översikt av hur Mandalon arbetar med chip, sensorer, MEMS, montering, bonding, kapsling och prototyper.'
+		},
+		title: 'Paketering av Chip',
+		lead: 'Chip och sensorer hanterar vi dagligen',
+		intro: [
+			'En stor del av det vi på Mandalon sysslar med är problemlösning. Rätt ofta dyker det upp flexkort, MEMS och udda limmer som vi genom åren lärt oss hur vi effektivt arbetar med.',
+			'Vi är vana att hantera känsliga chip och prototyper som för andra kan upplevas omöjliga att arbeta med. Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem och gör vårt yttersta för att få till en fungerande lösning till din produkt.'
+		],
+		capabilitiesPresentation:
+			'Listan nedan visar det som vi är mest vana att hantera gällande bondning. Kontakta oss ifall du har frågor eller behöver någonting som inte listas, listan är inte heltäckande.',
+		capabilities: [
+			{ name: 'Guldtråd', description: '25µm, 17µm' },
+			{ name: 'Aluminiumtråd', description: '25µm, 17µm' },
+			{ name: 'Ball-bonding', description: 'Guldtråd' },
+			{ name: 'Wedge-bonding', description: 'Guldtråd, Aluminium' },
+			{ name: 'Manuell bondning', description: 'Ball och wedge' },
+			{ name: 'Automatisk bondning', description: 'Ball och wedge' },
+			{ name: 'Die bondning', description: 'Vi die-bondar manuellt' },
+			{
+				name: 'Lim',
+				description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.'
+			},
+			{ name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.' },
+			{ name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.' },
+			{ name: 'Dragprovare', description: 'Vi har möjlighet att dragprova bondtrådar för att utvärdera kvalitet' },
+			{
+				name: 'Plasmatvätt',
+				description:
+					'Vår maskin använder atmosfärsplasma för att rengöra objekten som skall bondas. Det är extra viktigt för att automatbondning ska fungera bra.'
+			}
+		],
+		areas: {
+			prototypes: {
+				title: 'Utveckling & prototyper',
+				subtitle: 'Området som är Mandalons ursprung',
+				paragraphs: [
+					'Utmaningarna vid framtagning av första prototyp är många och samtidigt väldigt intressanta. Det gör att tidigare erfarenheter och kunnande från flera discipliner är viktiga då vitt skilda aspekter som t.ex. RF-kompatibilitet, termiska egenskaper, vidhäftningsförmåga, dimensioner och materialval ska fås att samverka.',
+					'Under prototypfasen ligger fokus på att få chipet att prata med omvärlden för första gången. Aspekter som producerbarhet och tillförlitlighet väger lättare.',
+					'Under resans gång blir dessa aspekter däremot allt viktigare och ju tidigare man lägger resurser på detta desto lättare är det att anpassa sin design inför kommande produktion.'
+				],
+				image: '/mandalon/chip-prototypes.jpg',
+				imageAlt: 'Tidig idéskiss'
+			},
+			wireBonding: {
+				title: 'Trådbondning & paketering',
+				subtitle: 'Ett chip behöver kontakteras och skyddas',
+				paragraphs: [
+					'Trådbondning  är en beprövad metod för kontaktering och är den metod som Mandalon använder. Vi har tillgång till bondmaskiner för ball- respektive wedgebondning, manuella maskiner samt helautomatiska.'
+				],
+				image: '/mandalon/chip-wirebonding.jpeg',
+				imageAlt: 'Bondmaskin, mikroskop och work holder'
+			},
+			assembly: {
+				title: 'Mikroelektronik-montering',
+				subtitle: '',
+				paragraphs: [
+					'Området mikroelektronikmontering handlar enkelt uttryckt om hur man sätter ett chip på rätt plats och kontakterar detsamma.',
+					'Den långa varianten berör prestanda på färdig krets, producerbarhet, materialval, metodval, ekonomi, arbetsmiljö, tidsplanering, geometriaspekter med mera och vi sitter sällan i någon box när vi löser kundens problem.'
+				],
+				image: '/mandalon/chip-assembly.jpg',
+				imageAlt: 'Bondningsparametrar'
+			},
+			encapsulation: {
+				title: 'Kapsling & ingjutning',
+				subtitle: 'Vad bör du tänka på?',
+				paragraphs: [
+					'Ett bondat chip behöver ofta bli skyddat mot mekanisk åverkan även på prototypstadiet. Ibland räcker det att ha ett enkelt plastlock tejpat över chip och trådar, ibland kräver det en tät keramikkapsel. Man väljer också ofta att globba, dvs gjuta in chip och trådar i lämpligt lim.',
+					'Förberedelsen inför montering innefattar vanligtvis val av metall- eller keramkapsel/lock eller att välja montering/globning direkt på PCB. Den normala verksamheten inom detta område utgörs av att tillsammans med kund hitta rätt paketering i form av matchande kapsel eller att föreslå montering direkt på PCB. Båda angreppssätten har för och nackdelar.',
+					'Väljer man en relativt sett dyrare kapsel får man ett gott mekaniskt skydd och kan med rätt sockel byta sin krets enkelt i en mer komplex uppställning.',
+					'Väljer man istället montering direkt på PCB kan man uppnå en snabbare koppling med kortare anslutningar med rätt layout. Gäller ofta inom RF. Vill man ändå ha ett mer robust mekaniskt skydd för trådarna kan en globning hjälpa. Alternativet kan vara lock.',
+					'Vet ni inte hur ni ska göra avvägningarna för erat projekt så står våran erfarenhet till erat förfogande.'
+				],
+				image: '/mandalon/chip-encapsulation.jpg',
+				imageAlt: 'Ett urval av normala TO metallkapslar'
+			}
+		}
+	},
+	en: {
+		meta: {
+			title: 'Mandalon | Chip Packaging Services',
+			description: 'An overview of how Mandalon works with chips, sensors, MEMS, assembly, bonding, packaging and prototypes.'
+		},
+		title: 'Chip Packaging Services',
+		lead: 'We handle chips and sensors on a daily basis',
+		intro: [
+			'A large part of what we do at Mandalon is problem-solving. We often encounter flex PCBs, MEMS, and unusual adhesives that we have learned to work with efficiently over the years.',
+			'We are used to handling sensitive chips and prototypes that others may find impossible to work with. Did you forget to open the passivation layer for an important pad? We have saved many chips with issues and do our utmost to achieve a working solution for your product.'
+		],
+		capabilitiesPresentation:
+			'The list below shows what we are most experienced with regarding bonding. Contact us if you have questions or need something not listed, the list is not exhaustive.',
+		capabilities: [
+			{ name: 'Gold wire', description: '25µm, 17µm' },
+			{ name: 'Aluminum wire', description: '25µm, 17µm' },
+			{ name: 'Ball bonding', description: 'Gold wire' },
+			{ name: 'Wedge bonding', description: 'Gold wire, Aluminum' },
+			{ name: 'Manual bonding', description: 'Ball and wedge' },
+			{ name: 'Automatic bonding', description: 'Ball and wedge' },
+			{ name: 'Die bonding', description: 'We perform die bonding manually' },
+			{
+				name: 'Adhesives',
+				description:
+					'We have a wide range of adhesives and the ability to mix them using a precision scale. If you require a specific adhesive, we can source it or use yours.'
+			},
+			{
+				name: 'Standard packages',
+				description: 'We keep a limited selection of packages in stock but can source what is needed or use customer-supplied ones.'
+			},
+			{ name: 'Glob top', description: 'We use silicone and epoxy for glob topping of chips and wires.' },
+			{ name: 'Pull tester', description: 'We have the capability to perform pull tests on bond wires to evaluate quality.' },
+			{
+				name: 'Plasma cleaning',
+				description:
+					'Our machine uses atmospheric plasma to clean the objects that are to be bonded. This is especially important for automatic bonding to work well.'
+			}
+		],
+		areas: {
+			prototypes: {
+				title: 'Development & prototypes',
+				subtitle: 'The area where Mandalon started',
+				paragraphs: [
+					'The challenges involved in developing a first prototype are many and highly interesting. Earlier experience from several disciplines becomes important when RF compatibility, thermal properties, adhesion, dimensions and material choices all need to work together.',
+					'During the prototype phase, the focus is on getting the chip to communicate with the outside world for the first time. Manufacturability and long-term reliability weigh less at this stage.',
+					'As the project moves forward, those aspects become increasingly important, and the earlier resources are invested in them, the easier it becomes to adapt the design for later production.'
+				],
+				image: '/mandalon/chip-prototypes.jpg',
+				imageAlt: 'Early concept sketch'
+			},
+			wireBonding: {
+				title: 'Wire bonding & packaging',
+				subtitle: 'A chip needs interconnects and protection',
+				paragraphs: [
+					'Interconnecting chips and other structures can be done in several ways. Wire bonding has been used for a long time and is the method Mandalon works with. We have access to machines for both ball and wedge bonding, manual systems and fully automatic ones.'
+				],
+				image: '/mandalon/chip-wirebonding.jpeg',
+				imageAlt: 'Wire bonding machine, microscope and work holder'
+			},
+			assembly: {
+				title: 'Microelectronics assembly',
+				subtitle: '',
+				paragraphs: [
+					'Microelectronics assembly is, simply put, about how a chip is positioned correctly and connected in the right way.',
+					'The longer version touches finished-circuit performance, manufacturability, materials, method choices, economics, work environment, timing and geometry. Mandalon rarely works inside a box when solving a customer problem.'
+				],
+				image: '/mandalon/chip-assembly.jpg',
+				imageAlt: 'Bonding parameters'
+			},
+			encapsulation: {
+				title: 'Encapsulation & potting',
+				subtitle: 'What should you think about?',
+				paragraphs: [
+					'A bonded chip often needs protection from mechanical stress already at the prototype stage. Sometimes a simple plastic lid taped over the chip and wires is enough, while in other cases a sealed ceramic package is required. Potting the chip and wires in a suitable adhesive is also common.',
+					'Preparation for assembly usually involves choosing a metal or ceramic package and lid, or mounting and potting directly on a PCB. Much of the work in this area is about finding the right package together with the customer or proposing direct PCB assembly. Both approaches have advantages and drawbacks.',
+					'A relatively more expensive package gives good mechanical protection and can make it easy to swap the circuit in a more complex setup when used with the right socket.',
+					'If you instead mount directly on a PCB, a faster connection with shorter interconnects can be achieved with the right layout, which is often relevant in RF. If better mechanical protection for the wires is still needed, potting can help. Another option is a lid.',
+					'If you are unsure how to weigh the options for your project, our experience is at your disposal.'
+				],
+				image: '/mandalon/chip-encapsulation.jpg',
+				imageAlt: 'A selection of common TO metal packages'
+			}
+		}
+	}
+} satisfies Record<'sv' | 'en', ChipSensorsPageContent>;
