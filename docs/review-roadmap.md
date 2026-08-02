@@ -549,7 +549,7 @@ This no longer depends on T18. Splitting the content file is a convenience; catc
 
 ## T19 — Resolve the auto-advancing carousel · **M** · **needs-decision**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
@@ -852,3 +852,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T16  | format/check/lint; Rich Results Test on /kontakt — no errors                      | Organization sitewide + LocalBusiness on contact; values from site content      |
 | 2026-08-02 | T17  | format/check/lint; kunskapsbank/knowledge-bank 5 sections same order              | Plain SV Sensors translation; EN encapsulation §5; rewrite todo in todo.md      |
 | 2026-08-02 | T18  | format/check/lint; build; 17 prerendered HTML identical (hashes stripped)         | pages/\*.ts per page with {sv,en}; site.ts assembler; SharedContent/HomeContent |
+| 2026-08-02 | T19  | format/check/lint; keyboard reaches all slides; reduced-motion skips autoplay     | Option B; control labels via homepage props (content files out of scope)        |
