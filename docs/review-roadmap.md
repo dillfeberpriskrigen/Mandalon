@@ -385,7 +385,7 @@ Promoted ahead of the SEO work, because the six wrong-language duplicates are pr
 
 ## T13 — Extract the site chrome from the root layout · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T12
 
@@ -832,17 +832,18 @@ Recorded so the reasoning is not relitigated.
 
 Append one row per completed task. Newest last.
 
-| Date       | Task | Verified by                                                                      | Notes                                                             |
-| ---------- | ---- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import        | Archive deleted; architecture-review remains dormant              |
-| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                                   | Kept analytics.ts; icons/ directory removed                       |
-| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                        | Normal Roboto face now loads VariableFont, not Italic             |
-| 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact | EN action path fixed to packaging; locale null-safe               |
-| 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                        | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24 |
-| 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                  | Title optional for experiment/fonts; EN lang needs T07 in tree    |
-| 2026-08-01 | T07  | format/check/lint; build+check:build; kontakt=sv contact=en; no %lang%           | hooks.server.ts path-prefix lang until T14 route.id               |
-| 2026-08-01 | T08  | format/check/lint; /finns-inte SV chrome; /en/does-not-exist EN no throw         | Imports siteContent directly; error(404) message removed          |
-| 2026-08-02 | T09  | format/check/lint; sitemap before/after identical; /kontakt hreflang ×3          | pages registry + hrefFor; localizedRouteEntries deleted           |
-| 2026-08-02 | T10  | format/check/lint; lang toggle on all 14 canonical pages incl. design guide      | Deleted pagePaths and LocalizedSlugs                              |
-| 2026-08-02 | T11  | format/check/lint; nav/CTA/callout hrefs both locales; no localePath in src      | NavLink.page: PageKey; deleted localePath                         |
+| Date       | Task | Verified by                                                                      | Notes                                                                |
+| ---------- | ---- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import        | Archive deleted; architecture-review remains dormant                 |
+| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                                   | Kept analytics.ts; icons/ directory removed                          |
+| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                        | Normal Roboto face now loads VariableFont, not Italic                |
+| 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact | EN action path fixed to packaging; locale null-safe                  |
+| 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                        | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24    |
+| 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                  | Title optional for experiment/fonts; EN lang needs T07 in tree       |
+| 2026-08-01 | T07  | format/check/lint; build+check:build; kontakt=sv contact=en; no %lang%           | hooks.server.ts path-prefix lang until T14 route.id                  |
+| 2026-08-01 | T08  | format/check/lint; /finns-inte SV chrome; /en/does-not-exist EN no throw         | Imports siteContent directly; error(404) message removed             |
+| 2026-08-02 | T09  | format/check/lint; sitemap before/after identical; /kontakt hreflang ×3          | pages registry + hrefFor; localizedRouteEntries deleted              |
+| 2026-08-02 | T10  | format/check/lint; lang toggle on all 14 canonical pages incl. design guide      | Deleted pagePaths and LocalizedSlugs                                 |
+| 2026-08-02 | T11  | format/check/lint; nav/CTA/callout hrefs both locales; no localePath in src      | NavLink.page: PageKey; deleted localePath                            |
 | 2026-08-02 | T12  | format/check/lint; build+check:build; 14 titles+langs; no loadLocalePage in src  | Kept [[lang]]/+page.ts for 404; EN wrappers no longer re-export load |
+| 2026-08-02 | T13  | format/check/lint; build+check:build; prerender markup identical (noise stripped) | SiteChrome owns shell/header/footer/hreflang; root layout imports app.css |
