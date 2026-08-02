@@ -572,7 +572,7 @@ Scheduled **before** T25 deliberately: `FeatureCarousel` is on T25's list of com
 
 ## T20 — Add global focus visibility · **XS**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
@@ -853,3 +853,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T17  | format/check/lint; kunskapsbank/knowledge-bank 5 sections same order              | Plain SV Sensors translation; EN encapsulation §5; rewrite todo in todo.md      |
 | 2026-08-02 | T18  | format/check/lint; build; 17 prerendered HTML identical (hashes stripped)         | pages/\*.ts per page with {sv,en}; site.ts assembler; SharedContent/HomeContent |
 | 2026-08-02 | T19  | format/check/lint; keyboard reaches all slides; reduced-motion skips autoplay     | Option B; control labels via homepage props (content files out of scope)        |
+| 2026-08-02 | T20  | format/check/lint; focus-visible outline on header/body/footer                    | Accent outline in style-resets.css                                              |

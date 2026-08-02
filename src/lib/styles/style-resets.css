@@ -76,3 +76,12 @@ h6 {
 #__next {
 	isolation: isolate;
 }
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+:focus-visible {
+	outline: 0.15rem solid var(--accent);
+	outline-offset: 0.15rem;
+}
