@@ -23,13 +23,6 @@ const EXPECTED_PAGES = [
 	'/en/about',
 	'/en/knowledge-bank',
 	'/en/design-guide',
-	// Wrong-language duplicates (Swedish content at English slugs) — removed in T14
-	'/packaging',
-	'/consulting',
-	'/contact',
-	'/about',
-	'/knowledge-bank',
-	'/design-guide',
 	// Internal / non-nav — addressed by T24
 	'/experiment',
 	'/fonts',

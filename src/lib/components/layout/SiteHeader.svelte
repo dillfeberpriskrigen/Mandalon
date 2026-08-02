@@ -4,7 +4,6 @@
 	import { hrefFor, pageKeyFromPathname } from '$lib/routes';
 
 	type HeaderData = {
-		path: string;
 		locale: Locale;
 		defaultLocale: Locale;
 		content: LocaleContent;
@@ -12,7 +11,6 @@
 
 	interface Props {
 		data: HeaderData;
-		currentPath?: string;
 	}
 
 	let { data }: Props = $props();

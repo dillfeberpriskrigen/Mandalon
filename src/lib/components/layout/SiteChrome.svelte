@@ -7,7 +7,6 @@
 	import SiteFooter from '$lib/components/layout/SiteFooter.svelte';
 
 	type ChromeData = {
-		path: string;
 		locale: Locale;
 		defaultLocale: Locale;
 		content: LocaleContent;
@@ -24,7 +23,7 @@
 </script>
 
 <div class="app-shell">
-	<SiteHeader {data} currentPath={data.path} />
+	<SiteHeader {data} />
 
 	<main class="page-layer">
 		{@render children()}
