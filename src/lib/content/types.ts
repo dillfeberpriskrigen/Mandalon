@@ -10,11 +10,6 @@ export type NavLink = {
 	path: string;
 };
 
-export type LocalizedSlugs = {
-	sv: string;
-	en: string;
-};
-
 export type HeroContent = {
 	title: string;
 	copy: string;

@@ -1,58 +1,10 @@
-import type { Locale, LocaleContent, LocalizedSlugs } from './types';
+import type { Locale, LocaleContent } from './types';
 
 export type { Locale, LocaleContent } from './types';
 
 export const defaultLocale: Locale = 'sv';
 
 export const locales: readonly Locale[] = ['sv', 'en'];
-
-// Ugly reverse lookup table, replace with something better at some point..
-export const pagePaths: Record<string, LocalizedSlugs> = {
-	kunskapsbank: {
-		sv: 'kunskapsbank',
-		en: 'knowledge-bank'
-	},
-	'knowledge-bank': {
-		sv: 'kunskapsbank',
-		en: 'knowledge-bank'
-	},
-
-	kontakt: {
-		sv: 'kontakt',
-		en: 'contact'
-	},
-	contact: {
-		sv: 'kontakt',
-		en: 'contact'
-	},
-
-	'om-mandalon': {
-		sv: 'om-mandalon',
-		en: 'about'
-	},
-	about: {
-		sv: 'om-mandalon',
-		en: 'about'
-	},
-
-	paketering: {
-		sv: 'paketering',
-		en: 'packaging'
-	},
-	packaging: {
-		sv: 'paketering',
-		en: 'packaging'
-	},
-
-	konsulttjanster: {
-		sv: 'konsulttjanster',
-		en: 'consulting'
-	},
-	consulting: {
-		sv: 'konsulttjanster',
-		en: 'consulting'
-	}
-};
 
 export const siteContent = {
 	sv: {

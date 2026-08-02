@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { localePath } from '$lib/utils/routing';
-	import { pagePaths, type Locale, type LocaleContent } from '$lib/content/site';
+	import { type Locale, type LocaleContent } from '$lib/content/site';
+	import { hrefFor, pageKeyFromPathname } from '$lib/routes';
 
 	type HeaderData = {
 		path: string;
@@ -18,11 +20,10 @@
 
 	const toPath = (path = '') => localePath(data.locale, data.defaultLocale, path);
 
-	const getLocalizedSlug = (path: string) => (Object.hasOwn(pagePaths, path) ? pagePaths[path] : undefined);
-
 	const getSwitchPath = () => {
-		const slugs = getLocalizedSlug(data.path);
-		return data.locale === 'sv' ? localePath('en', data.defaultLocale, slugs?.en) : localePath('sv', data.defaultLocale, slugs?.sv);
+		const otherLocale: Locale = data.locale === 'sv' ? 'en' : 'sv';
+		const key = pageKeyFromPathname(page.url.pathname);
+		return key ? hrefFor(key, otherLocale) : hrefFor('home', otherLocale);
 	};
 
 	const isActive = (path: string) => {
