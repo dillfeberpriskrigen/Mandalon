@@ -4,7 +4,7 @@
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
-	import Table from '$lib/components/data/Table.svelte';
+	import DescriptionList from '$lib/components/data/DescriptionList.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import { chipSensorsAreaOrder } from '$lib/content/types';
@@ -12,9 +12,10 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const capabilityRows = $derived(
+	const capabilityItems = $derived(
 		data.content.chipSensorsPage.capabilities.map((capability) => ({
-			cells: [capability.name, capability.description]
+			term: capability.name,
+			description: capability.description
 		}))
 	);
 </script>
@@ -37,7 +38,7 @@
 			<Text as="p">{data.content.chipSensorsPage.capabilitiesPresentation}</Text>
 		</div>
 	</PageContent>
-	<Table rows={capabilityRows} />
+	<DescriptionList items={capabilityItems} />
 
 	{#each chipSensorsAreaOrder as key, i (key)}
 		{@const area = data.content.chipSensorsPage.areas[key]}

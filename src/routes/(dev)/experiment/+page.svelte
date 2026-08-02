@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Table from '$lib/components/data/Table.svelte';
+	import DescriptionList from '$lib/components/data/DescriptionList.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
@@ -12,10 +12,10 @@
 	import Text from '$lib/components/typography/Text.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 
-	const demoTableRows = [
-		{ cells: ['Wire bonding', 'Gold and aluminium wire for chip interconnects'] },
-		{ cells: ['Die attach', 'Adhesive and eutectic attach for prototypes'] },
-		{ cells: ['Encapsulation', 'Glob-top and cavity sealing for protection'] }
+	const demoDescriptionItems = [
+		{ term: 'Wire bonding', description: 'Gold and aluminium wire for chip interconnects' },
+		{ term: 'Die attach', description: 'Adhesive and eutectic attach for prototypes' },
+		{ term: 'Encapsulation', description: 'Glob-top and cavity sealing for protection' }
 	];
 
 	const demoFaqs = [
@@ -123,8 +123,8 @@
 	</section>
 
 	<section class="lab-block">
-		<Heading as="h2">Table</Heading>
-		<Table rows={demoTableRows} />
+		<Heading as="h2">DescriptionList</Heading>
+		<DescriptionList items={demoDescriptionItems} />
 	</section>
 
 	<section class="lab-block">

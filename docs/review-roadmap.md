@@ -606,7 +606,7 @@ Scheduled **before** T25 deliberately: `FeatureCarousel` is on T25's list of com
 
 ## T22 — Give the capabilities table real semantics · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T14, T24
 
@@ -857,3 +857,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T21  | format/check/lint; aria-current=page on SV/EN primary nav; underline+weight       | Shared [aria-current=page] in typography.css; header underline override         |
 | 2026-08-02 | T23  | format/check/lint; /stats→/ SPA keeps body background-attachment fixed            | Removed :global(body); no app.css change needed                                 |
 | 2026-08-02 | T24  | format/check/lint; build+check:build(16); /experiment+/fonts in dev only          | (dev) group prerender=dev + 404 when !dev; T22 path noted                       |
+| 2026-08-02 | T22  | format/check/lint; /paketering dl/dt/dd pairs; no table.table                     | DescriptionList replaces Table; table.css restyled for dl                       |

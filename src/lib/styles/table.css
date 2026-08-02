@@ -1,6 +1,6 @@
-/* Data table */
+/* Description list (name / description pairs) */
 
-.table {
+.description-list {
 	width: 100%;
 	max-width: 48rem;
 	margin-top: 5rem;
@@ -8,16 +8,35 @@
 	margin-right: auto;
 	border: 1px solid var(--line);
 	border-radius: var(--border-radius);
-	border-collapse: separate;
-	border-spacing: 0;
 	background: var(--content-background);
 }
 
-.table td {
+.description-list-row {
+	display: grid;
+	grid-template-columns: minmax(8rem, 0.4fr) 1fr;
+}
+
+.description-list-row:not(:last-child) {
+	border-bottom: 1px solid var(--line);
+}
+
+.description-list dt,
+.description-list dd {
+	margin: 0;
 	padding: 1rem 1.25rem;
 	color: var(--ink);
 }
 
-.table tr:not(:last-child) td {
-	border-bottom: 1px solid var(--line);
+.description-list dt {
+	font-weight: var(--weight-bold);
+}
+
+@media (max-width: 640px) {
+	.description-list-row {
+		grid-template-columns: 1fr;
+	}
+
+	.description-list dd {
+		padding-top: 0;
+	}
 }
