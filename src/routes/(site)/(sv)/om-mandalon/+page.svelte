@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
@@ -11,10 +12,7 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-<svelte:head>
-	<title>{data.content.aboutPage.meta.title}</title>
-	<meta name="description" content={data.content.aboutPage.meta.description} />
-</svelte:head>
+<PageMeta meta={data.content.aboutPage.meta} pageKey="about" locale={data.locale} />
 
 <PageShell>
 	<PageHeader title={data.content.aboutPage.title} lead={data.content.aboutPage.lead} />

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import FaqSection from '$lib/components/sections/FaqSection.svelte';
@@ -14,10 +15,7 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-<svelte:head>
-	<title>{data.content.glossaryPage.meta.title}</title>
-	<meta name="description" content={data.content.glossaryPage.meta.description} />
-</svelte:head>
+<PageMeta meta={data.content.glossaryPage.meta} pageKey="knowledge" locale={data.locale} />
 
 <PageShell>
 	<PageHeader title={data.content.glossaryPage.title} lead={data.content.glossaryPage.lead} />

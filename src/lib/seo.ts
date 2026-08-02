@@ -1,5 +1,5 @@
 import { defaultLocale, locales, type Locale } from '$lib/content/site';
-import { hrefFor, pageKeyFromPathname, pages, type PageKey } from '$lib/routes';
+import { hrefFor, pages, type PageKey } from '$lib/routes';
 
 export const siteUrl = 'https://mandalon.se';
 
@@ -7,21 +7,23 @@ export function toAbsoluteUrl(path: string): string {
 	return path === '/' ? siteUrl : `${siteUrl}${path}`;
 }
 
-export function getAlternateLinks(pathname: string): { hreflang: string; href: string }[] {
-	const key = pageKeyFromPathname(pathname);
+export function getCanonicalUrl(pageKey: PageKey, locale: Locale): string {
+	return toAbsoluteUrl(hrefFor(pageKey, locale));
+}
 
-	if (!key) {
-		return [];
-	}
+export function ogLocale(locale: Locale): string {
+	return locale === 'en' ? 'en_US' : 'sv_SE';
+}
 
+export function getAlternateLinks(pageKey: PageKey): { hreflang: string; href: string }[] {
 	const links: { hreflang: string; href: string }[] = locales.map((locale) => ({
 		hreflang: locale,
-		href: toAbsoluteUrl(hrefFor(key, locale))
+		href: toAbsoluteUrl(hrefFor(pageKey, locale))
 	}));
 
 	links.push({
 		hreflang: 'x-default',
-		href: toAbsoluteUrl(hrefFor(key, defaultLocale))
+		href: toAbsoluteUrl(hrefFor(pageKey, defaultLocale))
 	});
 
 	return links;

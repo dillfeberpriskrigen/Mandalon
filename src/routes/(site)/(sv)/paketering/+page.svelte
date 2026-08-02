@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import Table from '$lib/components/data/Table.svelte';
@@ -17,10 +18,7 @@
 	);
 </script>
 
-<svelte:head>
-	<title>{data.content.chipSensorsPage.meta.title}</title>
-	<meta name="description" content={data.content.chipSensorsPage.meta.description} />
-</svelte:head>
+<PageMeta meta={data.content.chipSensorsPage.meta} pageKey="packaging" locale={data.locale} />
 
 <PageShell>
 	<PageHeader title={data.content.chipSensorsPage.title} lead={data.content.chipSensorsPage.lead} />

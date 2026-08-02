@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import FeatureCarousel from '$lib/components/sections/FeatureCarousel.svelte';
 	import HeroSection from '$lib/components/sections/HeroSection.svelte';
 	import SalesIntroSection from '$lib/components/sections/SalesIntroSection.svelte';
@@ -7,10 +8,7 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-<svelte:head>
-	<title>{data.content.meta.title}</title>
-	<meta name="description" content={data.content.meta.description} />
-</svelte:head>
+<PageMeta meta={data.content.meta} pageKey="home" locale={data.locale} />
 
 <HeroSection title={data.content.hero.title} copy={data.content.hero.copy} />
 

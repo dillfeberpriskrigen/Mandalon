@@ -1,14 +1,12 @@
 <script lang="ts">
+	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	const content = $derived(data.content.designGuidePage);
 </script>
 
-<svelte:head>
-	<title>{content.meta.title}</title>
-	<meta name="description" content={content.meta.description} />
-</svelte:head>
+<PageMeta meta={content.meta} pageKey="designGuide" locale={data.locale} />
 
 <section class="guide-page">
 	<div class="container">

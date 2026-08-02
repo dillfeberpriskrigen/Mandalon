@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
+	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
@@ -17,10 +18,7 @@
 	const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
 </script>
 
-<svelte:head>
-	<title>{data.content.contactPage.meta.title}</title>
-	<meta name="description" content={data.content.contactPage.meta.description} />
-</svelte:head>
+<PageMeta meta={data.content.contactPage.meta} pageKey="contact" locale={data.locale} />
 
 <PageShell>
 	<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />

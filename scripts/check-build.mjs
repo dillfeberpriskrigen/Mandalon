@@ -32,6 +32,10 @@ const EXPECTED_PAGES = [
 ];
 
 const PRERENDERED_DIR = path.join(process.cwd(), 'build', 'prerendered');
+const SITE_URL = 'https://mandalon.se';
+
+/** Pages that intentionally omit PageMeta / canonical (dev labs + stats). */
+const CANONICAL_OPTIONAL = new Set(['/experiment', '/fonts', '/stats']);
 
 /** @param {string} urlPath */
 function urlPathToFile(urlPath) {
@@ -43,6 +47,11 @@ function urlPathToFile(urlPath) {
 /** @param {string} urlPath */
 function expectedLang(urlPath) {
 	return urlPath === '/en' || urlPath.startsWith('/en/') ? 'en' : 'sv';
+}
+
+/** @param {string} urlPath */
+function expectedCanonical(urlPath) {
+	return urlPath === '/' ? SITE_URL : `${SITE_URL}${urlPath}`;
 }
 
 /**
@@ -132,6 +141,21 @@ function main() {
 			const expected = expectedLang(urlPath);
 			if (langMatch[1] !== expected) {
 				fail(`${file}: expected lang="${expected}", found lang="${langMatch[1]}"`);
+			}
+		}
+
+		if (!CANONICAL_OPTIONAL.has(urlPath)) {
+			const canonicals = [...html.matchAll(/<link[^>]*\srel=["']canonical["'][^>]*>/gi)];
+			if (canonicals.length !== 1) {
+				fail(`${file}: expected exactly one rel="canonical", found ${canonicals.length}`);
+			} else {
+				const hrefMatch = canonicals[0][0].match(/\shref=["']([^"']+)["']/i);
+				const expected = expectedCanonical(urlPath);
+				if (!hrefMatch) {
+					fail(`${file}: canonical link missing href`);
+				} else if (hrefMatch[1] !== expected) {
+					fail(`${file}: expected canonical "${expected}", found "${hrefMatch[1]}"`);
+				}
 			}
 		}
 	}
