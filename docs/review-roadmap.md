@@ -369,7 +369,7 @@ Promoted ahead of the SEO work, because the six wrong-language duplicates are pr
 
 ## T12 — Delete the redundant per-page loaders · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T11
 
@@ -845,3 +845,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T09  | format/check/lint; sitemap before/after identical; /kontakt hreflang ×3          | pages registry + hrefFor; localizedRouteEntries deleted           |
 | 2026-08-02 | T10  | format/check/lint; lang toggle on all 14 canonical pages incl. design guide      | Deleted pagePaths and LocalizedSlugs                              |
 | 2026-08-02 | T11  | format/check/lint; nav/CTA/callout hrefs both locales; no localePath in src      | NavLink.page: PageKey; deleted localePath                         |
+| 2026-08-02 | T12  | format/check/lint; build+check:build; 14 titles+langs; no loadLocalePage in src  | Kept [[lang]]/+page.ts for 404; EN wrappers no longer re-export load |
