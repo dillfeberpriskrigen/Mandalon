@@ -503,7 +503,7 @@ src/routes/(site)/en/design-guide/+page.svelte
 
 ## T17 — Enforce locale parity in the type system · **M** · **needs-copy** · **expected-failure**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
@@ -850,3 +850,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T14  | format/check/lint; build+check:build(18); 301s+404s+toggles+error chrome-less     | (sv)/+en layouts; retired EN-slug 301s from pages registry; deleted routing.ts |
 | 2026-08-02 | T15  | format/check/lint; build+check:build; kontakt/contact canonical+hreflang×3        | PageMeta; hreflang left SiteChrome; check-build asserts canonical URLs         |
 | 2026-08-02 | T16  | format/check/lint; Rich Results Test on /kontakt — no errors                      | Organization sitewide + LocalBusiness on contact; values from site content     |
+| 2026-08-02 | T17  | format/check/lint; kunskapsbank/knowledge-bank 5 sections same order              | Plain SV Sensors translation; EN encapsulation §5; rewrite todo in todo.md     |

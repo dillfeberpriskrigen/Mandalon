@@ -116,8 +116,8 @@ export const siteContent = {
 						'Vår maskin använder atmosfärsplasma för att rengöra objekten som skall bondas. Det är extra viktigt för att automatbondning ska fungera bra.'
 				}
 			],
-			areas: [
-				{
+			areas: {
+				prototypes: {
 					title: 'Utveckling & prototyper',
 					subtitle: 'Området som är Mandalons ursprung',
 					paragraphs: [
@@ -128,7 +128,7 @@ export const siteContent = {
 					image: '/mandalon/chip-prototypes.jpg',
 					imageAlt: 'Tidig idéskiss'
 				},
-				{
+				wireBonding: {
 					title: 'Trådbondning & paketering',
 					subtitle: 'Ett chip behöver kontakteras och skyddas',
 					paragraphs: [
@@ -137,7 +137,7 @@ export const siteContent = {
 					image: '/mandalon/chip-wirebonding.jpeg',
 					imageAlt: 'Bondmaskin, mikroskop och work holder'
 				},
-				{
+				assembly: {
 					title: 'Mikroelektronik-montering',
 					subtitle: '',
 					paragraphs: [
@@ -147,7 +147,7 @@ export const siteContent = {
 					image: '/mandalon/chip-assembly.jpg',
 					imageAlt: 'Bondningsparametrar'
 				},
-				{
+				encapsulation: {
 					title: 'Kapsling & ingjutning',
 					subtitle: 'Vad bör du tänka på?',
 					paragraphs: [
@@ -160,7 +160,7 @@ export const siteContent = {
 					image: '/mandalon/chip-encapsulation.jpg',
 					imageAlt: 'Ett urval av normala TO metallkapslar'
 				}
-			]
+			}
 		},
 		consultingPage: {
 			meta: {
@@ -340,8 +340,8 @@ export const siteContent = {
 				label: 'Till designguiden',
 				page: 'designGuide'
 			},
-			sections: [
-				{
+			sections: {
+				asic: {
 					title: 'ASIC',
 					subtitle: 'AnvändarSpecifik Integrerad Krets, Application Specific IC',
 					paragraphs: [
@@ -354,7 +354,7 @@ export const siteContent = {
 					imageAlt: 'Manuellt bondad ASIC',
 					caption: 'Manuellt bondad ASIC med pitch 60 um'
 				},
-				{
+				mems: {
 					title: 'MEMS',
 					subtitle: 'Micro Electro Mechanical Systems',
 					paragraphs: [
@@ -363,7 +363,7 @@ export const siteContent = {
 						'Under årens lopp har många strukturer passerat Mandalon då även dessa behöver sin kontakt med omvärlden. Ofta är anslutningarna färre men olika framställningssätt gör ibland bondningen svår. Ofta är även själva monteringen komplicerad då funktionaliteten kräver speciallösningar.'
 					]
 				},
-				{
+				wafer: {
 					title: 'WAFER',
 					subtitle: 'Mandalon hanterar sagade wafer',
 					paragraphs: ['Vi sågar inte wafers själva men hanterar plockning av chip manuellt upp till hanterbara och ekonomiskt försvarbara volymer.'],
@@ -371,7 +371,17 @@ export const siteContent = {
 					imageAlt: 'Plockade chip i ask',
 					caption: 'Plockade chip i ask'
 				},
-				{
+				sensors: {
+					title: 'Sensorer',
+					subtitle: 'Där Mandalon började',
+					paragraphs: [
+						'I början fanns näsan. Näsan var elektronisk.',
+						'Det var mot slutet av förra millenniet när Mandalon först öppnade sina ögon. Värdet av att kunna lukta på omvärlden förstods snart, och Mandalon började montera kemiska gassensorer.',
+						'Då hade företaget inte ens sitt namn ännu, men det ville ändå fortsätta med det här arbetet utanför universitetet också, eftersom det verkade finnas behov av näsor.',
+						'Resan har fortsatt och idag monteras många olika strukturer. Mandalon paketerar, trådbondar och kapslar mikroelektronik, och arbetar förstås fortfarande med sensorer.'
+					]
+				},
+				microstructures: {
 					title: 'Mikrostrukturer',
 					subtitle: 'Alla små strukturer nära chipet',
 					paragraphs: [
@@ -383,7 +393,7 @@ export const siteContent = {
 					imageAlt: 'Abstrakt mikrostruktur',
 					caption: 'Mikrostrukturer och kringstruktur'
 				}
-			]
+			}
 		},
 		designGuidePage: {
 			meta: {
@@ -527,8 +537,8 @@ export const siteContent = {
 						'Our machine uses atmospheric plasma to clean the objects that are to be bonded. This is especially important for automatic bonding to work well.'
 				}
 			],
-			areas: [
-				{
+			areas: {
+				prototypes: {
 					title: 'Development & prototypes',
 					subtitle: 'The area where Mandalon started',
 					paragraphs: [
@@ -539,7 +549,7 @@ export const siteContent = {
 					image: '/mandalon/chip-prototypes.jpg',
 					imageAlt: 'Early concept sketch'
 				},
-				{
+				wireBonding: {
 					title: 'Wire bonding & packaging',
 					subtitle: 'A chip needs interconnects and protection',
 					paragraphs: [
@@ -548,7 +558,7 @@ export const siteContent = {
 					image: '/mandalon/chip-wirebonding.jpeg',
 					imageAlt: 'Wire bonding machine, microscope and work holder'
 				},
-				{
+				assembly: {
 					title: 'Microelectronics assembly',
 					subtitle: '',
 					paragraphs: [
@@ -558,19 +568,20 @@ export const siteContent = {
 					image: '/mandalon/chip-assembly.jpg',
 					imageAlt: 'Bonding parameters'
 				},
-				{
+				encapsulation: {
 					title: 'Encapsulation & potting',
 					subtitle: 'What should you think about?',
 					paragraphs: [
 						'A bonded chip often needs protection from mechanical stress already at the prototype stage. Sometimes a simple plastic lid taped over the chip and wires is enough, while in other cases a sealed ceramic package is required. Potting the chip and wires in a suitable adhesive is also common.',
 						'Preparation for assembly usually involves choosing a metal or ceramic package and lid, or mounting and potting directly on a PCB. Much of the work in this area is about finding the right package together with the customer or proposing direct PCB assembly. Both approaches have advantages and drawbacks.',
 						'A relatively more expensive package gives good mechanical protection and can make it easy to swap the circuit in a more complex setup when used with the right socket.',
-						'If you instead mount directly on a PCB, a faster connection with shorter interconnects can be achieved with the right layout, which is often relevant in RF. If better mechanical protection for the wires is still needed, potting can help. Another option is a lid.'
+						'If you instead mount directly on a PCB, a faster connection with shorter interconnects can be achieved with the right layout, which is often relevant in RF. If better mechanical protection for the wires is still needed, potting can help. Another option is a lid.',
+						'If you are unsure how to weigh the options for your project, our experience is at your disposal.'
 					],
 					image: '/mandalon/chip-encapsulation.jpg',
 					imageAlt: 'A selection of common TO metal packages'
 				}
-			]
+			}
 		},
 		consultingPage: {
 			meta: {
@@ -747,8 +758,8 @@ export const siteContent = {
 				label: 'Open the design guide',
 				page: 'designGuide'
 			},
-			sections: [
-				{
+			sections: {
+				asic: {
 					title: 'ASIC',
 					subtitle: 'Application Specific Integrated Circuit',
 					paragraphs: [
@@ -761,7 +772,7 @@ export const siteContent = {
 					imageAlt: 'Manually wire bonded ASIC',
 					caption: 'Manually bonded ASIC with 60 um pitch'
 				},
-				{
+				mems: {
 					title: 'MEMS',
 					subtitle: 'Micro Electro Mechanical Systems',
 					paragraphs: [
@@ -770,7 +781,7 @@ export const siteContent = {
 						'Many such structures have passed through Mandalon over the years because they also need reliable contact with the outside world. Bonding can be difficult and assembly is often complicated because the functionality requires special solutions.'
 					]
 				},
-				{
+				wafer: {
 					title: 'Wafer',
 					subtitle: 'Mandalon handles sawn wafers',
 					paragraphs: [
@@ -780,7 +791,7 @@ export const siteContent = {
 					imageAlt: 'Picked chips in tray',
 					caption: 'Picked chips in tray'
 				},
-				{
+				sensors: {
 					title: 'Sensors',
 					subtitle: 'Where Mandalon began',
 					paragraphs: [
@@ -790,7 +801,7 @@ export const siteContent = {
 						'The journey has continued and today many different structures are assembled. Mandalon packages, wire bonds and encapsulates microelectronics, and of course still works with sensors.'
 					]
 				},
-				{
+				microstructures: {
 					title: 'Microstructures',
 					subtitle: 'Small structures close to the chip',
 					paragraphs: [
@@ -801,7 +812,7 @@ export const siteContent = {
 					imageAlt: 'Abstract microstructure',
 					caption: 'Microstructures and surrounding structure'
 				}
-			]
+			}
 		},
 		designGuidePage: {
 			meta: {

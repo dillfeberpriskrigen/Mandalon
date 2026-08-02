@@ -7,6 +7,7 @@
 	import Table from '$lib/components/data/Table.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import { chipSensorsAreaOrder } from '$lib/content/types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -38,7 +39,8 @@
 	</PageContent>
 	<Table rows={capabilityRows} />
 
-	{#each data.content.chipSensorsPage.areas as area, i (area.title)}
+	{#each chipSensorsAreaOrder as key, i (key)}
+		{@const area = data.content.chipSensorsPage.areas[key]}
 		<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
 			{#snippet content()}
 				<ParagraphArray paragraphs={area.paragraphs} />

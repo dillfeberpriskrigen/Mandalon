@@ -16,6 +16,7 @@ Punkter märkta med `→ Tnn` hanteras av en uppgift i [docs/review-roadmap.md](
 
 ## Medium
 
+- [ ] Skriv om den svenska Sensorer-sektionen på kunskapsbanken till riktig Mandalon-svenska (nuvarande text är en rak översättning från engelskan, tillagd i T17).
 - [ ] English / Swedish toggle fungerar inte på Design guide sidan → T10.
 - [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra. → ej schemalagd (formgivning, inte arkitektur). Överlappar T27, som gör bakgrunden billigare men inte mindre störande.
 - [ ] Utvärdera hantering av locales och förbättra vid behov. Det är dumt ifall det finns tvetydigheter i tolkning av URL:er och det är dumt ifall något av detta förhindrar svelte och sveltekit att arbeta effektivt. Tänk särskilt på hantering av default locale och om denna innehåller en sida vars namn kan förväxlas en en annan locale, typ /sv/en och man väljer sv som default locale och därmed förväntas /en fungera, det bästa är nog att förbjuda sidnamn som kolliderar på det viset men fundera över alternativen. → T14. Din oro var befogad och problemet är större än väntat: sex felspråkiga sidor byggs som statiska filer vid varje deploy, och `/vadsomhelst/kontakt` gör 301 till `/kontakt`. Se "Verified URL behaviour" i roadmapen.

@@ -45,6 +45,24 @@ export type ConsultingHomeContent = {
 	}[];
 };
 
+export const chipSensorsAreaOrder = ['prototypes', 'wireBonding', 'assembly', 'encapsulation'] as const;
+
+export type ChipSensorsAreaKey = (typeof chipSensorsAreaOrder)[number];
+
+type ChipSensorsAreaBase = {
+	title: string;
+	subtitle: string;
+	image: string;
+	imageAlt: string;
+};
+
+export type ChipSensorsAreas = {
+	prototypes: ChipSensorsAreaBase & { paragraphs: [string, string, string] };
+	wireBonding: ChipSensorsAreaBase & { paragraphs: [string] };
+	assembly: ChipSensorsAreaBase & { paragraphs: [string, string] };
+	encapsulation: ChipSensorsAreaBase & { paragraphs: [string, string, string, string, string] };
+};
+
 export type ChipSensorsPageContent = {
 	meta: Meta;
 	title: string;
@@ -55,13 +73,7 @@ export type ChipSensorsPageContent = {
 		name: string;
 		description: string;
 	}[];
-	areas: {
-		title: string;
-		subtitle: string;
-		paragraphs: string[];
-		image: string;
-		imageAlt: string;
-	}[];
+	areas: ChipSensorsAreas;
 };
 
 export type ConsultingPageContent = {
@@ -126,6 +138,10 @@ export type ContactPageContent = {
 	mapTitle: string;
 };
 
+export const glossarySectionOrder = ['asic', 'mems', 'wafer', 'sensors', 'microstructures'] as const;
+
+export type GlossarySectionKey = (typeof glossarySectionOrder)[number];
+
 export type GlossarySection = {
 	title: string;
 	subtitle: string;
@@ -155,7 +171,7 @@ export type GlossaryPageContent = {
 		label: string;
 		page: PageKey;
 	};
-	sections: GlossarySection[];
+	sections: Record<GlossarySectionKey, GlossarySection>;
 };
 
 export type DesignGuidePageContent = {

@@ -9,6 +9,7 @@
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import { glossarySectionOrder, type GlossarySection } from '$lib/content/types';
 	import { hrefFor } from '$lib/routes';
 	import type { PageData } from './$types';
 
@@ -47,7 +48,8 @@
 	</div>
 
 	<div class="sections">
-		{#each data.content.glossaryPage.sections as item, index (item.title)}
+		{#each glossarySectionOrder as key, index (key)}
+			{@const item: GlossarySection = data.content.glossaryPage.sections[key]}
 			{#snippet content()}
 				<ParagraphArray paragraphs={item.paragraphs} />
 			{/snippet}
