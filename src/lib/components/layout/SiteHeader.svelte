@@ -36,7 +36,12 @@
 		<div class="nav-stack">
 			<nav class="main-nav" aria-label="Primary navigation">
 				{#each data.content.primaryLinks as link (link.label)}
-					<a class:active={isActive(link.page)} class:contact-link={link.page === 'contact'} href={hrefFor(link.page, data.locale)}>
+					<a
+						class:active={isActive(link.page)}
+						class:contact-link={link.page === 'contact'}
+						aria-current={isActive(link.page) ? 'page' : undefined}
+						href={hrefFor(link.page, data.locale)}
+					>
 						{link.label}
 					</a>
 				{/each}
@@ -95,6 +100,12 @@
 		text-decoration: none;
 	}
 
+	.main-nav a[aria-current='page'] {
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 0.12em;
+	}
+
 	.main-nav a.contact-link {
 		padding: 0.55rem 0.95rem;
 		border-radius: 999px;
@@ -107,6 +118,10 @@
 	.main-nav a.active {
 		font-weight: 800;
 		color: #fff;
+	}
+
+	.main-nav a.active:not(.contact-link) {
+		box-shadow: inset 0 -0.15rem 0 #fff;
 	}
 
 	.main-nav a:hover {

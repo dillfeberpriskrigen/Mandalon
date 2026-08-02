@@ -98,6 +98,13 @@ p + p {
 	white-space: nowrap;
 }
 
+/* Current page — underline so active state is not color alone */
+[aria-current='page'] {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+	text-decoration-thickness: 0.12em;
+}
+
 /* Shared bullet lists (Surface panels, service cards, etc.) */
 .content-list {
 	padding-left: 1.1rem;
