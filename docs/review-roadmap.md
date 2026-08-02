@@ -299,7 +299,7 @@ Collapses the five independent slug sources into one. Each task migrates one con
 
 ## T09 — Create the route registry and migrate SEO output · **M**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
@@ -842,3 +842,4 @@ Append one row per completed task. Newest last.
 | 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                  | Title optional for experiment/fonts; EN lang needs T07 in tree    |
 | 2026-08-01 | T07  | format/check/lint; build+check:build; kontakt=sv contact=en; no %lang%           | hooks.server.ts path-prefix lang until T14 route.id               |
 | 2026-08-01 | T08  | format/check/lint; /finns-inte SV chrome; /en/does-not-exist EN no throw         | Imports siteContent directly; error(404) message removed          |
+| 2026-08-02 | T09  | format/check/lint; sitemap before/after identical; /kontakt hreflang ×3          | pages registry + hrefFor; localizedRouteEntries deleted           |
