@@ -56,12 +56,12 @@ If the phase has **no** unfinished tasks, report that and stop.
 
 Before the first task:
 
-| Condition                                                            | Action                                                                 |
-| -------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `.cursor/rules/svelte-components.mdc` does not exist                 | Only T01 may run; if this phase is not the one containing T01, stop    |
-| `git status` shows uncommitted changes unrelated to the first task   | Ask whether to proceed                                                 |
-| Any task in scope is tagged `large`                                  | Confirm with the user before starting **that** task; suggest a branch  |
-| Any task in scope is tagged `optional`                               | Confirm the user still wants it before starting **that** task          |
+| Condition                                                          | Action                                                                |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| `.cursor/rules/svelte-components.mdc` does not exist               | Only T01 may run; if this phase is not the one containing T01, stop   |
+| `git status` shows uncommitted changes unrelated to the first task | Ask whether to proceed                                                |
+| Any task in scope is tagged `large`                                | Confirm with the user before starting **that** task; suggest a branch |
+| Any task in scope is tagged `optional`                             | Confirm the user still wants it before starting **that** task         |
 
 Do not pre-confirm every `needs-decision` / `needs-copy` task up front — handle those when you reach them (stop the phase there).
 
