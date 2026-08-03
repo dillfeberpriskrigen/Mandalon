@@ -188,6 +188,25 @@ export type DesignGuidePageContent = {
 	embeddedDownloadLabel: string;
 };
 
+/** Figure in the shared English design-guide body. */
+export type DesignGuideFigure = ContentImage & {
+	caption?: string;
+	/** When true, wrap the image in a link to `src` (legacy lightbox-style behaviour). */
+	linked?: boolean;
+};
+
+export type DesignGuideTocItem = {
+	label: string;
+	children?: DesignGuideTocItem[];
+};
+
+export type DesignGuideBlock =
+	| { type: 'heading'; level: 2 | 3 | 4; text: string }
+	| { type: 'paragraph'; html: string }
+	| ({ type: 'figure' } & DesignGuideFigure)
+	| { type: 'gallery'; figures: DesignGuideFigure[] }
+	| { type: 'toc'; items: DesignGuideTocItem[] };
+
 export type FooterContent = {
 	nav: NavLink[];
 };
