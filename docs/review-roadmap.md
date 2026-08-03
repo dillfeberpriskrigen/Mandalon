@@ -709,7 +709,7 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 ## T27 — Reduce background and font loading cost · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T03, T26
 
@@ -860,3 +860,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T22  | format/check/lint; /paketering dl/dt/dd pairs; no table.table                     | DescriptionList replaces Table; table.css restyled for dl                       |
 | 2026-08-03 | T25  | format/check/lint; CLS=0 on /kunskapsbank; lazy defers far below-fold imgs        | ContentImage shape; Image.svelte; PageMeta .src; pages/\*.ts not site.ts        |
 | 2026-08-03 | T26  | format/check/lint; /kunskapsbank image transfer −53%; dims OK at 320/1280         | All mandalon JPEG/PNG→WebP; README image procedure; CSS+designguide paths too   |
+| 2026-08-03 | T27  | format/check/lint; / LCP~244ms; fixed bg ≥781px only; 2 font preloads; mobile scroll | Gate fixed attachment; preload Roboto + Condensed in SiteChrome                 |
