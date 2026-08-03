@@ -12,6 +12,9 @@
 	<div class="container">
 		<h1 class="page-title">{content.title}</h1>
 		<p class="guide-intro text-width">{content.intro}</p>
+		{#if content.languageNote}
+			<p class="guide-language-note text-width">{content.languageNote}</p>
+		{/if}
 		<div class="guide-content">
 			<article class="designguide-article">
 				<h2>
@@ -684,6 +687,14 @@
 		font-size: 1.12rem;
 		line-height: 1.8;
 		color: #506458;
+	}
+
+	.guide-language-note {
+		margin-top: 1rem;
+		font-size: 0.95rem;
+		line-height: 1.6;
+		color: #506458;
+		font-style: italic;
 	}
 
 	.guide-content {

@@ -731,18 +731,20 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 ## T28 — Decide the design guide's language · **XS** · **needs-decision**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** none
 
 **Why:** the review treats "a Swedish visitor reads an English document" as a defect to be fixed by translation. That is one option, not the only one, and the cheap option was never put to the developer. English is the working language of chip design; a technical design guide staying in English is normal and defensible. The difference in cost between the two answers is roughly a day versus a week, so the decision must come before any work starts.
 
-**Affected files:** none for the decision itself; `src/lib/content/site.ts` if option A is chosen.
+**Affected files:** none for the decision itself; if option A: `src/lib/content/pages/designGuide.ts`, `src/lib/content/types.ts`, `src/routes/(site)/(sv)/designguide/+page.svelte` (post-T18; was `site.ts`).
 
 **Decision required — ask the developer before implementing:**
 
 - **A (cheaper):** the design guide is an English-language technical document in both locales. Add a short Swedish note above the article saying so, keep one copy of the body, and drop the translation requirement from T29 entirely.
 - **B (thorough):** the guide is fully localized. T29 then includes a complete Swedish translation of roughly 650 lines of technical prose, which the developer must write.
+
+**Decision (2026-08-03):** **A** — English body in both locales; Swedish `languageNote` above the article; no Swedish translation of the guide body in T29.
 
 **Verification:** the choice is recorded in the progress log and T29's scope is edited to match before T29 begins.
 
@@ -758,7 +760,7 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 1. **Structure.** Model the guide as an ordered list of sections with heading, level, paragraphs, and figures (`src`, `alt`, `width`, `height`, `caption`), and build the small set of components that render it, using the T25 `Image` component.
 2. **Migration.** Move the existing English body into the content module unchanged. The page should render identically to before at this point — that is how you verify the migration.
-3. **Copy.** Write real `alt` text for every figure, and the Swedish translation if T28 chose option B. **The developer must supply both** — an agent must stop and ask.
+3. **Copy.** Write real `alt` text for every figure. **T28 chose option A** — do **not** translate the guide body; keep the single English copy and the Swedish `languageNote` from T28. **The developer must supply the alt text** — an agent must stop and ask.
 
 A table of contents and in-page anchors are a fourth, optional commit.
 
@@ -768,7 +770,7 @@ A table of contents and in-page anchors are a fourth, optional commit.
 
 1. Standard verification (plus `npm run build` and `npm run check:build`).
 2. After commit 2: the rendered HTML body is equivalent to the pre-task build.
-3. After commit 3: no `alt=""` remains on a content-bearing image, and the language matches the T28 decision on both `/designguide` and `/en/design-guide`.
+3. After commit 3: no `alt=""` remains on a content-bearing image; both `/designguide` and `/en/design-guide` serve the same English body; `/designguide` still shows the Swedish `languageNote`.
 4. Total page weight is reduced relative to the pre-task build.
 
 ---
@@ -832,32 +834,33 @@ Recorded so the reasoning is not relitigated.
 
 Append one row per completed task. Newest last.
 
-| Date       | Task | Verified by                                                                       | Notes                                                                           |
-| ---------- | ---- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import         | Archive deleted; architecture-review remains dormant                            |
-| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                                    | Kept analytics.ts; icons/ directory removed                                     |
-| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                         | Normal Roboto face now loads VariableFont, not Italic                           |
-| 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact  | EN action path fixed to packaging; locale null-safe                             |
-| 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                         | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24               |
-| 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                   | Title optional for experiment/fonts; EN lang needs T07 in tree                  |
-| 2026-08-01 | T07  | format/check/lint; build+check:build; kontakt=sv contact=en; no %lang%            | hooks.server.ts path-prefix lang until T14 route.id                             |
-| 2026-08-01 | T08  | format/check/lint; /finns-inte SV chrome; /en/does-not-exist EN no throw          | Imports siteContent directly; error(404) message removed                        |
-| 2026-08-02 | T09  | format/check/lint; sitemap before/after identical; /kontakt hreflang ×3           | pages registry + hrefFor; localizedRouteEntries deleted                         |
-| 2026-08-02 | T10  | format/check/lint; lang toggle on all 14 canonical pages incl. design guide       | Deleted pagePaths and LocalizedSlugs                                            |
-| 2026-08-02 | T11  | format/check/lint; nav/CTA/callout hrefs both locales; no localePath in src       | NavLink.page: PageKey; deleted localePath                                       |
-| 2026-08-02 | T12  | format/check/lint; build+check:build; 14 titles+langs; no loadLocalePage in src   | Kept [[lang]]/+page.ts for 404; EN wrappers no longer re-export load            |
-| 2026-08-02 | T13  | format/check/lint; build+check:build; prerender markup identical (noise stripped) | SiteChrome owns shell/header/footer/hreflang; root layout imports app.css       |
-| 2026-08-02 | T14  | format/check/lint; build+check:build(18); 301s+404s+toggles+error chrome-less     | (sv)/+en layouts; retired EN-slug 301s from pages registry; deleted routing.ts  |
-| 2026-08-02 | T15  | format/check/lint; build+check:build; kontakt/contact canonical+hreflang×3        | PageMeta; hreflang left SiteChrome; check-build asserts canonical URLs          |
-| 2026-08-02 | T16  | format/check/lint; Rich Results Test on /kontakt — no errors                      | Organization sitewide + LocalBusiness on contact; values from site content      |
-| 2026-08-02 | T17  | format/check/lint; kunskapsbank/knowledge-bank 5 sections same order              | Plain SV Sensors translation; EN encapsulation §5; rewrite todo in todo.md      |
-| 2026-08-02 | T18  | format/check/lint; build; 17 prerendered HTML identical (hashes stripped)         | pages/\*.ts per page with {sv,en}; site.ts assembler; SharedContent/HomeContent |
-| 2026-08-02 | T19  | format/check/lint; keyboard reaches all slides; reduced-motion skips autoplay     | Option B; control labels via homepage props (content files out of scope)        |
-| 2026-08-02 | T20  | format/check/lint; focus-visible outline on header/body/footer                    | Accent outline in style-resets.css                                              |
-| 2026-08-02 | T21  | format/check/lint; aria-current=page on SV/EN primary nav; underline+weight       | Shared [aria-current=page] in typography.css; header underline override         |
-| 2026-08-02 | T23  | format/check/lint; /stats→/ SPA keeps body background-attachment fixed            | Removed :global(body); no app.css change needed                                 |
-| 2026-08-02 | T24  | format/check/lint; build+check:build(16); /experiment+/fonts in dev only          | (dev) group prerender=dev + 404 when !dev; T22 path noted                       |
-| 2026-08-02 | T22  | format/check/lint; /paketering dl/dt/dd pairs; no table.table                     | DescriptionList replaces Table; table.css restyled for dl                       |
-| 2026-08-03 | T25  | format/check/lint; CLS=0 on /kunskapsbank; lazy defers far below-fold imgs        | ContentImage shape; Image.svelte; PageMeta .src; pages/\*.ts not site.ts        |
-| 2026-08-03 | T26  | format/check/lint; /kunskapsbank image transfer −53%; dims OK at 320/1280         | All mandalon JPEG/PNG→WebP; README image procedure; CSS+designguide paths too   |
+| Date       | Task | Verified by                                                                          | Notes                                                                           |
+| ---------- | ---- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| 2026-08-01 | T01  | rules restored; format/check pass; lint fails on known T02 Surface import            | Archive deleted; architecture-review remains dormant                            |
+| 2026-08-01 | T02  | format/check/lint; /paketering and /stats load                                       | Kept analytics.ts; icons/ directory removed                                     |
+| 2026-08-01 | T03  | format/check/lint; upright woff2 served; /designguide 200                            | Normal Roboto face now loads VariableFont, not Italic                           |
+| 2026-08-01 | T04  | format/check/lint; `/` → /paketering,/kontakt; `/en` → /en/packaging,/en/contact     | EN action path fixed to packaging; locale null-safe                             |
+| 2026-08-01 | T05  | format/check/lint; npm ci --dry-run 0; engines documented                            | engines >=18.20.8 (deploy); ESLint 10 needs Node 20.19+/22.13+/24               |
+| 2026-08-01 | T06  | format/check/lint; build+check:build; rename kontakt → non-zero                      | Title optional for experiment/fonts; EN lang needs T07 in tree                  |
+| 2026-08-01 | T07  | format/check/lint; build+check:build; kontakt=sv contact=en; no %lang%               | hooks.server.ts path-prefix lang until T14 route.id                             |
+| 2026-08-01 | T08  | format/check/lint; /finns-inte SV chrome; /en/does-not-exist EN no throw             | Imports siteContent directly; error(404) message removed                        |
+| 2026-08-02 | T09  | format/check/lint; sitemap before/after identical; /kontakt hreflang ×3              | pages registry + hrefFor; localizedRouteEntries deleted                         |
+| 2026-08-02 | T10  | format/check/lint; lang toggle on all 14 canonical pages incl. design guide          | Deleted pagePaths and LocalizedSlugs                                            |
+| 2026-08-02 | T11  | format/check/lint; nav/CTA/callout hrefs both locales; no localePath in src          | NavLink.page: PageKey; deleted localePath                                       |
+| 2026-08-02 | T12  | format/check/lint; build+check:build; 14 titles+langs; no loadLocalePage in src      | Kept [[lang]]/+page.ts for 404; EN wrappers no longer re-export load            |
+| 2026-08-02 | T13  | format/check/lint; build+check:build; prerender markup identical (noise stripped)    | SiteChrome owns shell/header/footer/hreflang; root layout imports app.css       |
+| 2026-08-02 | T14  | format/check/lint; build+check:build(18); 301s+404s+toggles+error chrome-less        | (sv)/+en layouts; retired EN-slug 301s from pages registry; deleted routing.ts  |
+| 2026-08-02 | T15  | format/check/lint; build+check:build; kontakt/contact canonical+hreflang×3           | PageMeta; hreflang left SiteChrome; check-build asserts canonical URLs          |
+| 2026-08-02 | T16  | format/check/lint; Rich Results Test on /kontakt — no errors                         | Organization sitewide + LocalBusiness on contact; values from site content      |
+| 2026-08-02 | T17  | format/check/lint; kunskapsbank/knowledge-bank 5 sections same order                 | Plain SV Sensors translation; EN encapsulation §5; rewrite todo in todo.md      |
+| 2026-08-02 | T18  | format/check/lint; build; 17 prerendered HTML identical (hashes stripped)            | pages/\*.ts per page with {sv,en}; site.ts assembler; SharedContent/HomeContent |
+| 2026-08-02 | T19  | format/check/lint; keyboard reaches all slides; reduced-motion skips autoplay        | Option B; control labels via homepage props (content files out of scope)        |
+| 2026-08-02 | T20  | format/check/lint; focus-visible outline on header/body/footer                       | Accent outline in style-resets.css                                              |
+| 2026-08-02 | T21  | format/check/lint; aria-current=page on SV/EN primary nav; underline+weight          | Shared [aria-current=page] in typography.css; header underline override         |
+| 2026-08-02 | T23  | format/check/lint; /stats→/ SPA keeps body background-attachment fixed               | Removed :global(body); no app.css change needed                                 |
+| 2026-08-02 | T24  | format/check/lint; build+check:build(16); /experiment+/fonts in dev only             | (dev) group prerender=dev + 404 when !dev; T22 path noted                       |
+| 2026-08-02 | T22  | format/check/lint; /paketering dl/dt/dd pairs; no table.table                        | DescriptionList replaces Table; table.css restyled for dl                       |
+| 2026-08-03 | T25  | format/check/lint; CLS=0 on /kunskapsbank; lazy defers far below-fold imgs           | ContentImage shape; Image.svelte; PageMeta .src; pages/\*.ts not site.ts        |
+| 2026-08-03 | T26  | format/check/lint; /kunskapsbank image transfer −53%; dims OK at 320/1280            | All mandalon JPEG/PNG→WebP; README image procedure; CSS+designguide paths too   |
 | 2026-08-03 | T27  | format/check/lint; / LCP~244ms; fixed bg ≥781px only; 2 font preloads; mobile scroll | Gate fixed attachment; preload Roboto + Condensed in SiteChrome                 |
+| 2026-08-03 | T28  | format/check/lint; /designguide note SV-only; T29 scope = no SV body translation  | Option A; languageNote in designGuide.ts (post-T18 path)                        |

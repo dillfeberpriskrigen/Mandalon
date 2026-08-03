@@ -180,6 +180,8 @@ export type DesignGuidePageContent = {
 	meta: Meta;
 	title: string;
 	intro: string;
+	/** Shown above the English article body; empty when the locale needs no notice. */
+	languageNote: string;
 	articleIntroTitle: string;
 	articleIntroBody: string;
 	downloadLabel: string;
