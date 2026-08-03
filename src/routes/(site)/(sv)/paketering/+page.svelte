@@ -5,6 +5,7 @@
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import DescriptionList from '$lib/components/data/DescriptionList.svelte';
+	import Image from '$lib/components/media/Image.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import { chipSensorsAreaOrder } from '$lib/content/types';
@@ -47,7 +48,7 @@
 				<ParagraphArray paragraphs={area.paragraphs} />
 			{/snippet}
 			{#snippet media()}
-				<img src={area.image} alt={area.imageAlt} />
+				<Image src={area.image.src} alt={area.image.alt} width={area.image.width} height={area.image.height} />
 			{/snippet}
 		</MediaArticleSection>
 	{/each}

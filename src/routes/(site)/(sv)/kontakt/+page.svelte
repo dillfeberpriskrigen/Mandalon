@@ -3,6 +3,7 @@
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import Image from '$lib/components/media/Image.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
@@ -41,7 +42,7 @@
 					</div>
 				{/snippet}
 				{#snippet media()}
-					<img src={person.image} alt={person.imageAlt} />
+					<Image src={person.image.src} alt={person.image.alt} width={person.image.width} height={person.image.height} />
 				{/snippet}
 			</MediaArticleSection>
 		{/each}

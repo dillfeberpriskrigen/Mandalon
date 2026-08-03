@@ -72,6 +72,7 @@
 
 	.media :global(figure) {
 		margin: 0;
+		border-radius: inherit;
 	}
 
 	.media :global(img) {

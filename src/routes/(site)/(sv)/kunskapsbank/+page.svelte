@@ -3,6 +3,7 @@
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import Image from '$lib/components/media/Image.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import FaqSection from '$lib/components/sections/FaqSection.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
@@ -26,7 +27,13 @@
 			<ParagraphArray paragraphs={data.content.glossaryPage.intro} />
 		{/snippet}
 		{#snippet media()}
-			<img src={data.content.glossaryPage.introImage.src} alt={data.content.glossaryPage.introImage.alt} />
+			<Image
+				src={data.content.glossaryPage.introImage.src}
+				alt={data.content.glossaryPage.introImage.alt}
+				width={data.content.glossaryPage.introImage.width}
+				height={data.content.glossaryPage.introImage.height}
+				priority
+			/>
 		{/snippet}
 	</MediaArticleSection>
 
@@ -55,13 +62,8 @@
 			{/snippet}
 
 			{#snippet media()}
-				{#if item.caption}
-					<figure>
-						<img src={item.image} alt={item.imageAlt} />
-						<figcaption>{item.caption}</figcaption>
-					</figure>
-				{:else}
-					<img src={item.image} alt={item.imageAlt} />
+				{#if item.image}
+					<Image src={item.image.src} alt={item.image.alt} width={item.image.width} height={item.image.height} caption={item.caption} />
 				{/if}
 			{/snippet}
 

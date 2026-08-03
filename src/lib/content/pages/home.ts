@@ -46,17 +46,17 @@ export const home = {
 				{
 					title: 'Design chip & sensorer',
 					text: 'Vi hjälper till med hur ert kisel bör designas för att det ska gå bra att montera och bonda.',
-					image: '/mandalon/design-chip.jpg'
+					image: { src: '/mandalon/design-chip.jpg', alt: 'Design chip & sensorer', width: 840, height: 440 }
 				},
 				{
 					title: 'Processutveckling',
 					text: 'Mandalons mångåriga erfarenhet ställs gärna till förfogande när ni behöver utveckla en egen process.',
-					image: '/mandalon/chip-prototypes.jpg'
+					image: { src: '/mandalon/chip-prototypes.jpg', alt: 'Processutveckling', width: 1024, height: 680 }
 				},
 				{
 					title: 'Projektledning',
 					text: 'Vi på Mandalon erbjuder projektledning vid förfrågan.',
-					image: '/mandalon/project.jpg'
+					image: { src: '/mandalon/project.jpg', alt: 'Projektledning', width: 840, height: 440 }
 				}
 			]
 		}
@@ -106,17 +106,17 @@ export const home = {
 				{
 					title: 'Chip & sensor design',
 					text: 'We can help shape your silicon design so it is easier to mount and bond successfully.',
-					image: '/mandalon/design-chip.jpg'
+					image: { src: '/mandalon/design-chip.jpg', alt: 'Chip & sensor design', width: 840, height: 440 }
 				},
 				{
 					title: 'Process development',
 					text: 'Mandalon’s long experience is available when you need to develop your own process.',
-					image: '/mandalon/chip-prototypes.jpg'
+					image: { src: '/mandalon/chip-prototypes.jpg', alt: 'Process development', width: 1024, height: 680 }
 				},
 				{
 					title: 'Project management',
 					text: 'Mandalon can also provide project management support on request.',
-					image: '/mandalon/project.jpg'
+					image: { src: '/mandalon/project.jpg', alt: 'Project management', width: 840, height: 440 }
 				}
 			]
 		}

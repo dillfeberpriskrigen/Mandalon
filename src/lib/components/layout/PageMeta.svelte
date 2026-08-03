@@ -56,7 +56,7 @@
 			contactPage.details.find((detail) => detail.href?.startsWith('mailto:info@'))?.value ?? contactPage.people.find((person) => person.email)?.email;
 		const telephone = contactPage.people.find((person) => person.phoneHref)?.phoneHref.replace(/^tel:/, '');
 		const nameMatch = aboutPage.certification.match(/Mandalon Technologies AB/);
-		const imagePath = contactPage.people.find((person) => person.image)?.image;
+		const imagePath = contactPage.people.find((person) => person.image)?.image.src;
 
 		return {
 			name: nameMatch?.[0] ?? 'Mandalon',

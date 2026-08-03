@@ -3,14 +3,16 @@
 	import Autoplay from 'embla-carousel-autoplay';
 	import type { EmblaCarouselType } from 'embla-carousel';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import Image from '$lib/components/media/Image.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import type { ContentImage } from '$lib/content/types';
 
 	interface Feature {
 		title: string;
 		text: string;
-		image: string;
+		image: ContentImage;
 	}
 
 	interface CarouselLabels {
@@ -118,7 +120,7 @@
 								>
 									<Surface as="article" radius="large" padding="none">
 										<div class="carousel-media">
-											<img src={feature.image} alt={feature.title} />
+											<Image src={feature.image.src} alt={feature.image.alt} width={feature.image.width} height={feature.image.height} />
 										</div>
 										<div class="carousel-copy">
 											<Heading as="h3">{feature.title}</Heading>
@@ -215,7 +217,7 @@
 		aspect-ratio: 16 / 9;
 	}
 
-	.carousel-media img {
+	.carousel-media :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;

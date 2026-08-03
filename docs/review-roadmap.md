@@ -667,13 +667,13 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 ## T25 — Introduce an image component with required dimensions · **L**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T14, T19
 
 **Why:** outside the design guide, every `<img>` lacks `width`, `height`, `loading`, and `srcset`, so full-resolution JPEGs of 100–220 KB are downloaded at arbitrary display sizes and every content page shifts layout during load. The archived styling rule deferred an image component "until lazy loading / aspect ratio / captions are needed" — all three are now needed, and `MediaArticleSection` already styles `figure`/`figcaption` through `:global()`.
 
-**Affected files:** new `src/lib/components/media/Image.svelte`, `src/lib/components/sections/MediaArticleSection.svelte`, `src/lib/components/sections/FeatureCarousel.svelte` (or its T19 replacement), `src/routes/(site)/(sv)/{kontakt,kunskapsbank,paketering}/+page.svelte`, `src/lib/content/types.ts` and the image entries in `src/lib/content/site.ts`
+**Affected files:** new `src/lib/components/media/Image.svelte`, `src/lib/components/sections/MediaArticleSection.svelte`, `src/lib/components/sections/FeatureCarousel.svelte` (or its T19 replacement), `src/routes/(site)/(sv)/{kontakt,kunskapsbank,paketering}/+page.svelte`, `src/lib/content/types.ts` and the image entries in `src/lib/content/pages/{home,packaging,knowledge,contact}.ts` (post-T18; was `site.ts`), plus `src/lib/components/layout/PageMeta.svelte` (JSON-LD reads `person.image.src`)
 
 **Steps:**
 
@@ -697,9 +697,9 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 **Deliberately narrower than the earlier version of this task**, which proposed hand-generating WebP and AVIF at two or three widths and emitting `srcset`. For a solo developer that is a permanent manual asset pipeline across 40-plus images that must be re-run and kept in sync forever — a worse trade than the one-time dependency it was avoiding. If per-width variants are ever genuinely needed, adopt `@sveltejs/enhanced-img` rather than building the pipeline by hand.
 
-**Affected files:** `static/mandalon/**`, image `src` values in `src/lib/content/site.ts`
+**Affected files:** `static/mandalon/**`, image `src` values in `src/lib/content/pages/*.ts` (post-T18; was `site.ts`), and `README.md` (document how to add new images: convert to WebP, place under `static/mandalon/`, register `{ src, alt, width, height }` in the page content module, render with `Image.svelte`)
 
-**Steps:** convert the JPEGs and the 987 KB design guide PNG to WebP at equivalent visual quality, update the `src` values, and delete the originals. No `srcset`, no build-step changes, no new dependencies.
+**Steps:** convert the JPEGs and the 987 KB design guide PNG to WebP at equivalent visual quality, update the `src` values, and delete the originals. No `srcset`, no build-step changes, no new dependencies. Document the future image-add procedure in `README.md`.
 
 **Verification:**
 
@@ -858,3 +858,4 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T23  | format/check/lint; /stats→/ SPA keeps body background-attachment fixed            | Removed :global(body); no app.css change needed                                 |
 | 2026-08-02 | T24  | format/check/lint; build+check:build(16); /experiment+/fonts in dev only          | (dev) group prerender=dev + 404 when !dev; T22 path noted                       |
 | 2026-08-02 | T22  | format/check/lint; /paketering dl/dt/dd pairs; no table.table                     | DescriptionList replaces Table; table.css restyled for dl                       |
+| 2026-08-03 | T25  | format/check/lint; CLS=0 on /kunskapsbank; lazy defers far below-fold imgs        | ContentImage shape; Image.svelte; PageMeta .src; pages/*.ts not site.ts         |

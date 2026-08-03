@@ -12,6 +12,14 @@ export type NavLink = {
 	page: PageKey;
 };
 
+/** Intrinsic image used in content; render with `Image.svelte`. */
+export type ContentImage = {
+	src: string;
+	alt: string;
+	width: number;
+	height: number;
+};
+
 export type HeroContent = {
 	title: string;
 	copy: string;
@@ -41,7 +49,7 @@ export type ConsultingHomeContent = {
 	features: {
 		title: string;
 		text: string;
-		image: string;
+		image: ContentImage;
 	}[];
 };
 
@@ -52,8 +60,7 @@ export type ChipSensorsAreaKey = (typeof chipSensorsAreaOrder)[number];
 type ChipSensorsAreaBase = {
 	title: string;
 	subtitle: string;
-	image: string;
-	imageAlt: string;
+	image: ContentImage;
 };
 
 export type ChipSensorsAreas = {
@@ -114,8 +121,7 @@ export type AboutPageContent = {
 export type ContactPerson = {
 	name: string;
 	role: string;
-	image: string;
-	imageAlt: string;
+	image: ContentImage;
 	phone: string;
 	phoneHref: string;
 	email?: string;
@@ -146,8 +152,7 @@ export type GlossarySection = {
 	title: string;
 	subtitle: string;
 	paragraphs: string[];
-	image?: string;
-	imageAlt?: string;
+	image?: ContentImage;
 	caption?: string;
 };
 
@@ -156,10 +161,7 @@ export type GlossaryPageContent = {
 	title: string;
 	lead: string;
 	intro: string[];
-	introImage: {
-		src: string;
-		alt: string;
-	};
+	introImage: ContentImage;
 	faqTitle: string;
 	faqs: {
 		question: string;
