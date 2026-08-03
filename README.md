@@ -35,3 +35,13 @@ GitHub Actions workflow: `.github/workflows/inleed-node-multi.yml`.
 3. On the server (`SERVER_NODE_VERSION=18`), the app is unpacked, `npm install --omit=dev` runs in the Node 18 venv, and Passenger starts the app via `_passenger.cjs`.
 
 Pushes to `develop` / `test1` / `test2` deploy to the matching secrets; `main` deploys to production.
+
+## Adding images
+
+Content images live under `static/mandalon/` as **WebP**. Do not add new JPEG or PNG assets for page content.
+
+1. Export or convert the source file to WebP at equivalent visual quality (roughly quality 85 for photos, 90 for diagrams with flat color / text). Keep the intrinsic pixel size you intend to declare — do not invent responsive `srcset` variants by hand.
+2. Place the `.webp` file under `static/mandalon/` (or a subdirectory such as `designguide/`).
+3. Register it in the relevant page module under `src/lib/content/pages/` as a `ContentImage`: `{ src, alt, width, height }`, with `width`/`height` equal to the file’s intrinsic dimensions. Keep Swedish and English entries in sync.
+4. Render it with `src/lib/components/media/Image.svelte` (required `src`, `alt`, `width`, `height`; optional `caption`, `priority`). Do not add raw `<img>` tags on content pages.
+5. Logos and other SVG chrome assets may stay as SVG. If per-width responsive variants are ever genuinely needed, prefer `@sveltejs/enhanced-img` over a hand-maintained `srcset` pipeline.

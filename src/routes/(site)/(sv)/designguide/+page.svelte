@@ -113,14 +113,14 @@
 				</p>
 
 				<figure>
-					<a href="/mandalon/designguide/picture-1.png"
+					<a href="/mandalon/designguide/picture-1.webp"
 						><img
 							decoding="async"
-							src="/mandalon/designguide/picture-1.png"
+							src="/mandalon/designguide/picture-1.webp"
 							alt=""
 							width="578"
 							height="337"
-							srcset="/mandalon/designguide/picture-1.png 385w, /mandalon/designguide/picture-1-300x175.png 300w"
+							srcset="/mandalon/designguide/picture-1.webp 385w, /mandalon/designguide/picture-1-300x175.webp 300w"
 							sizes="(max-width: 578px) 100vw, 578px"
 						/></a
 					>
@@ -136,14 +136,14 @@
 				</p>
 
 				<figure>
-					<a href="/mandalon/designguide/picture-2.jpg"
+					<a href="/mandalon/designguide/picture-2.webp"
 						><img
 							decoding="async"
-							src="/mandalon/designguide/picture-2.jpg"
+							src="/mandalon/designguide/picture-2.webp"
 							alt=""
 							width="584"
 							height="326"
-							srcset="/mandalon/designguide/picture-2.jpg 360w, /mandalon/designguide/picture-2-300x168.jpg 300w"
+							srcset="/mandalon/designguide/picture-2.webp 360w, /mandalon/designguide/picture-2-300x168.webp 300w"
 							sizes="(max-width: 584px) 100vw, 584px"
 						/></a
 					>
@@ -151,15 +151,15 @@
 				</figure>
 
 				<figure>
-					<a href="/mandalon/designguide/picture-3.jpg"
+					<a href="/mandalon/designguide/picture-3.webp"
 						><img
 							loading="lazy"
 							decoding="async"
-							src="/mandalon/designguide/picture-3.jpg"
+							src="/mandalon/designguide/picture-3.webp"
 							alt=""
 							width="590"
 							height="353"
-							srcset="/mandalon/designguide/picture-3.jpg 369w, /mandalon/designguide/picture-3-300x180.jpg 300w"
+							srcset="/mandalon/designguide/picture-3.webp 369w, /mandalon/designguide/picture-3-300x180.webp 300w"
 							sizes="auto, (max-width: 590px) 100vw, 590px"
 						/></a
 					>
@@ -178,15 +178,15 @@
 				<p>Angle from chip-pad to PCB-pad above 45º should be avoided. Angles above 45º are likely to cause short circuits between the bond wires.</p>
 
 				<figure>
-					<a href="/mandalon/designguide/picture-4.png"
+					<a href="/mandalon/designguide/picture-4.webp"
 						><img
 							loading="lazy"
 							decoding="async"
 							width="726"
 							height="197"
-							src="/mandalon/designguide/picture-4.png"
+							src="/mandalon/designguide/picture-4.webp"
 							alt=""
-							srcset="/mandalon/designguide/picture-4.png 726w, /mandalon/designguide/picture-4-300x81.png 300w"
+							srcset="/mandalon/designguide/picture-4.webp 726w, /mandalon/designguide/picture-4-300x81.webp 300w"
 							sizes="auto, (max-width: 726px) 100vw, 726px"
 						/></a
 					>
@@ -194,15 +194,15 @@
 				</figure>
 
 				<figure>
-					<a href="/mandalon/designguide/picture-5.png"
+					<a href="/mandalon/designguide/picture-5.webp"
 						><img
 							loading="lazy"
 							decoding="async"
 							width="844"
 							height="476"
-							src="/mandalon/designguide/picture-5.png"
+							src="/mandalon/designguide/picture-5.webp"
 							alt=""
-							srcset="/mandalon/designguide/picture-5.png 844w, /mandalon/designguide/picture-5-300x169.png 300w, /mandalon/designguide/picture-5-768x433.png 768w"
+							srcset="/mandalon/designguide/picture-5.webp 844w, /mandalon/designguide/picture-5-300x169.webp 300w, /mandalon/designguide/picture-5-768x433.webp 768w"
 							sizes="auto, (max-width: 844px) 100vw, 844px"
 						/></a
 					>
@@ -210,15 +210,15 @@
 				</figure>
 
 				<figure>
-					<a href="/mandalon/designguide/picture-6.png"
+					<a href="/mandalon/designguide/picture-6.webp"
 						><img
 							loading="lazy"
 							decoding="async"
-							src="/mandalon/designguide/picture-6.png"
+							src="/mandalon/designguide/picture-6.webp"
 							alt=""
 							width="588"
 							height="481"
-							srcset="/mandalon/designguide/picture-6.png 600w, /mandalon/designguide/picture-6-300x246.png 300w"
+							srcset="/mandalon/designguide/picture-6.webp 600w, /mandalon/designguide/picture-6-300x246.webp 300w"
 							sizes="auto, (max-width: 588px) 100vw, 588px"
 						/></a
 					>
@@ -226,15 +226,15 @@
 				</figure>
 
 				<figure>
-					<a href="/mandalon/designguide/picture-7.png"
+					<a href="/mandalon/designguide/picture-7.webp"
 						><img
 							loading="lazy"
 							decoding="async"
-							src="/mandalon/designguide/picture-7.png"
+							src="/mandalon/designguide/picture-7.webp"
 							alt=""
 							width="585"
 							height="510"
-							srcset="/mandalon/designguide/picture-7.png 666w, /mandalon/designguide/picture-7-300x262.png 300w"
+							srcset="/mandalon/designguide/picture-7.webp 666w, /mandalon/designguide/picture-7-300x262.webp 300w"
 							sizes="auto, (max-width: 585px) 100vw, 585px"
 						/></a
 					>
@@ -254,9 +254,9 @@
 						decoding="async"
 						width="489"
 						height="459"
-						src="/mandalon/designguide/picture-8.png"
+						src="/mandalon/designguide/picture-8.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-8.png 489w, /mandalon/designguide/picture-8-300x282.png 300w"
+						srcset="/mandalon/designguide/picture-8.webp 489w, /mandalon/designguide/picture-8-300x282.webp 300w"
 						sizes="auto, (max-width: 489px) 100vw, 489px"
 					/>
 					<figcaption>Picture 8.&nbsp;&nbsp;Note the short bondings in the top middle and left middle.</figcaption>
@@ -268,9 +268,9 @@
 						decoding="async"
 						width="681"
 						height="510"
-						src="/mandalon/designguide/picture-9.png"
+						src="/mandalon/designguide/picture-9.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-9.png 681w, /mandalon/designguide/picture-9-300x225.png 300w"
+						srcset="/mandalon/designguide/picture-9.webp 681w, /mandalon/designguide/picture-9-300x225.webp 300w"
 						sizes="auto, (max-width: 681px) 100vw, 681px"
 					/>
 					<figcaption>Picture 9. Note the short bondings in the left top corner.</figcaption>
@@ -290,9 +290,9 @@
 						decoding="async"
 						width="591"
 						height="530"
-						src="/mandalon/designguide/picture-10.jpg"
+						src="/mandalon/designguide/picture-10.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-10.jpg 591w, /mandalon/designguide/picture-10-300x269.jpg 300w"
+						srcset="/mandalon/designguide/picture-10.webp 591w, /mandalon/designguide/picture-10-300x269.webp 300w"
 						sizes="auto, (max-width: 591px) 100vw, 591px"
 					/>
 					<figcaption>Picture 10. Example, not a real case.</figcaption>
@@ -304,9 +304,9 @@
 						decoding="async"
 						width="746"
 						height="432"
-						src="/mandalon/designguide/picture-11.jpg"
+						src="/mandalon/designguide/picture-11.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-11.jpg 746w, /mandalon/designguide/picture-11-300x174.jpg 300w"
+						srcset="/mandalon/designguide/picture-11.webp 746w, /mandalon/designguide/picture-11-300x174.webp 300w"
 						sizes="auto, (max-width: 746px) 100vw, 746px"
 					/>
 					<figcaption>Picture 11. The broad tracks on the PCB are 50Ω tracks.</figcaption>
@@ -326,9 +326,9 @@
 						decoding="async"
 						width="733"
 						height="401"
-						src="/mandalon/designguide/picture-12.jpg"
+						src="/mandalon/designguide/picture-12.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-12.jpg 733w, /mandalon/designguide/picture-12-300x164.jpg 300w"
+						srcset="/mandalon/designguide/picture-12.webp 733w, /mandalon/designguide/picture-12-300x164.webp 300w"
 						sizes="auto, (max-width: 733px) 100vw, 733px"
 					/>
 					<figcaption>Picture 12. Height of chip is 300 µm. Distance from chip to bond is 250 µm. (Cost level 2-3)</figcaption>
@@ -351,9 +351,9 @@
 						decoding="async"
 						width="794"
 						height="478"
-						src="/mandalon/designguide/picture-13.jpg"
+						src="/mandalon/designguide/picture-13.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-13.jpg 794w, /mandalon/designguide/picture-13-300x181.jpg 300w, /mandalon/designguide/picture-13-768x462.jpg 768w"
+						srcset="/mandalon/designguide/picture-13.webp 794w, /mandalon/designguide/picture-13-300x181.webp 300w, /mandalon/designguide/picture-13-768x462.webp 768w"
 						sizes="auto, (max-width: 794px) 100vw, 794px"
 					/>
 					<figcaption>Picture 13. Chip in cavity.</figcaption>
@@ -369,9 +369,9 @@
 						decoding="async"
 						width="780"
 						height="631"
-						src="/mandalon/designguide/picture-14.jpg"
+						src="/mandalon/designguide/picture-14.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-14.jpg 780w, /mandalon/designguide/picture-14-300x243.jpg 300w, /mandalon/designguide/picture-14-768x621.jpg 768w"
+						srcset="/mandalon/designguide/picture-14.webp 780w, /mandalon/designguide/picture-14-300x243.webp 300w, /mandalon/designguide/picture-14-768x621.webp 768w"
 						sizes="auto, (max-width: 780px) 100vw, 780px"
 					/>
 					<figcaption>Picture 14. PCB-layout options.Note that it is possible to bond more than one bond wire to a single pad.</figcaption>
@@ -387,9 +387,9 @@
 						decoding="async"
 						width="845"
 						height="536"
-						src="/mandalon/designguide/picture-15.jpg"
+						src="/mandalon/designguide/picture-15.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-15.jpg 845w, /mandalon/designguide/picture-15-300x190.jpg 300w, /mandalon/designguide/picture-15-768x487.jpg 768w"
+						srcset="/mandalon/designguide/picture-15.webp 845w, /mandalon/designguide/picture-15-300x190.webp 300w, /mandalon/designguide/picture-15-768x487.webp 768w"
 						sizes="auto, (max-width: 845px) 100vw, 845px"
 					/>
 					<figcaption>
@@ -408,15 +408,15 @@
 					<ul class="designguide-gallery-grid">
 						<li class="designguide-gallery-item">
 							<figure>
-								<a href="/mandalon/designguide/picture-16.jpg"
+								<a href="/mandalon/designguide/picture-16.webp"
 									><img
 										loading="lazy"
 										decoding="async"
 										width="369"
 										height="558"
-										src="/mandalon/designguide/picture-16.jpg"
+										src="/mandalon/designguide/picture-16.webp"
 										alt=""
-										srcset="/mandalon/designguide/picture-16.jpg 369w, /mandalon/designguide/picture-16-198x300.jpg 198w"
+										srcset="/mandalon/designguide/picture-16.webp 369w, /mandalon/designguide/picture-16-198x300.webp 198w"
 										sizes="auto, (max-width: 369px) 100vw, 369px"
 									/></a
 								>
@@ -425,15 +425,15 @@
 						</li>
 						<li class="designguide-gallery-item">
 							<figure>
-								<a href="/mandalon/designguide/picture-17.jpg"
+								<a href="/mandalon/designguide/picture-17.webp"
 									><img
 										loading="lazy"
 										decoding="async"
 										width="374"
 										height="562"
-										src="/mandalon/designguide/picture-17.jpg"
+										src="/mandalon/designguide/picture-17.webp"
 										alt=""
-										srcset="/mandalon/designguide/picture-17.jpg 374w, /mandalon/designguide/picture-17-200x300.jpg 200w"
+										srcset="/mandalon/designguide/picture-17.webp 374w, /mandalon/designguide/picture-17-200x300.webp 200w"
 										sizes="auto, (max-width: 374px) 100vw, 374px"
 									/></a
 								>
@@ -442,15 +442,15 @@
 						</li>
 						<li class="designguide-gallery-item">
 							<figure>
-								<a href="/mandalon/designguide/picture-18.jpg"
+								<a href="/mandalon/designguide/picture-18.webp"
 									><img
 										loading="lazy"
 										decoding="async"
 										width="679"
 										height="423"
-										src="/mandalon/designguide/picture-18.jpg"
+										src="/mandalon/designguide/picture-18.webp"
 										alt=""
-										srcset="/mandalon/designguide/picture-18.jpg 679w, /mandalon/designguide/picture-18-300x187.jpg 300w"
+										srcset="/mandalon/designguide/picture-18.webp 679w, /mandalon/designguide/picture-18-300x187.webp 300w"
 										sizes="auto, (max-width: 679px) 100vw, 679px"
 									/></a
 								>
@@ -484,9 +484,9 @@
 						decoding="async"
 						width="790"
 						height="637"
-						src="/mandalon/designguide/picture-19.jpg"
+						src="/mandalon/designguide/picture-19.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-19.jpg 790w, /mandalon/designguide/picture-19-300x242.jpg 300w, /mandalon/designguide/picture-19-768x619.jpg 768w"
+						srcset="/mandalon/designguide/picture-19.webp 790w, /mandalon/designguide/picture-19-300x242.webp 300w, /mandalon/designguide/picture-19-768x619.webp 768w"
 						sizes="auto, (max-width: 790px) 100vw, 790px"
 					/>
 					<figcaption>
@@ -518,9 +518,9 @@
 						decoding="async"
 						width="573"
 						height="167"
-						src="/mandalon/designguide/table-1.png"
+						src="/mandalon/designguide/table-1.webp"
 						alt=""
-						srcset="/mandalon/designguide/table-1.png 573w, /mandalon/designguide/table-1-300x87.png 300w"
+						srcset="/mandalon/designguide/table-1.webp 573w, /mandalon/designguide/table-1-300x87.webp 300w"
 						sizes="auto, (max-width: 573px) 100vw, 573px"
 					/>
 				</figure>
@@ -533,9 +533,9 @@
 						decoding="async"
 						width="575"
 						height="166"
-						src="/mandalon/designguide/table-2.png"
+						src="/mandalon/designguide/table-2.webp"
 						alt=""
-						srcset="/mandalon/designguide/table-2.png 575w, /mandalon/designguide/table-2-300x87.png 300w"
+						srcset="/mandalon/designguide/table-2.webp 575w, /mandalon/designguide/table-2-300x87.webp 300w"
 						sizes="auto, (max-width: 575px) 100vw, 575px"
 					/>
 				</figure>
@@ -564,9 +564,9 @@
 						decoding="async"
 						width="562"
 						height="257"
-						src="/mandalon/designguide/table-3.png"
+						src="/mandalon/designguide/table-3.webp"
 						alt=""
-						srcset="/mandalon/designguide/table-3.png 562w, /mandalon/designguide/table-3-300x137.png 300w"
+						srcset="/mandalon/designguide/table-3.webp 562w, /mandalon/designguide/table-3-300x137.webp 300w"
 						sizes="auto, (max-width: 562px) 100vw, 562px"
 					/>
 				</figure>
@@ -586,9 +586,9 @@
 						decoding="async"
 						width="745"
 						height="561"
-						src="/mandalon/designguide/picture-20.jpg"
+						src="/mandalon/designguide/picture-20.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-20.jpg 745w, /mandalon/designguide/picture-20-300x226.jpg 300w"
+						srcset="/mandalon/designguide/picture-20.webp 745w, /mandalon/designguide/picture-20-300x226.webp 300w"
 						sizes="auto, (max-width: 745px) 100vw, 745px"
 					/>
 					<figcaption>Picture 20. Bonding with 17µm wire and 60 pitch. (Cost level 3.)</figcaption>
@@ -612,9 +612,9 @@
 						decoding="async"
 						width="559"
 						height="167"
-						src="/mandalon/designguide/table-4.png"
+						src="/mandalon/designguide/table-4.webp"
 						alt=""
-						srcset="/mandalon/designguide/table-4.png 559w, /mandalon/designguide/table-4-300x90.png 300w"
+						srcset="/mandalon/designguide/table-4.webp 559w, /mandalon/designguide/table-4-300x90.webp 300w"
 						sizes="auto, (max-width: 559px) 100vw, 559px"
 					/>
 				</figure>
@@ -630,9 +630,9 @@
 						decoding="async"
 						width="777"
 						height="519"
-						src="/mandalon/designguide/picture-21.jpg"
+						src="/mandalon/designguide/picture-21.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-21.jpg 777w, /mandalon/designguide/picture-21-300x200.jpg 300w, /mandalon/designguide/picture-21-768x513.jpg 768w"
+						srcset="/mandalon/designguide/picture-21.webp 777w, /mandalon/designguide/picture-21-300x200.webp 300w, /mandalon/designguide/picture-21-768x513.webp 768w"
 						sizes="auto, (max-width: 777px) 100vw, 777px"
 					/>
 					<figcaption>Picture 21. Reverse bonding with marks on the chip at the second bond.</figcaption>
@@ -644,9 +644,9 @@
 						decoding="async"
 						width="777"
 						height="501"
-						src="/mandalon/designguide/picture-22.jpg"
+						src="/mandalon/designguide/picture-22.webp"
 						alt=""
-						srcset="/mandalon/designguide/picture-22.jpg 777w, /mandalon/designguide/picture-22-300x193.jpg 300w, /mandalon/designguide/picture-22-768x495.jpg 768w"
+						srcset="/mandalon/designguide/picture-22.webp 777w, /mandalon/designguide/picture-22-300x193.webp 300w, /mandalon/designguide/picture-22-768x495.webp 768w"
 						sizes="auto, (max-width: 777px) 100vw, 777px"
 					/>
 					<figcaption>Picture 22. Reverse bonding, no marks at the second bond.</figcaption>

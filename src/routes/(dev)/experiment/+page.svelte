@@ -140,7 +140,7 @@
 				/>
 			{/snippet}
 			{#snippet media()}
-				<img src="/mandalon/design-chip.jpg" alt="Demo chip packaging" />
+				<img src="/mandalon/design-chip.webp" alt="Demo chip packaging" />
 			{/snippet}
 		</MediaArticleSection>
 
@@ -149,7 +149,7 @@
 				<ParagraphArray paragraphs={['Reverse flips column order on desktop. mediaMaxWidth is set here to 240px.']} />
 			{/snippet}
 			{#snippet media()}
-				<img src="/mandalon/Jonatan.jpg" alt="Demo portrait" />
+				<img src="/mandalon/Jonatan.webp" alt="Demo portrait" />
 			{/snippet}
 		</MediaArticleSection>
 	</section>

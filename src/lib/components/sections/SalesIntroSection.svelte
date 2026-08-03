@@ -95,7 +95,7 @@
 		border-radius: 1.25rem;
 		background:
 			linear-gradient(90deg, rgba(16, 35, 28, 0.24) 0%, rgba(16, 35, 28, 0.08) 100%),
-			url('/mandalon/help-asic.jpg') center 65% / cover no-repeat;
+			url('/mandalon/help-asic.webp') center 65% / cover no-repeat;
 	}
 
 	.intro-actions {

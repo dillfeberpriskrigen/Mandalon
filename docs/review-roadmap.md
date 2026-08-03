@@ -689,7 +689,7 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 ## T26 — Convert source images to WebP · **M**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T25
 
@@ -697,7 +697,7 @@ Blocked by T14 and T24 only because both of those move the files this task edits
 
 **Deliberately narrower than the earlier version of this task**, which proposed hand-generating WebP and AVIF at two or three widths and emitting `srcset`. For a solo developer that is a permanent manual asset pipeline across 40-plus images that must be re-run and kept in sync forever — a worse trade than the one-time dependency it was avoiding. If per-width variants are ever genuinely needed, adopt `@sveltejs/enhanced-img` rather than building the pipeline by hand.
 
-**Affected files:** `static/mandalon/**`, image `src` values in `src/lib/content/pages/*.ts` (post-T18; was `site.ts`), and `README.md` (document how to add new images: convert to WebP, place under `static/mandalon/`, register `{ src, alt, width, height }` in the page content module, render with `Image.svelte`)
+**Affected files:** `static/mandalon/**`, image `src` values in `src/lib/content/pages/*.ts` (post-T18; was `site.ts`), `README.md`, plus path updates in `src/app.css`, `SiteHeader.svelte`, `SalesIntroSection.svelte`, `designguide/+page.svelte`, and `(dev)/experiment/+page.svelte`
 
 **Steps:** convert the JPEGs and the 987 KB design guide PNG to WebP at equivalent visual quality, update the `src` values, and delete the originals. No `srcset`, no build-step changes, no new dependencies. Document the future image-add procedure in `README.md`.
 
@@ -858,4 +858,5 @@ Append one row per completed task. Newest last.
 | 2026-08-02 | T23  | format/check/lint; /stats→/ SPA keeps body background-attachment fixed            | Removed :global(body); no app.css change needed                                 |
 | 2026-08-02 | T24  | format/check/lint; build+check:build(16); /experiment+/fonts in dev only          | (dev) group prerender=dev + 404 when !dev; T22 path noted                       |
 | 2026-08-02 | T22  | format/check/lint; /paketering dl/dt/dd pairs; no table.table                     | DescriptionList replaces Table; table.css restyled for dl                       |
-| 2026-08-03 | T25  | format/check/lint; CLS=0 on /kunskapsbank; lazy defers far below-fold imgs        | ContentImage shape; Image.svelte; PageMeta .src; pages/*.ts not site.ts         |
+| 2026-08-03 | T25  | format/check/lint; CLS=0 on /kunskapsbank; lazy defers far below-fold imgs        | ContentImage shape; Image.svelte; PageMeta .src; pages/\*.ts not site.ts        |
+| 2026-08-03 | T26  | format/check/lint; /kunskapsbank image transfer −53%; dims OK at 320/1280         | All mandalon JPEG/PNG→WebP; README image procedure; CSS+designguide paths too   |

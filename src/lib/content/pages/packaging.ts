@@ -44,7 +44,7 @@ export const chipSensorsPage = {
 					'Under prototypfasen ligger fokus på att få chipet att prata med omvärlden för första gången. Aspekter som producerbarhet och tillförlitlighet väger lättare.',
 					'Under resans gång blir dessa aspekter däremot allt viktigare och ju tidigare man lägger resurser på detta desto lättare är det att anpassa sin design inför kommande produktion.'
 				],
-				image: { src: '/mandalon/chip-prototypes.jpg', alt: 'Tidig idéskiss', width: 1024, height: 680 }
+				image: { src: '/mandalon/chip-prototypes.webp', alt: 'Tidig idéskiss', width: 1024, height: 680 }
 			},
 			wireBonding: {
 				title: 'Trådbondning & paketering',
@@ -52,7 +52,7 @@ export const chipSensorsPage = {
 				paragraphs: [
 					'Trådbondning  är en beprövad metod för kontaktering och är den metod som Mandalon använder. Vi har tillgång till bondmaskiner för ball- respektive wedgebondning, manuella maskiner samt helautomatiska.'
 				],
-				image: { src: '/mandalon/chip-wirebonding.jpeg', alt: 'Bondmaskin, mikroskop och work holder', width: 768, height: 1024 }
+				image: { src: '/mandalon/chip-wirebonding.webp', alt: 'Bondmaskin, mikroskop och work holder', width: 768, height: 1024 }
 			},
 			assembly: {
 				title: 'Mikroelektronik-montering',
@@ -61,7 +61,7 @@ export const chipSensorsPage = {
 					'Området mikroelektronikmontering handlar enkelt uttryckt om hur man sätter ett chip på rätt plats och kontakterar detsamma.',
 					'Den långa varianten berör prestanda på färdig krets, producerbarhet, materialval, metodval, ekonomi, arbetsmiljö, tidsplanering, geometriaspekter med mera och vi sitter sällan i någon box när vi löser kundens problem.'
 				],
-				image: { src: '/mandalon/chip-assembly.jpg', alt: 'Bondningsparametrar', width: 1024, height: 768 }
+				image: { src: '/mandalon/chip-assembly.webp', alt: 'Bondningsparametrar', width: 1024, height: 768 }
 			},
 			encapsulation: {
 				title: 'Kapsling & ingjutning',
@@ -73,7 +73,7 @@ export const chipSensorsPage = {
 					'Väljer man istället montering direkt på PCB kan man uppnå en snabbare koppling med kortare anslutningar med rätt layout. Gäller ofta inom RF. Vill man ändå ha ett mer robust mekaniskt skydd för trådarna kan en globning hjälpa. Alternativet kan vara lock.',
 					'Vet ni inte hur ni ska göra avvägningarna för erat projekt så står våran erfarenhet till erat förfogande.'
 				],
-				image: { src: '/mandalon/chip-encapsulation.jpg', alt: 'Ett urval av normala TO metallkapslar', width: 768, height: 573 }
+				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'Ett urval av normala TO metallkapslar', width: 768, height: 573 }
 			}
 		}
 	},
@@ -124,7 +124,7 @@ export const chipSensorsPage = {
 					'During the prototype phase, the focus is on getting the chip to communicate with the outside world for the first time. Manufacturability and long-term reliability weigh less at this stage.',
 					'As the project moves forward, those aspects become increasingly important, and the earlier resources are invested in them, the easier it becomes to adapt the design for later production.'
 				],
-				image: { src: '/mandalon/chip-prototypes.jpg', alt: 'Early concept sketch', width: 1024, height: 680 }
+				image: { src: '/mandalon/chip-prototypes.webp', alt: 'Early concept sketch', width: 1024, height: 680 }
 			},
 			wireBonding: {
 				title: 'Wire bonding & packaging',
@@ -132,7 +132,7 @@ export const chipSensorsPage = {
 				paragraphs: [
 					'Interconnecting chips and other structures can be done in several ways. Wire bonding has been used for a long time and is the method Mandalon works with. We have access to machines for both ball and wedge bonding, manual systems and fully automatic ones.'
 				],
-				image: { src: '/mandalon/chip-wirebonding.jpeg', alt: 'Wire bonding machine, microscope and work holder', width: 768, height: 1024 }
+				image: { src: '/mandalon/chip-wirebonding.webp', alt: 'Wire bonding machine, microscope and work holder', width: 768, height: 1024 }
 			},
 			assembly: {
 				title: 'Microelectronics assembly',
@@ -141,7 +141,7 @@ export const chipSensorsPage = {
 					'Microelectronics assembly is, simply put, about how a chip is positioned correctly and connected in the right way.',
 					'The longer version touches finished-circuit performance, manufacturability, materials, method choices, economics, work environment, timing and geometry. Mandalon rarely works inside a box when solving a customer problem.'
 				],
-				image: { src: '/mandalon/chip-assembly.jpg', alt: 'Bonding parameters', width: 1024, height: 768 }
+				image: { src: '/mandalon/chip-assembly.webp', alt: 'Bonding parameters', width: 1024, height: 768 }
 			},
 			encapsulation: {
 				title: 'Encapsulation & potting',
@@ -153,7 +153,7 @@ export const chipSensorsPage = {
 					'If you instead mount directly on a PCB, a faster connection with shorter interconnects can be achieved with the right layout, which is often relevant in RF. If better mechanical protection for the wires is still needed, potting can help. Another option is a lid.',
 					'If you are unsure how to weigh the options for your project, our experience is at your disposal.'
 				],
-				image: { src: '/mandalon/chip-encapsulation.jpg', alt: 'A selection of common TO metal packages', width: 768, height: 573 }
+				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'A selection of common TO metal packages', width: 768, height: 573 }
 			}
 		}
 	}

@@ -73,7 +73,7 @@ body {
 	margin: 0;
 	font-family: 'Roboto', system-ui, sans-serif;
 	color: #10231c;
-	background: url('/mandalon/motherboard-bg.jpg') center top / cover no-repeat fixed;
+	background: url('/mandalon/motherboard-bg.webp') center top / cover no-repeat fixed;
 }
 
 h1,

@@ -13,7 +13,7 @@ export const glossaryPage = {
 			'Länkarna i den gamla hjälpsidan ledde vidare in i Mandalons micro-kosmos. Här har vi i stället samlat innehållet på ett ställe så att det blir lättare att läsa.'
 		],
 		introImage: {
-			src: '/mandalon/help-capillary.jpg',
+			src: '/mandalon/help-capillary.webp',
 			alt: 'Närbild av bondningsverktyg',
 			width: 1600,
 			height: 1000
@@ -57,7 +57,7 @@ export const glossaryPage = {
 					'Mandalon hjälper er med layouten så att ASICen och systemet i stort bibehåller sin funktionalitet och inte försämras av paketeringen. Med ett utkast går vi sedan gärna vidare tillsammans med er för att ta fram en fungerande design.',
 					'Mandalon föreslår hur monteringen kan göras på bästa sätt, samt lamplig bärare, PCB eller kapsel. Efter leverans ber vi om återkoppling för att säkerställa att resultatet blivit det önskade.'
 				],
-				image: { src: '/mandalon/help-asic.jpg', alt: 'Manuellt bondad ASIC', width: 745, height: 561 },
+				image: { src: '/mandalon/help-asic.webp', alt: 'Manuellt bondad ASIC', width: 745, height: 561 },
 				caption: 'Manuellt bondad ASIC med pitch 60 um'
 			},
 			mems: {
@@ -73,7 +73,7 @@ export const glossaryPage = {
 				title: 'WAFER',
 				subtitle: 'Mandalon hanterar sagade wafer',
 				paragraphs: ['Vi sågar inte wafers själva men hanterar plockning av chip manuellt upp till hanterbara och ekonomiskt försvarbara volymer.'],
-				image: { src: '/mandalon/help-wafer.jpg', alt: 'Plockade chip i ask', width: 1024, height: 694 },
+				image: { src: '/mandalon/help-wafer.webp', alt: 'Plockade chip i ask', width: 1024, height: 694 },
 				caption: 'Plockade chip i ask'
 			},
 			sensors: {
@@ -94,7 +94,7 @@ export const glossaryPage = {
 					'Delvis överlappande MEMS, men innefattar för Mandalons del ofta också bygget av kringstrukturen. Det kan gälla en integrerad mikrovärmare eller en MCM, Multi-chip-modul. Integrerad gaskanal eller en spegel.',
 					'På Mandalon har vi både tradition och erfarenhet av att välkomna utmaningar, sätt oss gärna på prov.'
 				],
-				image: { src: '/mandalon/help-microstructures.jpg', alt: 'Abstrakt mikrostruktur', width: 502, height: 492 },
+				image: { src: '/mandalon/help-microstructures.webp', alt: 'Abstrakt mikrostruktur', width: 502, height: 492 },
 				caption: 'Mikrostrukturer och kringstruktur'
 			}
 		}
@@ -111,7 +111,7 @@ export const glossaryPage = {
 			'Instead of splitting that material across many small help pages, it now lives here in one place.'
 		],
 		introImage: {
-			src: '/mandalon/help-capillary.jpg',
+			src: '/mandalon/help-capillary.webp',
 			alt: 'Close-up of bonding equipment',
 			width: 1600,
 			height: 1000
@@ -155,7 +155,7 @@ export const glossaryPage = {
 					'Mandalon helps with the layout so the ASIC and the surrounding system keep their functionality and are not weakened by the packaging. From a first draft, the work can continue together toward a design that actually works.',
 					'Mandalon can also suggest how assembly should be done, what carrier, PCB or package is suitable, and follow up after delivery to make sure the outcome matches expectations.'
 				],
-				image: { src: '/mandalon/help-asic.jpg', alt: 'Manually wire bonded ASIC', width: 745, height: 561 },
+				image: { src: '/mandalon/help-asic.webp', alt: 'Manually wire bonded ASIC', width: 745, height: 561 },
 				caption: 'Manually bonded ASIC with 60 um pitch'
 			},
 			mems: {
@@ -173,7 +173,7 @@ export const glossaryPage = {
 				paragraphs: [
 					'Mandalon does not perform the sawing itself, but handles manual picking of chips up to volumes that remain practical and economically reasonable.'
 				],
-				image: { src: '/mandalon/help-wafer.jpg', alt: 'Picked chips in tray', width: 1024, height: 694 },
+				image: { src: '/mandalon/help-wafer.webp', alt: 'Picked chips in tray', width: 1024, height: 694 },
 				caption: 'Picked chips in tray'
 			},
 			sensors: {
@@ -193,7 +193,7 @@ export const glossaryPage = {
 					'This really includes all small structures near the chip.',
 					'It partly overlaps with MEMS, but for Mandalon it also often includes building the surrounding structure itself. That may mean an integrated micro-heater, an MCM multi-chip module, an integrated gas channel or a mirror.'
 				],
-				image: { src: '/mandalon/help-microstructures.jpg', alt: 'Abstract microstructure', width: 502, height: 492 },
+				image: { src: '/mandalon/help-microstructures.webp', alt: 'Abstract microstructure', width: 502, height: 492 },
 				caption: 'Microstructures and surrounding structure'
 			}
 		}

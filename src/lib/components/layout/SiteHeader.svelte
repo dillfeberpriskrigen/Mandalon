@@ -60,7 +60,7 @@
 		padding: 1rem 0;
 		background:
 			linear-gradient(45deg, rgba(52, 57, 114, 0.94) 0%, rgba(79, 84, 137, 0.94) 100%),
-			url('/mandalon/motherboard-bg.jpg') center top / cover no-repeat;
+			url('/mandalon/motherboard-bg.webp') center top / cover no-repeat;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 	}
 

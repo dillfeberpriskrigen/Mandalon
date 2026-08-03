@@ -12,7 +12,7 @@ export const contactPage = {
 			{
 				name: 'Per-Erik Fägerman',
 				role: 'VD',
-				image: { src: '/mandalon/PerErik.jpg', alt: 'Per-Erik Fägerman', width: 198, height: 198 },
+				image: { src: '/mandalon/PerErik.webp', alt: 'Per-Erik Fägerman', width: 198, height: 198 },
 				phone: '073 320 60 50',
 				phoneHref: 'tel:+46733206050',
 				email: 'info@mandalon.se',
@@ -21,7 +21,7 @@ export const contactPage = {
 			{
 				name: 'Jonatan Gezelius',
 				role: 'Teknisk Säljare',
-				image: { src: '/mandalon/Jonatan.jpg', alt: 'Jonatan', width: 200, height: 200 },
+				image: { src: '/mandalon/Jonatan.webp', alt: 'Jonatan', width: 200, height: 200 },
 				phone: '073 58 48 690',
 				phoneHref: 'tel:+46735848690'
 			}
@@ -45,7 +45,7 @@ export const contactPage = {
 			{
 				name: 'Per-Erik Fägerman',
 				role: 'CEO',
-				image: { src: '/mandalon/PerErik.jpg', alt: 'Per-Erik Fägerman', width: 198, height: 198 },
+				image: { src: '/mandalon/PerErik.webp', alt: 'Per-Erik Fägerman', width: 198, height: 198 },
 				phone: '+46 733 20 60 50',
 				phoneHref: 'tel:+46733206050',
 				email: 'info@mandalon.se',
@@ -54,7 +54,7 @@ export const contactPage = {
 			{
 				name: 'Jonatan Gezelius',
 				role: 'Technical sales',
-				image: { src: '/mandalon/Jonatan.jpg', alt: 'Jonatan', width: 200, height: 200 },
+				image: { src: '/mandalon/Jonatan.webp', alt: 'Jonatan', width: 200, height: 200 },
 				phone: '+46 73 58 48 690',
 				phoneHref: 'tel:+46735848690'
 			}
