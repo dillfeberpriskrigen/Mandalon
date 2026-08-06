@@ -796,7 +796,7 @@ A table of contents and in-page anchors are a fourth, optional commit.
 
 ## T31 — Document the CSS delivery convention · **S**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T30
 
@@ -865,3 +865,4 @@ Append one row per completed task. Newest last.
 | 2026-08-03 | T27  | format/check/lint; / LCP~244ms; fixed bg ≥781px only; 2 font preloads; mobile scroll | Gate fixed attachment; preload Roboto + Condensed in SiteChrome                 |
 | 2026-08-03 | T28  | format/check/lint; /designguide note SV-only; T29 scope = no SV body translation     | Option A; languageNote in designGuide.ts (post-T18 path)                        |
 | 2026-08-06 | T30  | format/check/lint; 5 architecture claims match tree; no [[lang]]/pagePaths/etc       | CSS delivery deferred to T31; routes.ts named as sole slug source               |
+| 2026-08-06 | T31  | format/check/lint; classified 11 :global() uses (+ designguide follow-up)            | Emit / apply / page-class mechanisms; pages must not invent globals             |

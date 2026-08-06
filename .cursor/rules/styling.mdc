@@ -92,7 +92,50 @@ Use `Image` (`src/lib/components/media/Image.svelte`) for content images. Requir
 
 ## CSS delivery
 
-How global classes are emitted vs applied, and when `:global()` is acceptable, is documented in the CSS delivery section below (T31). Until that section lands, prefer tokens and shared classes in `src/lib/styles/`; do not add new page-level global style rules.
+The design system reaches the DOM three ways. Pick the first that fits:
+
+| Mechanism | When to use | Examples |
+|-----------|-------------|----------|
+| **1. Component emits a global class** | The component *is* the design-system primitive; its root (or known parts) always carry a class defined in `src/lib/styles/` | `Surface` → `.surface` / `.surface-*`; `Text` / `Heading` / `Link` / `Button` → `.text-*`, `.page-title`, `.link`, `.button-*`; `DescriptionList` → `.table` |
+| **2. Component applies an existing global class** | A layout helper wraps children and attaches a utility class; it does not redefine the utility | `PageContent` → `.text-width`; `PageShell` → `.container` via its own structure |
+| **3. Page (or section) uses a global class in markup** | Shared layout patterns that are not worth a one-line component | `.content-list`, `.surface-grid` on pages |
+
+Do **not** invent a fourth path: a page or component must not declare new **global** selectors (unstyled element names, or classes meant for the whole app) inside a Svelte `<style>` block. Shared look-and-feel belongs in `src/lib/styles/*.css` and is imported from `app.css`.
+
+### `:global()` pierces
+
+Svelte scopes component CSS by default. `:global(...)` is for styling a **child’s** markup that the parent does not own (snippet content, a child component’s root class, or elements rendered by `Image` / `@html`).
+
+**Acceptable** when all of these hold:
+
+1. The selector is rooted under a **local** parent class (e.g. `.media :global(img)`), so the pierce cannot leak site-wide
+2. The styles are layout/context for that parent (spacing, object-fit, colour in a hero), not a redefinition of the child’s public API
+3. Exposing a prop on the child would be awkward or would force every caller to pass the same layout knobs
+
+**Prefer a prop (or a variant) on the child** instead of `:global()` when the same override repeats, or when the child should own the look (e.g. `Link` weight/underline props rather than parents restyling `.link`).
+
+**Not acceptable:**
+
+- `:global(body)`, `:global(html)`, or any unscoped element/class that escapes the component
+- Pages inventing new global classes in `<style>` for reuse elsewhere — put those in `src/lib/styles/`
+- Using `:global()` to avoid moving styles into the component that owns the markup
+
+### Classification of current `:global()` uses
+
+The eleven uses that existed when this rule was written:
+
+| Location | Pierce | Verdict |
+|----------|--------|---------|
+| `HeroSection` | `.hero-content :global(.page-title)` | Acceptable — local hero layout around `Heading` |
+| `HeroSection` | `.hero-copy :global(p)` | Acceptable — colour context for snippet/`Text` children |
+| `MediaArticleSection` | `.subtitle :global(p)` | Acceptable — snippet paragraph colour |
+| `MediaArticleSection` | `.media :global(figure\|img\|figcaption)` (3) | Acceptable — layout around `Image`; prefer Image props if more variants appear |
+| `FeatureCarousel` | `.embla__slide :global(.surface)` | Acceptable — carousel layout of `Surface` |
+| `FeatureCarousel` | `.carousel-media :global(img)` | Acceptable — object-fit in fixed aspect box |
+| `SalesIntroSection` | `.intro-resource :global(.link)` / `:hover` (2) | Follow-up — `Link` already has `weight` / underline props; prefer those over piercing `.link` |
+| `kontakt/+page` | `.person-details :global(p + p)` | Follow-up — page pierce into `Text`; prefer a stacked snippet wrapper or a prop |
+
+**Also present after T29** (not in the original eleven): `designguide/+page.svelte` pierces many article descendants (`h2`–`h4`, `p`, `li`, `figure`, `img`, gallery classes). **Follow-up** — move those rules into `DesignGuideBody` (which owns the markup) so the page does not style another component’s internals.
 
 ## Do not
 
@@ -100,3 +143,4 @@ How global classes are emitted vs applied, and when `:global()` is acceptable, i
 - Introduce CSS frameworks (Tailwind, Bootstrap, etc.)
 - Duplicate token values inline in component styles
 - Set ad-hoc `font-size` / raw hex colors in page-scoped CSS when a token or typography component exists
+- Let pages or components declare new app-wide global selectors in scoped `<style>` blocks
