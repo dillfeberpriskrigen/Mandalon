@@ -779,7 +779,7 @@ A table of contents and in-page anchors are a fourth, optional commit.
 
 ## T30 — Update the Cursor rules for the new architecture · **M**
 
-- [ ] Complete
+- [x] Complete
 
 **Blocked by:** T14, T18 (if T18 was done)
 
@@ -863,4 +863,5 @@ Append one row per completed task. Newest last.
 | 2026-08-03 | T25  | format/check/lint; CLS=0 on /kunskapsbank; lazy defers far below-fold imgs           | ContentImage shape; Image.svelte; PageMeta .src; pages/\*.ts not site.ts        |
 | 2026-08-03 | T26  | format/check/lint; /kunskapsbank image transfer −53%; dims OK at 320/1280            | All mandalon JPEG/PNG→WebP; README image procedure; CSS+designguide paths too   |
 | 2026-08-03 | T27  | format/check/lint; / LCP~244ms; fixed bg ≥781px only; 2 font preloads; mobile scroll | Gate fixed attachment; preload Roboto + Condensed in SiteChrome                 |
-| 2026-08-03 | T28  | format/check/lint; /designguide note SV-only; T29 scope = no SV body translation  | Option A; languageNote in designGuide.ts (post-T18 path)                        |
+| 2026-08-03 | T28  | format/check/lint; /designguide note SV-only; T29 scope = no SV body translation     | Option A; languageNote in designGuide.ts (post-T18 path)                        |
+| 2026-08-06 | T30  | format/check/lint; 5 architecture claims match tree; no [[lang]]/pagePaths/etc       | CSS delivery deferred to T31; routes.ts named as sole slug source               |

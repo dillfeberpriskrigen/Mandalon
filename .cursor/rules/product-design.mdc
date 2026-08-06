@@ -44,4 +44,4 @@ B2B website for Mandalon — chip packaging, wire bonding, and consulting.
 ## When designing new UI
 
 - Reuse shared components before inventing page-specific layouts
-- Demo new variants on the experiment page before using in production pages
+- Demo new variants on the experiment page (`/(dev)/experiment`, available in `npm run dev` only) before using in production pages

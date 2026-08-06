@@ -8,7 +8,7 @@ SvelteKit remake of [mandalon.se](https://mandalon.se). B2B site for chip packag
 - **Svelte 5** with runes mode forced project-wide (`$props()`, `$derived()`, `{@render children()}`)
 - **SvelteKit 2** with **Vite 5**
 - **Node 18.20.8** (see `.nvmrc`)
-- **Adapter:** `@sveltejs/adapter-node` (README also mentions static deploy to `build/` but this is obsolete information and should be updated in the future)
+- **Adapter:** `@sveltejs/adapter-node`
 - **TypeScript** throughout (`lang="ts"` in Svelte; `.ts` for lib modules and route loaders)
 - **Lint/format:** ESLint + Prettier (`npm run lint`, `npm run format`)
 - **Type check:** `npm run check` (svelte-check via `tsconfig.json`)
@@ -19,20 +19,24 @@ npm install
 npm run dev      # local development
 npm run build    # production build
 npm run check    # svelte-check
+npm run check:build # smoke-check prerendered build output
 npm run lint     # prettier + eslint
 npm run format   # Perform formatting, prettier + svelte
 ```
-## i18n
+## i18n and routing
 
-- Public pages live under `src/routes/(site)/[[lang]]/` — Swedish is default (`/paketering`), English uses `/en/…` (`/en/packaging`)
-- Route groups: `(site)` for public pages, `(en)` for English thin wrappers, `(stats)` for `/stats` — parentheses do not appear in URLs
-- Content is keyed by locale in `src/lib/content/site.ts` (`siteContent`); `+layout.ts` passes it to pages as `data.content`
-- Content shapes live in `src/lib/content/types.ts`; shared page loads use `loadLocalePage`
-- Canonical pages use Swedish slugs; EN routes under `(en)/` are thin wrappers that import the SV page (see `svelte-components.mdc`)
+- Public pages live under `src/routes/(site)/(sv)/` (Swedish, no URL prefix) and `src/routes/(site)/en/` (English under `/en/…`)
+- Swedish is default (`/paketering`); English uses translated slugs (`/en/packaging`)
+- Route groups: `(site)` for public pages, `(sv)` / `en` for locales, `(stats)` for `/stats`, `(dev)` for `/experiment` and `/fonts` (dev only) — parentheses do not appear in URLs
+- **Slugs:** `src/lib/routes.ts` is the only place URL slugs may be defined. Build hrefs with `hrefFor(pageKey, locale)`. Do not hardcode path strings for in-site links.
+- Content: per-page modules in `src/lib/content/pages/*.ts` (both locales adjacent in each file); `src/lib/content/site.ts` assembles `siteContent`. Locale layouts pass `data.content` to pages
+- Content shapes live in `src/lib/content/types.ts`
+- Canonical pages use Swedish slugs under `(sv)/`; EN routes under `en/` are thin wrappers that import the SV page (see `svelte-components.mdc`)
+- Site chrome (`SiteChrome`, header, footer, hreflang) wraps `(site)` pages; document metadata via `PageMeta`
 
 ## Conventions
 
-- **Content:** User-facing text lives in `src/lib/content/site.ts` — pages consume it as `data.content`; components receive content via props (never hardcoded)
+- **Content:** User-facing text lives in `src/lib/content/` — pages consume it as `data.content`; components receive content via props (never hardcoded). Shared English-only bodies (e.g. design guide article) may live in a dedicated module under `pages/`
 - **Code comments:** Swedish or English
-- **Reference page:** `(site)/[[lang]]/paketering/+page.svelte` — canonical example of page structure
-- **Before done:** After any code change, run `npm run format`, then `npm run check`, then `npm run lint`. Do not consider the task done until all three pass.
+- **Reference page:** `(site)/(sv)/paketering/+page.svelte` — canonical example of page structure
+- **Before done:** After any code change, run `npm run format`, then `npm run check`, then `npm run lint`. Do not consider the task done until all three pass. If the change touches routing, loaders, layouts, hooks, prerendering, or the document head, also run `npm run build` and `npm run check:build`.

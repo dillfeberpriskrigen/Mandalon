@@ -17,25 +17,26 @@ alwaysApply: false
 
 ```
 src/lib/components/
-  layout/       PageContent, PageHeader, PageShell, SiteHeader, SiteFooter
+  layout/       PageContent, PageHeader, PageShell, PageMeta, SiteChrome, SiteHeader, SiteFooter
   typography/   Text, Heading, Link
   primitives/   Button, Surface
-  content/      ParagraphArray
+  media/        Image
+  content/      ParagraphArray, DesignGuideBody, DesignGuideFigure, DesignGuideToc
   sections/     MediaArticleSection, FaqSection, HeroSection, FeatureCarousel, SalesIntroSection
-  data/         Table
-  icons/        SVG icon components
+  data/         DescriptionList
 ```
 
 - **No `Typography.svelte`** — typography is `Text` + `Heading` + `Link` only
-- **No `Image.svelte`** — use `<img>` directly until lazy loading / aspect ratio / captions are needed
+- **Images:** use `Image` from `media/Image.svelte` with required `src`, `alt`, `width`, `height` (optional `caption`, `priority`). Content image shape is `ContentImage` in `src/lib/content/types.ts`
 - **Panels/cards** — use `Surface`, not new one-off card components
+- **Capabilities / key-value rows** — use `DescriptionList`, not HTML tables for non-tabular data
 
 - New shared UI goes here — not inline in route pages
-- Page files in `src/routes/` should stay thin: load data, compose components, set `<svelte:head>`
+- Page files in `src/routes/` should stay thin: compose components, set metadata via `PageMeta`
 
 ## Shared components
 
-Prefer typography components (`Text`, `Heading`, `Link`); global heading classes remain valid. Shared UI inventory matches the folder map above (`Button`, `Surface`, `PageContent`, `PageHeader`, `PageShell`, section components, `ParagraphArray`, `Table`, etc.).
+Prefer typography components (`Text`, `Heading`, `Link`); global heading classes remain valid. Shared UI inventory matches the folder map above.
 
 ## Props pattern
 
@@ -57,17 +58,18 @@ Prefer typography components (`Text`, `Heading`, `Link`); global heading classes
 ## Composition
 
 - Pass copy via props or snippets — do not hardcode user-facing text in components
-- Page content comes from `data.content` (sourced from `siteContent` in `src/lib/content/site.ts`, loaded in `+layout.ts`)
+- Page content comes from `data.content` (assembled in `src/lib/content/site.ts` from `src/lib/content/pages/*.ts`, loaded in `(sv)` / `en` `+layout.ts`)
+- In-site links: `hrefFor(pageKey, locale)` from `src/lib/routes.ts` — never hardcode slugs
 - Use `PageShell` for page padding + `.container` (one page width; no `narrow`/`wide`); use `PageContent` for readable body width (`.text-width`); use `Surface` for card/panel backgrounds
 - Use `Text` with `variant` (`body` | `lead` | `caption` | `label`) instead of ad-hoc font sizes
 
 ## i18n route wrappers
 
-English slug wrappers live under `(en)/` and re-export the Swedish canonical page:
+English slug wrappers live under `src/routes/(site)/en/` and re-export the Swedish canonical page under `(sv)/`:
 
 ```svelte
 <script lang="ts">
-	import Page from '../../paketering/+page.svelte';
+	import Page from '../../(sv)/paketering/+page.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -76,7 +78,7 @@ English slug wrappers live under `(en)/` and re-export the Swedish canonical pag
 <Page {data} />
 ```
 
-Edit the canonical page (usually the Swedish slug) — wrappers should stay thin.
+Edit the canonical page (Swedish slug under `(sv)/`) — wrappers should stay thin.
 
 ## Component extraction rule of thumb
 
@@ -95,6 +97,7 @@ Do not add categories (atoms/molecules) or generic wrappers (`Grid`, `Stack`) �
 
 - Introduce Svelte 4 patterns (`export let`, `$$props`, slots without snippets)
 - Add component-scoped styles that duplicate tokens already in `app.css`
-- Create one-off components for content that belongs in `src/lib/content/site.ts`
+- Create one-off components for content that belongs in `src/lib/content/`
+- Define URL slugs outside `src/lib/routes.ts`
 - Add `Typography.svelte` or duplicate typography abstractions
 - Add new `.js` modules under `src/` — use TypeScript

@@ -51,8 +51,6 @@ Tokens live in `:root` (`--text-*`, `--page-header-*`, `--page-sub-section-*`). 
 
 Create additional typography classes if needed, but ask first. Page-unique layout leftovers (kontakt map, kunskapsbank callout) are intentional; `designguide` keeps its own scoped styles until a future redesign.
 
-
-
 ## Component-scoped styles
 
 Use `<style>` in `.svelte` files only for layout or structure unique to that component (grid, flex, responsive breakpoints). Pull colors, fonts, and spacing from CSS variables.
@@ -67,12 +65,17 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 </style>
 ```
 
+## Images
+
+Use `Image` (`src/lib/components/media/Image.svelte`) for content images. Required: `src`, `alt`, `width`, `height`. Optional: `caption`, `priority` (eager + high fetch priority). Content modules store images as `ContentImage` (`{ src, alt, width, height }`). Prefer WebP under `static/mandalon/`; see `README.md` for the add-image procedure.
+
 ## Fonts
 
 - Body: Roboto (`body` in `app.css`)
 - Headings: Roboto Condensed (`h1–h6` in `app.css`)
 - Shared token: `--font-body` (`'Roboto Condensed', 'Roboto', …`) — used by the `Text` component
 - Self-hosted in `static/fonts/` — do not add Google Fonts CDN links
+- Above-the-fold faces are preloaded from `SiteChrome`
 
 ## Containers & page layout
 
@@ -87,8 +90,13 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 - **Body copy:** `PageContent` → `.text-width` (`--text-width`)
 - Do not reintroduce `.container-narrow` / `.container-wide` / `--container-width-narrow`; designguide overrides `--container-width` page-locally until redesigned
 
+## CSS delivery
+
+How global classes are emitted vs applied, and when `:global()` is acceptable, is documented in the CSS delivery section below (T31). Until that section lands, prefer tokens and shared classes in `src/lib/styles/`; do not add new page-level global style rules.
+
 ## Do not
 
 - Add new global CSS files without importing them from `app.css`
 - Introduce CSS frameworks (Tailwind, Bootstrap, etc.)
 - Duplicate token values inline in component styles
+- Set ad-hoc `font-size` / raw hex colors in page-scoped CSS when a token or typography component exists
