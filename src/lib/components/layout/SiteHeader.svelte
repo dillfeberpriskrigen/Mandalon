@@ -36,12 +36,7 @@
 		<div class="nav-stack">
 			<nav class="main-nav" aria-label="Primary navigation">
 				{#each data.content.primaryLinks as link (link.label)}
-					<a
-						class:active={isActive(link.page)}
-						class:contact-link={link.page === 'contact'}
-						aria-current={isActive(link.page) ? 'page' : undefined}
-						href={hrefFor(link.page, data.locale)}
-					>
+					<a class={{ 'contact-link': link.page === 'contact' }} aria-current={isActive(link.page) ? 'page' : undefined} href={hrefFor(link.page, data.locale)}>
 						{link.label}
 					</a>
 				{/each}
@@ -100,12 +95,6 @@
 		text-decoration: none;
 	}
 
-	.main-nav a[aria-current='page'] {
-		text-decoration: underline;
-		text-underline-offset: 0.2em;
-		text-decoration-thickness: 0.12em;
-	}
-
 	.main-nav a.contact-link {
 		padding: 0.55rem 0.95rem;
 		border-radius: 999px;
@@ -114,22 +103,26 @@
 		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
 	}
 
-	.language-switch,
-	.main-nav a.active {
+	.language-switch {
 		font-weight: 800;
 		color: #fff;
 	}
 
-	.main-nav a.active:not(.contact-link) {
-		box-shadow: inset 0 -0.15rem 0 #fff;
+	.main-nav a[aria-current='page']:not(.contact-link) {
+		font-weight: 800;
+		color: var(--accent);
 	}
 
 	.main-nav a:hover {
 		color: #fff;
 	}
 
+	.main-nav a[aria-current='page']:not(.contact-link):hover {
+		color: var(--accent);
+	}
+
 	.main-nav a.contact-link:hover,
-	.main-nav a.contact-link.active {
+	.main-nav a.contact-link[aria-current='page'] {
 		background: #ef8d44;
 		color: #fff;
 	}
@@ -185,6 +178,10 @@
 
 		.main-nav a.contact-link {
 			padding: 0.65rem 0.8rem;
+		}
+
+		.main-nav a[aria-current='page']:not(.contact-link) {
+			background: color-mix(in srgb, var(--accent) 22%, transparent);
 		}
 	}
 
