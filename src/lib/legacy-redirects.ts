@@ -1,13 +1,22 @@
 import { designGuidePdfHref } from '$lib/content/pages/designGuideBody';
-import type { Locale } from '$lib/content/types';
-import { hrefFor, type PageKey } from '$lib/routes';
+import { defaultLocale, locales, type Locale } from '$lib/content/site';
+import { hrefFor, retiredSwedishSlugs, type PageKey } from '$lib/routes';
 
 type LegacyPageRedirect = { from: string; to: PageKey; locale: Locale };
 type LegacyHrefRedirect = { from: string; href: string };
 type LegacyRedirect = LegacyPageRedirect | LegacyHrefRedirect;
 
+const retiredSlugRedirects: ReadonlyArray<LegacyPageRedirect> = (Object.keys(retiredSwedishSlugs) as Array<keyof typeof retiredSwedishSlugs>).flatMap((key) =>
+	locales.map((locale) => ({
+		from: locale === defaultLocale ? `/${retiredSwedishSlugs[key]}` : `/${locale}/${retiredSwedishSlugs[key]}`,
+		to: key,
+		locale
+	}))
+);
+
 /** Old-site paths that no longer exist. Append a row when a new 404 shows up. `from` is the pathname only — no host, no trailing slash. Use `href` for a non-page target such as a PDF. */
 const legacyRedirects: ReadonlyArray<LegacyRedirect> = [
+	...retiredSlugRedirects,
 	{ from: '/hjalp', to: 'knowledge', locale: 'sv' },
 	{ from: '/hjalp/asic', to: 'knowledge', locale: 'sv' },
 	{ from: '/hjalp/mems', to: 'knowledge', locale: 'sv' },

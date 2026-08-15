@@ -1,29 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import PageHeader from '$lib/components/layout/PageHeader.svelte';
-	import PageShell from '$lib/components/layout/PageShell.svelte';
-	import Link from '$lib/components/typography/Link.svelte';
-	import { siteContent } from '$lib/content/site';
+	import ErrorPage from '$lib/components/layout/ErrorPage.svelte';
+	import SiteChrome from '$lib/components/layout/SiteChrome.svelte';
+	import { defaultLocale, siteContent } from '$lib/content/site';
+	import { localeFromPathname } from '$lib/routes';
 
-	const locale = $derived(page.url.pathname === '/en' || page.url.pathname.startsWith('/en/') ? 'en' : 'sv');
-	const errorPage = $derived(siteContent[locale].errorPage);
-	const homeHref = $derived(locale === 'en' ? '/en' : '/');
-	const lead = $derived(page.status === 404 ? errorPage.notFound : (page.error?.message ?? errorPage.generic));
+	const locale = $derived(localeFromPathname(page.url.pathname));
+	const data = $derived({
+		locale,
+		defaultLocale,
+		content: siteContent[locale]
+	});
 </script>
 
-<svelte:head>
-	<title>{errorPage.title}</title>
-</svelte:head>
-
-<PageShell>
-	<PageHeader title={errorPage.title} {lead} />
-	<p class="error-home">
-		<Link href={homeHref} weight="bold">{errorPage.homeLabel}</Link>
-	</p>
-</PageShell>
-
-<style>
-	.error-home {
-		margin-top: var(--space-large);
-	}
-</style>
+<SiteChrome {data}>
+	<ErrorPage {locale} />
+</SiteChrome>

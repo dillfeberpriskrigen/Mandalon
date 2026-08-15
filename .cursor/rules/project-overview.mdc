@@ -25,18 +25,18 @@ npm run format   # Perform formatting, prettier + svelte
 ```
 ## i18n and routing
 
-- Public pages live under `src/routes/(site)/(sv)/` (Swedish, no URL prefix) and `src/routes/(site)/en/` (English under `/en/…`)
-- Swedish is default (`/paketering`); English uses translated slugs (`/en/packaging`)
-- Route groups: `(site)` for public pages, `(sv)` / `en` for locales, `(stats)` for `/stats`, `(dev)` for `/experiment` and `/fonts` (dev only) — parentheses do not appear in URLs
-- **Slugs:** `src/lib/routes.ts` is the only place URL slugs may be defined. Build hrefs with `hrefFor(pageKey, locale)`. Do not hardcode path strings for in-site links.
-- Content: per-page modules in `src/lib/content/pages/*.ts` (both locales adjacent in each file); `src/lib/content/site.ts` assembles `siteContent`. Locale layouts pass `data.content` to pages
+- Public pages live under `src/routes/(site)/[[lang=locale]]/` — one tree, English slugs. Swedish is default (no prefix: `/packaging`); English is opt-in via `/en/…` (`/en/packaging`)
+- The `locale` matcher in `src/params/locale.ts` only accepts `en`, so `/foo/about` is a 404 rather than a junk locale
+- Route groups: `(site)` for public pages, `(stats)` for `/stats`, `(dev)` for `/experiment` and `/fonts` (dev only) — parentheses do not appear in URLs
+- **Slugs:** `src/lib/routes.ts` is the only place URL slugs may be defined. Build hrefs with `hrefFor(pageKey, locale)`. Do not hardcode path strings for in-site links. Retired Swedish slugs live in `retiredSwedishSlugs` and 301 via `legacy-redirects.ts`
+- Content: per-page modules in `src/lib/content/pages/*.ts` (both locales adjacent in each file); `src/lib/content/site.ts` assembles `siteContent`. The `[[lang=locale]]` layout passes `data.content` to pages
 - Content shapes live in `src/lib/content/types.ts`
-- Canonical pages use Swedish slugs under `(sv)/`; EN routes under `en/` are thin wrappers that import the SV page (see `svelte-components.mdc`)
-- Site chrome (`SiteChrome`, header, footer, hreflang) wraps `(site)` pages; document metadata via `PageMeta`
+- One page file per page — no locale wrappers. Locale comes from `params.lang` in the site layout (`en` or default `sv`)
+- Site chrome (`SiteChrome`, header, footer) wraps the `[[lang=locale]]` layout; unknown paths hit `[...path]` so 404s stay inside chrome. Document metadata via `PageMeta`
 
 ## Conventions
 
 - **Content:** User-facing text lives in `src/lib/content/` — pages consume it as `data.content`; components receive content via props (never hardcoded). Shared English-only bodies (e.g. design guide article) may live in a dedicated module under `pages/`
 - **Code comments:** Swedish or English
-- **Reference page:** `(site)/(sv)/paketering/+page.svelte` — canonical example of page structure
+- **Reference page:** `(site)/[[lang=locale]]/packaging/+page.svelte` — canonical example of page structure
 - **Before done:** After any code change, run `npm run format`, then `npm run check`, then `npm run lint`. Do not consider the task done until all three pass. If the change touches routing, loaders, layouts, hooks, prerendering, or the document head, also run `npm run build` and `npm run check:build`.

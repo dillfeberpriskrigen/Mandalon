@@ -6,14 +6,14 @@ import path from 'node:path';
  * Update this list when a task adds, removes, or renames public URLs.
  */
 const EXPECTED_PAGES = [
-	// Canonical Swedish
+	// Canonical Swedish (English slugs, no prefix)
 	'/',
-	'/paketering',
-	'/konsulttjanster',
-	'/kontakt',
-	'/om-mandalon',
-	'/kunskapsbank',
-	'/designguide',
+	'/packaging',
+	'/consulting',
+	'/contact',
+	'/about',
+	'/knowledge-bank',
+	'/design-guide',
 	// Canonical English
 	'/en',
 	'/en/packaging',

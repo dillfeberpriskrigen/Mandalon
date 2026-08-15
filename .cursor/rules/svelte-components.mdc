@@ -17,7 +17,7 @@ alwaysApply: false
 
 ```
 src/lib/components/
-  layout/       PageContent, PageHeader, PageShell, PageMeta, SiteChrome, SiteHeader, SiteFooter
+  layout/       PageContent, PageHeader, PageShell, PageMeta, SiteChrome, SiteHeader, SiteFooter, ErrorPage
   typography/   Text, Heading, Link
   primitives/   Button, Surface
   media/        Image
@@ -58,27 +58,10 @@ Prefer typography components (`Text`, `Heading`, `Link`); global heading classes
 ## Composition
 
 - Pass copy via props or snippets — do not hardcode user-facing text in components
-- Page content comes from `data.content` (assembled in `src/lib/content/site.ts` from `src/lib/content/pages/*.ts`, loaded in `(sv)` / `en` `+layout.ts`)
+- Page content comes from `data.content` (assembled in `src/lib/content/site.ts` from `src/lib/content/pages/*.ts`, loaded in `(site)/[[lang=locale]]/+layout.ts`)
 - In-site links: `hrefFor(pageKey, locale)` from `src/lib/routes.ts` — never hardcode slugs
 - Use `PageShell` for page padding + `.container` (one page width; no `narrow`/`wide`); use `PageContent` for readable body width (`.text-width`); use `Surface` for card/panel backgrounds
 - Use `Text` with `variant` (`body` | `lead` | `caption` | `label`) instead of ad-hoc font sizes
-
-## i18n route wrappers
-
-English slug wrappers live under `src/routes/(site)/en/` and re-export the Swedish canonical page under `(sv)/`:
-
-```svelte
-<script lang="ts">
-	import Page from '../../(sv)/paketering/+page.svelte';
-	import type { PageData } from './$types';
-
-	let { data }: { data: PageData } = $props();
-</script>
-
-<Page {data} />
-```
-
-Edit the canonical page (Swedish slug under `(sv)/`) — wrappers should stay thin.
 
 ## Component extraction rule of thumb
 
