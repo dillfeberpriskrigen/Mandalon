@@ -131,6 +131,7 @@ export type ContactPerson = {
 	image?: ContentImage;
 	phone?: string;
 	phoneHref?: string;
+	bio?: string[];
 };
 
 export type ContactAddress = {
@@ -149,6 +150,8 @@ export type ContactPageContent = {
 	emailHref: string;
 	emailAfter: string;
 	people: ContactPerson[];
+	openPersonLabel: string;
+	closePersonLabel: string;
 	address: ContactAddress;
 	locationTitle: string;
 	visitNote: string;

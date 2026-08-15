@@ -5,6 +5,7 @@
 
 	interface Props {
 		as?: HeadingLevel;
+		id?: string;
 		children: Snippet;
 	}
 
@@ -14,9 +15,9 @@
 		h3: 'page-sub-section'
 	};
 
-	let { as = 'h2', children }: Props = $props();
+	let { as = 'h2', id, children }: Props = $props();
 </script>
 
-<svelte:element this={as} class={classByLevel[as]}>
+<svelte:element this={as} {id} class={classByLevel[as]}>
 	{@render children()}
 </svelte:element>
