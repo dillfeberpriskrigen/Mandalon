@@ -11,7 +11,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 ## High
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
-- [ ] Ge länkar ett tydligare utseende. Den på designguide sidan ser bara ut som vanlig tjock text. Alla länkar borde ha liknande utseende. De på kontakt sidan ser bättre ut. Det tycks vara den som kallas callout-style som inte ser ut som en länk. → ej schemalagd (formgivning). T11 tog bort `target="_blank"` från just den länken, men inte dess utseende.
 
 ## Medium
 
@@ -23,7 +22,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 ## Low
 
-- [ ] Om möjligt i komponenten `Link` Detektera automatiskt ifall en länk leder till en extern sajt, eller är en fil, och ge den `target="_blank"` → ej schemalagd. Enklare efter T11, eftersom interna länkar då bär en `PageKey` och allt annat per definition är externt.
 - [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer. → ej schemalagd, oberoende av roadmapen.
 - [ ] Stöd för dark mode. → ej schemalagd. T31 är klar (tokens och CSS-regel dokumenterade); ta upp igen när det är dags.
 
@@ -45,3 +43,5 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Vald meny ser just nu konstig ut, den får dubbla streck under sig och ser trasig ut. Använd istället färger för att visa vilken som är vald meny. Accentfärg + tyngre vikt i `SiteHeader`; global `aria-current`-understrykning borttagen.
 - [x] Flytta språkvalet till en EN / SV knapp, Contact med telefonikon, samma färg som övriga länkar, längst till höger i headern.
 - [x] Lägg till integritetspolicy (svenska + engelska) som saknades vid migreringen. Gamla URL:en är `/integritetspolicy-3/`; lägg en redirect dit när sidan finns. Länk i footern, inte i huvudmenyn.
+- [x] Ge länkar ett tydligare utseende. Callout-style (utan understrykning) är borttagen; `Link` är alltid understruken med hover-markering. Designguide-PDF:en är en `Button`.
+- [x] `Link` (och `Button`) sätter `target="_blank"` automatiskt för externa URL:er och nedladdningsbara filer. Logiken ligger i `src/lib/links.ts`.

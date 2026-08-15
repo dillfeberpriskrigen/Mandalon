@@ -41,7 +41,7 @@
 		<Heading as="h2">Buttons</Heading>
 		<div class="button-row">
 			<Button href="#surface-demos" variant="primary">Primary link</Button>
-			<Button href="https://mandalon.se" variant="secondary" target="_blank" rel="noreferrer">Secondary link</Button>
+			<Button href="https://mandalon.se" variant="secondary">Secondary link</Button>
 			<Button type="button" variant="primary">Primary button</Button>
 			<Button type="button" variant="secondary">Secondary button</Button>
 		</div>
@@ -57,8 +57,8 @@
 			<p>
 				In-page <Link href="#surface-demos">link to surfaces</Link>
 				and external
-				<Link href="https://mandalon.se" target="_blank" rel="noreferrer">mandalon.se</Link>. Callout-style
-				<Link href="#faq-demo" weight="bold" underline={false} nowrap>plain bold link</Link>.
+				<Link href="https://mandalon.se">mandalon.se</Link>.
+				<Link href="#faq-demo" weight="bold">bold link</Link>.
 			</p>
 
 			<Text as="p"

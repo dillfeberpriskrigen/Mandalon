@@ -9,7 +9,7 @@
 <ul>
 	{#each fonts as license (license.file)}
 		<li>
-			<Link href={license.file} target="_blank" rel="noreferrer">{license.name}</Link>
+			<Link href={license.file}>{license.name}</Link>
 		</li>
 	{/each}
 </ul>

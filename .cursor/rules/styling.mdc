@@ -112,7 +112,7 @@ Svelte scopes component CSS by default. `:global(...)` is for styling a **child�
 2. The styles are layout/context for that parent (spacing, object-fit, colour in a hero), not a redefinition of the child’s public API
 3. Exposing a prop on the child would be awkward or would force every caller to pass the same layout knobs
 
-**Prefer a prop (or a variant) on the child** instead of `:global()` when the same override repeats, or when the child should own the look (e.g. `Link` weight/underline props rather than parents restyling `.link`).
+**Prefer a prop (or a variant) on the child** instead of `:global()` when the same override repeats, or when the child should own the look (e.g. `Link` `weight` rather than parents restyling `.link`).
 
 **Not acceptable:**
 
@@ -132,7 +132,6 @@ The eleven uses that existed when this rule was written:
 | `MediaArticleSection` | `.media :global(figure\|img\|figcaption)` (3) | Acceptable — layout around `Image`; prefer Image props if more variants appear |
 | `FeatureCarousel` | `.embla__slide :global(.surface)` | Acceptable — carousel layout of `Surface` |
 | `FeatureCarousel` | `.carousel-media :global(img)` | Acceptable — object-fit in fixed aspect box |
-| `SalesIntroSection` | `.intro-resource :global(.link)` / `:hover` (2) | Follow-up — `Link` already has `weight` / underline props; prefer those over piercing `.link` |
 | `kontakt/+page` | `.person-details :global(p + p)` | Follow-up — page pierce into `Text`; prefer a stacked snippet wrapper or a prop |
 
 **Also present after T29** (not in the original eleven): `designguide/+page.svelte` pierces many article descendants (`h2`–`h4`, `p`, `li`, `figure`, `img`, gallery classes). **Follow-up** — move those rules into `DesignGuideBody` (which owns the markup) so the page does not style another component’s internals.

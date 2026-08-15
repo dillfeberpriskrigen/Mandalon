@@ -61,7 +61,7 @@
 					<ul class="content-list">
 						{#each data.content.aboutPage.researchProjects as item (item.title)}
 							<li>
-								<Link href={item.href} target="_blank" rel="noreferrer">{item.title}</Link>
+								<Link href={item.href}>{item.title}</Link>
 							</li>
 						{/each}
 					</ul>

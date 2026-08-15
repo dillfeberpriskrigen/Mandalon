@@ -58,7 +58,7 @@
 				</div>
 
 				<div class="intro-resource">
-					<Link href={hrefFor(salesIntro.resource.page, activeLocale)}>
+					<Link href={hrefFor(salesIntro.resource.page, activeLocale)} weight="bold">
 						{salesIntro.resource.label}
 					</Link>
 					<Text as="span">{salesIntro.resource.text}</Text>
@@ -108,16 +108,6 @@
 		display: grid;
 		gap: 0.3rem;
 		padding-top: 0.15rem;
-	}
-
-	.intro-resource :global(.link) {
-		font-weight: var(--weight-bold);
-		text-decoration: none;
-		color: var(--ink);
-	}
-
-	.intro-resource :global(.link:hover) {
-		color: var(--accent-deep);
 	}
 
 	.intro {

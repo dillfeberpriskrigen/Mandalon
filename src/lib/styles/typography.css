@@ -81,17 +81,27 @@ p + p {
 }
 
 .link {
-	color: inherit;
+	color: var(--link);
 	text-decoration: underline;
+	text-decoration-thickness: 0.08em;
 	text-underline-offset: 0.15em;
+	border-radius: var(--radius-small);
+	padding: 0.05em 0.22em;
+	margin: 0 -0.22em;
+	background-color: transparent;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
 }
 
-.link:hover {
-	color: var(--ink);
+@media (prefers-reduced-motion: no-preference) {
+	.link {
+		transition: background-color 0.18s ease;
+	}
 }
 
-.link-plain {
-	text-decoration: none;
+.link:hover,
+.link:focus-visible {
+	background-color: var(--link-hover-bg);
 }
 
 .link-nowrap {

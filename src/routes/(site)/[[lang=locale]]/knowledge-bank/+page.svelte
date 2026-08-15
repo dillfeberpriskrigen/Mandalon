@@ -47,7 +47,7 @@
 					<Text as="p">{data.content.glossaryPage.guide.text}</Text>
 				</div>
 
-				<Link href={hrefFor(data.content.glossaryPage.guide.page, data.locale ?? data.defaultLocale)} weight="bold" underline={false} nowrap
+				<Link href={hrefFor(data.content.glossaryPage.guide.page, data.locale ?? data.defaultLocale)} weight="bold" nowrap
 					>{data.content.glossaryPage.guide.label}</Link
 				>
 			</div>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DesignGuideBody from '$lib/components/content/DesignGuideBody.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
+	import Button from '$lib/components/primitives/Button.svelte';
 	import { designGuideBody, designGuidePdfHref } from '$lib/content/pages/designGuideBody';
 	import type { PageData } from './$types';
 
@@ -22,7 +23,7 @@
 				<h2>{content.articleIntroTitle}</h2>
 				<p>{content.articleIntroBody}</p>
 				<p>
-					<a class="designguide-download" href={designGuidePdfHref}>{content.downloadLabel}</a>
+					<Button href={designGuidePdfHref}>{content.downloadLabel}</Button>
 				</p>
 				<DesignGuideBody blocks={designGuideBody} />
 			</article>
@@ -90,21 +91,6 @@
 		margin: 0.8rem 0 0;
 		line-height: 1.75;
 		color: #506458;
-	}
-
-	.designguide-article :global(a) {
-		color: #ffffff;
-	}
-
-	.designguide-download {
-		display: inline-block;
-		margin-top: 0.2rem;
-		padding: 0.8rem 1.2rem;
-		border-radius: 999px;
-		background: #e97d2f;
-		color: rgb(255, 255, 255);
-		font-weight: 700;
-		text-decoration: none;
 	}
 
 	.designguide-article :global(.designguide-list),
