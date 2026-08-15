@@ -133,8 +133,7 @@ export const designGuideBody = [
 		alt: '',
 		width: 578,
 		height: 337,
-		caption: 'Picture 1. A=effective pitch.',
-		linked: true
+		caption: 'Picture 1. A=effective pitch.'
 	},
 	{
 		type: 'heading',
@@ -151,8 +150,7 @@ export const designGuideBody = [
 		alt: '',
 		width: 584,
 		height: 326,
-		caption: 'Picture 2. Ball bonding with 25 µm wire and pitch 90 µm. A bottleneck capillary is used.',
-		linked: true
+		caption: 'Picture 2. Ball bonding with 25 µm wire and pitch 90 µm. A bottleneck capillary is used.'
 	},
 	{
 		type: 'figure',
@@ -160,8 +158,7 @@ export const designGuideBody = [
 		alt: '',
 		width: 590,
 		height: 353,
-		caption: 'Picture 3. Ball bonding. The difference between 1st bond with the ball and 2nd bond.',
-		linked: true
+		caption: 'Picture 3. Ball bonding. The difference between 1st bond with the ball and 2nd bond.'
 	},
 	{
 		type: 'heading',
@@ -187,8 +184,7 @@ export const designGuideBody = [
 		alt: '',
 		width: 726,
 		height: 197,
-		caption: 'Picture 4. Fan out.',
-		linked: true
+		caption: 'Picture 4. Fan out.'
 	},
 	{
 		type: 'figure',
@@ -196,8 +192,7 @@ export const designGuideBody = [
 		alt: '',
 		width: 844,
 		height: 476,
-		caption: 'Picture 5. The risk for short circuits increases when angle of fan out is above 45º.',
-		linked: true
+		caption: 'Picture 5. The risk for short circuits increases when angle of fan out is above 45º.'
 	},
 	{
 		type: 'figure',
@@ -205,8 +200,7 @@ export const designGuideBody = [
 		alt: '',
 		width: 588,
 		height: 481,
-		caption: 'Picture 6. Bonding under normal fan out conditions.',
-		linked: true
+		caption: 'Picture 6. Bonding under normal fan out conditions.'
 	},
 	{
 		type: 'figure',
@@ -214,8 +208,7 @@ export const designGuideBody = [
 		alt: '',
 		width: 585,
 		height: 510,
-		caption: 'Picture 7. Bonding under difficult fan out conditions. Some fan out >45º. (Cost level 3.)',
-		linked: true
+		caption: 'Picture 7. Bonding under difficult fan out conditions. Some fan out >45º. (Cost level 3.)'
 	},
 	{
 		type: 'heading',
@@ -360,24 +353,21 @@ export const designGuideBody = [
 				alt: '',
 				width: 369,
 				height: 558,
-				caption: 'Picture 16. Bond pads bumped in advance. Small open pad area.',
-				linked: true
+				caption: 'Picture 16. Bond pads bumped in advance. Small open pad area.'
 			},
 			{
 				src: '/mandalon/designguide/picture-17.webp',
 				alt: '',
 				width: 374,
 				height: 562,
-				caption: 'Picture 17. Open area do not match pads.',
-				linked: true
+				caption: 'Picture 17. Open area do not match pads.'
 			},
 			{
 				src: '/mandalon/designguide/picture-18.webp',
 				alt: '',
 				width: 679,
 				height: 423,
-				caption: 'Picture 18. Good bonding conditions with regard to open pad area.',
-				linked: true
+				caption: 'Picture 18. Good bonding conditions with regard to open pad area.'
 			}
 		]
 	},

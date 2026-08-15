@@ -1,10 +1,10 @@
 /** Same-origin files that should not be handled as in-app routes. */
-const DOWNLOAD_EXT = /\.(?:pdf|zip|docx?|xlsx?|pptx?|csv|txt)(?:[?#]|$)/i;
+const STATIC_FILE_EXT = /\.(?:pdf|zip|docx?|xlsx?|pptx?|csv|txt|webp|png|jpe?g|gif|svg|avif)(?:[?#]|$)/i;
 
 const NEW_TAB_REL = ['external', 'noopener', 'noreferrer'] as const;
 
 /**
- * True when following `href` leaves the site (absolute http(s), or a downloadable file).
+ * True when following `href` leaves the site (absolute http(s), or a static file).
  * Hash, query, mailto, and tel stay in place.
  */
 export function opensAwayFromSite(href: string): boolean {
@@ -24,7 +24,7 @@ export function opensAwayFromSite(href: string): boolean {
 	}
 
 	const path = value.split(/[?#]/)[0] ?? value;
-	return DOWNLOAD_EXT.test(path);
+	return STATIC_FILE_EXT.test(path);
 }
 
 export function relForAwayLink(existing?: string): string {

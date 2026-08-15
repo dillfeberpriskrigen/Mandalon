@@ -13,13 +13,9 @@
 </script>
 
 <figure>
-	{#if figure.linked}
-		<a href={figure.src}>
-			<Image src={figure.src} alt={figure.alt} width={figure.width} height={figure.height} {priority} />
-		</a>
-	{:else}
+	<a href={figure.src} rel="external">
 		<Image src={figure.src} alt={figure.alt} width={figure.width} height={figure.height} {priority} />
-	{/if}
+	</a>
 	{#if figure.caption}
 		<figcaption class={captionClass}>{figure.caption}</figcaption>
 	{/if}
