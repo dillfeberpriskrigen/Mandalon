@@ -4,47 +4,60 @@
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Image from '$lib/components/media/Image.svelte';
-	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import { on } from 'svelte/events';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+	let mapActive = $state(false);
 	const latitude = 58.448268;
 	const longitude = 15.826769;
 	const delta = 0.012;
 	const bbox = [(longitude - delta).toFixed(5), (latitude - delta).toFixed(5), (longitude + delta).toFixed(5), (latitude + delta).toFixed(5)].join('%2C');
 	const marker = `${latitude}%2C${longitude}`;
 	const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
+
+	const disableMapOnLeave = (node: HTMLElement) => on(node, 'pointerleave', () => (mapActive = false));
 </script>
 
 <PageMeta meta={data.content.contactPage.meta} pageKey="contact" locale={data.locale} />
 
 <PageShell>
-	<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />
+	<PageHeader title={data.content.contactPage.title} />
 
-	<div class="people-flow">
-		{#each data.content.contactPage.people as person, index (person.name)}
-			<MediaArticleSection title={person.name} subtitle={person.role} reverse={index % 2 === 1} mediaMaxWidth="240px">
-				{#snippet content()}
-					<div class="person-details">
-						{#if person.phone}
-							<Text as="p">
-								<Link href={person.phoneHref}>{person.phone}</Link>
-							</Text>
-						{/if}
-						{#if person.email}
-							<Text as="p">
-								<Link href={person.emailHref}>{person.email}</Link>
-							</Text>
+	<div class="inbox">
+		<PageContent>
+			<Text as="p">
+				{data.content.contactPage.emailBefore}
+				<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
+				{data.content.contactPage.emailAfter}
+			</Text>
+		</PageContent>
+	</div>
+
+	<div class="people">
+		{#each data.content.contactPage.people as person (person.name)}
+			<Surface as="article" radius="large" padding="medium" shadow="medium">
+				<div class="person">
+					<div class="person-photo" aria-hidden={!person.image}>
+						{#if person.image}
+							<Image src={person.image.src} alt={person.image.alt} width={person.image.width} height={person.image.height} />
 						{/if}
 					</div>
-				{/snippet}
-				{#snippet media()}
-					<Image src={person.image.src} alt={person.image.alt} width={person.image.width} height={person.image.height} />
-				{/snippet}
-			</MediaArticleSection>
+					<div class="person-copy">
+						<Heading as="h2">{person.name}</Heading>
+						{#if person.role}
+							<Text as="p">{person.role}</Text>
+						{/if}
+						{#if person.phone && person.phoneHref}
+							<Link href={person.phoneHref}>{person.phone}</Link>
+						{/if}
+					</div>
+				</div>
+			</Surface>
 		{/each}
 	</div>
 
@@ -52,44 +65,118 @@
 		<PageContent>
 			<div class="location-copy">
 				<Heading as="h2">{data.content.contactPage.locationTitle}</Heading>
-				{#each data.content.contactPage.details as detail (detail.label)}
-					<Text as="p">
-						<Text as="span" weight="bold">{detail.label}:</Text>
-						{#if detail.href}
-							<Link href={detail.href}>{detail.value}</Link>
-						{:else}
-							{detail.value}
-						{/if}
-					</Text>
-				{/each}
+				<address class="postal-address">
+					<Text as="div" weight="bold">{data.content.contactPage.address.company}</Text>
+					<Text as="div">{data.content.contactPage.address.street}</Text>
+					<Text as="div">{data.content.contactPage.address.postalCode} {data.content.contactPage.address.city}</Text>
+					{#if data.content.contactPage.address.country}
+						<Text as="div">{data.content.contactPage.address.country}</Text>
+					{/if}
+				</address>
+				<div class="visit-note">
+					<Text as="p">{data.content.contactPage.visitNote}</Text>
+				</div>
 			</div>
 		</PageContent>
 
-		<div class="map-wrap">
-			<iframe title={data.content.contactPage.mapTitle} src={mapEmbedUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<div class={['map-wrap', mapActive && 'is-active']} {@attach disableMapOnLeave}>
+			<iframe title={data.content.contactPage.mapTitle} src={mapEmbedUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>
+			{#if !mapActive}
+				<button type="button" class="map-enable" onclick={() => (mapActive = true)}>
+					<span class="map-enable-label">{data.content.contactPage.mapEnableLabel}</span>
+				</button>
+			{/if}
 		</div>
 	</section>
 </PageShell>
 
 <style>
-	.people-flow {
-		margin-top: 2.5rem;
+	.inbox {
+		margin-top: var(--space-medium);
 	}
 
-	.person-details {
+	.people {
+		display: inline-grid;
+		grid-template-columns: repeat(3, minmax(min-content, 1fr));
+		align-items: stretch;
+		max-width: 100%;
+		gap: var(--space-medium);
+		margin-top: var(--space-large);
+	}
+
+	.people :global(.surface) {
+		background: var(--content-background);
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	.person {
 		display: grid;
-		gap: 0.35rem;
-		margin-top: 0.5rem;
+		gap: var(--space-small);
+		justify-items: stretch;
 	}
 
-	.person-details :global(p + p) {
-		margin-top: 0;
+	.person-photo {
+		width: 100%;
+		aspect-ratio: 1;
+	}
+
+	.person-photo :global(img) {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: var(--border-radius);
+	}
+
+	.person-copy {
+		display: grid;
+		gap: var(--space-small);
+		justify-items: start;
+	}
+
+	.person-copy :global(.page-header) {
+		white-space: nowrap;
+	}
+
+	@media (max-width: 960px) {
+		.people {
+			grid-template-columns: repeat(2, minmax(min-content, 1fr));
+		}
+	}
+
+	@media (max-width: 780px) {
+		.people {
+			grid-template-columns: minmax(min-content, 1fr);
+		}
+
+		.person-copy :global(.page-header) {
+			white-space: normal;
+		}
 	}
 
 	.location {
 		display: grid;
-		gap: 1rem;
-		margin-top: 3rem;
+		gap: var(--space-medium);
+		margin-top: var(--space-large);
+	}
+
+	.location-copy {
+		display: grid;
+		gap: var(--space-small);
+	}
+
+	.postal-address {
+		display: grid;
+		font-style: normal;
+	}
+
+	.visit-note {
+		margin-top: var(--space-small);
+	}
+
+	.map-wrap {
+		position: relative;
 	}
 
 	.map-wrap iframe {
@@ -97,6 +184,32 @@
 		height: 26rem;
 		border: 0;
 		border-radius: var(--border-radius);
+		pointer-events: none;
+	}
+
+	.map-wrap.is-active iframe {
+		pointer-events: auto;
+	}
+
+	.map-enable {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: end center;
+		padding: var(--space-medium);
+		border: none;
+		border-radius: var(--border-radius);
+		background: transparent;
+		color: var(--content-background);
+		cursor: pointer;
+		font-family: var(--font-body);
+		font-weight: var(--weight-bold);
+	}
+
+	.map-enable-label {
+		padding: var(--space-small) var(--space-medium);
+		border-radius: var(--border-radius);
+		background: color-mix(in srgb, var(--ink) 72%, transparent);
 	}
 
 	@media (max-width: 900px) {

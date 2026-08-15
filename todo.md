@@ -26,7 +26,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [ ] Karusell (pilar och länk till konsulttjänster finns). Kvar: kort ingress likt konsultsidan, rubrik som nämner konsulttjänster, ev. långsammare bildbyte, mindre luft mot nästa sektion (båda har `padding: 5rem 0`). → granskning
 - [ ] SV/EN-glidning på startsidan: «Tre sätt att avlasta ert team» ≠ «Three ways to reduce risk». → granskning
 - [ ] Paketering, capability-listan: ge den en rubrik; vänsterkolumnen ska inte radbryta (`minmax(8rem, 0.4fr)`). → granskning
-- [ ] Kontaktlayout: sluta alternera bild/text med bara två personer — bild och namn i samma mönster under varandra. «Teknisk Säljare» → «Teknisk säljare». → granskning
 - [ ] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn — plats för bild. → granskning
 - [ ] Kunskapsbank: «sagade wafer» → sågade; SV-titel «WAFER» vs EN «Wafer»; byt sida på bild/text under Mikrostrukturer; lägg till MEMS-bild (saknas i `static/mandalon`). → granskning
 
@@ -36,7 +35,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [ ] Stöd för dark mode. → ej schemalagd. T31 är klar (tokens och CSS-regel dokumenterade); ta upp igen när det är dags.
 - [ ] Språkpass senare (medvetet uppskjutet av granskaren): anglicismer (t.ex. «Fånga riskerna tidigt»), tilltal (er / du / kundens) ska jämkas. Gäller startsida, paketering och konsult. → granskning
 - [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
-- [ ] Kontaktsidan: överväg «Nyfiken på Mandalons labb? Kontakta oss för besök!» → granskning
 
 ## Klart
 
@@ -65,3 +63,4 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Paketering, 3:e stycket mörkare än övrig brödtext — stämmer inte längre; all text har samma färg. → granskning
 - [x] Brödtextkontrast: `.text-body` och `.content-list` använder `--ink` i stället för `--muted`. Bildtexter är fortfarande `--muted`. → granskning
 - [x] Sidrubriker matchar menyn: Kontakt / Contact och Om Mandalon / About Mandalon. Tidigare H1-uppmaningar ligger i lead. Header «Om oss» är «Om Mandalon». → granskning
+- [x] Kontaktsidan är mer standard: uppgifter först, lika personkort (bild över namn), «Teknisk säljare», besöksrad under kartan. Nya foton saknas fortfarande. → granskning

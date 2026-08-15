@@ -27,39 +27,25 @@
 	}
 
 	function buildPostalAddress(locale: Locale) {
-		const addressValue = siteContent[locale].contactPage.details.find((detail) => !detail.href)?.value;
-		if (!addressValue) {
-			return undefined;
-		}
-
-		const match = addressValue.match(/^(.+),\s*(\d{3}\s*\d{2})\s+(.+)$/);
-		if (!match) {
-			return {
-				'@type': 'PostalAddress',
-				streetAddress: addressValue,
-				addressCountry: 'SE'
-			};
-		}
+		const { street, postalCode, city } = siteContent[locale].contactPage.address;
 
 		return {
 			'@type': 'PostalAddress',
-			streetAddress: match[1],
-			postalCode: match[2],
-			addressLocality: match[3],
+			streetAddress: street,
+			postalCode,
+			addressLocality: city,
 			addressCountry: 'SE'
 		};
 	}
 
 	function organizationBase(locale: Locale) {
 		const { contactPage, aboutPage } = siteContent[locale];
-		const email =
-			contactPage.details.find((detail) => detail.href?.startsWith('mailto:info@'))?.value ?? contactPage.people.find((person) => person.email)?.email;
-		const telephone = contactPage.people.find((person) => person.phoneHref)?.phoneHref.replace(/^tel:/, '');
-		const nameMatch = aboutPage.certification.match(/Mandalon Technologies AB/);
-		const imagePath = contactPage.people.find((person) => person.image)?.image.src;
+		const email = contactPage.email;
+		const telephone = contactPage.people.find((person) => person.phoneHref)?.phoneHref?.replace(/^tel:/, '');
+		const imagePath = contactPage.people.find((person) => person.image)?.image?.src;
 
 		return {
-			name: nameMatch?.[0] ?? 'Mandalon',
+			name: contactPage.address.company,
 			url: siteUrl,
 			email,
 			telephone,

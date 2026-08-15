@@ -127,28 +127,33 @@ export type AboutPageContent = {
 
 export type ContactPerson = {
 	name: string;
-	role: string;
-	image: ContentImage;
-	phone: string;
-	phoneHref: string;
-	email?: string;
-	emailHref?: string;
+	role?: string;
+	image?: ContentImage;
+	phone?: string;
+	phoneHref?: string;
 };
 
-export type ContactDetail = {
-	label: string;
-	value: string;
-	href?: string;
+export type ContactAddress = {
+	company: string;
+	street: string;
+	postalCode: string;
+	city: string;
+	country?: string;
 };
 
 export type ContactPageContent = {
 	meta: Meta;
 	title: string;
-	lead: string;
+	emailBefore: string;
+	email: string;
+	emailHref: string;
+	emailAfter: string;
 	people: ContactPerson[];
-	details: ContactDetail[];
+	address: ContactAddress;
 	locationTitle: string;
+	visitNote: string;
 	mapTitle: string;
+	mapEnableLabel: string;
 };
 
 export const glossarySectionOrder = ['asic', 'mems', 'wafer', 'sensors', 'microstructures'] as const;
