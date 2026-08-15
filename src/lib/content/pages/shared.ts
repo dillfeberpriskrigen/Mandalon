@@ -16,7 +16,7 @@ export const shared = {
 		primaryLinks: [
 			{ label: 'Paketering av Chip', page: 'packaging' },
 			{ label: 'Konsulttjänster', page: 'consulting' },
-			{ label: 'Om oss', page: 'about' },
+			{ label: 'Om Mandalon', page: 'about' },
 			{ label: 'Kontakt', page: 'contact' }
 		],
 		footer: {
@@ -50,7 +50,7 @@ export const shared = {
 		primaryLinks: [
 			{ label: 'Chip Packaging', page: 'packaging' },
 			{ label: 'Consulting Services', page: 'consulting' },
-			{ label: 'About us', page: 'about' },
+			{ label: 'About Mandalon', page: 'about' },
 			{ label: 'Contact', page: 'contact' }
 		],
 		footer: {

@@ -6,8 +6,8 @@ export const contactPage = {
 			title: 'Mandalon | Kontakt',
 			description: 'Kontaktuppgifter och ett enkelt sätt att nå Mandalon om ni vill diskutera bonding, design, packaging eller prototyparbete.'
 		},
-		title: 'Låt oss prata om er konstruktion.',
-		lead: 'Om ni vill diskutera chip packaging, bonding, kapsling eller designfrågor är det enklast att börja med ett kort mejl.',
+		title: 'Kontakt',
+		lead: 'Hör av er om ni vill diskutera bonding, packaging, kapsling, design eller något annat — det enklaste är ett kort mejl.',
 		people: [
 			{
 				name: 'Per-Erik Fägerman',
@@ -39,8 +39,8 @@ export const contactPage = {
 			title: 'Mandalon | Contact',
 			description: 'Contact details and a simple way to reach Mandalon if you want to discuss bonding, design, packaging or prototype work.'
 		},
-		title: 'Let’s talk about your design.',
-		lead: 'If you want to discuss chip packaging, bonding, encapsulation or design-related questions, the easiest start is a short email.',
+		title: 'Contact',
+		lead: 'Get in touch if you want to discuss bonding, packaging, encapsulation, design or something else — the easiest start is a short email.',
 		people: [
 			{
 				name: 'Per-Erik Fägerman',

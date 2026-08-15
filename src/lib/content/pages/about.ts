@@ -6,8 +6,8 @@ export const aboutPage = {
 			title: 'Mandalon | Om Mandalon',
 			description: 'En kort presentation av Mandalon, bakgrunden i mikromontering och hur erfarenheten från forskning och labbarbete format erbjudandet.'
 		},
-		title: 'Erfarenhet från forskning, labb och praktisk montering.',
-		lead: 'Mandalon växte fram ur arbetet med sensorer och mikrosystem i Linköping och har sedan slutet av 1990-talet byggt upp ett tydligt fokus på chip packaging, bonding och designnära stöd.',
+		title: 'Om Mandalon',
+		lead: 'Erfarenhet från forskning, labb och praktisk montering. Mandalon växte fram ur arbetet med sensorer och mikrosystem i Linköping och har sedan slutet av 1990-talet byggt upp ett tydligt fokus på chip packaging, bonding och designnära stöd.',
 		introTitle: 'En introduktion till Mandalon',
 		intro: [
 			'Kompetenscentret S-Sence på Linköpings universitet är starkt bidragande till att företaget alls existerar. Inom detta program utvecklades bland annat "den elektroniska näsan" under 90-talet. Monteringen av dessa är upprinnelsen till företaget.',
@@ -55,8 +55,8 @@ export const aboutPage = {
 			title: 'Mandalon | About Mandalon',
 			description: 'A short introduction to Mandalon, its background in micro-assembly and how experience from research and lab work shaped the offer.'
 		},
-		title: 'Experience from research, lab work and hands-on assembly.',
-		lead: 'Mandalon grew out of work with sensors and microsystems in Linköping and has, since the late 1990s, built a clear focus on chip packaging, bonding and design-oriented support.',
+		title: 'About Mandalon',
+		lead: 'Experience from research, lab work and hands-on assembly. Mandalon grew out of work with sensors and microsystems in Linköping and has, since the late 1990s, built a clear focus on chip packaging, bonding and design-oriented support.',
 		introTitle: 'An introduction to Mandalon',
 		intro: [
 			'The S-Sence competence centre at Linköping University played a major role in Mandalon’s origin. Among other things, "the electronic nose" was developed within that programme during the 1990s, and assembling those sensors became the starting point for the company.',

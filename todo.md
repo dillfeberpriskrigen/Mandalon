@@ -13,7 +13,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 ## High
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
-- [ ] Byt kontaktsidans H1. Nuvarande «Låt oss prata om er konstruktion.» är veto. Använd Kontakt / Kontakta oss / Kontaktuppgifter. Flytta uppmaningen till brödtexten. Sidrubriker är tillgänglighet och ska stämma med menyn — samma princip för Om Mandalon (nu «Erfarenhet från forskning, labb och praktisk montering.»). → granskning
 - [ ] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. → granskning
 
 ## Medium
@@ -22,7 +21,7 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra. → ej schemalagd (formgivning, inte arkitektur). Överlappar T27, som gör bakgrunden billigare men inte mindre störande. Granskningen tar upp samma sak (Kunskapsbank vs Paketering).
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
 - [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
-- [ ] Header: Om oss ligger redan uppe. Flytta även Kunskapsbank och Designguide upp (dropdown om det blir trångt). Kontakt (och delvis Om) upprepas i footern. → granskning
+- [ ] Header: Om Mandalon ligger redan uppe. Flytta även Kunskapsbank och Designguide upp (dropdown om det blir trångt). Kontakt (och Om Mandalon) upprepas i footern. → granskning
 - [ ] Startsida, copy: korta hero och säljtexter (svensk hero är en lång mening). «Packaging är ofta det lilla steget…» är hackig — skriv om till löptext eller punkter. → granskning
 - [ ] Karusell (pilar och länk till konsulttjänster finns). Kvar: kort ingress likt konsultsidan, rubrik som nämner konsulttjänster, ev. långsammare bildbyte, mindre luft mot nästa sektion (båda har `padding: 5rem 0`). → granskning
 - [ ] SV/EN-glidning på startsidan: «Tre sätt att avlasta ert team» ≠ «Three ways to reduce risk». → granskning
@@ -65,3 +64,4 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Sensorer-sektionen finns på svenska kunskapsbanken (granskning: saknades helt; språket är fortfarande en rak översättning, se Medium).
 - [x] Paketering, 3:e stycket mörkare än övrig brödtext — stämmer inte längre; all text har samma färg. → granskning
 - [x] Brödtextkontrast: `.text-body` och `.content-list` använder `--ink` i stället för `--muted`. Bildtexter är fortfarande `--muted`. → granskning
+- [x] Sidrubriker matchar menyn: Kontakt / Contact och Om Mandalon / About Mandalon. Tidigare H1-uppmaningar ligger i lead. Header «Om oss» är «Om Mandalon». → granskning
