@@ -49,6 +49,7 @@
 			url: siteUrl,
 			email,
 			telephone,
+			taxID: contactPage.orgNumber,
 			image: imagePath ? toAbsoluteUrl(imagePath) : undefined,
 			address: buildPostalAddress(locale),
 			hasCertification: {

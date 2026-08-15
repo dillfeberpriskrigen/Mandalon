@@ -1,22 +1,18 @@
 <script lang="ts">
-	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Image from '$lib/components/media/Image.svelte';
-	import Button from '$lib/components/primitives/Button.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
-	import type { ContactPerson } from '$lib/content/types';
 	import { on } from 'svelte/events';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	let mapActive = $state(false);
-	let selected = $state.raw<ContactPerson | null>(null);
 	const latitude = 58.448268;
 	const longitude = 15.826769;
 	const delta = 0.012;
@@ -25,98 +21,51 @@
 	const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
 
 	const disableMapOnLeave = (node: HTMLElement) => on(node, 'pointerleave', () => (mapActive = false));
-
-	const openPersonDialog = (node: HTMLDialogElement) => {
-		node.showModal();
-		const offClose = on(node, 'close', () => (selected = null));
-		const offClick = on(node, 'click', (event) => {
-			if (event.target === node) node.close();
-		});
-
-		return () => {
-			offClose();
-			offClick();
-			if (node.open) node.close();
-		};
-	};
 </script>
 
 <PageMeta meta={data.content.contactPage.meta} pageKey="contact" locale={data.locale} />
 
 <PageShell>
-	<PageHeader title={data.content.contactPage.title} />
+	<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />
 
 	<div class="inbox">
 		<PageContent>
-			<Text as="p">
-				{data.content.contactPage.emailBefore}
-				<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
-				{data.content.contactPage.emailAfter}
-			</Text>
+			<div class="inbox-copy">
+				<div class="email-fact">
+					<Text variant="label">{data.content.contactPage.emailLabel}</Text>
+					<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
+				</div>
+				<Text as="p">{data.content.contactPage.urgentNote}</Text>
+			</div>
 		</PageContent>
 	</div>
 
 	<div class="people">
 		{#each data.content.contactPage.people as person (person.name)}
-			<Surface as="article" radius="large" padding="none" shadow="medium">
+			<Surface as="article" radius="large" padding="medium" shadow="medium">
 				<div class="person">
-					<button
-						type="button"
-						class="person-open"
-						aria-haspopup="dialog"
-						aria-expanded={selected?.name === person.name}
-						aria-label="{data.content.contactPage.openPersonLabel} {person.name}"
-						onclick={() => (selected = person)}
-					></button>
-					<div class="person-inner">
-						<div class="person-photo" aria-hidden={!person.image}>
-							{#if person.image}
-								<Image src={person.image.src} alt={person.image.alt} width={person.image.width} height={person.image.height} />
-							{/if}
+					{#if person.image}
+						<div class="person-photo">
+							<Image src={person.image.src} alt={person.image.alt} width={person.image.width} height={person.image.height} />
 						</div>
-						<div class="person-copy">
-							<Heading as="h2">{person.name}</Heading>
-							{#if person.role}
-								<Text as="p">{person.role}</Text>
-							{/if}
-							{#if person.phone && person.phoneHref}
-								<Link class="person-phone" href={person.phoneHref}>{person.phone}</Link>
-							{/if}
-						</div>
+					{/if}
+					<div class="person-copy">
+						<Heading as="h2">{person.name}</Heading>
+						{#if person.role}
+							<Text as="p">{person.role}</Text>
+						{/if}
+						{#if person.phone && person.phoneHref}
+							<Link href={person.phoneHref}>{person.phone}</Link>
+						{/if}
+						<Text as="p">{person.reason}</Text>
+						{#if person.bio}
+							<Text as="p">{person.bio}</Text>
+						{/if}
 					</div>
 				</div>
 			</Surface>
 		{/each}
 	</div>
-
-	{#if selected}
-		<dialog class="person-dialog" aria-labelledby="person-dialog-name" {@attach openPersonDialog}>
-			<form method="dialog" class="person-dialog-close">
-				<Button type="submit" variant="secondary">{data.content.contactPage.closePersonLabel}</Button>
-			</form>
-			<div class={['person-dialog-body', selected.image && 'has-photo']}>
-				{#if selected.image}
-					<div class="person-dialog-photo">
-						<Image src={selected.image.src} alt={selected.image.alt} width={selected.image.width} height={selected.image.height} />
-					</div>
-				{/if}
-				<div class="person-dialog-copy">
-					<Heading as="h2" id="person-dialog-name">{selected.name}</Heading>
-					{#if selected.role}
-						<Text as="p">{selected.role}</Text>
-					{/if}
-					{#if selected.phone && selected.phoneHref}
-						<Link href={selected.phoneHref}>{selected.phone}</Link>
-					{/if}
-					{#if selected.bio}
-						<div class="person-dialog-bio">
-							<ParagraphArray paragraphs={selected.bio} />
-						</div>
-					{/if}
-				</div>
-			</div>
-		</dialog>
-	{/if}
 
 	<section class="location">
 		<PageContent>
@@ -130,6 +79,10 @@
 						<Text as="div">{data.content.contactPage.address.country}</Text>
 					{/if}
 				</address>
+				<div class="org-number">
+					<Text variant="label">{data.content.contactPage.orgNumberLabel}</Text>
+					<Text as="div">{data.content.contactPage.orgNumber}</Text>
+				</div>
 				<div class="visit-note">
 					<Text as="p">{data.content.contactPage.visitNote}</Text>
 				</div>
@@ -152,6 +105,18 @@
 		margin-top: var(--space-medium);
 	}
 
+	.inbox-copy {
+		display: grid;
+		gap: var(--space-medium);
+	}
+
+	.email-fact,
+	.org-number {
+		display: grid;
+		gap: var(--space-small);
+		justify-items: start;
+	}
+
 	.people {
 		display: inline-grid;
 		grid-template-columns: repeat(3, minmax(min-content, 1fr));
@@ -167,35 +132,10 @@
 		box-sizing: border-box;
 	}
 
-	@media (hover: hover) {
-		.people :global(.surface:has(.person-open:hover)) {
-			background: var(--bg-soft);
-		}
-	}
-
 	.person {
-		position: relative;
-		height: 100%;
-	}
-
-	.person-open {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-		padding: 0;
-		border: none;
-		border-radius: var(--border-radius);
-		background: transparent;
-		cursor: pointer;
-	}
-
-	.person-inner {
 		display: grid;
 		gap: var(--space-small);
-		justify-items: stretch;
-		align-content: start;
-		padding: var(--space-medium);
-		pointer-events: none;
+		height: 100%;
 	}
 
 	.person-photo {
@@ -203,8 +143,7 @@
 		aspect-ratio: 1;
 	}
 
-	.person-photo :global(img),
-	.person-dialog-photo :global(img) {
+	.person-photo :global(img) {
 		display: block;
 		width: 100%;
 		height: 100%;
@@ -216,63 +155,11 @@
 		display: grid;
 		gap: var(--space-small);
 		justify-items: start;
+		align-content: start;
 	}
 
 	.person-copy :global(.page-header) {
 		white-space: nowrap;
-	}
-
-	.person-copy :global(.person-phone) {
-		position: relative;
-		z-index: 1;
-		pointer-events: auto;
-	}
-
-	.person-dialog {
-		width: min(40rem, calc(100vw - var(--space-large)));
-		max-height: calc(100vh - var(--space-large));
-		overflow: auto;
-		padding: var(--space-medium);
-		border: none;
-		border-radius: var(--border-radius);
-		background: var(--content-background);
-		color: var(--ink);
-		box-shadow: var(--shadow-medium);
-	}
-
-	.person-dialog::backdrop {
-		background: color-mix(in srgb, var(--ink) 50%, transparent);
-	}
-
-	.person-dialog-close {
-		display: flex;
-		justify-content: flex-end;
-		margin-bottom: var(--space-small);
-	}
-
-	.person-dialog-body {
-		display: grid;
-		gap: var(--space-medium);
-	}
-
-	.person-dialog-body.has-photo {
-		grid-template-columns: minmax(10rem, 16rem) minmax(0, 1fr);
-		align-items: start;
-	}
-
-	.person-dialog-photo {
-		width: 100%;
-		aspect-ratio: 1;
-	}
-
-	.person-dialog-copy {
-		display: grid;
-		gap: var(--space-small);
-		justify-items: start;
-	}
-
-	.person-dialog-bio {
-		margin-top: var(--space-small);
 	}
 
 	@media (max-width: 960px) {
@@ -288,12 +175,6 @@
 
 		.person-copy :global(.page-header) {
 			white-space: normal;
-		}
-	}
-
-	@media (max-width: 640px) {
-		.person-dialog-body.has-photo {
-			grid-template-columns: 1fr;
 		}
 	}
 
