@@ -12,10 +12,10 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
 - [ ] Ge länkar ett tydligare utseende. Den på designguide sidan ser bara ut som vanlig tjock text. Alla länkar borde ha liknande utseende. De på kontakt sidan ser bättre ut. Det tycks vara den som kallas callout-style som inte ser ut som en länk. → ej schemalagd (formgivning). T11 tog bort `target="_blank"` från just den länken, men inte dess utseende.
-- [ ] Jag skulle behöva ett permalink-system där jag kan fylla på en lista med gamla URL:er för att ta hand om riktigt gamla länkar som nu är trasiga, legacy länkar.
 
 ## Medium
 
+- [ ] Lägg till integritetspolicy (svenska + engelska) som saknades vid migreringen. Gamla URL:en är `/integritetspolicy-3/`; lägg en redirect dit när sidan finns. Länk i footern, inte i huvudmenyn.
 - [ ] Skriv om den svenska Sensorer-sektionen på kunskapsbanken till riktig Mandalon-svenska (nuvarande text är en rak översättning från engelskan, tillagd i T17).
 - [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra. → ej schemalagd (formgivning, inte arkitektur). Överlappar T27, som gör bakgrunden billigare men inte mindre störande.
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
@@ -34,6 +34,7 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Be AI att ta bort eventuell debugg-kod och kommentarer. → T02 (död analyskod, oanvänd `Surface`-import, oanvända ikoner). Ingen kvarvarande debug-kod värd en extra runda.
 - [x] Gruppera engelska och svenska routes i kodbasen med SvelteKit-grupper, alltså parenteser. Framför allt med syfte att hitta lättare i koden. → T14.
 - [x] Permalinks / redirects för flyttade sidor och URL:er. → T09 (rutregister för interna länkar) och T14 steg 5 (301 i `hooks.server.ts` för de sex pensionerade engelska sluggarna). Nya flyttar läggs till där.
+- [x] Permalink-lista för gamla sajtens URL:er. Nya 404:or läggs som rader i `src/lib/legacy-redirects.ts`.
 - [x] English / Swedish-toggle på designguide-sidan. → T10.
 - [x] Utvärdera och rätta locale-/URL-hantering (felspråkiga dubbletter, `/vadsomhelst/kontakt` → 301, kollision mot `/en`). → T14.
 - [x] Gör det tydligare i menyn i sidhuvudet vilken sida som är aktiv. → T21 (`aria-current="page"` plus tydligare visuell markering).

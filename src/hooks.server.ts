@@ -1,4 +1,5 @@
 import { redirect, type Handle } from '@sveltejs/kit';
+import { legacyRedirectFor } from '$lib/legacy-redirects';
 import { hrefFor, pages, type PageKey } from '$lib/routes';
 
 /** Bare English-slug URLs that used to resolve under optional `[[lang]]` — send them to `/en/…`. */
@@ -18,6 +19,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const retiredTarget = retiredEnglishSlugRedirects.get(event.url.pathname);
 	if (retiredTarget) {
 		redirect(301, retiredTarget);
+	}
+
+	const legacyTarget = legacyRedirectFor(event.url.pathname);
+	if (legacyTarget) {
+		redirect(301, legacyTarget);
 	}
 
 	const lang = langFromEvent(event.route.id, event.url.pathname);
