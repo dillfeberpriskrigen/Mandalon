@@ -220,7 +220,7 @@ export type ErrorPageContent = {
 
 export type SharedContent = {
 	meta: Meta;
-	switchLabel: string;
+	languageSwitchLabel: string;
 	topLinks: NavLink[];
 	primaryLinks: NavLink[];
 	footer: FooterContent;

@@ -11,7 +11,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 ## High
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
-- [ ] Flytta språkvalet till en EN / SV knapp istället, och gör så att Contact har en liten telefon-ikon. Det känns märkligt med en orange knapp "mitt i" menyn just nu. Gör så den har samma färg som övriga knappar men ligger längst ut till höger. → ej schemalagd (formgivning). T21 (aktiv sida i menyn) är klar, så den här kan göras när som helst.
 - [ ] Ge länkar ett tydligare utseende. Den på designguide sidan ser bara ut som vanlig tjock text. Alla länkar borde ha liknande utseende. De på kontakt sidan ser bättre ut. Det tycks vara den som kallas callout-style som inte ser ut som en länk. → ej schemalagd (formgivning). T11 tog bort `target="_blank"` från just den länken, men inte dess utseende.
 - [ ] Jag skulle behöva ett permalink-system där jag kan fylla på en lista med gamla URL:er för att ta hand om riktigt gamla länkar som nu är trasiga, legacy länkar.
 
@@ -44,3 +43,4 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Gruppera sidor i projektet efter typ: site, statistik, verktyg. → `(site)`, `(sv)` / `en`, `(stats)`, `(dev)` (T24).
 - [x] Lättare sätt att hantera språk/innehåll: språken kan inte glida isär tyst, och innehållet är uppdelat per sida. → T17 och T18.
 - [x] Vald meny ser just nu konstig ut, den får dubbla streck under sig och ser trasig ut. Använd istället färger för att visa vilken som är vald meny. Accentfärg + tyngre vikt i `SiteHeader`; global `aria-current`-understrykning borttagen.
+- [x] Flytta språkvalet till en EN / SV knapp, Contact med telefonikon, samma färg som övriga länkar, längst till höger i headern.

@@ -7,7 +7,7 @@ export const shared = {
 			description:
 				'Mandalons långa erfarenhet av vitt skilda strukturer gör dem väl lämpade att ta hand om chipmontering, sensorer, MEMS-strukturer och ASIC:s.'
 		},
-		switchLabel: 'English',
+		languageSwitchLabel: 'Byt till engelska',
 		topLinks: [
 			{ label: 'Kunskapsbank', page: 'knowledge' },
 			{ label: 'Kontakt', page: 'contact' },
@@ -16,6 +16,7 @@ export const shared = {
 		primaryLinks: [
 			{ label: 'Paketering av Chip', page: 'packaging' },
 			{ label: 'Konsulttjänster', page: 'consulting' },
+			{ label: 'Om oss', page: 'about' },
 			{ label: 'Kontakt', page: 'contact' }
 		],
 		footer: {
@@ -39,7 +40,7 @@ export const shared = {
 			description:
 				'Mandalon has long experience with a wide range of structures and is well equipped to handle chip packaging, sensors, MEMS structures and ASICs.'
 		},
-		switchLabel: 'Svenska',
+		languageSwitchLabel: 'Switch to Swedish',
 		topLinks: [
 			{ label: 'Knowledge bank', page: 'knowledge' },
 			{ label: 'Contact', page: 'contact' },
@@ -48,6 +49,7 @@ export const shared = {
 		primaryLinks: [
 			{ label: 'Chip Packaging', page: 'packaging' },
 			{ label: 'Consulting Services', page: 'consulting' },
+			{ label: 'About us', page: 'about' },
 			{ label: 'Contact', page: 'contact' }
 		],
 		footer: {
