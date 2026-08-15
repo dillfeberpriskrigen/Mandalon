@@ -6,6 +6,7 @@ import { designGuidePage } from './pages/designGuide';
 import { home } from './pages/home';
 import { glossaryPage } from './pages/knowledge';
 import { chipSensorsPage } from './pages/packaging';
+import { privacyPage } from './pages/privacy';
 import { shared } from './pages/shared';
 
 export type { Locale, LocaleContent } from './types';
@@ -23,7 +24,8 @@ export const siteContent = {
 		aboutPage: aboutPage.sv,
 		contactPage: contactPage.sv,
 		glossaryPage: glossaryPage.sv,
-		designGuidePage: designGuidePage.sv
+		designGuidePage: designGuidePage.sv,
+		privacyPage: privacyPage.sv
 	},
 	en: {
 		...shared.en,
@@ -33,6 +35,7 @@ export const siteContent = {
 		aboutPage: aboutPage.en,
 		contactPage: contactPage.en,
 		glossaryPage: glossaryPage.en,
-		designGuidePage: designGuidePage.en
+		designGuidePage: designGuidePage.en,
+		privacyPage: privacyPage.en
 	}
 } satisfies Record<Locale, LocaleContent>;

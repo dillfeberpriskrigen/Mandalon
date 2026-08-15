@@ -24,7 +24,8 @@ export const shared = {
 				{ label: 'Om Mandalon', page: 'about' },
 				{ label: 'Kontakt', page: 'contact' },
 				{ label: 'Kunskapsbank', page: 'knowledge' },
-				{ label: 'Designguide', page: 'designGuide' }
+				{ label: 'Designguide', page: 'designGuide' },
+				{ label: 'Integritetspolicy', page: 'privacy' }
 			]
 		},
 		errorPage: {
@@ -57,7 +58,8 @@ export const shared = {
 				{ label: 'About Mandalon', page: 'about' },
 				{ label: 'Contact', page: 'contact' },
 				{ label: 'Knowledge bank', page: 'knowledge' },
-				{ label: 'Design guide', page: 'designGuide' }
+				{ label: 'Design guide', page: 'designGuide' },
+				{ label: 'Privacy policy', page: 'privacy' }
 			]
 		},
 		errorPage: {

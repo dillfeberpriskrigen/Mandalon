@@ -66,6 +66,9 @@ const legacyRedirects: ReadonlyArray<LegacyRedirect> = [
 
 	{ from: '/usen', to: 'home', locale: 'en' },
 
+	{ from: '/integritetspolicy-3', to: 'privacy', locale: 'sv' },
+	{ from: '/integritetspolicy', to: 'privacy', locale: 'sv' },
+
 	{ from: '/wp-content/uploads/2019/04/mt-2007-011-dg-issue1_070416.pdf', href: designGuidePdfHref }
 ];
 

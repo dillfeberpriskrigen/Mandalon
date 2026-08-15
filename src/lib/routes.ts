@@ -8,11 +8,13 @@ export const pages = {
 	contact: 'contact',
 	about: 'about',
 	knowledge: 'knowledge-bank',
-	designGuide: 'design-guide'
+	designGuide: 'design-guide',
+	privacy: 'privacy-policy'
 } as const;
 
 export type PageKey = keyof typeof pages;
 
+/** Swedish slugs used on this site before the English-slug migration. Pages that never had a Swedish slug are omitted. */
 export const retiredSwedishSlugs = {
 	packaging: 'paketering',
 	consulting: 'konsulttjanster',
@@ -20,7 +22,7 @@ export const retiredSwedishSlugs = {
 	about: 'om-mandalon',
 	knowledge: 'kunskapsbank',
 	designGuide: 'designguide'
-} as const satisfies Record<Exclude<PageKey, 'home'>, string>;
+} as const satisfies Partial<Record<Exclude<PageKey, 'home'>, string>>;
 
 export function hrefFor(page: PageKey, locale: Locale): string {
 	const slug = pages[page];

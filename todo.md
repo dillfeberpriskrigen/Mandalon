@@ -15,7 +15,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 ## Medium
 
-- [ ] Lägg till integritetspolicy (svenska + engelska) som saknades vid migreringen. Gamla URL:en är `/integritetspolicy-3/`; lägg en redirect dit när sidan finns. Länk i footern, inte i huvudmenyn.
 - [ ] Skriv om den svenska Sensorer-sektionen på kunskapsbanken till riktig Mandalon-svenska (nuvarande text är en rak översättning från engelskan, tillagd i T17).
 - [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra. → ej schemalagd (formgivning, inte arkitektur). Överlappar T27, som gör bakgrunden billigare men inte mindre störande.
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
@@ -45,3 +44,4 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Lättare sätt att hantera språk/innehåll: språken kan inte glida isär tyst, och innehållet är uppdelat per sida. → T17 och T18.
 - [x] Vald meny ser just nu konstig ut, den får dubbla streck under sig och ser trasig ut. Använd istället färger för att visa vilken som är vald meny. Accentfärg + tyngre vikt i `SiteHeader`; global `aria-current`-understrykning borttagen.
 - [x] Flytta språkvalet till en EN / SV knapp, Contact med telefonikon, samma färg som övriga länkar, längst till höger i headern.
+- [x] Lägg till integritetspolicy (svenska + engelska) som saknades vid migreringen. Gamla URL:en är `/integritetspolicy-3/`; lägg en redirect dit när sidan finns. Länk i footern, inte i huvudmenyn.

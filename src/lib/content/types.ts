@@ -176,6 +176,25 @@ export type GlossaryPageContent = {
 	sections: Record<GlossarySectionKey, GlossarySection>;
 };
 
+export type PrivacyPageContent = {
+	meta: Meta;
+	title: string;
+	/** Shown above the Swedish policy body; empty when the locale needs no notice. */
+	languageNote: string;
+	documentMeta: string[];
+	sections: {
+		title: string;
+		paragraphs: string[];
+	}[];
+	contact: {
+		title: string;
+		addressLabel: string;
+		addressLines: string[];
+		emailLabel: string;
+		email: string;
+	};
+};
+
 export type DesignGuidePageContent = {
 	meta: Meta;
 	title: string;
@@ -242,4 +261,5 @@ export type LocaleContent = SharedContent &
 		contactPage: ContactPageContent;
 		glossaryPage: GlossaryPageContent;
 		designGuidePage: DesignGuidePageContent;
+		privacyPage: PrivacyPageContent;
 	};
