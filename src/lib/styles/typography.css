@@ -44,7 +44,7 @@ p + p {
 .text-body {
 	font-size: var(--text-body-size);
 	line-height: var(--text-body-line);
-	color: var(--muted);
+	color: var(--ink);
 }
 
 .text-lead {
@@ -118,7 +118,7 @@ p + .content-list {
 }
 
 .content-list li {
-	color: var(--muted);
+	color: var(--ink);
 }
 
 .content-list li::marker {

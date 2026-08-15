@@ -8,14 +8,12 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 - [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras? → ej schemalagd. Granskningen bekräftar mönstret (§2.4): komponenterna äger ingen yttre marginal, så anroparen måste sätta den. Ett medvetet val vore att låta sektionskomponenter äga sitt eget vertikala avstånd. Värt en egen liten uppgift senare.
 - [ ] Publik (granskning): vet kunden redan vad bondning är och varför det är viktigt, eller ska sajten förklara det? Vad är viktigast att en kund tar med sig — en tydlig bild av erbjudandet, eller något annat?
-- [ ] Paketering, 3:e stycket mörkare än övrig brödtext (granskning): stämmer det fortfarande? Innersidor använder samma `Text`-komponent nu; lead är medvetet mörkare (`--ink`) än brödtext (`--muted`).
 - [ ] Paketering-lead vs startsidans underrubriker (granskning): innersidor delar `PageHeader`; startsidan har en egen hero. Behöver paketering ändras, eller är innersidorna konsekventa nog?
 
 ## High
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
 - [ ] Byt kontaktsidans H1. Nuvarande «Låt oss prata om er konstruktion.» är veto. Använd Kontakt / Kontakta oss / Kontaktuppgifter. Flytta uppmaningen till brödtexten. Sidrubriker är tillgänglighet och ska stämma med menyn — samma princip för Om Mandalon (nu «Erfarenhet från forskning, labb och praktisk montering.»). → granskning
-- [ ] Brödtextkontrast: `.text-body` använder `--muted` (#506458) mot vit yta. Granskaren vill ha mörkare brödtext för läsbarhet. → granskning
 - [ ] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. → granskning
 
 ## Medium
@@ -65,3 +63,5 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Karusellen har pilar, prickar och länkar till konsulttjänster (granskning mot äldre sajt utan pilar/länk).
 - [x] Om Mandalon ligger i headern som «Om oss» (granskning ville flytta upp den från footern).
 - [x] Sensorer-sektionen finns på svenska kunskapsbanken (granskning: saknades helt; språket är fortfarande en rak översättning, se Medium).
+- [x] Paketering, 3:e stycket mörkare än övrig brödtext — stämmer inte längre; all text har samma färg. → granskning
+- [x] Brödtextkontrast: `.text-body` och `.content-list` använder `--ink` i stället för `--muted`. Bildtexter är fortfarande `--muted`. → granskning

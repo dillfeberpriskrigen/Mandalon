@@ -46,14 +46,14 @@
 		margin-top: 1.25rem;
 		font-size: 1.12rem;
 		line-height: 1.8;
-		color: #506458;
+		color: var(--ink);
 	}
 
 	.guide-language-note {
 		margin-top: 1rem;
 		font-size: 0.95rem;
 		line-height: 1.6;
-		color: #506458;
+		color: var(--muted);
 		font-style: italic;
 	}
 
@@ -86,11 +86,16 @@
 	}
 
 	.designguide-article :global(p),
-	.designguide-article :global(li),
+	.designguide-article :global(li) {
+		margin: 0.8rem 0 0;
+		line-height: 1.75;
+		color: var(--ink);
+	}
+
 	.designguide-article :global(figcaption) {
 		margin: 0.8rem 0 0;
 		line-height: 1.75;
-		color: #506458;
+		color: var(--muted);
 	}
 
 	.designguide-article :global(.designguide-list),
