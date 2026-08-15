@@ -8,23 +8,22 @@ export const shared = {
 				'Mandalons långa erfarenhet av vitt skilda strukturer gör dem väl lämpade att ta hand om chipmontering, sensorer, MEMS-strukturer och ASIC:s.'
 		},
 		languageSwitchLabel: 'Byt till engelska',
-		topLinks: [
-			{ label: 'Kunskapsbank', page: 'knowledge' },
-			{ label: 'Kontakt', page: 'contact' },
-			{ label: 'Om Mandalon', page: 'about' }
-		],
 		primaryLinks: [
 			{ label: 'Paketering av Chip', page: 'packaging' },
 			{ label: 'Konsulttjänster', page: 'consulting' },
+			{ label: 'Kunskapsbank', page: 'knowledge' },
+			{ label: 'Designguide', page: 'designGuide' },
 			{ label: 'Om Mandalon', page: 'about' },
 			{ label: 'Kontakt', page: 'contact' }
 		],
 		footer: {
 			nav: [
-				{ label: 'Om Mandalon', page: 'about' },
-				{ label: 'Kontakt', page: 'contact' },
+				{ label: 'Paketering av Chip', page: 'packaging' },
+				{ label: 'Konsulttjänster', page: 'consulting' },
 				{ label: 'Kunskapsbank', page: 'knowledge' },
 				{ label: 'Designguide', page: 'designGuide' },
+				{ label: 'Om Mandalon', page: 'about' },
+				{ label: 'Kontakt', page: 'contact' },
 				{ label: 'Integritetspolicy', page: 'privacy' }
 			]
 		},
@@ -42,23 +41,22 @@ export const shared = {
 				'Mandalon has long experience with a wide range of structures and is well equipped to handle chip packaging, sensors, MEMS structures and ASICs.'
 		},
 		languageSwitchLabel: 'Switch to Swedish',
-		topLinks: [
-			{ label: 'Knowledge bank', page: 'knowledge' },
-			{ label: 'Contact', page: 'contact' },
-			{ label: 'About Mandalon', page: 'about' }
-		],
 		primaryLinks: [
 			{ label: 'Chip Packaging', page: 'packaging' },
 			{ label: 'Consulting Services', page: 'consulting' },
+			{ label: 'Knowledge bank', page: 'knowledge' },
+			{ label: 'Design guide', page: 'designGuide' },
 			{ label: 'About Mandalon', page: 'about' },
 			{ label: 'Contact', page: 'contact' }
 		],
 		footer: {
 			nav: [
-				{ label: 'About Mandalon', page: 'about' },
-				{ label: 'Contact', page: 'contact' },
+				{ label: 'Chip Packaging', page: 'packaging' },
+				{ label: 'Consulting Services', page: 'consulting' },
 				{ label: 'Knowledge bank', page: 'knowledge' },
 				{ label: 'Design guide', page: 'designGuide' },
+				{ label: 'About Mandalon', page: 'about' },
+				{ label: 'Contact', page: 'contact' },
 				{ label: 'Privacy policy', page: 'privacy' }
 			]
 		},

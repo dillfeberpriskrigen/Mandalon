@@ -255,7 +255,6 @@ export type ErrorPageContent = {
 export type SharedContent = {
 	meta: Meta;
 	languageSwitchLabel: string;
-	topLinks: NavLink[];
 	primaryLinks: NavLink[];
 	footer: FooterContent;
 	errorPage: ErrorPageContent;
