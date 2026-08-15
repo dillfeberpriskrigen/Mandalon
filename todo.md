@@ -1,29 +1,45 @@
 # Todo
 
-Punkter märkta med `→ Tnn` hanterades av en uppgift i [docs/review-roadmap.md](docs/review-roadmap.md). Punkter märkta `→ ej schemalagd` är medvetet utelämnade ur roadmapen — se avsnittet "Deferred / not scheduled" där för motiveringen.
+Punkter märkta med `→ Tnn` hanterades av en uppgift i [docs/review-roadmap.md](docs/review-roadmap.md). Punkter märkta `→ ej schemalagd` är medvetet utelämnade ur roadmapen — se avsnittet "Deferred / not scheduled" där för motiveringen. Punkter märkta `→ granskning` kommer från extern feedback mot en **äldre version** av sajten; det som redan var gjort när feedbacken togs in ligger under [Klart](#klart).
 
 Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 ## Fråga AI
 
 - [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras? → ej schemalagd. Granskningen bekräftar mönstret (§2.4): komponenterna äger ingen yttre marginal, så anroparen måste sätta den. Ett medvetet val vore att låta sektionskomponenter äga sitt eget vertikala avstånd. Värt en egen liten uppgift senare.
+- [ ] Publik (granskning): vet kunden redan vad bondning är och varför det är viktigt, eller ska sajten förklara det? Vad är viktigast att en kund tar med sig — en tydlig bild av erbjudandet, eller något annat?
+- [ ] Paketering, 3:e stycket mörkare än övrig brödtext (granskning): stämmer det fortfarande? Innersidor använder samma `Text`-komponent nu; lead är medvetet mörkare (`--ink`) än brödtext (`--muted`).
+- [ ] Paketering-lead vs startsidans underrubriker (granskning): innersidor delar `PageHeader`; startsidan har en egen hero. Behöver paketering ändras, eller är innersidorna konsekventa nog?
 
 ## High
 
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
+- [ ] Byt kontaktsidans H1. Nuvarande «Låt oss prata om er konstruktion.» är veto. Använd Kontakt / Kontakta oss / Kontaktuppgifter. Flytta uppmaningen till brödtexten. Sidrubriker är tillgänglighet och ska stämma med menyn — samma princip för Om Mandalon (nu «Erfarenhet från forskning, labb och praktisk montering.»). → granskning
+- [ ] Brödtextkontrast: `.text-body` använder `--muted` (#506458) mot vit yta. Granskaren vill ha mörkare brödtext för läsbarhet. → granskning
+- [ ] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. → granskning
 
 ## Medium
 
-- [ ] Skriv om den svenska Sensorer-sektionen på kunskapsbanken till riktig Mandalon-svenska (nuvarande text är en rak översättning från engelskan, tillagd i T17).
-- [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra. → ej schemalagd (formgivning, inte arkitektur). Överlappar T27, som gör bakgrunden billigare men inte mindre störande.
+- [ ] Skriv om den svenska Sensorer-sektionen på kunskapsbanken till riktig Mandalon-svenska (nuvarande text är en rak översättning från engelskan, tillagd i T17). Granskningen såg att Sensorer saknades helt; sektionen finns nu.
+- [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra. → ej schemalagd (formgivning, inte arkitektur). Överlappar T27, som gör bakgrunden billigare men inte mindre störande. Granskningen tar upp samma sak (Kunskapsbank vs Paketering).
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
-- [ ] Utvecklaren ska komplettera todo med extern feedback från granskning. Påminn användaren om detta.
 - [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
+- [ ] Header: Om oss ligger redan uppe. Flytta även Kunskapsbank och Designguide upp (dropdown om det blir trångt). Kontakt (och delvis Om) upprepas i footern. → granskning
+- [ ] Startsida, copy: korta hero och säljtexter (svensk hero är en lång mening). «Packaging är ofta det lilla steget…» är hackig — skriv om till löptext eller punkter. → granskning
+- [ ] Karusell (pilar och länk till konsulttjänster finns). Kvar: kort ingress likt konsultsidan, rubrik som nämner konsulttjänster, ev. långsammare bildbyte, mindre luft mot nästa sektion (båda har `padding: 5rem 0`). → granskning
+- [ ] SV/EN-glidning på startsidan: «Tre sätt att avlasta ert team» ≠ «Three ways to reduce risk». → granskning
+- [ ] Paketering, capability-listan: ge den en rubrik; vänsterkolumnen ska inte radbryta (`minmax(8rem, 0.4fr)`). → granskning
+- [ ] Kontaktlayout: sluta alternera bild/text med bara två personer — bild och namn i samma mönster under varandra. «Teknisk Säljare» → «Teknisk säljare». → granskning
+- [ ] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn — plats för bild. → granskning
+- [ ] Kunskapsbank: «sagade wafer» → sågade; SV-titel «WAFER» vs EN «Wafer»; byt sida på bild/text under Mikrostrukturer; lägg till MEMS-bild (saknas i `static/mandalon`). → granskning
 
 ## Low
 
 - [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer. → ej schemalagd, oberoende av roadmapen.
 - [ ] Stöd för dark mode. → ej schemalagd. T31 är klar (tokens och CSS-regel dokumenterade); ta upp igen när det är dags.
+- [ ] Språkpass senare (medvetet uppskjutet av granskaren): anglicismer (t.ex. «Fånga riskerna tidigt»), tilltal (er / du / kundens) ska jämkas. Gäller startsida, paketering och konsult. → granskning
+- [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
+- [ ] Kontaktsidan: överväg «Nyfiken på Mandalons labb? Kontakta oss för besök!» → granskning
 
 ## Klart
 
@@ -45,3 +61,7 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Lägg till integritetspolicy (svenska + engelska) som saknades vid migreringen. Gamla URL:en är `/integritetspolicy-3/`; lägg en redirect dit när sidan finns. Länk i footern, inte i huvudmenyn.
 - [x] Ge länkar ett tydligare utseende. Callout-style (utan understrykning) är borttagen; `Link` är alltid understruken med hover-markering. Designguide-PDF:en är en `Button`.
 - [x] `Link` (och `Button`) sätter `target="_blank"` automatiskt för externa URL:er och nedladdningsbara filer. Logiken ligger i `src/lib/links.ts`.
+- [x] Komplettera todo med extern feedback från granskning.
+- [x] Karusellen har pilar, prickar och länkar till konsulttjänster (granskning mot äldre sajt utan pilar/länk).
+- [x] Om Mandalon ligger i headern som «Om oss» (granskning ville flytta upp den från footern).
+- [x] Sensorer-sektionen finns på svenska kunskapsbanken (granskning: saknades helt; språket är fortfarande en rak översättning, se Medium).
