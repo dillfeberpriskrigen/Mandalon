@@ -18,7 +18,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 ## Medium
 
 - [ ] Skriv om den svenska Sensorer-sektionen på kunskapsbanken till riktig Mandalon-svenska (nuvarande text är en rak översättning från engelskan, tillagd i T17). Granskningen såg att Sensorer saknades helt; sektionen finns nu.
-- [ ] Text har ibland bakgrund men ibland transparent, då stör hemsidans bakgrundsbild. Se till att all text har bakgrund eller placeras i en Surface eller något annat bra. → ej schemalagd (formgivning, inte arkitektur). Överlappar T27, som gör bakgrunden billigare men inte mindre störande. Granskningen tar upp samma sak (Kunskapsbank vs Paketering).
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
 - [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
 - [ ] Startsida, copy: korta hero och säljtexter (svensk hero är en lång mening). «Packaging är ofta det lilla steget…» är hackig — skriv om till löptext eller punkter. → granskning
@@ -64,3 +63,4 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Sidrubriker matchar menyn: Kontakt / Contact och Om Mandalon / About Mandalon. Tidigare H1-uppmaningar ligger i lead. Header «Om oss» är «Om Mandalon». → granskning
 - [x] Kontaktsidan är mer standard: uppgifter först, lika personkort (bild över namn), «Teknisk säljare», besöksrad under kartan. Nya foton saknas fortfarande. → granskning
 - [x] Header: Kunskapsbank och Designguide ligger i huvudmenyn (efter tjänsterna, före Om Mandalon). Footer följer samma ordning plus integritetspolicy. → granskning
+- [x] Text har bakgrund via Surface (PageHeader, lösa textblock, FAQ-/karusellrubriker, startsidans säljsektion, designguide, footer). Motherboard-bilden syns bara i luckorna mellan paneler.

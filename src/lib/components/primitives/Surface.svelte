@@ -5,7 +5,7 @@
 	type Shadow = 'none' | 'small' | 'medium';
 
 	type Props = {
-		as?: 'div' | 'section' | 'article';
+		as?: 'div' | 'section' | 'article' | 'header';
 		variant?: Variant;
 		radius?: Radius;
 		padding?: Padding;

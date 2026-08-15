@@ -17,7 +17,9 @@
 </script>
 
 <section class="faq-section">
-	<Heading as="h2">{title}</Heading>
+	<Surface radius="large" padding="large">
+		<Heading as="h2">{title}</Heading>
+	</Surface>
 
 	<div class="faq-list">
 		{#each items as item (item.question)}

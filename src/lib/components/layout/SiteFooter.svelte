@@ -40,7 +40,7 @@
 	.site-footer {
 		--container-width: var(--container-width-wide);
 		padding: 4rem 0;
-		background: transparent;
+		background: var(--surface);
 	}
 
 	.footer-grid {

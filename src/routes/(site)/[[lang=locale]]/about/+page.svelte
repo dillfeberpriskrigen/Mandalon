@@ -17,21 +17,23 @@
 <PageShell>
 	<PageHeader title={data.content.aboutPage.title} lead={data.content.aboutPage.lead} />
 
-	<PageContent>
-		<section class="narrative">
-			<Heading as="h2">{data.content.aboutPage.introTitle}</Heading>
-			{#each data.content.aboutPage.intro as paragraph, i (i)}
-				<Text as="p">{paragraph}</Text>
-			{/each}
-		</section>
-	</PageContent>
+	<div class="about-copy">
+		<Surface radius="large" padding="large">
+			<PageContent>
+				<section class="narrative">
+					<Heading as="h2">{data.content.aboutPage.introTitle}</Heading>
+					{#each data.content.aboutPage.intro as paragraph, i (i)}
+						<Text as="p">{paragraph}</Text>
+					{/each}
+				</section>
 
-	<PageContent>
-		<section class="story">
-			<Heading as="h2">{data.content.aboutPage.storyTitle}</Heading>
-			<Text as="p">{data.content.aboutPage.story}</Text>
-		</section>
-	</PageContent>
+				<section class="story">
+					<Heading as="h2">{data.content.aboutPage.storyTitle}</Heading>
+					<Text as="p">{data.content.aboutPage.story}</Text>
+				</section>
+			</PageContent>
+		</Surface>
+	</div>
 
 	<div class="surface-grid trust-panels">
 		<Surface as="section" radius="large" padding="large">
@@ -72,7 +74,10 @@
 </PageShell>
 
 <style>
-	.narrative,
+	.about-copy {
+		margin-top: 2rem;
+	}
+
 	.story {
 		margin-top: 2rem;
 	}

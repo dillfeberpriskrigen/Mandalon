@@ -83,7 +83,9 @@
 	<div class="container">
 		<PageContent>
 			<div class="carousel-header">
-				<Heading as="h2">{title}</Heading>
+				<Surface radius="large" padding="large">
+					<Heading as="h2">{title}</Heading>
+				</Surface>
 			</div>
 
 			<div class="carousel-spotlight">

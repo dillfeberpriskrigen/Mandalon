@@ -29,15 +29,17 @@
 	<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />
 
 	<div class="inbox">
-		<PageContent>
-			<div class="inbox-copy">
-				<div class="email-fact">
-					<Text variant="label">{data.content.contactPage.emailLabel}</Text>
-					<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
+		<Surface as="section" radius="large" padding="large">
+			<PageContent>
+				<div class="inbox-copy">
+					<div class="email-fact">
+						<Text variant="label">{data.content.contactPage.emailLabel}</Text>
+						<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
+					</div>
+					<Text as="p">{data.content.contactPage.urgentNote}</Text>
 				</div>
-				<Text as="p">{data.content.contactPage.urgentNote}</Text>
-			</div>
-		</PageContent>
+			</PageContent>
+		</Surface>
 	</div>
 
 	<div class="people">
@@ -68,26 +70,28 @@
 	</div>
 
 	<section class="location">
-		<PageContent>
-			<div class="location-copy">
-				<Heading as="h2">{data.content.contactPage.locationTitle}</Heading>
-				<address class="postal-address">
-					<Text as="div" weight="bold">{data.content.contactPage.address.company}</Text>
-					<Text as="div">{data.content.contactPage.address.street}</Text>
-					<Text as="div">{data.content.contactPage.address.postalCode} {data.content.contactPage.address.city}</Text>
-					{#if data.content.contactPage.address.country}
-						<Text as="div">{data.content.contactPage.address.country}</Text>
-					{/if}
-				</address>
-				<div class="org-number">
-					<Text variant="label">{data.content.contactPage.orgNumberLabel}</Text>
-					<Text as="div">{data.content.contactPage.orgNumber}</Text>
+		<Surface radius="large" padding="large">
+			<PageContent>
+				<div class="location-copy">
+					<Heading as="h2">{data.content.contactPage.locationTitle}</Heading>
+					<address class="postal-address">
+						<Text as="div" weight="bold">{data.content.contactPage.address.company}</Text>
+						<Text as="div">{data.content.contactPage.address.street}</Text>
+						<Text as="div">{data.content.contactPage.address.postalCode} {data.content.contactPage.address.city}</Text>
+						{#if data.content.contactPage.address.country}
+							<Text as="div">{data.content.contactPage.address.country}</Text>
+						{/if}
+					</address>
+					<div class="org-number">
+						<Text variant="label">{data.content.contactPage.orgNumberLabel}</Text>
+						<Text as="div">{data.content.contactPage.orgNumber}</Text>
+					</div>
+					<div class="visit-note">
+						<Text as="p">{data.content.contactPage.visitNote}</Text>
+					</div>
 				</div>
-				<div class="visit-note">
-					<Text as="p">{data.content.contactPage.visitNote}</Text>
-				</div>
-			</div>
-		</PageContent>
+			</PageContent>
+		</Surface>
 
 		<div class={['map-wrap', mapActive && 'is-active']} {@attach disableMapOnLeave}>
 			<iframe title={data.content.contactPage.mapTitle} src={mapEmbedUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>

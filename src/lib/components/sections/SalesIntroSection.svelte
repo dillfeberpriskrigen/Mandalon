@@ -2,6 +2,7 @@
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
@@ -45,42 +46,46 @@
 <section class="intro">
 	<div class="container">
 		<PageContent>
-			<div class="intro-copy">
-				<Heading as="h2">{salesIntro.title}</Heading>
-				<ParagraphArray paragraphs={salesIntro.paragraphs} />
+			<Surface radius="large" padding="large">
+				<div class="intro-copy">
+					<Heading as="h2">{salesIntro.title}</Heading>
+					<ParagraphArray paragraphs={salesIntro.paragraphs} />
 
-				<div class="intro-actions">
-					{#each salesIntro.actions as action, index (action.page)}
-						<Button href={hrefFor(action.page, activeLocale)} variant={index === 0 ? 'primary' : 'secondary'}>
-							{action.label}
-						</Button>
-					{/each}
-				</div>
+					<div class="intro-actions">
+						{#each salesIntro.actions as action, index (action.page)}
+							<Button href={hrefFor(action.page, activeLocale)} variant={index === 0 ? 'primary' : 'secondary'}>
+								{action.label}
+							</Button>
+						{/each}
+					</div>
 
-				<div class="intro-resource">
-					<Link href={hrefFor(salesIntro.resource.page, activeLocale)} weight="bold">
-						{salesIntro.resource.label}
-					</Link>
-					<Text as="span">{salesIntro.resource.text}</Text>
+					<div class="intro-resource">
+						<Link href={hrefFor(salesIntro.resource.page, activeLocale)} weight="bold">
+							{salesIntro.resource.label}
+						</Link>
+						<Text as="span">{salesIntro.resource.text}</Text>
+					</div>
 				</div>
-			</div>
+			</Surface>
 
 			<section class="divider-banner" aria-hidden="true">
 				<div class="divider-banner__image"></div>
 			</section>
 
-			<div class="intro-process">
-				<Heading as="h3">{process.title}</Heading>
+			<Surface radius="large" padding="large">
+				<div class="intro-process">
+					<Heading as="h3">{process.title}</Heading>
 
-				<div class="process-grid">
-					{#each process.steps as step (step.title)}
-						<article class="process-card">
-							<Heading as="h3">{step.title}</Heading>
-							<Text as="p">{step.text}</Text>
-						</article>
-					{/each}
+					<div class="process-grid">
+						{#each process.steps as step (step.title)}
+							<article class="process-card">
+								<Heading as="h3">{step.title}</Heading>
+								<Text as="p">{step.text}</Text>
+							</article>
+						{/each}
+					</div>
 				</div>
-			</div>
+			</Surface>
 		</PageContent>
 	</div>
 </section>

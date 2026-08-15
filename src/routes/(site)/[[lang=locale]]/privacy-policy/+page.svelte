@@ -22,9 +22,11 @@
 
 	{#if content.languageNote}
 		<div class="language-note">
-			<PageContent>
-				<Text as="p" variant="caption">{content.languageNote}</Text>
-			</PageContent>
+			<Surface as="section" radius="large" padding="large">
+				<PageContent>
+					<Text as="p" variant="caption">{content.languageNote}</Text>
+				</PageContent>
+			</Surface>
 		</div>
 	{/if}
 

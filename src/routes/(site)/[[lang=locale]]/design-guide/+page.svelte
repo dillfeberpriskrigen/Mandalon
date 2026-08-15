@@ -2,6 +2,7 @@
 	import DesignGuideBody from '$lib/components/content/DesignGuideBody.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
 	import { designGuideBody, designGuidePdfHref } from '$lib/content/pages/designGuideBody';
 	import type { PageData } from './$types';
 
@@ -13,21 +14,23 @@
 
 <section class="guide-page">
 	<div class="container">
-		<h1 class="page-title">{content.title}</h1>
-		<p class="guide-intro text-width">{content.intro}</p>
-		{#if content.languageNote}
-			<p class="guide-language-note text-width">{content.languageNote}</p>
-		{/if}
-		<div class="guide-content">
-			<article class="designguide-article">
-				<h2>{content.articleIntroTitle}</h2>
-				<p>{content.articleIntroBody}</p>
-				<p>
-					<Button href={designGuidePdfHref}>{content.downloadLabel}</Button>
-				</p>
-				<DesignGuideBody blocks={designGuideBody} />
-			</article>
-		</div>
+		<Surface as="section" radius="large" padding="large">
+			<h1 class="page-title">{content.title}</h1>
+			<p class="guide-intro text-width">{content.intro}</p>
+			{#if content.languageNote}
+				<p class="guide-language-note text-width">{content.languageNote}</p>
+			{/if}
+			<div class="guide-content">
+				<article class="designguide-article">
+					<h2>{content.articleIntroTitle}</h2>
+					<p>{content.articleIntroBody}</p>
+					<p>
+						<Button href={designGuidePdfHref}>{content.downloadLabel}</Button>
+					</p>
+					<DesignGuideBody blocks={designGuideBody} />
+				</article>
+			</div>
+		</Surface>
 	</div>
 </section>
 
@@ -59,9 +62,6 @@
 
 	.guide-content {
 		margin-top: 2rem;
-		padding: 1.8rem;
-		border-radius: 1.5rem;
-		background: rgba(255, 255, 255, 0.95);
 	}
 
 	.designguide-article :global(h2),
@@ -128,10 +128,6 @@
 	}
 
 	@media (max-width: 700px) {
-		.guide-content {
-			padding: 1.2rem;
-		}
-
 		.designguide-article :global(.designguide-gallery-grid) {
 			grid-template-columns: 1fr;
 		}

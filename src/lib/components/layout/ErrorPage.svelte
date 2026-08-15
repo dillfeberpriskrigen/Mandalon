@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import { siteContent, type Locale } from '$lib/content/site';
 	import { hrefFor } from '$lib/routes';
@@ -23,9 +24,11 @@
 
 <PageShell>
 	<PageHeader title={errorPage.title} {lead} />
-	<p class="error-home">
-		<Link href={homeHref} weight="bold">{errorPage.homeLabel}</Link>
-	</p>
+	<div class="error-home">
+		<Surface as="section" radius="large" padding="large">
+			<Link href={homeHref} weight="bold">{errorPage.homeLabel}</Link>
+		</Surface>
+	</div>
 </PageShell>
 
 <style>

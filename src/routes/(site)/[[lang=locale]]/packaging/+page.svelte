@@ -6,6 +6,7 @@
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import DescriptionList from '$lib/components/data/DescriptionList.svelte';
 	import Image from '$lib/components/media/Image.svelte';
+	import Surface from '$lib/components/primitives/Surface.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import { chipSensorsAreaOrder } from '$lib/content/types';
@@ -26,19 +27,16 @@
 <PageShell>
 	<PageHeader title={data.content.chipSensorsPage.title} lead={data.content.chipSensorsPage.lead} />
 
-	<PageContent>
-		<div class="intro-stack">
-			{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
-				<Text as="p">{paragraph}</Text>
-			{/each}
-		</div>
-	</PageContent>
-
-	<PageContent>
-		<div class="intro-stack">
-			<Text as="p">{data.content.chipSensorsPage.capabilitiesPresentation}</Text>
-		</div>
-	</PageContent>
+	<div class="intro">
+		<Surface as="section" radius="large" padding="large">
+			<PageContent>
+				{#each data.content.chipSensorsPage.intro as paragraph, i (i)}
+					<Text as="p">{paragraph}</Text>
+				{/each}
+				<Text as="p">{data.content.chipSensorsPage.capabilitiesPresentation}</Text>
+			</PageContent>
+		</Surface>
+	</div>
 	<DescriptionList items={capabilityItems} />
 
 	{#each chipSensorsAreaOrder as key, i (key)}
@@ -55,7 +53,7 @@
 </PageShell>
 
 <style>
-	.intro-stack {
+	.intro {
 		margin-top: 2rem;
 	}
 </style>
