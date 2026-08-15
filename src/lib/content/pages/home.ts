@@ -46,17 +46,23 @@ export const home = {
 				{
 					title: 'Design chip & sensorer',
 					text: 'Vi hjälper till med hur ert kisel bör designas för att det ska gå bra att montera och bonda.',
-					image: { src: '/mandalon/design-chip.webp', alt: 'Design chip & sensorer', width: 840, height: 440 }
+					image: { src: '/mandalon/design-chip.webp', alt: 'Design chip & sensorer', width: 840, height: 440 },
+					page: 'consulting',
+					section: 'chip-design'
 				},
 				{
 					title: 'Processutveckling',
 					text: 'Mandalons mångåriga erfarenhet ställs gärna till förfogande när ni behöver utveckla en egen process.',
-					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Processutveckling', width: 1024, height: 680 }
+					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Processutveckling', width: 1024, height: 680 },
+					page: 'consulting',
+					section: 'process-development'
 				},
 				{
 					title: 'Projektledning',
 					text: 'Vi på Mandalon erbjuder projektledning vid förfrågan.',
-					image: { src: '/mandalon/project.webp', alt: 'Projektledning', width: 840, height: 440 }
+					image: { src: '/mandalon/project.webp', alt: 'Projektledning', width: 840, height: 440 },
+					page: 'consulting',
+					section: 'project-management'
 				}
 			]
 		}
@@ -106,17 +112,23 @@ export const home = {
 				{
 					title: 'Chip & sensor design',
 					text: 'We can help shape your silicon design so it is easier to mount and bond successfully.',
-					image: { src: '/mandalon/design-chip.webp', alt: 'Chip & sensor design', width: 840, height: 440 }
+					image: { src: '/mandalon/design-chip.webp', alt: 'Chip & sensor design', width: 840, height: 440 },
+					page: 'consulting',
+					section: 'chip-design'
 				},
 				{
 					title: 'Process development',
 					text: 'Mandalon’s long experience is available when you need to develop your own process.',
-					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Process development', width: 1024, height: 680 }
+					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Process development', width: 1024, height: 680 },
+					page: 'consulting',
+					section: 'process-development'
 				},
 				{
 					title: 'Project management',
 					text: 'Mandalon can also provide project management support on request.',
-					image: { src: '/mandalon/project.webp', alt: 'Project management', width: 840, height: 440 }
+					image: { src: '/mandalon/project.webp', alt: 'Project management', width: 840, height: 440 },
+					page: 'consulting',
+					section: 'project-management'
 				}
 			]
 		}

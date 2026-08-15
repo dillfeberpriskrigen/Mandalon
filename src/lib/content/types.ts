@@ -44,12 +44,18 @@ export type ProcessContent = {
 	}[];
 };
 
+export const consultingServiceIds = ['chip-design', 'process-development', 'project-management', 'engineering'] as const;
+
+export type ConsultingServiceId = (typeof consultingServiceIds)[number];
+
 export type ConsultingHomeContent = {
 	title: string;
 	features: {
 		title: string;
 		text: string;
 		image: ContentImage;
+		page: PageKey;
+		section?: ConsultingServiceId;
 	}[];
 };
 
@@ -90,6 +96,7 @@ export type ConsultingPageContent = {
 	introTitle: string;
 	introText: string;
 	services: {
+		id: ConsultingServiceId;
 		title: string;
 		text: string;
 		points: string[];

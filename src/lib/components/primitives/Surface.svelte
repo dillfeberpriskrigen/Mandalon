@@ -10,12 +10,13 @@
 		radius?: Radius;
 		padding?: Padding;
 		shadow?: Shadow;
+		id?: string;
 		children: import('svelte').Snippet;
 	};
 
-	let { as = 'div', variant = 'default', radius = 'medium', padding = 'medium', shadow = 'none', children }: Props = $props();
+	let { as = 'div', variant = 'default', radius = 'medium', padding = 'medium', shadow = 'none', id, children }: Props = $props();
 </script>
 
-<svelte:element this={as} class={['surface', `surface-${variant}`, `surface-radius-${radius}`, `surface-padding-${padding}`, `surface-shadow-${shadow}`]}>
+<svelte:element this={as} {id} class={['surface', `surface-${variant}`, `surface-radius-${radius}`, `surface-padding-${padding}`, `surface-shadow-${shadow}`]}>
 	{@render children()}
 </svelte:element>

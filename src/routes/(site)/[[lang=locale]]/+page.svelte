@@ -12,15 +12,11 @@
 			? {
 					previous: 'Previous slide',
 					next: 'Next slide',
-					pause: 'Pause slideshow',
-					play: 'Play slideshow',
 					goToSlide: 'Go to slide {index}: {title}'
 				}
 			: {
 					previous: 'Föregående bild',
 					next: 'Nästa bild',
-					pause: 'Pausa bildspel',
-					play: 'Spela bildspel',
 					goToSlide: 'Gå till bild {index}: {title}'
 				}
 	);
@@ -30,6 +26,6 @@
 
 <HeroSection title={data.content.hero.title} copy={data.content.hero.copy} />
 
-<FeatureCarousel title={data.content.consulting.title} features={data.content.consulting.features} labels={carouselLabels} />
+<FeatureCarousel title={data.content.consulting.title} features={data.content.consulting.features} labels={carouselLabels} locale={data.locale} />
 
 <SalesIntroSection salesIntro={data.content.salesIntro} process={data.content.process} locale={data.locale} defaultLocale={data.defaultLocale} />

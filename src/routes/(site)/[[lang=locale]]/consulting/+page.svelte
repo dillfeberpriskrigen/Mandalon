@@ -26,8 +26,8 @@
 	</div>
 
 	<div class="surface-grid services">
-		{#each data.content.consultingPage.services as service (service.title)}
-			<Surface as="article" radius="large" padding="large">
+		{#each data.content.consultingPage.services as service (service.id)}
+			<Surface as="article" id={service.id} radius="large" padding="large">
 				<Heading as="h2">{service.title}</Heading>
 				<Text as="p">{service.text}</Text>
 				<ul class="content-list">
@@ -43,5 +43,9 @@
 <style>
 	.intro {
 		margin-top: 2.2rem;
+	}
+
+	.services :global(.surface) {
+		scroll-margin-top: 7rem;
 	}
 </style>

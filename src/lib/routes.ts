@@ -24,12 +24,10 @@ export const retiredSwedishSlugs = {
 	designGuide: 'designguide'
 } as const satisfies Partial<Record<Exclude<PageKey, 'home'>, string>>;
 
-export function hrefFor(page: PageKey, locale: Locale): string {
+export function hrefFor(page: PageKey, locale: Locale, fragment?: string): string {
 	const slug = pages[page];
-	if (locale === defaultLocale) {
-		return slug ? `/${slug}` : '/';
-	}
-	return slug ? `/${locale}/${slug}` : `/${locale}`;
+	const path = locale === defaultLocale ? (slug ? `/${slug}` : '/') : slug ? `/${locale}/${slug}` : `/${locale}`;
+	return fragment ? `${path}#${fragment}` : path;
 }
 
 export function localeFromPathname(pathname: string): Locale {

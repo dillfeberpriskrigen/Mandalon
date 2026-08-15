@@ -7,34 +7,26 @@
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
-	import type { ContentImage } from '$lib/content/types';
-
-	interface Feature {
-		title: string;
-		text: string;
-		image: ContentImage;
-	}
+	import type { ConsultingHomeContent, Locale } from '$lib/content/types';
+	import { hrefFor } from '$lib/routes';
 
 	interface CarouselLabels {
 		previous: string;
 		next: string;
-		pause: string;
-		play: string;
 		goToSlide: string;
 	}
 
 	interface Props {
 		title: string;
-		features: Feature[];
+		features: ConsultingHomeContent['features'];
 		labels: CarouselLabels;
+		locale: Locale;
 	}
 
-	let { title, features, labels }: Props = $props();
+	let { title, features, labels, locale }: Props = $props();
 
 	let emblaApi = $state<EmblaCarouselType | null>(null);
 	let selectedIndex = $state(0);
-	let isPlaying = $state(false);
-	let autoplayAllowed = $state(false);
 
 	const emblaOptions = { loop: true };
 	const emblaPlugins = [
@@ -47,10 +39,6 @@
 		})
 	];
 
-	const syncPlaying = () => {
-		isPlaying = emblaApi?.plugins()?.autoplay?.isPlaying() ?? false;
-	};
-
 	const handleEmblaInit = (event: CustomEvent<EmblaCarouselType>) => {
 		emblaApi = event.detail;
 		selectedIndex = emblaApi.selectedScrollSnap();
@@ -61,30 +49,16 @@
 
 		emblaApi.on('select', onSelect);
 		emblaApi.on('reInit', onSelect);
-		emblaApi.on('autoplay:play', syncPlaying);
-		emblaApi.on('autoplay:stop', syncPlaying);
 
-		autoplayAllowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const autoplayAllowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		if (autoplayAllowed) {
 			emblaApi.plugins().autoplay?.play();
 		}
-		syncPlaying();
 	};
 
 	const scrollPrev = () => emblaApi?.scrollPrev();
 	const scrollNext = () => emblaApi?.scrollNext();
 	const scrollTo = (index: number) => emblaApi?.scrollTo(index);
-
-	const toggleAutoplay = () => {
-		const autoplay = emblaApi?.plugins()?.autoplay;
-		if (!autoplay || !autoplayAllowed) return;
-		if (autoplay.isPlaying()) {
-			autoplay.stop();
-		} else {
-			autoplay.play();
-		}
-		syncPlaying();
-	};
 
 	const slideLabel = (index: number, featureTitle: string) => labels.goToSlide.replace('{index}', String(index + 1)).replace('{title}', featureTitle);
 
@@ -98,6 +72,12 @@
 		}
 	};
 </script>
+
+{#snippet arrowIcon()}
+	<svg viewBox="0 0 24 24" aria-hidden="true">
+		<path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 5 8 12l7 7" />
+	</svg>
+{/snippet}
 
 <section class="carousel" aria-roledescription="carousel" aria-label={title}>
 	<div class="container">
@@ -122,51 +102,37 @@
 										<div class="carousel-media">
 											<Image src={feature.image.src} alt={feature.image.alt} width={feature.image.width} height={feature.image.height} />
 										</div>
-										<div class="carousel-copy">
+										<a class="carousel-copy" href={hrefFor(feature.page, locale, feature.section)}>
 											<Heading as="h3">{feature.title}</Heading>
 											<Text as="p">{feature.text}</Text>
-										</div>
+										</a>
 									</Surface>
 								</div>
 							{/each}
 						</div>
 					</div>
+
+					<div class="carousel-nav" role="group">
+						<button type="button" class="carousel-arrow carousel-arrow-prev" aria-label={labels.previous} onclick={scrollPrev} onkeydown={onControlKeydown}>
+							{@render arrowIcon()}
+						</button>
+						<button type="button" class="carousel-arrow carousel-arrow-next" aria-label={labels.next} onclick={scrollNext} onkeydown={onControlKeydown}>
+							{@render arrowIcon()}
+						</button>
+					</div>
 				</div>
 
-				<div class="carousel-controls" role="group">
-					<button type="button" class="carousel-btn" aria-label={labels.previous} onclick={scrollPrev} onkeydown={onControlKeydown}>
-						<span aria-hidden="true">‹</span>
-					</button>
-
-					{#if autoplayAllowed}
+				<div class="carousel-dots">
+					{#each features as feature, index (feature.title)}
 						<button
 							type="button"
-							class="carousel-btn"
-							aria-label={isPlaying ? labels.pause : labels.play}
-							aria-pressed={isPlaying}
-							onclick={toggleAutoplay}
+							class={['carousel-dot', index === selectedIndex && 'is-active']}
+							aria-label={slideLabel(index, feature.title)}
+							aria-current={index === selectedIndex ? 'true' : undefined}
+							onclick={() => scrollTo(index)}
 							onkeydown={onControlKeydown}
-						>
-							<span aria-hidden="true">{isPlaying ? '❚❚' : '▶'}</span>
-						</button>
-					{/if}
-
-					<button type="button" class="carousel-btn" aria-label={labels.next} onclick={scrollNext} onkeydown={onControlKeydown}>
-						<span aria-hidden="true">›</span>
-					</button>
-
-					<div class="carousel-dots">
-						{#each features as feature, index (feature.title)}
-							<button
-								type="button"
-								class={['carousel-dot', index === selectedIndex && 'is-active']}
-								aria-label={slideLabel(index, feature.title)}
-								aria-current={index === selectedIndex ? 'true' : undefined}
-								onclick={() => scrollTo(index)}
-								onkeydown={onControlKeydown}
-							></button>
-						{/each}
-					</div>
+						></button>
+					{/each}
 				</div>
 			</div>
 		</PageContent>
@@ -189,12 +155,71 @@
 	}
 
 	.embla {
+		position: relative;
 		min-width: 0;
 	}
 
 	.embla__viewport {
 		overflow: hidden;
 		min-width: 0;
+	}
+
+	.carousel-nav {
+		position: absolute;
+		inset: 0 auto auto 0;
+		z-index: 1;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		border-radius: var(--radius-large) var(--radius-large) 0 0;
+		pointer-events: none;
+	}
+
+	.carousel-arrow {
+		pointer-events: auto;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.25rem;
+		padding: 0;
+		border: none;
+		background: transparent;
+		color: var(--content-background);
+		cursor: pointer;
+		opacity: 0.8;
+		transition:
+			opacity 0.2s ease,
+			background 0.2s ease;
+	}
+
+	.carousel-arrow svg {
+		width: 2rem;
+		height: 2rem;
+		filter: drop-shadow(0 1px 2px var(--ink));
+	}
+
+	.carousel-arrow-prev {
+		left: 0;
+	}
+
+	.carousel-arrow-next {
+		right: 0;
+	}
+
+	.carousel-arrow-next svg {
+		transform: scaleX(-1);
+	}
+
+	.carousel-arrow:hover {
+		opacity: 1;
+		background: linear-gradient(to right, color-mix(in srgb, var(--ink) 32%, transparent), transparent);
+	}
+
+	.carousel-arrow-next:hover {
+		background: linear-gradient(to left, color-mix(in srgb, var(--ink) 32%, transparent), transparent);
 	}
 
 	.embla__container {
@@ -224,57 +249,75 @@
 	}
 
 	.carousel-copy {
+		display: block;
 		padding: 1.5rem;
+		color: inherit;
+		text-decoration: none;
+		background: transparent;
 	}
 
-	.carousel-controls {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: var(--space-small);
+	.carousel-copy:hover,
+	.carousel-copy:focus-visible {
+		background: var(--link-hover-bg);
 	}
 
-	.carousel-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 2.5rem;
-		min-height: 2.5rem;
-		padding: var(--space-small);
-		border: 1px solid var(--line);
-		border-radius: var(--border-radius);
-		background: var(--content-background);
-		color: var(--ink);
-		font-size: 1.25rem;
-		line-height: 1;
-		cursor: pointer;
+	.carousel-copy :global(.page-sub-section) {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		text-decoration-thickness: 0.08em;
+		text-underline-offset: 0.15em;
 	}
 
-	.carousel-btn:hover {
-		background: var(--bg-soft);
+	.carousel-copy:hover :global(.page-sub-section),
+	.carousel-copy:focus-visible :global(.page-sub-section) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.carousel-copy {
+			transition: background-color 0.18s ease;
+		}
+
+		.carousel-copy :global(.page-sub-section) {
+			transition: text-decoration-color 0.18s ease;
+		}
 	}
 
 	.carousel-dots {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		justify-content: center;
 		gap: var(--space-small);
-		margin-left: auto;
 	}
 
 	.carousel-dot {
-		width: 0.75rem;
-		height: 0.75rem;
+		width: 0.7rem;
+		height: 0.7rem;
 		padding: 0;
-		border: 1px solid var(--line);
-		border-radius: 50%;
-		background: var(--content-background);
+		border: none;
+		border-radius: 999px;
+		background: var(--muted);
+		opacity: 0.35;
 		cursor: pointer;
+		transition:
+			width 0.25s ease,
+			opacity 0.25s ease,
+			box-shadow 0.25s ease;
 	}
 
 	.carousel-dot.is-active {
+		width: 2rem;
+		opacity: 1;
 		background: var(--accent);
-		border-color: var(--accent-deep);
+		box-shadow: 0 0 0 2px var(--accent-deep);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.carousel-arrow,
+		.carousel-dot {
+			transition: none;
+		}
 	}
 
 	@media (max-width: 640px) {
@@ -290,7 +333,6 @@
 		}
 
 		.carousel-dots {
-			margin-left: 0;
 			width: 100%;
 		}
 	}
