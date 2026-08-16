@@ -80,10 +80,10 @@ export const glossaryPage = {
 				title: 'Sensorer',
 				subtitle: 'Där Mandalon började',
 				paragraphs: [
-					'I början fanns näsan. Näsan var elektronisk.',
-					'Det var mot slutet av förra millenniet när Mandalon först öppnade sina ögon. Värdet av att kunna lukta på omvärlden förstods snart, och Mandalon började montera kemiska gassensorer.',
-					'Då hade företaget inte ens sitt namn ännu, men det ville ändå fortsätta med det här arbetet utanför universitetet också, eftersom det verkade finnas behov av näsor.',
-					'Resan har fortsatt och idag monteras många olika strukturer. Mandalon paketerar, trådbondar och kapslar mikroelektronik, och arbetar förstås fortfarande med sensorer.'
+					'I begynnelsen var näsan.',
+					'Näsan var elektronisk.',
+					'Detta var alldeles i slutet av förra årtusendet när Mandalon slog upp sina blå. Snart insågs värdet av att kunna lukta på omvärlden och Mandalon satte igång med att montera kemiska gassensorer. Mandalon som ännu inte hade något namn ville gärna fortsätta att göra detta även ute i den fria världen då det verkade finnas behov av näsor till att börja med.',
+					'Resan har gått vidare och idag monteras mycket olika strukturer. Mandalon paketerar, trådbondar och gjuter in mikroelektronik, och givetvis fortfarande sensorer.'
 				]
 			},
 			microstructures: {

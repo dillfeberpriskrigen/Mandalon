@@ -17,7 +17,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 ## Medium
 
-- [ ] Skriv om den svenska Sensorer-sektionen på kunskapsbanken till riktig Mandalon-svenska (nuvarande text är en rak översättning från engelskan, tillagd i T17). Granskningen såg att Sensorer saknades helt; sektionen finns nu.
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
 - [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
 - [ ] Startsida, copy: korta hero och säljtexter (svensk hero är en lång mening). «Packaging är ofta det lilla steget…» är hackig — skriv om till löptext eller punkter. → granskning
@@ -57,7 +56,7 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Komplettera todo med extern feedback från granskning.
 - [x] Karusellen har pilar, prickar och länkar till konsulttjänster (granskning mot äldre sajt utan pilar/länk).
 - [x] Om Mandalon ligger i headern som «Om oss» (granskning ville flytta upp den från footern).
-- [x] Sensorer-sektionen finns på svenska kunskapsbanken (granskning: saknades helt; språket är fortfarande en rak översättning, se Medium).
+- [x] Sensorer-sektionen finns på svenska kunskapsbanken med originaltexten («I begynnelsen var näsan»), inte den raka T17-översättningen. → granskning
 - [x] Paketering, 3:e stycket mörkare än övrig brödtext — stämmer inte längre; all text har samma färg. → granskning
 - [x] Brödtextkontrast: `.text-body` och `.content-list` använder `--ink` i stället för `--muted`. Bildtexter är fortfarande `--muted`. → granskning
 - [x] Sidrubriker matchar menyn: Kontakt / Contact och Om Mandalon / About Mandalon. Tidigare H1-uppmaningar ligger i lead. Header «Om oss» är «Om Mandalon». → granskning
