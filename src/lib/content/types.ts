@@ -50,6 +50,12 @@ export type ConsultingServiceId = (typeof consultingServiceIds)[number];
 
 export type ConsultingHomeContent = {
 	title: string;
+	intro: string;
+	labels: {
+		previous: string;
+		next: string;
+		goToSlide: string;
+	};
 	features: {
 		title: string;
 		text: string;

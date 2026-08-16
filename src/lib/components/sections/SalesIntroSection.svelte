@@ -116,7 +116,7 @@
 	}
 
 	.intro {
-		padding: 5rem 0;
+		padding: var(--space-large) 0 5rem;
 	}
 
 	.intro-copy {

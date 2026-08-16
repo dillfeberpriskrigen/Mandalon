@@ -10,20 +10,17 @@
 	import type { ConsultingHomeContent, Locale } from '$lib/content/types';
 	import { hrefFor } from '$lib/routes';
 
-	interface CarouselLabels {
-		previous: string;
-		next: string;
-		goToSlide: string;
-	}
-
 	interface Props {
-		title: string;
-		features: ConsultingHomeContent['features'];
-		labels: CarouselLabels;
+		content: ConsultingHomeContent;
 		locale: Locale;
 	}
 
-	let { title, features, labels, locale }: Props = $props();
+	let { content, locale }: Props = $props();
+
+	const title = $derived(content.title);
+	const intro = $derived(content.intro);
+	const features = $derived(content.features);
+	const labels = $derived(content.labels);
 
 	let emblaApi = $state<EmblaCarouselType | null>(null);
 	let selectedIndex = $state(0);
@@ -31,7 +28,7 @@
 	const emblaOptions = { loop: true };
 	const emblaPlugins = [
 		Autoplay({
-			delay: 5000,
+			delay: 8000,
 			playOnInit: false,
 			stopOnInteraction: false,
 			stopOnMouseEnter: true,
@@ -85,6 +82,9 @@
 			<div class="carousel-header">
 				<Surface radius="large" padding="large">
 					<Heading as="h2">{title}</Heading>
+					<div class="carousel-intro">
+						<Text as="p" variant="lead">{intro}</Text>
+					</div>
 				</Surface>
 			</div>
 
@@ -143,11 +143,15 @@
 
 <style>
 	.carousel {
-		padding: 5rem 0;
+		padding: 5rem 0 var(--space-large);
 	}
 
 	.carousel-header {
 		margin-bottom: 2rem;
+	}
+
+	.carousel-intro {
+		margin-top: 1.25rem;
 	}
 
 	.carousel-spotlight {

@@ -4,14 +4,13 @@ export const home = {
 	sv: {
 		hero: {
 			title: 'När packaging måste fungera redan i första prototypen',
-			copy: 'Med över 25 års erfarenhet av projektledning, utveckling, bondning och design så hjälper Mandalon ditt team att gå från chip, sensor eller MEMS-idé till en monterbar, bondbar och fungerande lösning med praktisk erfarenhet från labb och produktion. '
+			copy: 'Mandalon hjälper team att gå från chip, sensor eller MEMS-idé till en monterbar och fungerande lösning. Vi har mer än 25 års erfarenhet från labb och produktion.'
 		},
 		salesIntro: {
-			title: 'Packaging är ofta det lilla steget som avgör om resten faktiskt går att bygga.',
+			title: 'Packaging som gör prototypen byggbar',
 			paragraphs: [
-				'När bonding, kapsling eller montering kommer in sent i processen dyker problemen ofta upp först när prototypen redan borde fungera. Då blir små detaljer i konstruktionen plötsligt dyra.',
-				'Mandalon kombinerar praktiskt labbarbete med designnära rådgivning, så att chip, pads, kapsling och kontaktytor hänger ihop från början.',
-				'Det gör startssträckan kortare och minskar risken för att en bra idé fastnar i ett packagingproblem.'
+				'Packaging är ofta det lilla steget som avgör om resten går att bygga. När bonding, kapsling eller montering kommer in sent dyker problemen upp först när prototypen redan borde fungera, och små detaljer i konstruktionen blir då plötsligt dyra.',
+				'Mandalon kombinerar praktiskt labbarbete med designnära rådgivning så att chip, pads, kapsling och kontaktytor hänger ihop från början. Det kortar startsträckan och minskar risken att en bra idé fastnar i ett packagingproblem.'
 			],
 			resource: {
 				label: 'Läs Mandalons designguide',
@@ -41,7 +40,14 @@ export const home = {
 			]
 		},
 		consulting: {
-			title: 'Praktisk erfarenhet som går att använda direkt i projektet',
+			title: 'Konsulttjänster som går att använda direkt i projektet',
+			intro:
+				'Förutom labbet erbjuder Mandalon konsulttjänster, oftast hos kund och i nära samarbete med utvecklingsteamet. De går att kombinera med bonding, montering och paketering.',
+			labels: {
+				previous: 'Föregående bild',
+				next: 'Nästa bild',
+				goToSlide: 'Gå till bild {index}: {title}'
+			},
 			features: [
 				{
 					title: 'Design chip & sensorer',
@@ -70,14 +76,13 @@ export const home = {
 	en: {
 		hero: {
 			title: 'When packaging has to work in the very first prototype',
-			copy: 'Mandalon helps teams move from chip, sensor or MEMS concept to a mountable, bondable and working solution, backed by practical lab and production experience.'
+			copy: 'Mandalon helps teams move from chip, sensor or MEMS concept to a mountable and working solution. We have more than 25 years of lab and production experience.'
 		},
 		salesIntro: {
-			title: 'Packaging is often the small step that determines whether the rest can actually be built.',
+			title: 'Packaging that makes the prototype buildable',
 			paragraphs: [
-				'When bonding, encapsulation or assembly is treated late in the process, problems often surface only when the prototype should already be working. Small design details suddenly become expensive.',
-				'Mandalon combines practical lab work with design-oriented guidance so chips, pads, encapsulation and interconnect decisions fit together from the beginning.',
-				'That shortens the path forward and reduces the risk that a good idea gets stuck in a packaging issue.'
+				'Packaging is often the small step that decides whether the rest can actually be built. When bonding, encapsulation or assembly comes in late, problems show up only when the prototype should already work, and small design details then become expensive.',
+				'Mandalon combines practical lab work with design-oriented guidance so chips, pads, encapsulation and interconnects fit together from the beginning. That shortens the path and reduces the risk that a good idea gets stuck in a packaging issue.'
 			],
 			resource: {
 				label: 'Read Mandalon’s design guide',
@@ -90,7 +95,7 @@ export const home = {
 			]
 		},
 		process: {
-			title: 'Three ways to reduce risk earlier in the process',
+			title: 'Three ways to lighten the load on your team earlier in the process',
 			steps: [
 				{
 					title: '1. Identify risks early',
@@ -107,7 +112,14 @@ export const home = {
 			]
 		},
 		consulting: {
-			title: 'Practical experience you can use directly in your project',
+			title: 'Consulting services you can use directly in your project',
+			intro:
+				'In addition to the lab, Mandalon offers consulting services, usually close to the customer team. They can also be combined with bonding, assembly and packaging.',
+			labels: {
+				previous: 'Previous slide',
+				next: 'Next slide',
+				goToSlide: 'Go to slide {index}: {title}'
+			},
 			features: [
 				{
 					title: 'Chip & sensor design',

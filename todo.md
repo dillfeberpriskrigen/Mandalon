@@ -19,9 +19,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
 - [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
-- [ ] Startsida, copy: korta hero och säljtexter (svensk hero är en lång mening). «Packaging är ofta det lilla steget…» är hackig — skriv om till löptext eller punkter. → granskning
-- [ ] Karusell (pilar och länk till konsulttjänster finns). Kvar: kort ingress likt konsultsidan, rubrik som nämner konsulttjänster, ev. långsammare bildbyte, mindre luft mot nästa sektion (båda har `padding: 5rem 0`). → granskning
-- [ ] SV/EN-glidning på startsidan: «Tre sätt att avlasta ert team» ≠ «Three ways to reduce risk». → granskning
 - [ ] Paketering, capability-listan: ge den en rubrik; vänsterkolumnen ska inte radbryta (`minmax(8rem, 0.4fr)`). → granskning
 - [ ] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn — plats för bild. → granskning
 - [ ] Kunskapsbank: «sagade wafer» → sågade; SV-titel «WAFER» vs EN «Wafer»; byt sida på bild/text under Mikrostrukturer; lägg till MEMS-bild (saknas i `static/mandalon`). → granskning
@@ -63,3 +60,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Kontaktsidan är mer standard: uppgifter först, lika personkort (bild över namn), «Teknisk säljare», besöksrad under kartan. Nya foton saknas fortfarande. → granskning
 - [x] Header: Kunskapsbank och Designguide ligger i huvudmenyn (efter tjänsterna, före Om Mandalon). Footer följer samma ordning plus integritetspolicy. → granskning
 - [x] Text har bakgrund via Surface (PageHeader, lösa textblock, FAQ-/karusellrubriker, startsidans säljsektion, designguide, footer). Motherboard-bilden syns bara i luckorna mellan paneler.
+- [x] Startsida, copy: kortare hero (svenska i två meningar) och säljtext som löptext under en kort rubrik. → granskning
+- [x] Karusell: ingress likt konsultsidan, rubrik som nämner konsulttjänster, långsammare bildbyte (8 s), mindre luft mot säljsektionen. → granskning
+- [x] SV/EN-glidning på startsidan: processrubriken betyder samma sak i båda språken («avlasta ert team» / «lighten the load on your team»). → granskning
