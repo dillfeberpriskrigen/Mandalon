@@ -73,7 +73,7 @@ type ChipSensorsAreaBase = {
 
 export type ChipSensorsAreas = {
 	prototypes: ChipSensorsAreaBase & { paragraphs: [string, string, string] };
-	wireBonding: ChipSensorsAreaBase & { paragraphs: [string] };
+	wireBonding: ChipSensorsAreaBase & { paragraphs: [string, string] };
 	assembly: ChipSensorsAreaBase & { paragraphs: [string, string] };
 	encapsulation: ChipSensorsAreaBase & { paragraphs: [string, string, string, string, string] };
 };
@@ -82,13 +82,21 @@ export type ChipSensorsPageContent = {
 	meta: Meta;
 	title: string;
 	lead: string;
+	introTitle: string;
 	intro: string[];
+	capabilitiesTitle: string;
 	capabilitiesPresentation: string;
 	capabilities: {
 		name: string;
 		description: string;
 	}[];
 	areas: ChipSensorsAreas;
+	contactCta: {
+		title: string;
+		text: string;
+		label: string;
+		page: PageKey;
+	};
 };
 
 export type ConsultingPageContent = {

@@ -4,10 +4,10 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 	sv: {
 		meta: {
 			title: 'Mandalon | Kontakt',
-			description: 'Kontaktuppgifter till Mandalon. Mejla eller ring oss om bonding, paketering eller prototyparbete — vi återkommer oftast samma vardag.'
+			description: 'Kontaktuppgifter till Mandalon. Mejla eller ring oss om bonding, paketering eller prototyparbete. Vi återkommer oftast samma vardag.'
 		},
 		title: 'Kontakt',
-		lead: 'Har ni frågor om bonding, paketering eller en ny prototyp? Mejla eller ring oss — vi återkommer oftast samma vardag.',
+		lead: 'Har ni frågor om bonding, paketering eller en ny prototyp? Mejla eller ring oss. Vi återkommer oftast samma vardag.',
 		emailLabel: 'E-post',
 		email: 'info@mandalon.se',
 		emailHref: 'mailto:info@mandalon.se',
@@ -54,10 +54,10 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 	en: {
 		meta: {
 			title: 'Mandalon | Contact',
-			description: 'Contact details for Mandalon. Email or call us about bonding, packaging or prototype work — we usually reply the same weekday.'
+			description: 'Contact details for Mandalon. Email or call us about bonding, packaging or prototype work. We usually reply the same weekday.'
 		},
 		title: 'Contact',
-		lead: 'Questions about bonding, packaging or a new prototype? Email or call us — we usually reply the same weekday.',
+		lead: 'Questions about bonding, packaging or a new prototype? Email or call us. We usually reply the same weekday.',
 		emailLabel: 'Email',
 		email: 'info@mandalon.se',
 		emailHref: 'mailto:info@mandalon.se',

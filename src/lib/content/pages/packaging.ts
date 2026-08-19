@@ -3,17 +3,20 @@ import type { ChipSensorsPageContent } from '../types';
 export const chipSensorsPage = {
 	sv: {
 		meta: {
-			title: 'Mandalon | Paketeringstjänster',
-			description: 'En översikt av hur Mandalon arbetar med chip, sensorer, MEMS, montering, bonding, kapsling och prototyper.'
+			title: 'Mandalon | Paketering av chip och trådbondning',
+			description:
+				'Advanced packaging i Linköping: trådbondning, die bonding, kapsling och prototyper. Guld- och aluminiumtråd, ball- och wedge-bonding för chip, sensorer och MEMS.'
 		},
 		title: 'Paketering av Chip',
-		lead: 'Chip och sensorer hanterar vi dagligen',
+		lead: 'I labbet utanför Linköping arbetar vi dagligen med chip, sensorer och MEMS, från första prototyp till kapsling och mindre serier. Vi tar oss an även det som andra bedömt som svårt att bonda.',
+		introTitle: 'Problemlösning med känsliga strukturer',
 		intro: [
 			'En stor del av det vi på Mandalon sysslar med är problemlösning. Rätt ofta dyker det upp flexkort, MEMS och udda limmer som vi genom åren lärt oss hur vi effektivt arbetar med.',
 			'Vi är vana att hantera känsliga chip och prototyper som för andra kan upplevas omöjliga att arbeta med. Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem och gör vårt yttersta för att få till en fungerande lösning till din produkt.'
 		],
+		capabilitiesTitle: 'Bondning och kapacitet i labbet',
 		capabilitiesPresentation:
-			'Listan nedan visar det som vi är mest vana att hantera gällande bondning. Kontakta oss ifall du har frågor eller behöver någonting som inte listas, listan är inte heltäckande.',
+			'Listan visar det vi är mest vana att hantera kring trådbondning och die bonding. Den är inte heltäckande, så hör av er om ni behöver något som saknas.',
 		capabilities: [
 			{ name: 'Guldtråd', description: '25µm, 17µm' },
 			{ name: 'Aluminiumtråd', description: '25µm, 17µm' },
@@ -50,13 +53,14 @@ export const chipSensorsPage = {
 				title: 'Trådbondning & paketering',
 				subtitle: 'Ett chip behöver kontakteras och skyddas',
 				paragraphs: [
-					'Trådbondning  är en beprövad metod för kontaktering och är den metod som Mandalon använder. Vi har tillgång till bondmaskiner för ball- respektive wedgebondning, manuella maskiner samt helautomatiska.'
+					'Trådbondning är en beprövad metod för kontaktering och är den metod som Mandalon använder. Vi har tillgång till bondmaskiner för ball- respektive wedgebondning, manuella maskiner samt helautomatiska.',
+					'Vilken metod som passar beror på chip, pad-layout och hur kretsen ska skyddas efteråt. Vi hjälper till att välja upplägg så att kontakteringen håller både för verifiering och nästa steg.'
 				],
 				image: { src: '/mandalon/chip-wirebonding.webp', alt: 'Bondmaskin, mikroskop och work holder', width: 768, height: 1024 }
 			},
 			assembly: {
 				title: 'Mikroelektronik-montering',
-				subtitle: '',
+				subtitle: 'Chipet på rätt plats och rätt kontakterat',
 				paragraphs: [
 					'Området mikroelektronikmontering handlar enkelt uttryckt om hur man sätter ett chip på rätt plats och kontakterar detsamma.',
 					'Den långa varianten berör prestanda på färdig krets, producerbarhet, materialval, metodval, ekonomi, arbetsmiljö, tidsplanering, geometriaspekter med mera och vi sitter sällan i någon box när vi löser kundens problem.'
@@ -75,21 +79,30 @@ export const chipSensorsPage = {
 				],
 				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'Ett urval av normala TO metallkapslar', width: 768, height: 573 }
 			}
+		},
+		contactCta: {
+			title: 'Osäker på metod, kapsel eller bondbarhet?',
+			text: 'Hör av er så går vi igenom trådbondning, die bonding, montering och skydd utifrån just ert chip.',
+			label: 'Kontakta oss',
+			page: 'contact'
 		}
 	},
 	en: {
 		meta: {
-			title: 'Mandalon | Chip Packaging Services',
-			description: 'An overview of how Mandalon works with chips, sensors, MEMS, assembly, bonding, packaging and prototypes.'
+			title: 'Mandalon | Chip Packaging and Wire Bonding',
+			description:
+				'Advanced packaging in Linköping: wire bonding, die bonding, encapsulation and prototypes. Gold and aluminium wire, ball and wedge bonding for chips, sensors and MEMS.'
 		},
-		title: 'Chip Packaging Services',
-		lead: 'We handle chips and sensors on a daily basis',
+		title: 'Chip Packaging',
+		lead: 'In our lab outside Linköping we work daily with chips, sensors and MEMS, from first prototype to encapsulation and small series. We also take on work others have judged too difficult to bond.',
+		introTitle: 'Problem-solving with sensitive structures',
 		intro: [
 			'A large part of what we do at Mandalon is problem-solving. We often encounter flex PCBs, MEMS, and unusual adhesives that we have learned to work with efficiently over the years.',
 			'We are used to handling sensitive chips and prototypes that others may find impossible to work with. Did you forget to open the passivation layer for an important pad? We have saved many chips with issues and do our utmost to achieve a working solution for your product.'
 		],
+		capabilitiesTitle: 'Bonding capabilities in the lab',
 		capabilitiesPresentation:
-			'The list below shows what we are most experienced with regarding bonding. Contact us if you have questions or need something not listed, the list is not exhaustive.',
+			'The list shows what we are most experienced with in wire bonding and die bonding. It is not exhaustive, so get in touch if you need something that is not listed.',
 		capabilities: [
 			{ name: 'Gold wire', description: '25µm, 17µm' },
 			{ name: 'Aluminum wire', description: '25µm, 17µm' },
@@ -130,13 +143,14 @@ export const chipSensorsPage = {
 				title: 'Wire bonding & packaging',
 				subtitle: 'A chip needs interconnects and protection',
 				paragraphs: [
-					'Interconnecting chips and other structures can be done in several ways. Wire bonding has been used for a long time and is the method Mandalon works with. We have access to machines for both ball and wedge bonding, manual systems and fully automatic ones.'
+					'Interconnecting chips and other structures can be done in several ways. Wire bonding has been used for a long time and is the method Mandalon works with. We have access to machines for both ball and wedge bonding, manual systems and fully automatic ones.',
+					'Which method fits depends on the chip, pad layout and how the circuit should be protected afterwards. We help choose an approach so the interconnects hold both for verification and for the next step.'
 				],
 				image: { src: '/mandalon/chip-wirebonding.webp', alt: 'Wire bonding machine, microscope and work holder', width: 768, height: 1024 }
 			},
 			assembly: {
 				title: 'Microelectronics assembly',
-				subtitle: '',
+				subtitle: 'Getting the chip in place and connected',
 				paragraphs: [
 					'Microelectronics assembly is, simply put, about how a chip is positioned correctly and connected in the right way.',
 					'The longer version touches finished-circuit performance, manufacturability, materials, method choices, economics, work environment, timing and geometry. Mandalon rarely works inside a box when solving a customer problem.'
@@ -155,6 +169,12 @@ export const chipSensorsPage = {
 				],
 				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'A selection of common TO metal packages', width: 768, height: 573 }
 			}
+		},
+		contactCta: {
+			title: 'Unsure about method, package or bondability?',
+			text: 'Get in touch and we will go through wire bonding, die bonding, assembly and protection for your specific chip.',
+			label: 'Contact us',
+			page: 'contact'
 		}
 	}
 } satisfies Record<'sv' | 'en', ChipSensorsPageContent>;

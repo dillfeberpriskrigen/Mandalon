@@ -18,6 +18,12 @@ B2B website for Mandalon — chip packaging, wire bonding, and consulting.
 - **Who:** CEO, R&D leads, CTO, project managers
 - **What they need:** proof of expertise, practical capability info, easy contact, emergency help with wire bonding
 - **Tone:** Professional, practical, experience-based, clarity over hype
+- **No em dash (`—`)** in user-facing copy. It reads as generated. Rewrite with a period, comma, colon, or parentheses. Do not "upgrade" hyphens or commas to em dashes. En dash (`–`) in existing source titles (design guide) may stay.
+
+```
+Mejla eller ring oss — vi återkommer oftast samma vardag.   ← no
+Mejla eller ring oss. Vi återkommer oftast samma vardag.     ← yes
+```
 
 ## Design principles
 

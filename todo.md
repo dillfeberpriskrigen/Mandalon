@@ -8,7 +8,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 - [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras? → ej schemalagd. Granskningen bekräftar mönstret (§2.4): komponenterna äger ingen yttre marginal, så anroparen måste sätta den. Ett medvetet val vore att låta sektionskomponenter äga sitt eget vertikala avstånd. Värt en egen liten uppgift senare.
 - [ ] Publik (granskning): vet kunden redan vad bondning är och varför det är viktigt, eller ska sajten förklara det? Vad är viktigast att en kund tar med sig — en tydlig bild av erbjudandet, eller något annat?
-- [ ] Paketering-lead vs startsidans underrubriker (granskning): innersidor delar `PageHeader`; startsidan har en egen hero. Behöver paketering ändras, eller är innersidorna konsekventa nog?
 
 ## High
 
@@ -20,7 +19,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 - [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
 - [ ] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. → granskning
-- [ ] Paketering, capability-listan: ge den en rubrik; vänsterkolumnen ska inte radbryta (`minmax(8rem, 0.4fr)`). → granskning
 - [ ] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn — plats för bild. → granskning
 - [ ] Kunskapsbank: «sagade wafer» → sågade; SV-titel «WAFER» vs EN «Wafer»; byt sida på bild/text under Mikrostrukturer; lägg till MEMS-bild (saknas i `static/mandalon`). → granskning
 - [ ] Språkpass senare (medvetet uppskjutet av granskaren): anglicismer (t.ex. «Fånga riskerna tidigt»), tilltal (er / du / kundens) ska jämkas. Gäller startsida, paketering och konsult. → granskning
@@ -65,3 +63,5 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Startsida, copy: kortare hero (svenska i två meningar) och säljtext som löptext under en kort rubrik. → granskning
 - [x] Karusell: ingress likt konsultsidan, rubrik som nämner konsulttjänster, långsammare bildbyte (8 s), mindre luft mot säljsektionen. → granskning
 - [x] SV/EN-glidning på startsidan: processrubriken betyder samma sak i båda språken («avlasta ert team» / «lighten the load on your team»). → granskning
+- [x] Paketering-lead vs startsidans underrubriker: innersidor behåller `PageHeader`; paketering fick en längre lead i samma mönster som konsultsidan. → granskning
+- [x] Paketering, capability-listan: rubrik i en Surface; vänsterkolumnen radbryter inte (`minmax(8rem, max-content)` + `nowrap`). → granskning

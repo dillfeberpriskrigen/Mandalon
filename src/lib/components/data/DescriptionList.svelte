@@ -13,9 +13,7 @@
 
 <dl class="description-list">
 	{#each items as item (item.term)}
-		<div class="description-list-row">
-			<dt>{item.term}</dt>
-			<dd>{item.description}</dd>
-		</div>
+		<dt>{item.term}</dt>
+		<dd>{item.description}</dd>
 	{/each}
 </dl>

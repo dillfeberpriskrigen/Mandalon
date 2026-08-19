@@ -36,7 +36,7 @@ npm run format   # Perform formatting, prettier + svelte
 
 ## Conventions
 
-- **Content:** User-facing text lives in `src/lib/content/` — pages consume it as `data.content`; components receive content via props (never hardcoded). Shared English-only bodies (e.g. design guide article) may live in a dedicated module under `pages/`
+- **Content:** User-facing text lives in `src/lib/content/` — pages consume it as `data.content`; components receive content via props (never hardcoded). Shared English-only bodies (e.g. design guide article) may live in a dedicated module under `pages/`. No em dash (`—`) in that copy; see `product-design.mdc`.
 - **Code comments:** Swedish or English
 - **Reference page:** `(site)/[[lang=locale]]/packaging/+page.svelte` — canonical example of page structure
 - **Before done:** After any code change, run `npm run format`, then `npm run check`, then `npm run lint`. Do not consider the task done until all three pass. If the change touches routing, loaders, layouts, hooks, prerendering, or the document head, also run `npm run build` and `npm run check:build`.
