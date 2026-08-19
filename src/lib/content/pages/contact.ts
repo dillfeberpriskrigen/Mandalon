@@ -4,14 +4,42 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 	sv: {
 		meta: {
 			title: 'Mandalon | Kontakt',
-			description: 'Kontaktuppgifter till Mandalon. Mejla eller ring oss om bonding, paketering eller prototyparbete. Vi återkommer oftast samma vardag.'
+			description:
+				'Kontaktuppgifter till Mandalon. Skicka ett meddelande, mejla eller ring oss om bonding, paketering eller prototyparbete. Vi återkommer oftast samma vardag.'
 		},
 		title: 'Kontakt',
-		lead: 'Har ni frågor om bonding, paketering eller en ny prototyp? Mejla eller ring oss. Vi återkommer oftast samma vardag.',
+		lead: 'Har ni frågor om bonding, paketering eller en ny prototyp? Skicka ett meddelande, mejla eller ring oss. Vi återkommer oftast samma vardag.',
+		emailTitle: 'Skicka ett mail',
+		emailIntro: 'Till den här adressen kommer det mycket skräppost. Använd därför hellre formuläret ovan.',
 		emailLabel: 'E-post',
 		email: 'info@mandalon.se',
 		emailHref: 'mailto:info@mandalon.se',
-		urgentNote: 'Behöver ni bonding med kort varsel? Ring Per-Erik.',
+		urgentNote: 'Är det brådskande? Ring någon av oss.',
+		form: {
+			title: 'Skicka ett meddelande',
+			intro: 'Berätta kort vad ni behöver hjälp med. Vi läser den här inkorgen separat från den publika info-adressen.',
+			nameLabel: 'Namn',
+			emailFieldLabel: 'E-post',
+			messageLabel: 'Meddelande',
+			submitLabel: 'Skicka',
+			sendingLabel: 'Skickar…',
+			successTitle: 'Ditt meddelande har skickats!',
+			success: 'Tack. Vi återkommer oftast samma vardag.',
+			successUrgent: 'Behöver du komma i kontakt med oss snarast? Ring någon av våra medarbetare nedan.',
+			sendFailed: 'Meddelandet kunde inte skickas. Försök igen eller mejla oss.',
+			rateLimited: 'För många meddelanden just nu. Vänta en stund och försök igen.',
+			leaveWarning: 'Meddelandet är inte skickat. Vill ni lämna sidan och förlora det ni skrivit?',
+			privacy: {
+				before: 'Vi använder uppgifterna för att kunna svara. Läs mer i ',
+				link: 'integritetspolicyn',
+				after: '.'
+			},
+			errors: {
+				name: 'Fyll i namn.',
+				email: 'Fyll i en giltig e-postadress.',
+				message: 'Fyll i ett meddelande.'
+			}
+		},
 		people: [
 			{
 				name: 'Per-Erik Fägerman',
@@ -54,14 +82,42 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 	en: {
 		meta: {
 			title: 'Mandalon | Contact',
-			description: 'Contact details for Mandalon. Email or call us about bonding, packaging or prototype work. We usually reply the same weekday.'
+			description:
+				'Contact details for Mandalon. Send a message, email or call us about bonding, packaging or prototype work. We usually reply the same weekday.'
 		},
 		title: 'Contact',
-		lead: 'Questions about bonding, packaging or a new prototype? Email or call us. We usually reply the same weekday.',
+		lead: 'Questions about bonding, packaging or a new prototype? Send a message, email or call us. We usually reply the same weekday.',
+		emailTitle: 'Send an email',
+		emailIntro: 'This address receives a lot of spam. Please use the form above instead.',
 		emailLabel: 'Email',
 		email: 'info@mandalon.se',
 		emailHref: 'mailto:info@mandalon.se',
-		urgentNote: 'Need bonding at short notice? Call Per-Erik.',
+		urgentNote: 'If it is urgent, call one of us.',
+		form: {
+			title: 'Send a message',
+			intro: 'Tell us briefly what you need help with. We read this inbox separately from the public info address.',
+			nameLabel: 'Name',
+			emailFieldLabel: 'Email',
+			messageLabel: 'Message',
+			submitLabel: 'Send',
+			sendingLabel: 'Sending…',
+			successTitle: 'Your message has been sent!',
+			success: 'Thank you. We usually reply the same weekday.',
+			successUrgent: 'Need to reach us right away? Call one of our colleagues below.',
+			sendFailed: 'The message could not be sent. Try again or email us.',
+			rateLimited: 'Too many messages right now. Wait a moment and try again.',
+			leaveWarning: 'Your message has not been sent. Do you want to leave this page and lose what you wrote?',
+			privacy: {
+				before: 'We use the details to reply. Read more in the ',
+				link: 'privacy policy',
+				after: '.'
+			},
+			errors: {
+				name: 'Please enter your name.',
+				email: 'Please enter a valid email address.',
+				message: 'Please enter a message.'
+			}
+		},
 		people: [
 			{
 				name: 'Per-Erik Fägerman',

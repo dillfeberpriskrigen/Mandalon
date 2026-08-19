@@ -33,7 +33,7 @@ jobs:
 
       - name: Create deployment package
         run: |
-          tar -czf app.tar.gz build package.json package-lock.json _passenger.cjs
+          tar -czf app.tar.gz build package.json package-lock.json _passenger.cjs .env.example scripts/ensure-env.mjs
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v7
@@ -66,18 +66,6 @@ jobs:
             exit 1
           fi
 
-      - name: Stop app
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cloudlinux-selector stop --json \
-              --interpreter nodejs \
-              --app-root "${{env.APP_ROOT}}"
-
       - name: Download artifact from build job
         uses: actions/download-artifact@v7
         with:
@@ -92,6 +80,31 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'app.tar.gz'
           target: '${{ env.APP_ROOT }}'
+
+      - name: Ensure env file
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd "${{env.APP_ROOT}}"
+            tar -xzf app.tar.gz .env.example scripts/ensure-env.mjs
+            source /home/${{ secrets.SSH_USER }}/nodevenv/${{env.APP_ROOT}}/${{env.SERVER_NODE_VERSION}}/bin/activate || true
+            node scripts/ensure-env.mjs
+
+      - name: Stop app
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cloudlinux-selector stop --json \
+              --interpreter nodejs \
+              --app-root "${{env.APP_ROOT}}"
 
       - name: Install + start app
         uses: appleboy/ssh-action@v1
@@ -121,18 +134,6 @@ jobs:
     needs: build
 
     steps:
-      - name: Stop app
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST_MAIN }}
-          port: ${{ secrets.SSH_PORT_MAIN }}
-          username: ${{ secrets.SSH_USER_MAIN }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
-          script: |
-            cloudlinux-selector stop --json \
-              --interpreter nodejs \
-              --app-root "${{ secrets.APP_ROOT_MAIN }}"
-
       - name: Download artifact from build job
         uses: actions/download-artifact@v7
         with:
@@ -147,6 +148,31 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
           source: 'app.tar.gz'
           target: '${{ secrets.APP_ROOT_MAIN }}'
+
+      - name: Ensure env file
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST_MAIN }}
+          port: ${{ secrets.SSH_PORT_MAIN }}
+          username: ${{ secrets.SSH_USER_MAIN }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
+          script: |
+            cd "${{secrets.APP_ROOT_MAIN}}"
+            tar -xzf app.tar.gz .env.example scripts/ensure-env.mjs
+            source /home/${{ secrets.SSH_USER_MAIN }}/nodevenv/${{secrets.APP_ROOT_MAIN}}/${{env.SERVER_NODE_VERSION}}/bin/activate || true
+            node scripts/ensure-env.mjs
+
+      - name: Stop app
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST_MAIN }}
+          port: ${{ secrets.SSH_PORT_MAIN }}
+          username: ${{ secrets.SSH_USER_MAIN }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_MAIN }}
+          script: |
+            cloudlinux-selector stop --json \
+              --interpreter nodejs \
+              --app-root "${{ secrets.APP_ROOT_MAIN }}"
 
       - name: Install + start app
         uses: appleboy/ssh-action@v1

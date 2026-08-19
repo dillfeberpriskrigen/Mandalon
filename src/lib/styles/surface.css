@@ -21,6 +21,10 @@
 	--surface-background: var(--color-warning);
 }
 
+.surface-success {
+	--surface-background: var(--color-success);
+}
+
 /* Radius */
 
 .surface-radius-none {

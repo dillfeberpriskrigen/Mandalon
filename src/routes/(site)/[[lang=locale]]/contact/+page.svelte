@@ -5,13 +5,16 @@
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Image from '$lib/components/media/Image.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
+	import ContactFormSection from '$lib/components/sections/ContactFormSection.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import { hrefFor } from '$lib/routes';
 	import { on } from 'svelte/events';
-	import type { PageData } from './$types';
+	import type { ActionData, PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
+	let { data, form }: { data: PageData; form: ActionData } = $props();
+	const privacyHref = $derived(hrefFor('privacy', data.locale));
 	let mapActive = $state(false);
 	const latitude = 58.448268;
 	const longitude = 15.826769;
@@ -28,16 +31,10 @@
 <PageShell>
 	<PageHeader title={data.content.contactPage.title} lead={data.content.contactPage.lead} />
 
-	<div class="inbox">
-		<Surface as="section" radius="large" padding="large">
+	<div class="form-panel">
+		<Surface as="section" radius="large" padding="large" shadow="medium" variant={form?.success ? 'success' : 'default'}>
 			<PageContent>
-				<div class="inbox-copy">
-					<div class="email-fact">
-						<Text variant="label">{data.content.contactPage.emailLabel}</Text>
-						<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
-					</div>
-					<Text as="p">{data.content.contactPage.urgentNote}</Text>
-				</div>
+				<ContactFormSection copy={data.content.contactPage.form} {privacyHref} {form} />
 			</PageContent>
 		</Surface>
 	</div>
@@ -69,10 +66,22 @@
 		{/each}
 	</div>
 
-	<section class="location">
-		<Surface radius="large" padding="large">
-			<PageContent>
-				<div class="location-copy">
+	<div class="surface-grid details">
+		<Surface as="section" radius="large" padding="large" shadow="medium">
+			<div class="panel-copy">
+				<Heading as="h2">{data.content.contactPage.emailTitle}</Heading>
+				<Text as="p">{data.content.contactPage.emailIntro}</Text>
+				<div class="email-fact">
+					<Text variant="label">{data.content.contactPage.emailLabel}</Text>
+					<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
+				</div>
+				<Text as="p">{data.content.contactPage.urgentNote}</Text>
+			</div>
+		</Surface>
+
+		<div class="visit-panel">
+			<Surface as="section" radius="large" padding="large" shadow="medium">
+				<div class="panel-copy">
 					<Heading as="h2">{data.content.contactPage.locationTitle}</Heading>
 					<address class="postal-address">
 						<Text as="div" weight="bold">{data.content.contactPage.address.company}</Text>
@@ -82,43 +91,42 @@
 							<Text as="div">{data.content.contactPage.address.country}</Text>
 						{/if}
 					</address>
-					<div class="org-number">
-						<Text variant="label">{data.content.contactPage.orgNumberLabel}</Text>
-						<Text as="div">{data.content.contactPage.orgNumber}</Text>
-					</div>
-					<div class="visit-note">
-						<Text as="p">{data.content.contactPage.visitNote}</Text>
-					</div>
+					<Text as="div">{data.content.contactPage.orgNumberLabel} {data.content.contactPage.orgNumber}</Text>
+					<Text as="p">{data.content.contactPage.visitNote}</Text>
 				</div>
-			</PageContent>
-		</Surface>
-
-		<div class={['map-wrap', mapActive && 'is-active']} {@attach disableMapOnLeave}>
-			<iframe title={data.content.contactPage.mapTitle} src={mapEmbedUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>
-			{#if !mapActive}
-				<button type="button" class="map-enable" onclick={() => (mapActive = true)}>
-					<span class="map-enable-label">{data.content.contactPage.mapEnableLabel}</span>
-				</button>
-			{/if}
+			</Surface>
 		</div>
-	</section>
+	</div>
+
+	<div class={['map-wrap', mapActive && 'is-active']} {@attach disableMapOnLeave}>
+		<iframe title={data.content.contactPage.mapTitle} src={mapEmbedUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>
+		{#if !mapActive}
+			<button type="button" class="map-enable" onclick={() => (mapActive = true)}>
+				<span class="map-enable-label">{data.content.contactPage.mapEnableLabel}</span>
+			</button>
+		{/if}
+	</div>
 </PageShell>
 
 <style>
-	.inbox {
+	.form-panel {
 		margin-top: var(--space-medium);
 	}
 
-	.inbox-copy {
+	.form-panel :global(.surface-default) {
+		background: var(--content-background);
+	}
+
+	.panel-copy {
 		display: grid;
 		gap: var(--space-medium);
 	}
 
-	.email-fact,
-	.org-number {
-		display: grid;
+	.email-fact {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
 		gap: var(--space-small);
-		justify-items: start;
 	}
 
 	.people {
@@ -130,7 +138,8 @@
 		margin-top: var(--space-large);
 	}
 
-	.people :global(.surface) {
+	.people :global(.surface),
+	.details :global(.surface) {
 		background: var(--content-background);
 		height: 100%;
 		box-sizing: border-box;
@@ -182,15 +191,18 @@
 		}
 	}
 
-	.location {
-		display: grid;
-		gap: var(--space-medium);
+	.details {
 		margin-top: var(--space-large);
 	}
 
-	.location-copy {
-		display: grid;
-		gap: var(--space-small);
+	.visit-panel {
+		height: 100%;
+	}
+
+	@media (min-width: 781px) {
+		.visit-panel {
+			order: -1;
+		}
 	}
 
 	.postal-address {
@@ -198,12 +210,9 @@
 		font-style: normal;
 	}
 
-	.visit-note {
-		margin-top: var(--space-small);
-	}
-
 	.map-wrap {
 		position: relative;
+		margin-top: var(--space-medium);
 	}
 
 	.map-wrap iframe {

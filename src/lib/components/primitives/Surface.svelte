@@ -1,5 +1,5 @@
 <script lang="ts">
-	type Variant = 'default' | 'muted' | 'accent' | 'warning';
+	type Variant = 'default' | 'muted' | 'accent' | 'warning' | 'success';
 	type Radius = 'none' | 'small' | 'medium' | 'large';
 	type Padding = 'none' | 'small' | 'medium' | 'large';
 	type Shadow = 'none' | 'small' | 'medium';

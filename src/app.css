@@ -5,6 +5,7 @@
 @import './lib/styles/layout.css';
 @import './lib/styles/table.css';
 @import './lib/styles/button.css';
+@import './lib/styles/form.css';
 
 /* Global variables */
 :root {
@@ -29,6 +30,7 @@
 	--accent: #f0b437;
 	--accent-deep: #d09212;
 	--line: rgba(16, 35, 28, 0.1);
+	--line-strong: color-mix(in srgb, var(--ink) 55%, white);
 	--content-background: rgb(255, 255, 255);
 
 	--radius-small: 0.25rem;
@@ -60,6 +62,8 @@
 
 	/* Variables created along with Surface component */
 	--color-warning: #fff4d6;
+	--color-success: #dceee1;
+	--color-danger: #8b1e1e;
 
 	--link: var(--ink);
 	--link-hover-bg: color-mix(in srgb, var(--accent) 40%, transparent);

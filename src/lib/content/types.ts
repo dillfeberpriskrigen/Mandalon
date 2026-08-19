@@ -183,14 +183,43 @@ export type ContactAddress = {
 	country?: string;
 };
 
+export type ContactFormContent = {
+	title: string;
+	intro: string;
+	nameLabel: string;
+	emailFieldLabel: string;
+	messageLabel: string;
+	submitLabel: string;
+	sendingLabel: string;
+	successTitle: string;
+	success: string;
+	successUrgent: string;
+	sendFailed: string;
+	rateLimited: string;
+	leaveWarning: string;
+	privacy: {
+		before: string;
+		link: string;
+		after: string;
+	};
+	errors: {
+		name: string;
+		email: string;
+		message: string;
+	};
+};
+
 export type ContactPageContent = {
 	meta: Meta;
 	title: string;
 	lead: string;
+	emailTitle: string;
+	emailIntro: string;
 	emailLabel: string;
 	email: string;
 	emailHref: string;
 	urgentNote: string;
+	form: ContactFormContent;
 	people: ContactPerson[];
 	address: ContactAddress;
 	orgNumberLabel: string;
@@ -200,6 +229,22 @@ export type ContactPageContent = {
 	mapTitle: string;
 	mapEnableLabel: string;
 };
+
+export type ContactFormActionData = {
+	success?: boolean;
+	sendFailed?: boolean;
+	rateLimited?: boolean;
+	values?: {
+		name: string;
+		email: string;
+		message: string;
+	};
+	errors?: {
+		name?: string;
+		email?: string;
+		message?: string;
+	};
+} | null;
 
 export const glossarySectionOrder = ['asic', 'mems', 'wafer', 'sensors', 'microstructures'] as const;
 

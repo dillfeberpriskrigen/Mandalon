@@ -4,13 +4,13 @@ import path from 'node:path';
 /**
  * Expected prerendered pages (URL paths).
  * Update this list when a task adds, removes, or renames public URLs.
+ * `/contact` and `/en/contact` are SSR (form action) and are not prerendered.
  */
 const EXPECTED_PAGES = [
 	// Canonical Swedish (English slugs, no prefix)
 	'/',
 	'/packaging',
 	'/consulting',
-	'/contact',
 	'/about',
 	'/knowledge-bank',
 	'/design-guide',
@@ -19,7 +19,6 @@ const EXPECTED_PAGES = [
 	'/en',
 	'/en/packaging',
 	'/en/consulting',
-	'/en/contact',
 	'/en/about',
 	'/en/knowledge-bank',
 	'/en/design-guide',

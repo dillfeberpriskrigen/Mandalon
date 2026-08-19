@@ -45,7 +45,31 @@
 				<Button href="https://mandalon.se" variant="secondary">Secondary link</Button>
 				<Button type="button" variant="primary">Primary button</Button>
 				<Button type="button" variant="secondary">Secondary button</Button>
+				<Button type="button" variant="primary" disabled>Disabled button</Button>
 			</div>
+		</Surface>
+	</section>
+
+	<section class="lab-block">
+		<Surface radius="large" padding="large">
+			<Heading as="h2">Form fields</Heading>
+			<form class="form form-stack">
+				<div class="form-field">
+					<label for="demo-name"><Text variant="label">Name</Text></label>
+					<input id="demo-name" class="form-input" type="text" value="Example name" />
+				</div>
+				<div class="form-field">
+					<label for="demo-message"><Text variant="label">Message</Text></label>
+					<textarea id="demo-message" class="form-textarea">Example message for the field treatment.</textarea>
+				</div>
+				<div class="form-field">
+					<label for="demo-error"><Text variant="label">With error</Text></label>
+					<input id="demo-error" class="form-input" type="email" value="not-an-email" aria-invalid="true" aria-describedby="demo-error-text" />
+					<Text as="p" variant="caption">
+						<span id="demo-error-text" class="form-error">Please enter a valid email address.</span>
+					</Text>
+				</div>
+			</form>
 		</Surface>
 	</section>
 
@@ -123,6 +147,11 @@
 				<Surface variant="warning" radius="large" padding="medium" shadow="medium">
 					<Text variant="lead" weight="bold">warning / large / medium + shadow</Text>
 					<Text as="p">Warning fill with medium shadow.</Text>
+				</Surface>
+
+				<Surface variant="success" radius="large" padding="large" shadow="medium">
+					<Text variant="lead" weight="bold">success / large / large + shadow</Text>
+					<Text as="p">Success fill using --color-success.</Text>
 				</Surface>
 			</div>
 		</Surface>

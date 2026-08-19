@@ -31,8 +31,11 @@ The build uses `@sveltejs/adapter-node` and writes a Node server under `build/`.
 GitHub Actions workflow: `.github/workflows/inleed-node-multi.yml`.
 
 1. CI (`NODE_VERSION=24`) runs `npm ci` and `npm run build`.
-2. The artifact is `build/`, `package.json`, `package-lock.json`, and `_passenger.cjs`.
-3. On the server (`SERVER_NODE_VERSION=18`), the app is unpacked, `npm install --omit=dev` runs in the Node 18 venv, and Passenger starts the app via `_passenger.cjs`.
+2. The artifact is `build/`, `package.json`, `package-lock.json`, `_passenger.cjs`, `.env.example`, and `scripts/ensure-env.mjs`.
+3. On the server, `scripts/ensure-env.mjs` runs **before** the app is stopped: it copies `.env.example` to `.env` if needed, appends missing keys, and fails if `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS`, or `CONTACT_TO` are empty. The running site stays up if that check fails.
+4. Then the app is stopped, unpacked (`SERVER_NODE_VERSION=18`), `npm install --omit=dev` runs in the Node 18 venv, and Passenger starts via `_passenger.cjs` (which loads `.env` next to the wrapper, outside `build/`).
+
+Copy `.env.example` to `.env` for local `npm run dev`. Vite loads it automatically. Do not commit `.env`. On the server the file lives beside `_passenger.cjs` so it survives `rm -rf build`.
 
 Pushes to `develop` / `test1` / `test2` deploy to the matching secrets; `main` deploys to production.
 

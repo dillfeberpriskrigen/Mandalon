@@ -2,7 +2,7 @@ import type { PrivacyPageContent } from '../types';
 
 /** Shared Swedish policy body — there is no English source copy. */
 const privacyPolicyBody = {
-	documentMeta: ['Fastställd av: Styrelsen', 'Datum: 2018-05-15', 'Senaste revision: 2022-04-02', 'Policyn uppdateras vid behov av Styrelsen eller vd'],
+	documentMeta: ['Senaste revision: 2026-08-19'],
 	sections: [
 		{
 			title: 'Hur vi behandlar dina personuppgifter:',
@@ -14,7 +14,7 @@ const privacyPolicyBody = {
 		{
 			title: 'Personuppgifter som vi hanterar:',
 			paragraphs: [
-				'De uppgifter vi hanterar får vi genom direkta kontakter med kunder, samarbetspartner, leverantörer, konsulter och övriga. Vi hanterar i dagsläget inga konsumentkontakter.',
+				'De uppgifter vi hanterar får vi genom direkta kontakter med kunder, samarbetspartner, leverantörer, konsulter och övriga, inklusive meddelanden via kontaktformuläret på hemsidan. Vi hanterar i dagsläget inga konsumentkontakter.',
 				'Vi uppdaterar inga uppgifter automatiskt mha personnummer eller dylikt utan all uppdatering sker via direktkontakt med berörd person och vid behov.',
 				'För att kunna ha tillgång till historik vad gäller teknikval och liknande frågeställningar kommer emailkorrespondens att kunna sparas i upp till tio år. Denna emailkorrespondens kommer att se ut och vara strukturerad enligt den äldre personuppgiftslagen, PUL vad gäller ostrukturerad datalagring.'
 			]
@@ -29,7 +29,10 @@ const privacyPolicyBody = {
 		},
 		{
 			title: 'Hemsida och cookies:',
-			paragraphs: ['Mandalons hemsida använder idag s.k. session cookies vilka försvinner när hemsidan stängs.']
+			paragraphs: [
+				'Mandalons hemsida använder idag s.k. session cookies vilka försvinner när hemsidan stängs.',
+				'Kontaktformuläret skickar namn, e-post och meddelande till oss som e-post. Vi lagrar inte inskicken i en separat databas på hemsidan.'
+			]
 		},
 		{
 			title: 'Rättigheter enligt GDPR:',

@@ -1,0 +1,45 @@
+/* Form controls — one treatment for text fields */
+
+.form {
+	position: relative;
+}
+
+.form-stack {
+	display: grid;
+	gap: var(--space-medium);
+}
+
+.form-field {
+	display: grid;
+	gap: var(--space-small);
+	justify-items: stretch;
+}
+
+.form-input,
+.form-textarea {
+	width: 100%;
+	padding: 0.7rem 0.85rem;
+	border: 2px solid var(--line-strong);
+	border-radius: var(--border-radius);
+	background: var(--bg-soft);
+	color: var(--ink);
+}
+
+.form-textarea {
+	min-height: 10rem;
+	resize: vertical;
+}
+
+.form-error {
+	color: var(--color-danger);
+}
+
+.form-honeypot {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

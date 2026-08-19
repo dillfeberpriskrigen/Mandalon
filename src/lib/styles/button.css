@@ -35,3 +35,8 @@
 .button-secondary:hover {
 	background: var(--bg-soft);
 }
+
+.button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
