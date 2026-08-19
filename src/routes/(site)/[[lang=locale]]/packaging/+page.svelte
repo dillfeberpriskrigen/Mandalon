@@ -5,10 +5,10 @@
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Image from '$lib/components/media/Image.svelte';
+	import Button from '$lib/components/primitives/Button.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
-	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import { chipSensorsAreaOrder } from '$lib/content/types';
 	import { hrefFor } from '$lib/routes';
@@ -31,29 +31,34 @@
 <PageShell>
 	<PageHeader title={page.title} lead={page.lead} />
 
-	<div class="intro">
+	<div class="surface-grid methods">
 		<Surface as="section" radius="large" padding="large">
-			<div class="split">
-				<div class="split-copy">
-					<div class="split-heading">
-						<Heading as="h2">{page.introTitle}</Heading>
-					</div>
-					<ParagraphArray paragraphs={page.intro} />
-				</div>
+			<div class="method-heading">
+				<Heading as="h2">{page.methods.dieBonding.title}</Heading>
 			</div>
+			<ParagraphArray paragraphs={page.methods.dieBonding.paragraphs} />
+		</Surface>
+
+		<Surface as="section" radius="large" padding="large">
+			<div class="method-heading">
+				<Heading as="h2">{page.methods.wireBonding.title}</Heading>
+			</div>
+			<ParagraphArray paragraphs={page.methods.wireBonding.paragraphs} />
+		</Surface>
+	</div>
+
+	<div class="contact-prompt">
+		<Surface as="section" radius="large" padding="large">
+			<Button href={hrefFor(page.contactPrompt.page, locale)}>{page.contactPrompt.label}</Button>
 		</Surface>
 	</div>
 
 	<div class="capabilities">
 		<Surface as="section" radius="large" padding="large">
-			<div class="split">
-				<div class="split-copy">
-					<div class="split-heading">
-						<Heading as="h2">{page.capabilitiesTitle}</Heading>
-					</div>
-					<Text as="p">{page.capabilitiesPresentation}</Text>
-				</div>
+			<div class="method-heading">
+				<Heading as="h2">{page.capabilitiesTitle}</Heading>
 			</div>
+			<Text as="p">{page.capabilitiesPresentation}</Text>
 			<DescriptionList items={capabilityItems} />
 		</Surface>
 	</div>
@@ -79,32 +84,32 @@
 					<Heading as="h2">{page.contactCta.title}</Heading>
 					<Text as="p">{page.contactCta.text}</Text>
 				</div>
-				<Link href={hrefFor(page.contactCta.page, locale)} weight="bold" nowrap>{page.contactCta.label}</Link>
+				<Button href={hrefFor(page.contactCta.page, locale)}>{page.contactCta.label}</Button>
 			</div>
 		</Surface>
 	</div>
 </PageShell>
 
 <style>
-	.intro {
+	.methods {
 		margin-top: 2.2rem;
+		align-items: stretch;
 	}
 
-	.capabilities,
+	.methods :global(.surface) {
+		height: 100%;
+		min-width: 0;
+	}
+
+	.method-heading {
+		margin-bottom: var(--space-medium);
+	}
+
 	.areas,
+	.capabilities,
+	.contact-prompt,
 	.contact-cta {
 		margin-top: 3rem;
-	}
-
-	.split {
-		display: grid;
-		grid-template-columns: minmax(14rem, 32rem) minmax(0, 1fr);
-		gap: var(--space-large);
-		align-items: start;
-	}
-
-	.split-heading {
-		margin-bottom: var(--space-medium);
 	}
 
 	.areas {
@@ -112,17 +117,17 @@
 		gap: 1.5rem;
 	}
 
+	.contact-prompt :global(.button) {
+		width: 100%;
+		white-space: normal;
+		text-wrap: balance;
+	}
+
 	.contact-cta-inner {
 		display: flex;
 		flex-wrap: wrap;
-		align-items: end;
+		align-items: center;
 		justify-content: space-between;
 		gap: 1rem 2rem;
-	}
-
-	@media (max-width: 780px) {
-		.split {
-			grid-template-columns: 1fr;
-		}
 	}
 </style>

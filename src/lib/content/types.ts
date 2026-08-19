@@ -82,8 +82,16 @@ export type ChipSensorsPageContent = {
 	meta: Meta;
 	title: string;
 	lead: string;
-	introTitle: string;
-	intro: string[];
+	methods: {
+		dieBonding: {
+			title: string;
+			paragraphs: [string, string, string];
+		};
+		wireBonding: {
+			title: string;
+			paragraphs: [string, string, string];
+		};
+	};
 	capabilitiesTitle: string;
 	capabilitiesPresentation: string;
 	capabilities: {
@@ -91,6 +99,10 @@ export type ChipSensorsPageContent = {
 		description: string;
 	}[];
 	areas: ChipSensorsAreas;
+	contactPrompt: {
+		label: string;
+		page: PageKey;
+	};
 	contactCta: {
 		title: string;
 		text: string;

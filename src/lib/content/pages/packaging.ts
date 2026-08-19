@@ -9,14 +9,26 @@ export const chipSensorsPage = {
 		},
 		title: 'Paketering av Chip',
 		lead: 'I labbet utanför Linköping arbetar vi dagligen med chip, sensorer och MEMS, från första prototyp till kapsling och mindre serier. Vi tar oss an även det som andra bedömt som svårt att bonda.',
-		introTitle: 'Problemlösning med känsliga strukturer',
-		intro: [
-			'En stor del av det vi på Mandalon sysslar med är problemlösning. Rätt ofta dyker det upp flexkort, MEMS och udda limmer som vi genom åren lärt oss hur vi effektivt arbetar med.',
-			'Vi är vana att hantera känsliga chip och prototyper som för andra kan upplevas omöjliga att arbeta med. Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem och gör vårt yttersta för att få till en fungerande lösning till din produkt.'
-		],
-		capabilitiesTitle: 'Bondning och kapacitet i labbet',
-		capabilitiesPresentation:
-			'Listan visar det vi är mest vana att hantera kring trådbondning och die bonding. Den är inte heltäckande, så hör av er om ni behöver något som saknas.',
+		methods: {
+			dieBonding: {
+				title: 'Mikromontering',
+				paragraphs: [
+					'Mikromontering (die bonding) är att sätta chipet på rätt plats med rätt lim innan det kan trådbondas. Vi die-bondar manuellt och är vana vid känsliga chip, MEMS och prototyper där passningen måste stämma från början.',
+					'Vanligt är att man monterar chip i kapsel eller på kretskort. Vi har en del open cavity kapslar i lager och en del lead frames. Kontakta oss för att se vad vi har inne för tillfället.',
+					'Vi har många limmer och kan blanda med precisionsvåg. Behöver ni ett specifikt lim tar vi hem det eller använder ert.'
+				]
+			},
+			wireBonding: {
+				title: 'Trådbondning',
+				paragraphs: [
+					'När chipet sitter ska det ha kontakt med omvärlden. Trådbondning är metoden vi arbetar med: ball och wedge, guld- och aluminiumtråd, manuellt och automatiskt.',
+					'Vi har tillgång till bondmaskiner för ball- och wedgebondning, både manuella och helautomatiska. Vilken metod som passar beror på chip, pad-layout och hur kretsen ska skyddas efteråt.',
+					'Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem. Även när fan-out ser ut som spaghetti kan vi oftast lösa det, det tar bara lite längre tid.'
+				]
+			}
+		},
+		capabilitiesTitle: 'Kapabilitet',
+		capabilitiesPresentation: 'Listan visar det vi är mest vana att hantera. Den är inte heltäckande, så hör av er om ni behöver något som saknas.',
 		capabilities: [
 			{ name: 'Guldtråd', description: '25µm, 17µm' },
 			{ name: 'Aluminiumtråd', description: '25µm, 17µm' },
@@ -80,6 +92,10 @@ export const chipSensorsPage = {
 				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'Ett urval av normala TO metallkapslar', width: 768, height: 573 }
 			}
 		},
+		contactPrompt: {
+			label: 'Kontakta oss redan idag och diskutera ditt projekt!',
+			page: 'contact'
+		},
 		contactCta: {
 			title: 'Osäker på metod, kapsel eller bondbarhet?',
 			text: 'Hör av er så går vi igenom trådbondning, die bonding, montering och skydd utifrån just ert chip.',
@@ -95,14 +111,27 @@ export const chipSensorsPage = {
 		},
 		title: 'Chip Packaging',
 		lead: 'In our lab outside Linköping we work daily with chips, sensors and MEMS, from first prototype to encapsulation and small series. We also take on work others have judged too difficult to bond.',
-		introTitle: 'Problem-solving with sensitive structures',
-		intro: [
-			'A large part of what we do at Mandalon is problem-solving. We often encounter flex PCBs, MEMS, and unusual adhesives that we have learned to work with efficiently over the years.',
-			'We are used to handling sensitive chips and prototypes that others may find impossible to work with. Did you forget to open the passivation layer for an important pad? We have saved many chips with issues and do our utmost to achieve a working solution for your product.'
-		],
-		capabilitiesTitle: 'Bonding capabilities in the lab',
+		methods: {
+			dieBonding: {
+				title: 'Die bonding',
+				paragraphs: [
+					'Die bonding is placing the chip in the right position with the right adhesive before it can be wire bonded. We die-bond by hand and are used to sensitive chips, MEMS and prototypes where the placement has to be right from the start.',
+					'Chips are commonly mounted in a package or on a PCB. We keep some open-cavity packages and some lead frames in stock. Contact us to see what we currently have.',
+					'We keep a wide range of adhesives and can mix with a precision scale. If you need a specific adhesive we can source it or use yours.'
+				]
+			},
+			wireBonding: {
+				title: 'Wire bonding',
+				paragraphs: [
+					'Once the chip is in place it needs to talk to the outside world. Wire bonding is the method we work with: ball and wedge, gold and aluminium wire, manual and automatic.',
+					'We have machines for ball and wedge bonding, both manual and fully automatic. Which method fits depends on the chip, pad layout and how the circuit should be protected afterwards.',
+					'Did you forget to open the passivation layer for an important pad? We have saved many chips with issues. Even when the fan-out looks like spaghetti we can usually solve it, it just takes a bit longer.'
+				]
+			}
+		},
+		capabilitiesTitle: 'Capabilities',
 		capabilitiesPresentation:
-			'The list shows what we are most experienced with in wire bonding and die bonding. It is not exhaustive, so get in touch if you need something that is not listed.',
+			'The list shows what we are most experienced with. It is not exhaustive, so get in touch if you need something that is not listed.',
 		capabilities: [
 			{ name: 'Gold wire', description: '25µm, 17µm' },
 			{ name: 'Aluminum wire', description: '25µm, 17µm' },
@@ -169,6 +198,10 @@ export const chipSensorsPage = {
 				],
 				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'A selection of common TO metal packages', width: 768, height: 573 }
 			}
+		},
+		contactPrompt: {
+			label: 'Get in touch today and we can discuss your project!',
+			page: 'contact'
 		},
 		contactCta: {
 			title: 'Unsure about method, package or bondability?',
