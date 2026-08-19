@@ -3,6 +3,7 @@
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import type { Locale, LocaleContent } from '$lib/content/site';
+	import { aboutIsoSectionId } from '$lib/content/pages/about';
 	import { hrefFor } from '$lib/routes';
 
 	type FooterData = {
@@ -55,10 +56,10 @@
 			</ul>
 		</nav>
 
-		<div class="footer-cert">
-			<Text variant="caption">{data.content.footer.certificationLabel}</Text>
-			<img src="/mandalon/cert.svg" alt="" aria-hidden="true" />
-		</div>
+		<a class="footer-cert" href={hrefFor('about', data.locale, aboutIsoSectionId)}>
+			<img src="/mandalon/a3cert-iso-9001.webp" alt="" width="700" height="700" aria-hidden="true" />
+			<Text as="span" variant="caption">{data.content.footer.certificationLabel}</Text>
+		</a>
 	</div>
 	<div class="container footer-bottom">
 		<Text as="p" variant="caption">&copy; {year} Mandalon Technologies AB.</Text>
@@ -157,11 +158,26 @@
 		gap: var(--space-small);
 		text-align: right;
 		justify-self: end;
+		max-width: 10rem;
+		text-decoration: none;
+		color: inherit;
+		border-radius: var(--radius-small);
 	}
 
 	.footer-cert img {
-		width: 10rem;
+		width: 7.5rem;
 		height: auto;
+		border-radius: 50%;
+	}
+
+	.footer-cert :global(.text) {
+		text-wrap: balance;
+	}
+
+	.footer-cert:hover :global(.text),
+	.footer-cert:focus-visible :global(.text) {
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
 	}
 
 	.footer-bottom {

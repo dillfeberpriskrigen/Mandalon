@@ -139,11 +139,16 @@ export type AboutPageContent = {
 	lead: string;
 	introTitle: string;
 	intro: string[];
+	introImage: ContentImage;
 	storyTitle: string;
 	story: string;
 	certificationTitle: string;
 	certification: string;
 	certificationNote: string;
+	certificationPdf: {
+		href: string;
+		label: string;
+	};
 	referencesTitle: string;
 	referencesLead: string;
 	referencesHeading: string;
@@ -151,8 +156,13 @@ export type AboutPageContent = {
 	references: string[];
 	researchProjects: {
 		title: string;
-		href: string;
+		href?: string;
 	}[];
+	researchProfile: {
+		label: string;
+		href: string;
+	};
+	contactCta: ContactCtaContent;
 };
 
 export type ContactPerson = {

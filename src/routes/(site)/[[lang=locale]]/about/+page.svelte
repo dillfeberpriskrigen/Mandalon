@@ -1,89 +1,130 @@
 <script lang="ts">
-	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import Image from '$lib/components/media/Image.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
+	import ContactCtaSection from '$lib/components/sections/ContactCtaSection.svelte';
+	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
+	import { aboutIsoSectionId } from '$lib/content/pages/about';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+
+	const page = $derived(data.content.aboutPage);
+	const locale = $derived(data.locale);
 </script>
 
-<PageMeta meta={data.content.aboutPage.meta} pageKey="about" locale={data.locale} />
+<PageMeta meta={page.meta} pageKey="about" {locale} />
 
 <PageShell>
-	<PageHeader title={data.content.aboutPage.title} lead={data.content.aboutPage.lead} />
+	<PageHeader title={page.title} lead={page.lead} />
 
-	<div class="about-copy">
-		<Surface radius="large" padding="large">
-			<PageContent>
-				<section class="narrative">
-					<Heading as="h2">{data.content.aboutPage.introTitle}</Heading>
-					{#each data.content.aboutPage.intro as paragraph, i (i)}
-						<Text as="p">{paragraph}</Text>
-					{/each}
-				</section>
+	<MediaArticleSection title={page.introTitle} reverse={true}>
+		{#snippet content()}
+			<ParagraphArray paragraphs={page.intro} />
+		{/snippet}
+		{#snippet media()}
+			<Image src={page.introImage.src} alt={page.introImage.alt} width={page.introImage.width} height={page.introImage.height} priority />
+		{/snippet}
+	</MediaArticleSection>
 
-				<section class="story">
-					<Heading as="h2">{data.content.aboutPage.storyTitle}</Heading>
-					<Text as="p">{data.content.aboutPage.story}</Text>
-				</section>
-			</PageContent>
+	<div class="surface-grid story-row">
+		<Surface as="section" radius="large" padding="large" shadow="medium">
+			<div class="section-heading">
+				<Heading as="h2">{page.storyTitle}</Heading>
+			</div>
+			<Text as="p">{page.story}</Text>
 		</Surface>
+
+		<div class="certification" id={aboutIsoSectionId}>
+			<Surface as="section" radius="large" padding="large" shadow="medium">
+				<div class="section-heading">
+					<Heading as="h2">{page.certificationTitle}</Heading>
+				</div>
+				<Text as="p">{page.certification}</Text>
+				<div class="note">
+					<Text as="p" variant="caption">{page.certificationNote}</Text>
+				</div>
+				<div class="certificate-link">
+					<Link href={page.certificationPdf.href}>{page.certificationPdf.label}</Link>
+				</div>
+			</Surface>
+		</div>
 	</div>
 
-	<div class="surface-grid trust-panels">
-		<Surface as="section" radius="large" padding="large">
-			<Heading as="h2">{data.content.aboutPage.certificationTitle}</Heading>
-			<Text as="p">{data.content.aboutPage.certification}</Text>
-			<div class="note">
-				<Text as="p" variant="caption">{data.content.aboutPage.certificationNote}</Text>
+	<div class="references">
+		<Surface as="section" radius="large" padding="large" shadow="medium">
+			<div class="section-heading">
+				<Heading as="h2">{page.referencesTitle}</Heading>
 			</div>
-		</Surface>
-
-		<Surface as="section" radius="large" padding="large">
-			<Heading as="h2">{data.content.aboutPage.referencesTitle}</Heading>
-			<Text as="p">{data.content.aboutPage.referencesLead}</Text>
+			<Text as="p">{page.referencesLead}</Text>
 
 			<div class="lists">
 				<div>
-					<Heading as="h3">{data.content.aboutPage.referencesHeading}</Heading>
+					<Heading as="h3">{page.referencesHeading}</Heading>
 					<ul class="content-list">
-						{#each data.content.aboutPage.references as item, i (i)}
+						{#each page.references as item (item)}
 							<li>{item}</li>
 						{/each}
 					</ul>
 				</div>
 
 				<div>
-					<Heading as="h3">{data.content.aboutPage.researchProjectsHeading}</Heading>
+					<Heading as="h3">{page.researchProjectsHeading}</Heading>
 					<ul class="content-list">
-						{#each data.content.aboutPage.researchProjects as item (item.title)}
+						{#each page.researchProjects as item (item.title)}
 							<li>
-								<Link href={item.href}>{item.title}</Link>
+								{#if item.href}
+									<Link href={item.href}>{item.title}</Link>
+								{:else}
+									{item.title}
+								{/if}
 							</li>
 						{/each}
 					</ul>
+					<div class="research-profile">
+						<Link href={page.researchProfile.href}>{page.researchProfile.label}</Link>
+					</div>
 				</div>
 			</div>
 		</Surface>
 	</div>
+
+	<ContactCtaSection cta={page.contactCta} {locale} />
 </PageShell>
 
 <style>
-	.about-copy {
-		margin-top: 2rem;
+	.story-row {
+		margin-top: 1.5rem;
+		align-items: stretch;
 	}
 
-	.story {
-		margin-top: 2rem;
+	.story-row :global(.surface) {
+		height: 100%;
+		min-width: 0;
 	}
 
-	.trust-panels {
-		margin-top: var(--space-large);
+	.certification {
+		height: 100%;
+		min-width: 0;
+		scroll-margin-top: 7rem;
+	}
+
+	.certificate-link {
+		margin-top: var(--space-medium);
+	}
+
+	.references {
+		margin-top: 1.5rem;
+	}
+
+	.section-heading {
+		margin-bottom: var(--space-medium);
 	}
 
 	.note {
@@ -92,7 +133,18 @@
 
 	.lists {
 		display: grid;
-		gap: 1.2rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--space-large);
 		margin-top: 1rem;
+	}
+
+	.research-profile {
+		margin-top: var(--space-medium);
+	}
+
+	@media (max-width: 780px) {
+		.lists {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
