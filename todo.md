@@ -11,14 +11,11 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 ## High
 
-- [ ] SEO för nyckelord: Advanced Packaging, Wire Bonding, Trådbondning, Die Bonding. Se till att innehåll och eventuell meta-data är på topp.
 - [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer. → ej schemalagd, oberoende av roadmapen.
 
 ## Medium
 
 - [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
-- [ ] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. → granskning
-- [ ] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn — plats för bild. → granskning
 - [ ] Kunskapsbank: «sagade wafer» → sågade; SV-titel «WAFER» vs EN «Wafer»; byt sida på bild/text under Mikrostrukturer; lägg till MEMS-bild (saknas i `static/mandalon`). → granskning
 - [ ] Språkpass senare (medvetet uppskjutet av granskaren): anglicismer (t.ex. «Fånga riskerna tidigt»), tilltal (er / du / kundens) ska jämkas. Gäller startsida, paketering och konsult. → granskning
 
@@ -65,3 +62,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Paketering-lead vs startsidans underrubriker: innersidor behåller `PageHeader`; paketering fick en längre lead i samma mönster som konsultsidan. → granskning
 - [x] Paketering, capability-listan: rubrik i en Surface; vänsterkolumnen radbryter inte (`minmax(8rem, max-content)` + `nowrap`). → granskning
 - [x] Lägg till produktområde för elektronikingenjör: testsystem, schema och kretskortsdesign på projekt och tim-basis. Konsultsidan har «Elektronik & testsystem» med ECAD-layout, samma område i karusellen.
+- [x] SEO för nyckelord: Advanced Packaging, Wire Bonding, Trådbondning, Die Bonding. Start- och paketeringssidorna har termerna i title, description, H1 och ingress. Organization JSON-LD använder sidfotens logga.
+- [x] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. IMAPS-raden har ingen död länk; övriga DIVA-länkar är kvar. → granskning
+- [x] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn. Labbfoto (`labhuset.webp`) ligger i introt. → granskning
