@@ -39,6 +39,27 @@ Copy `.env.example` to `.env` for local `npm run dev`. Vite loads it automatical
 
 Pushes to `develop` / `test1` / `test2` deploy to the matching secrets; `main` deploys to production.
 
+### `cloudlinux-selector` (SSH)
+
+Inleed runs the app with CloudLinux Node Selector. After SSH login the shell starts in `/home/<user>/`. The Node files live at:
+
+```text
+/home/<user>/domains/<hostname>/node-root
+```
+
+`--app-root` is **relative to that home directory**, not an absolute path. It is the same value stored in the GitHub secrets `APP_ROOT_*` (and used for `cd`, SCP, and the Node venv under `~/nodevenv/<app-root>/18/`).
+
+```bash
+# Restart a running app (typical after a manual .env change)
+cloudlinux-selector restart --json --interpreter nodejs --app-root domains/<hostname>/node-root
+
+# Same flags as CI: stop, then start
+cloudlinux-selector stop --json --interpreter nodejs --app-root domains/<hostname>/node-root
+cloudlinux-selector start --json --interpreter nodejs --app-root domains/<hostname>/node-root
+```
+
+Example: if `pwd` is `/home/you/domains/test.example.se/node-root`, then `--app-root` is `domains/test.example.se/node-root`. Do not pass `/home/you/...` or only `node-root`.
+
 ## Adding images
 
 Content images live under `static/mandalon/` as **WebP**. Do not add new JPEG or PNG assets for page content.
