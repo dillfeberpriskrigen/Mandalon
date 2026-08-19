@@ -7,11 +7,11 @@ export const chipSensorsPage = {
 			description:
 				'Advanced packaging i Linköping: trådbondning, die bonding, kapsling och prototyper. Guld- och aluminiumtråd, ball- och wedge-bonding för chip, sensorer och MEMS.'
 		},
-		title: 'Paketering av Chip',
-		lead: 'I labbet utanför Linköping arbetar vi dagligen med chip, sensorer och MEMS, från första prototyp till kapsling och mindre serier. Vi tar oss an även det som andra bedömt som svårt att bonda.',
+		title: 'Paketering av chip och trådbondning',
+		lead: 'I labbet utanför Linköping arbetar vi dagligen med advanced packaging: trådbondning, die bonding, kapsling och prototyper för chip, sensorer och MEMS. Vi tar oss an även det som andra bedömt som svårt att bonda.',
 		methods: {
 			dieBonding: {
-				title: 'Mikromontering',
+				title: 'Mikromontering (die bonding)',
 				paragraphs: [
 					'Mikromontering (die bonding) är att sätta chipet på rätt plats med rätt lim innan det kan trådbondas. Vi die-bondar manuellt och är vana vid känsliga chip, MEMS och prototyper där passningen måste stämma från början.',
 					'Vanligt är att man monterar chip i kapsel eller på kretskort. Vi har en del open cavity kapslar i lager och en del lead frames. Kontakta oss för att se vad vi har inne för tillfället.',
@@ -109,8 +109,8 @@ export const chipSensorsPage = {
 			description:
 				'Advanced packaging in Linköping: wire bonding, die bonding, encapsulation and prototypes. Gold and aluminium wire, ball and wedge bonding for chips, sensors and MEMS.'
 		},
-		title: 'Chip Packaging',
-		lead: 'In our lab outside Linköping we work daily with chips, sensors and MEMS, from first prototype to encapsulation and small series. We also take on work others have judged too difficult to bond.',
+		title: 'Chip packaging and wire bonding',
+		lead: 'In our lab outside Linköping we work daily with advanced packaging: wire bonding, die bonding, encapsulation and prototypes for chips, sensors and MEMS. We also take on work others have judged too difficult to bond.',
 		methods: {
 			dieBonding: {
 				title: 'Die bonding',

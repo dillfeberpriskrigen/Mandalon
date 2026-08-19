@@ -3,9 +3,8 @@ import type { SharedContent } from '../types';
 export const shared = {
 	sv: {
 		meta: {
-			title: 'Mandalon | Chip Packaging - Från koncept till verklighet',
-			description:
-				'Mandalons långa erfarenhet av vitt skilda strukturer gör dem väl lämpade att ta hand om chipmontering, sensorer, MEMS-strukturer och ASIC:s.'
+			title: 'Mandalon | Trådbondning och paketering av chip',
+			description: 'Trådbondning, die bonding och advanced packaging i Linköping. Vi kapslar chip, sensorer, MEMS och ASIC:s från prototyp till mindre serier.'
 		},
 		languageSwitchLabel: 'Byt till engelska',
 		primaryLinks: [
@@ -37,9 +36,9 @@ export const shared = {
 	},
 	en: {
 		meta: {
-			title: 'Mandalon | Chip Packaging - From concept to reality',
+			title: 'Mandalon | Wire bonding and chip packaging',
 			description:
-				'Mandalon has long experience with a wide range of structures and is well equipped to handle chip packaging, sensors, MEMS structures and ASICs.'
+				'Wire bonding, die bonding and advanced packaging in Linköping, Sweden. We package chips, sensors, MEMS and ASICs from prototype to small series.'
 		},
 		languageSwitchLabel: 'Switch to Swedish',
 		primaryLinks: [
