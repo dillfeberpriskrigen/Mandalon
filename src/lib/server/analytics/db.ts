@@ -1,7 +1,8 @@
-import { mkdirSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
-import Database from 'better-sqlite3';
+import { existsSync, mkdirSync, readFileSync, renameSync, statSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import { dirname, join, resolve } from 'node:path';
 import mysql from 'mysql2/promise';
+import initSqlJs, { type Database as SqlJsDatabase, type SqlJsStatic } from 'sql.js';
 import { analyticsMysqlUrl, analyticsSqlitePath } from './env';
 import type { AnalyticsEventInput, AnalyticsSummary, CountRow, DayCountRow, RecentNotFound, RecentRedirect, RecentView, RedirectCountRow } from './types';
 
@@ -71,21 +72,78 @@ function emptySummary(): AnalyticsSummary {
 	};
 }
 
-function createSqliteDriver(): Driver {
-	const filePath = resolve(process.cwd(), analyticsSqlitePath());
+function sqliteFilePath(): string {
+	return resolve(process.cwd(), analyticsSqlitePath());
+}
+
+function fileMtimeMs(filePath: string): number {
+	try {
+		return statSync(filePath).mtimeMs;
+	} catch {
+		return 0;
+	}
+}
+
+function persistSqlJs(filePath: string, db: SqlJsDatabase): number {
+	mkdirSync(dirname(filePath), { recursive: true });
+	const tmpPath = `${filePath}.tmp`;
+	writeFileSync(tmpPath, Buffer.from(db.export()));
+	renameSync(tmpPath, filePath);
+	return fileMtimeMs(filePath);
+}
+
+async function createSqliteDriver(): Promise<Driver> {
+	const filePath = sqliteFilePath();
 	mkdirSync(dirname(filePath), { recursive: true });
 
-	const db = new Database(filePath);
-	db.pragma('journal_mode = WAL');
-	db.pragma('busy_timeout = 5000');
+	const wasmDir = dirname(createRequire(import.meta.url).resolve('sql.js'));
+	const SQL: SqlJsStatic = await initSqlJs({
+		locateFile: (file) => join(wasmDir, file)
+	});
+
+	const existing = existsSync(filePath) ? readFileSync(filePath) : null;
+	let db = existing && existing.byteLength > 0 ? new SQL.Database(existing) : new SQL.Database();
 	db.exec(SQLITE_SCHEMA);
+
+	let mtimeMs = fileMtimeMs(filePath);
+	if (!existing || existing.byteLength === 0) {
+		mtimeMs = persistSqlJs(filePath, db);
+	}
+
+	function refreshFromDisk() {
+		const current = fileMtimeMs(filePath);
+		if (current === 0 || current === mtimeMs) {
+			return;
+		}
+
+		db.close();
+		db = new SQL.Database(readFileSync(filePath));
+		mtimeMs = current;
+	}
 
 	return {
 		async run(sql: string, params: SqlParams = []) {
-			db.prepare(sql).run(...params);
+			refreshFromDisk();
+			db.run(sql, params);
+			mtimeMs = persistSqlJs(filePath, db);
 		},
 		async all<T>(sql: string, params: SqlParams = []) {
-			return db.prepare(sql).all(...params) as T[];
+			refreshFromDisk();
+			const statement = db.prepare(sql);
+			try {
+				if (params.length > 0) {
+					statement.bind(params);
+				}
+
+				const rows: T[] = [];
+				while (statement.step()) {
+					rows.push(statement.getAsObject() as T);
+				}
+
+				return rows;
+			} finally {
+				statement.free();
+			}
 		}
 	};
 }
@@ -122,10 +180,21 @@ async function createMysqlDriver(urlString: string): Promise<Driver> {
 	};
 }
 
+async function openDriver(): Promise<Driver> {
+	const mysqlUrl = analyticsMysqlUrl();
+	if (mysqlUrl) {
+		return createMysqlDriver(mysqlUrl);
+	}
+
+	return createSqliteDriver();
+}
+
 function getDriver(): Promise<Driver> {
 	if (!driverPromise) {
-		const mysqlUrl = analyticsMysqlUrl();
-		driverPromise = mysqlUrl ? createMysqlDriver(mysqlUrl) : Promise.resolve(createSqliteDriver());
+		driverPromise = openDriver().catch((error) => {
+			driverPromise = null;
+			throw error;
+		});
 	}
 
 	return driverPromise;

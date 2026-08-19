@@ -7,6 +7,6 @@ export default defineConfig({
 		target: 'node18'
 	},
 	ssr: {
-		external: ['better-sqlite3', 'geoip-country', 'mysql2']
+		external: ['sql.js', 'geoip-country', 'mysql2']
 	}
 });
