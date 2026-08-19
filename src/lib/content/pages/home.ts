@@ -46,7 +46,7 @@ export const home = {
 		consulting: {
 			title: 'Konsulttjänster som går att använda direkt i projektet',
 			intro:
-				'Förutom labbet erbjuder Mandalon konsulttjänster, oftast hos kund och i nära samarbete med utvecklingsteamet. De går att kombinera med bonding, montering och paketering.',
+				'Förutom labbet erbjuder Mandalon konsulttjänster, oftast hos kund. De går att kombinera med bonding och paketering, och omfattar också testsystem, schema och kretskortsdesign.',
 			labels: {
 				previous: 'Föregående bild',
 				next: 'Nästa bild',
@@ -54,23 +54,35 @@ export const home = {
 			},
 			features: [
 				{
+					title: 'Elektronik & testsystem',
+					text: 'Testsystem, schema och kretskortsdesign, som projekt eller på löpande timmar.',
+					image: {
+						src: '/mandalon/pcblayout.webp',
+						alt: 'Kretskortslayout från ECAD med Mandalon-logotyp och anslutningar längs kanterna',
+						width: 976,
+						height: 895
+					},
+					page: 'consulting',
+					section: 'engineering'
+				},
+				{
 					title: 'Design chip & sensorer',
 					text: 'Vi hjälper till med hur ert kisel bör designas för att det ska gå bra att montera och bonda.',
-					image: { src: '/mandalon/design-chip.webp', alt: 'Design chip & sensorer', width: 840, height: 440 },
+					image: { src: '/mandalon/design-chip.webp', alt: 'Närbild av kretskort med monterad krets', width: 840, height: 440 },
 					page: 'consulting',
 					section: 'chip-design'
 				},
 				{
 					title: 'Processutveckling',
 					text: 'Mandalons mångåriga erfarenhet ställs gärna till förfogande när ni behöver utveckla en egen process.',
-					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Processutveckling', width: 1024, height: 680 },
+					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Tidig idéskiss', width: 1024, height: 680 },
 					page: 'consulting',
 					section: 'process-development'
 				},
 				{
 					title: 'Projektledning',
 					text: 'Vi på Mandalon erbjuder projektledning vid förfrågan.',
-					image: { src: '/mandalon/project.webp', alt: 'Projektledning', width: 840, height: 440 },
+					image: { src: '/mandalon/project.webp', alt: 'Miniatyrfigurer som arbetar på ett kretskort', width: 840, height: 440 },
 					page: 'consulting',
 					section: 'project-management'
 				}
@@ -122,7 +134,7 @@ export const home = {
 		consulting: {
 			title: 'Consulting services you can use directly in your project',
 			intro:
-				'In addition to the lab, Mandalon offers consulting services, usually close to the customer team. They can also be combined with bonding, assembly and packaging.',
+				'In addition to the lab, Mandalon offers consulting services, usually close to the customer team. They can be combined with bonding and packaging, and also cover test systems, schematics and PCB design.',
 			labels: {
 				previous: 'Previous slide',
 				next: 'Next slide',
@@ -130,23 +142,35 @@ export const home = {
 			},
 			features: [
 				{
+					title: 'Electronics & test systems',
+					text: 'Test systems, schematics and PCB design, as a project or on an hourly basis.',
+					image: {
+						src: '/mandalon/pcblayout.webp',
+						alt: 'PCB layout from ECAD with the Mandalon logo and connectors along the edges',
+						width: 976,
+						height: 895
+					},
+					page: 'consulting',
+					section: 'engineering'
+				},
+				{
 					title: 'Chip & sensor design',
 					text: 'We can help shape your silicon design so it is easier to mount and bond successfully.',
-					image: { src: '/mandalon/design-chip.webp', alt: 'Chip & sensor design', width: 840, height: 440 },
+					image: { src: '/mandalon/design-chip.webp', alt: 'Close-up of a circuit board with a mounted chip', width: 840, height: 440 },
 					page: 'consulting',
 					section: 'chip-design'
 				},
 				{
 					title: 'Process development',
-					text: 'Mandalon’s long experience is available when you need to develop your own process.',
-					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Process development', width: 1024, height: 680 },
+					text: "Mandalon's long experience is available when you need to develop your own process.",
+					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Early concept sketch', width: 1024, height: 680 },
 					page: 'consulting',
 					section: 'process-development'
 				},
 				{
 					title: 'Project management',
 					text: 'Mandalon can also provide project management support on request.',
-					image: { src: '/mandalon/project.webp', alt: 'Project management', width: 840, height: 440 },
+					image: { src: '/mandalon/project.webp', alt: 'Miniature figures working on a circuit board', width: 840, height: 440 },
 					page: 'consulting',
 					section: 'project-management'
 				}

@@ -12,7 +12,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 ## High
 
 - [ ] SEO för nyckelord: Advanced Packaging, Wire Bonding, Trådbondning, Die Bonding. Se till att innehåll och eventuell meta-data är på topp.
-- [ ] Lägg till produktområde för mig som elektronikingenjör, tryck på att vi kan erbjuda design av testsystem, kretskortdesign på både projekt och tim-basis.
 - [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer. → ej schemalagd, oberoende av roadmapen.
 
 ## Medium
@@ -65,3 +64,4 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] SV/EN-glidning på startsidan: processrubriken betyder samma sak i båda språken («avlasta ert team» / «lighten the load on your team»). → granskning
 - [x] Paketering-lead vs startsidans underrubriker: innersidor behåller `PageHeader`; paketering fick en längre lead i samma mönster som konsultsidan. → granskning
 - [x] Paketering, capability-listan: rubrik i en Surface; vänsterkolumnen radbryter inte (`minmax(8rem, max-content)` + `nowrap`). → granskning
+- [x] Lägg till produktområde för elektronikingenjör: testsystem, schema och kretskortsdesign på projekt och tim-basis. Konsultsidan har «Elektronik & testsystem» med ECAD-layout, samma område i karusellen.

@@ -34,8 +34,8 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 				image: { src: '/mandalon/Jonatan.webp', alt: 'Jonatan Gezelius', width: 200, height: 200 },
 				phone: '073 58 48 690',
 				phoneHref: 'tel:+46735848690',
-				reason: 'Ring mig om ni har frågor om testsystem, paketering av chip eller övrig elektronik.',
-				bio: 'Elektronikingenjör sedan 2019, med erfarenhet av produktionstestsystem, inbyggda system och konstruktion från idé till kretskort.'
+				reason: 'Ring mig om ni har frågor om testsystem, schema, kretskort eller paketering av chip.',
+				bio: 'Elektronikingenjör sedan 2019, med erfarenhet av produktionstestsystem, schema och kretskortsdesign från idé till färdigt kort.'
 			}
 		],
 		address: {
@@ -84,8 +84,8 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 				image: { src: '/mandalon/Jonatan.webp', alt: 'Jonatan Gezelius', width: 200, height: 200 },
 				phone: '+46 73 58 48 690',
 				phoneHref: 'tel:+46735848690',
-				reason: 'Call me about test systems, chip packaging, or other electronics.',
-				bio: 'Electronics engineer since 2019, with experience in production test systems, embedded systems, and design from idea to a finished circuit board.'
+				reason: 'Call me about test systems, schematics, circuit boards, or chip packaging.',
+				bio: 'Electronics engineer since 2019, with experience in production test systems, schematics and PCB design from idea to a finished board.'
 			}
 		],
 		address: {

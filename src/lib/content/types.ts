@@ -40,7 +40,7 @@ export type ProcessContent = {
 	}[];
 };
 
-export const consultingServiceIds = ['chip-design', 'process-development', 'project-management', 'engineering'] as const;
+export const consultingServiceIds = ['engineering', 'chip-design', 'process-development', 'project-management'] as const;
 
 export type ConsultingServiceId = (typeof consultingServiceIds)[number];
 
@@ -111,18 +111,29 @@ export type ChipSensorsPageContent = {
 	};
 };
 
+export type ConsultingService = {
+	title: string;
+	subtitle: string;
+	paragraphs: [string, string];
+	points: [string, string, string];
+	image: ContentImage;
+	relatedLink?: {
+		label: string;
+		page: PageKey;
+	};
+};
+
 export type ConsultingPageContent = {
 	meta: Meta;
 	title: string;
 	lead: string;
-	introTitle: string;
-	introText: string;
-	services: {
-		id: ConsultingServiceId;
+	services: Record<ConsultingServiceId, ConsultingService>;
+	contactCta: {
 		title: string;
 		text: string;
-		points: string[];
-	}[];
+		label: string;
+		page: PageKey;
+	};
 };
 
 export type AboutPageContent = {
