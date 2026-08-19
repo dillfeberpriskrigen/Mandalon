@@ -9,10 +9,6 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras? → ej schemalagd. Granskningen bekräftar mönstret (§2.4): komponenterna äger ingen yttre marginal, så anroparen måste sätta den. Ett medvetet val vore att låta sektionskomponenter äga sitt eget vertikala avstånd. Värt en egen liten uppgift senare.
 - [ ] Publik (granskning): vet kunden redan vad bondning är och varför det är viktigt, eller ska sajten förklara det? Vad är viktigast att en kund tar med sig — en tydlig bild av erbjudandet, eller något annat?
 
-## High
-
-- [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer. → ej schemalagd, oberoende av roadmapen.
-
 ## Medium
 
 - [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
@@ -27,6 +23,8 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [ ] Stöd för dark mode. → ej schemalagd. T31 är klar (tokens och CSS-regel dokumenterade); ta upp igen när det är dags.
 
 ## Klart
+
+- [x] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata. SvelteKit-backend, SQLite/MariaDB, landskod utan sparad IP, 404:or och redirects.
 
 - [x] Be AI att se över om något borde struktureras om, förenklas eller refaktoreras för att göra kodbasen enklare att underhålla. (Gjort: [docs/architecture-review.md](docs/architecture-review.md) och roadmapen.)
 - [x] Be AI att ta bort eventuell debugg-kod och kommentarer. → T02 (död analyskod, oanvänd `Surface`-import, oanvända ikoner). Ingen kvarvarande debug-kod värd en extra runda.

@@ -2,7 +2,7 @@ import type { PrivacyPageContent } from '../types';
 
 /** Shared Swedish policy body — there is no English source copy. */
 const privacyPolicyBody = {
-	documentMeta: ['Senaste revision: 2026-08-19'],
+	documentMeta: ['Senaste revision: 2026-08-20'],
 	sections: [
 		{
 			title: 'Hur vi behandlar dina personuppgifter:',
@@ -30,7 +30,8 @@ const privacyPolicyBody = {
 		{
 			title: 'Hemsida och cookies:',
 			paragraphs: [
-				'Mandalons hemsida använder idag s.k. session cookies vilka försvinner när hemsidan stängs.',
+				'Mandalons hemsida sätter inga cookies.',
+				'Vi sparar aggregerad besöksstatistik: sidvisningar, 404:or, redirects, landskod och ev. referrer-värd. IP-adressen används bara tillfälligt för att slå upp landet och sparas inte.',
 				'Kontaktformuläret skickar namn, e-post och meddelande till oss som e-post. Vi lagrar inte inskicken i en separat databas på hemsidan.'
 			]
 		},

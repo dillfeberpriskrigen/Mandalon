@@ -4,7 +4,7 @@ import path from 'node:path';
 /**
  * Expected prerendered pages (URL paths).
  * Update this list when a task adds, removes, or renames public URLs.
- * `/contact` and `/en/contact` are SSR (form action) and are not prerendered.
+ * `/contact`, `/en/contact` and `/stats` are SSR and are not prerendered.
  */
 const EXPECTED_PAGES = [
 	// Canonical Swedish (English slugs, no prefix)
@@ -23,17 +23,12 @@ const EXPECTED_PAGES = [
 	'/en/knowledge-bank',
 	'/en/design-guide',
 	'/en/privacy-policy',
-	// Internal (production-visible, noindex)
-	'/stats',
 	// Endpoints
 	'/sitemap.xml'
 ];
 
 const PRERENDERED_DIR = path.join(process.cwd(), 'build', 'prerendered');
 const SITE_URL = 'https://mandalon.se';
-
-/** Pages that intentionally omit PageMeta / canonical (stats). */
-const CANONICAL_OPTIONAL = new Set(['/stats']);
 
 /** @param {string} urlPath */
 function urlPathToFile(urlPath) {
@@ -134,18 +129,16 @@ function main() {
 			}
 		}
 
-		if (!CANONICAL_OPTIONAL.has(urlPath)) {
-			const canonicals = [...html.matchAll(/<link[^>]*\srel=["']canonical["'][^>]*>/gi)];
-			if (canonicals.length !== 1) {
-				fail(`${file}: expected exactly one rel="canonical", found ${canonicals.length}`);
-			} else {
-				const hrefMatch = canonicals[0][0].match(/\shref=["']([^"']+)["']/i);
-				const expected = expectedCanonical(urlPath);
-				if (!hrefMatch) {
-					fail(`${file}: canonical link missing href`);
-				} else if (hrefMatch[1] !== expected) {
-					fail(`${file}: expected canonical "${expected}", found "${hrefMatch[1]}"`);
-				}
+		const canonicals = [...html.matchAll(/<link[^>]*\srel=["']canonical["'][^>]*>/gi)];
+		if (canonicals.length !== 1) {
+			fail(`${file}: expected exactly one rel="canonical", found ${canonicals.length}`);
+		} else {
+			const hrefMatch = canonicals[0][0].match(/\shref=["']([^"']+)["']/i);
+			const expected = expectedCanonical(urlPath);
+			if (!hrefMatch) {
+				fail(`${file}: canonical link missing href`);
+			} else if (hrefMatch[1] !== expected) {
+				fail(`${file}: expected canonical "${expected}", found "${hrefMatch[1]}"`);
 			}
 		}
 	}

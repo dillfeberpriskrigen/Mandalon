@@ -32,7 +32,5 @@ Thumbs.db
 *.tsbuildinfo
 
 # runtime analytics storage
-analytics_wsgi/var/analytics/
-
-# Python
-__pycache__/
+/data/*.sqlite
+/data/*.sqlite-*

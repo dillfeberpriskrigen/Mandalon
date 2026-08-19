@@ -5,5 +5,8 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	build: {
 		target: 'node18'
+	},
+	ssr: {
+		external: ['better-sqlite3', 'geoip-country', 'mysql2']
 	}
 });
