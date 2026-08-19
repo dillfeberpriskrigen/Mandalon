@@ -10,7 +10,7 @@ export const home = {
 			title: 'Vi kapslar ditt chip i Linköping',
 			paragraphs: [
 				'Bondning och paketering, på engelska Advanced Packaging, är ofta ett litet men vitalt steg för att kunna använda ditt chip. I vårt labb strax utanför Linköping har vi erfarenhet och maskiner för att få kontakt med det mesta.',
-				'Vi är gärna med i ett tidigt skede, när det fortfarande går att påverka chipets bondbarhet redan i layoutfasen. Vi kan naturligtvis också hjälpa till senare i processen.',
+				'Vi är gärna med i ett tidigt skede, när det fortfarande går att påverka chipets bondbarhet i layouten. Vi kan naturligtvis också hjälpa till senare i processen.',
 				'Svårbondade prototyper är inget främmande för oss på Mandalon, så var inte rädd att höra av er även om andra aktörer säger att det inte går. Om det verkligen inte går att bonda kan vi använda ledande lim och fästa bondtrådarna manuellt för att få din viktiga prototyp att fungera till mässan. Det går faktiskt!',
 				'Ju tidigare i processen ni hör av er, desto bättre och billigare blir det.'
 			],
@@ -79,14 +79,14 @@ export const home = {
 	},
 	en: {
 		hero: {
-			title: 'Wire bonding and packaging for your semiconductors',
+			title: 'Wire bonding and advanced packaging for your semiconductors',
 			copy: 'Mandalon is with your team from idea to production. We have more than 25 years of experience in advanced packaging, bonding and test systems.'
 		},
 		salesIntro: {
 			title: 'We package your chip in Linköping, Sweden',
 			paragraphs: [
-				'Bonding and packaging, Advanced Packaging in English, is often a small but vital step if you are going to use your chip. In our lab, just outside Linköping in Sweden, we have the experience and machines to make contact with most things.',
-				'We are happy to join at an early stage, when there is still time to influence how bondable the chip is in the layout phase. Of course we can also help later in the process.',
+				'Advanced packaging is often a small but vital step if you are going to use your chip. In our lab, just outside Linköping in Sweden, we have the experience and machines to make contact with most things.',
+				'We are happy to join at an early stage, when there is still time to influence how bondable the chip will end up. Of course we can also help later in the process.',
 				'Difficult-to-bond prototypes are nothing new to us at Mandalon, so do not hesitate to get in touch even if others say it cannot be done. If it really cannot be bonded, we can even use conductive adhesive to glue the bond wires by hand to get your important prototype working in time for the showcase. It actually works!',
 				'The earlier in the process you get in touch, the better and cheaper it gets.'
 			],
