@@ -12,4 +12,5 @@
 /* Readable line length — prefer <PageContent> over applying this class directly */
 .text-width {
 	max-width: var(--text-width);
+	margin-inline: auto;
 }
