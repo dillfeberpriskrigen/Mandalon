@@ -123,13 +123,16 @@
 	}
 
 	.footer-nav ul {
-		display: grid;
-		grid-template-columns: auto auto;
+		columns: 2;
 		column-gap: var(--space-large);
-		row-gap: 0.35rem;
 		margin: 0;
 		padding: 0;
 		list-style: none;
+	}
+
+	.footer-nav li {
+		break-inside: avoid;
+		margin-bottom: 0.35rem;
 	}
 
 	.footer-nav a {

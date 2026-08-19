@@ -17,12 +17,13 @@ export const shared = {
 		footer: {
 			navTitle: 'Sidkarta',
 			nav: [
+				{ label: 'Startsida', page: 'home' },
 				{ label: 'Paketering av Chip', page: 'packaging' },
 				{ label: 'Konsulttjänster', page: 'consulting' },
-				{ label: 'Kunskapsbank', page: 'knowledge' },
-				{ label: 'Designguide', page: 'designGuide' },
 				{ label: 'Om Mandalon', page: 'about' },
 				{ label: 'Kontakt', page: 'contact' },
+				{ label: 'Kunskapsbank', page: 'knowledge' },
+				{ label: 'Designguide', page: 'designGuide' },
 				{ label: 'Integritetspolicy', page: 'privacy' }
 			],
 			certificationLabel: 'Vi är ISO 9001-certifierade'
@@ -50,12 +51,13 @@ export const shared = {
 		footer: {
 			navTitle: 'Sitemap',
 			nav: [
+				{ label: 'Home', page: 'home' },
 				{ label: 'Chip Packaging', page: 'packaging' },
 				{ label: 'Consulting Services', page: 'consulting' },
-				{ label: 'Knowledge bank', page: 'knowledge' },
-				{ label: 'Design guide', page: 'designGuide' },
 				{ label: 'About Mandalon', page: 'about' },
 				{ label: 'Contact', page: 'contact' },
+				{ label: 'Knowledge bank', page: 'knowledge' },
+				{ label: 'Design guide', page: 'designGuide' },
 				{ label: 'Privacy policy', page: 'privacy' }
 			],
 			certificationLabel: 'We are ISO 9001 certified'
