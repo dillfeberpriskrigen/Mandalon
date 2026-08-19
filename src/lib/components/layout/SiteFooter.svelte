@@ -5,6 +5,7 @@
 	import type { Locale, LocaleContent } from '$lib/content/site';
 	import { aboutIsoSectionId } from '$lib/content/pages/about';
 	import { hrefFor } from '$lib/routes';
+	import { organizationLogoPath } from '$lib/seo';
 
 	type FooterData = {
 		locale: Locale;
@@ -28,7 +29,7 @@
 	<div class="container footer-grid">
 		<div class="footer-start">
 			<a class="footer-brand" href={hrefFor('home', data.locale)}>
-				<img src="/mandalon/logo-vertical.svg" alt="Mandalon" />
+				<img src={organizationLogoPath} alt="Mandalon" />
 			</a>
 
 			<address class="footer-contact">

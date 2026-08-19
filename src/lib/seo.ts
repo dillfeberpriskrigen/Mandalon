@@ -3,6 +3,9 @@ import { hrefFor, pages, type PageKey } from '$lib/routes';
 
 export const siteUrl = 'https://mandalon.se';
 
+/** Same mark as the footer. Used as Organization `logo` / `image` in JSON-LD. */
+export const organizationLogoPath = '/mandalon/logo-vertical.svg';
+
 export function toAbsoluteUrl(path: string): string {
 	return path === '/' ? siteUrl : `${siteUrl}${path}`;
 }

@@ -2,7 +2,7 @@
 	import type { Meta } from '$lib/content/types';
 	import { siteContent, type Locale } from '$lib/content/site';
 	import type { PageKey } from '$lib/routes';
-	import { getAlternateLinks, getCanonicalUrl, ogLocale, siteUrl, toAbsoluteUrl } from '$lib/seo';
+	import { getAlternateLinks, getCanonicalUrl, ogLocale, organizationLogoPath, siteUrl, toAbsoluteUrl } from '$lib/seo';
 
 	interface Props {
 		meta: Meta;
@@ -42,7 +42,7 @@
 		const { contactPage, aboutPage } = siteContent[locale];
 		const email = contactPage.email;
 		const telephone = contactPage.people.find((person) => person.phoneHref)?.phoneHref?.replace(/^tel:/, '');
-		const imagePath = contactPage.people.find((person) => person.image)?.image?.src;
+		const logoUrl = toAbsoluteUrl(organizationLogoPath);
 
 		return {
 			name: contactPage.address.company,
@@ -50,7 +50,8 @@
 			email,
 			telephone,
 			taxID: contactPage.orgNumber,
-			image: imagePath ? toAbsoluteUrl(imagePath) : undefined,
+			logo: logoUrl,
+			image: logoUrl,
 			address: buildPostalAddress(locale),
 			hasCertification: {
 				'@type': 'Certification',
