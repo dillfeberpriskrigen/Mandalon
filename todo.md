@@ -12,23 +12,25 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
 ## High
 
-- [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
-- [ ] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. → granskning
+- [ ] SEO för nyckelord: Advanced Packaging, Wire Bonding, Trådbondning, Die Bonding. Se till att innehåll och eventuell meta-data är på topp.
+- [ ] Lägg till produktområde för mig som elektronikingenjör, tryck på att vi kan erbjuda design av testsystem, kretskortdesign på både projekt och tim-basis.
+- [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer. → ej schemalagd, oberoende av roadmapen.
 
 ## Medium
 
-- [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
-- [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
+- [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
+- [ ] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. → granskning
 - [ ] Paketering, capability-listan: ge den en rubrik; vänsterkolumnen ska inte radbryta (`minmax(8rem, 0.4fr)`). → granskning
 - [ ] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn — plats för bild. → granskning
 - [ ] Kunskapsbank: «sagade wafer» → sågade; SV-titel «WAFER» vs EN «Wafer»; byt sida på bild/text under Mikrostrukturer; lägg till MEMS-bild (saknas i `static/mandalon`). → granskning
+- [ ] Språkpass senare (medvetet uppskjutet av granskaren): anglicismer (t.ex. «Fånga riskerna tidigt»), tilltal (er / du / kundens) ska jämkas. Gäller startsida, paketering och konsult. → granskning
 
 ## Low
 
-- [ ] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata, på så vis är vi kompliant med GDPR utan att inkräkta på användarupplevelsen. Kanske lita blint på requestens Referer. → ej schemalagd, oberoende av roadmapen.
+- [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
+- [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
+- [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
 - [ ] Stöd för dark mode. → ej schemalagd. T31 är klar (tokens och CSS-regel dokumenterade); ta upp igen när det är dags.
-- [ ] Språkpass senare (medvetet uppskjutet av granskaren): anglicismer (t.ex. «Fånga riskerna tidigt»), tilltal (er / du / kundens) ska jämkas. Gäller startsida, paketering och konsult. → granskning
-- [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
 
 ## Klart
 
