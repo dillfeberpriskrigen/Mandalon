@@ -2,44 +2,45 @@
 name: start-feature
 description: >-
   Creates a local feature branch from the current branch, records that branch as
-  the merge-back base, then starts implementing the described work. Use only when
-  the user invokes /start-feature. Do not auto-create branches.
+  the merge-back base, then stops and suggests a next step. Does not start
+  implementing. Use only when the user invokes /start-feature. Do not
+  auto-create branches.
 disable-model-invocation: true
 ---
 
 # Start a feature branch
 
-Creates a local feature branch from the current branch, records the starting branch as the base for `/finish-feature`, then implements the work described after the command.
+Creates a local feature branch from the current branch, records the starting branch as the base for `/finish-feature`, then stops. Does not implement anything.
 
 Finish later with `.cursor/skills/finish-feature/SKILL.md`.
 
 ## Absolute rules
 
 1. **Only run when the user invoked this skill.** Never create a feature branch unprompted.
-2. **Do not commit** unless the user separately asks.
-3. **Do not push.** Pushes to `develop` / `main` / `test*` deploy.
-4. **Do not stash.** If the tree is dirty, stop and ask.
-5. **No `--force`, `--no-verify`, or `branch -D`.**
-6. Nested starts are allowed: if the current branch is already a feature, that branch becomes the new base.
+2. **Do not implement.** After the branch exists, stop. Do not edit files, run format/check/lint, or start the described work.
+3. **Do not commit** unless the user separately asks.
+4. **Do not push.** Pushes to `develop` / `main` / `test*` deploy.
+5. **Do not stash.** If the tree is dirty, stop and ask.
+6. **No `--force`, `--no-verify`, or `branch -D`.**
+7. Nested starts are allowed: if the current branch is already a feature, that branch becomes the new base.
 
 ## Workflow
 
 Copy this checklist and keep it updated:
 
 ```
-- [ ] 1. Read the work description
+- [ ] 1. Read the description
 - [ ] 2. Check the working tree
 - [ ] 3. Name and create the branch
 - [ ] 4. Record the base
-- [ ] 5. Implement
-- [ ] 6. Report
+- [ ] 5. Report and suggest a next step
 ```
 
-### 1. Read the work description
+### 1. Read the description
 
-The text after `/start-feature` is the work description (e.g. `/start-feature add contact map`).
+The text after `/start-feature` names the branch (e.g. `/start-feature add contact map`).
 
-If there is no description, ask what to work on and stop. Do not invent a branch or start coding.
+If there is no description, ask for a short name and stop. Do not invent a branch.
 
 ### 2. Check the working tree
 
@@ -76,33 +77,15 @@ The base is the branch from step 2 (`git branch --show-current` **before** the s
 git config branch.<name>.feature-base <starting-branch>
 ```
 
-### 5. Implement
+### 5. Report and suggest a next step
 
-Implement the described work using the project rules:
-
-- Svelte 5 runes only (`$props()`, `$derived()`, `{@render children()}`)
-- User-facing text in `src/lib/content/`; no hardcoded locale strings in pages
-- Slugs only in `src/lib/routes.ts`; build hrefs with `hrefFor`
-- Design tokens from `app.css`; reuse shared components
-- LF line endings
-
-Before treating the work as done:
-
-```bash
-npm run format
-npm run check
-npm run lint
-```
-
-If the change touches routing, loaders, layouts, hooks, prerendering, or the document head, also run `npm run build` and `npm run check:build`.
-
-Do not commit. Do not push.
-
-### 6. Report
+Stop here. Do not start the work.
 
 ```
 Feature branch: <name>
 Base (for /finish-feature): <starting-branch>
-Work: <short summary of what was implemented>
 Commit/push: none
+Next: <one concrete next step, then wait>
 ```
+
+Suggest one next step from the description (what to implement first, or what to clarify). Wait for the user before doing it.
