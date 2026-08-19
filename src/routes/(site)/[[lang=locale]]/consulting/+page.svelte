@@ -4,12 +4,9 @@
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Image from '$lib/components/media/Image.svelte';
-	import Button from '$lib/components/primitives/Button.svelte';
-	import Surface from '$lib/components/primitives/Surface.svelte';
+	import ContactCtaSection from '$lib/components/sections/ContactCtaSection.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
-	import Heading from '$lib/components/typography/Heading.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
-	import Text from '$lib/components/typography/Text.svelte';
 	import { consultingServiceIds, type ConsultingService } from '$lib/content/types';
 	import { hrefFor } from '$lib/routes';
 	import type { PageData } from './$types';
@@ -51,17 +48,7 @@
 		{/each}
 	</div>
 
-	<div class="contact-cta">
-		<Surface as="section" radius="large" padding="large">
-			<div class="contact-cta-inner">
-				<div>
-					<Heading as="h2">{page.contactCta.title}</Heading>
-					<Text as="p">{page.contactCta.text}</Text>
-				</div>
-				<Button href={hrefFor(page.contactCta.page, locale)}>{page.contactCta.label}</Button>
-			</div>
-		</Surface>
-	</div>
+	<ContactCtaSection cta={page.contactCta} {locale} />
 </PageShell>
 
 <style>
@@ -77,17 +64,5 @@
 
 	.related-link {
 		margin-top: var(--space-medium);
-	}
-
-	.contact-cta {
-		margin-top: 3rem;
-	}
-
-	.contact-cta-inner {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem 2rem;
 	}
 </style>

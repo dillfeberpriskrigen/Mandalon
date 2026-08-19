@@ -12,6 +12,13 @@ export type NavLink = {
 	page: PageKey;
 };
 
+export type ContactCtaContent = {
+	title: string;
+	text: string;
+	label: string;
+	page: PageKey;
+};
+
 /** Intrinsic image used in content; render with `Image.svelte`. */
 export type ContentImage = {
 	src: string;
@@ -103,12 +110,7 @@ export type ChipSensorsPageContent = {
 		label: string;
 		page: PageKey;
 	};
-	contactCta: {
-		title: string;
-		text: string;
-		label: string;
-		page: PageKey;
-	};
+	contactCta: ContactCtaContent;
 };
 
 export type ConsultingService = {
@@ -128,12 +130,7 @@ export type ConsultingPageContent = {
 	title: string;
 	lead: string;
 	services: Record<ConsultingServiceId, ConsultingService>;
-	contactCta: {
-		title: string;
-		text: string;
-		label: string;
-		page: PageKey;
-	};
+	contactCta: ContactCtaContent;
 };
 
 export type AboutPageContent = {

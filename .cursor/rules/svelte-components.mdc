@@ -22,7 +22,7 @@ src/lib/components/
   primitives/   Button, Surface
   media/        Image
   content/      ParagraphArray, DesignGuideBody, DesignGuideFigure, DesignGuideToc
-  sections/     MediaArticleSection, FaqSection, HeroSection, FeatureCarousel, SalesIntroSection
+  sections/     MediaArticleSection, FaqSection, HeroSection, FeatureCarousel, SalesIntroSection, ContactCtaSection
   data/         DescriptionList
 ```
 
