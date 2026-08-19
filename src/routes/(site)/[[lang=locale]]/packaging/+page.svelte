@@ -33,14 +33,14 @@
 	<PageHeader title={page.title} lead={page.lead} />
 
 	<div class="surface-grid methods">
-		<Surface as="section" radius="large" padding="large">
+		<Surface as="section" radius="large" padding="large" shadow="medium">
 			<div class="method-heading">
 				<Heading as="h2">{page.methods.dieBonding.title}</Heading>
 			</div>
 			<ParagraphArray paragraphs={page.methods.dieBonding.paragraphs} />
 		</Surface>
 
-		<Surface as="section" radius="large" padding="large">
+		<Surface as="section" radius="large" padding="large" shadow="medium">
 			<div class="method-heading">
 				<Heading as="h2">{page.methods.wireBonding.title}</Heading>
 			</div>
@@ -55,7 +55,7 @@
 	</div>
 
 	<div class="capabilities">
-		<Surface as="section" radius="large" padding="large">
+		<Surface as="section" radius="large" padding="large" shadow="medium">
 			<div class="method-heading">
 				<Heading as="h2">{page.capabilitiesTitle}</Heading>
 			</div>
