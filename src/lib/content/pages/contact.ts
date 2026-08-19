@@ -54,7 +54,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 				name: 'Isabelle Fägerman',
 				role: 'CFO',
 				reason: 'Ring mig om ni har frågor om fakturor, offerter eller ledtider.',
-				bio: 'Erfarenhet av företagsledning och ekonomi från flera bolag i elektronikbranschen.'
+				bio: 'Erfarenhet av organisation och ekonomi från flera bolag i elektronikbranschen.'
 			},
 			{
 				name: 'Jonatan Gezelius',
@@ -132,7 +132,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 				name: 'Isabelle Fägerman',
 				role: 'CFO',
 				reason: 'Call me about invoices, quotations, or lead times.',
-				bio: 'Experience in company management and finance from several companies in the electronics industry.'
+				bio: 'Experience in organisation and finance from several companies in the electronics industry.'
 			},
 			{
 				name: 'Jonatan Gezelius',
