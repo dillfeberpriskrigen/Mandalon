@@ -143,7 +143,7 @@
 
 <style>
 	.carousel {
-		padding: 5rem 0 var(--space-large);
+		padding: var(--space-large) 0 5rem;
 	}
 
 	.carousel-header {

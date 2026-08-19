@@ -28,11 +28,7 @@ export type HeroContent = {
 export type SalesIntroContent = {
 	title: string;
 	paragraphs: string[];
-	resource: {
-		label: string;
-		page: PageKey;
-		text: string;
-	};
+	image: ContentImage;
 	actions: NavLink[];
 };
 

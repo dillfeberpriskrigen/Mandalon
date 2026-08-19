@@ -39,6 +39,7 @@
 	.hero-content :global(.page-title) {
 		margin-inline: auto;
 		text-wrap: balance;
+		line-height: 1.12;
 	}
 
 	.hero-copy {

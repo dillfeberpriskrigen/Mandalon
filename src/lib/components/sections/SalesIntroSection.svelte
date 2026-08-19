@@ -1,39 +1,17 @@
 <script lang="ts">
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import Image from '$lib/components/media/Image.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
-	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
-	import type { Locale, NavLink } from '$lib/content/types';
-	import type { PageKey } from '$lib/routes';
+	import type { Locale, ProcessContent, SalesIntroContent } from '$lib/content/types';
 	import { hrefFor } from '$lib/routes';
 
-	interface SalesIntro {
-		title: string;
-		paragraphs: string[];
-		resource: {
-			label: string;
-			page: PageKey;
-			text: string;
-		};
-		actions: NavLink[];
-	}
-
-	interface ProcessStep {
-		title: string;
-		text: string;
-	}
-
-	interface Process {
-		title: string;
-		steps: ProcessStep[];
-	}
-
 	interface Props {
-		salesIntro: SalesIntro;
-		process: Process;
+		salesIntro: SalesIntroContent;
+		process: ProcessContent;
 		locale: Locale | null;
 		defaultLocale: Locale;
 	}
@@ -49,21 +27,23 @@
 			<Surface radius="large" padding="large">
 				<div class="intro-copy">
 					<Heading as="h2">{salesIntro.title}</Heading>
-					<ParagraphArray paragraphs={salesIntro.paragraphs} />
 
-					<div class="intro-actions">
-						{#each salesIntro.actions as action, index (action.page)}
-							<Button href={hrefFor(action.page, activeLocale)} variant={index === 0 ? 'primary' : 'secondary'}>
-								{action.label}
-							</Button>
-						{/each}
-					</div>
+					<div class="intro-body">
+						<div class="intro-text">
+							<ParagraphArray paragraphs={salesIntro.paragraphs} />
 
-					<div class="intro-resource">
-						<Link href={hrefFor(salesIntro.resource.page, activeLocale)} weight="bold">
-							{salesIntro.resource.label}
-						</Link>
-						<Text as="span">{salesIntro.resource.text}</Text>
+							<div class="intro-actions">
+								{#each salesIntro.actions as action, index (action.page)}
+									<Button href={hrefFor(action.page, activeLocale)} variant={index === 0 ? 'primary' : 'secondary'}>
+										{action.label}
+									</Button>
+								{/each}
+							</div>
+						</div>
+
+						<div class="intro-media">
+							<Image src={salesIntro.image.src} alt={salesIntro.image.alt} width={salesIntro.image.width} height={salesIntro.image.height} />
+						</div>
 					</div>
 				</div>
 			</Surface>
@@ -109,19 +89,40 @@
 		gap: var(--space-medium);
 	}
 
-	.intro-resource {
-		display: grid;
-		gap: 0.3rem;
-		padding-top: 0.15rem;
-	}
-
 	.intro {
-		padding: var(--space-large) 0 5rem;
+		padding: 0 0 var(--space-large);
 	}
 
 	.intro-copy {
 		display: grid;
-		gap: 1.2rem;
+		gap: 0.7rem;
+	}
+
+	.intro-body {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(10rem, 16rem);
+		gap: var(--space-large);
+		align-items: start;
+	}
+
+	.intro-text {
+		display: grid;
+		gap: 0.7rem;
+	}
+
+	.intro-copy :global(p) {
+		margin: 0;
+	}
+
+	.intro-media {
+		border-radius: var(--border-radius);
+		overflow: hidden;
+	}
+
+	.intro-media :global(img) {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 
 	.intro-process {
@@ -144,6 +145,16 @@
 	@media (max-width: 960px) {
 		.process-grid {
 			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (max-width: 780px) {
+		.intro-body {
+			grid-template-columns: 1fr;
+		}
+
+		.intro-media {
+			display: none;
 		}
 	}
 
