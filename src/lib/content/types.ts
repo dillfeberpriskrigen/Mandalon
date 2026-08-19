@@ -244,7 +244,9 @@ export type DesignGuideBlock =
 	| { type: 'toc'; items: DesignGuideTocItem[] };
 
 export type FooterContent = {
+	navTitle: string;
 	nav: NavLink[];
+	certificationLabel: string;
 };
 
 export type ErrorPageContent = {

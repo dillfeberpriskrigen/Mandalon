@@ -11,12 +11,11 @@ export const shared = {
 		primaryLinks: [
 			{ label: 'Paketering av Chip', page: 'packaging' },
 			{ label: 'Konsulttjänster', page: 'consulting' },
-			{ label: 'Kunskapsbank', page: 'knowledge' },
-			{ label: 'Designguide', page: 'designGuide' },
 			{ label: 'Om Mandalon', page: 'about' },
 			{ label: 'Kontakt', page: 'contact' }
 		],
 		footer: {
+			navTitle: 'Sidkarta',
 			nav: [
 				{ label: 'Paketering av Chip', page: 'packaging' },
 				{ label: 'Konsulttjänster', page: 'consulting' },
@@ -25,7 +24,8 @@ export const shared = {
 				{ label: 'Om Mandalon', page: 'about' },
 				{ label: 'Kontakt', page: 'contact' },
 				{ label: 'Integritetspolicy', page: 'privacy' }
-			]
+			],
+			certificationLabel: 'Vi är ISO 9001-certifierade'
 		},
 		errorPage: {
 			title: 'Sidan hittades inte',
@@ -44,12 +44,11 @@ export const shared = {
 		primaryLinks: [
 			{ label: 'Chip Packaging', page: 'packaging' },
 			{ label: 'Consulting Services', page: 'consulting' },
-			{ label: 'Knowledge bank', page: 'knowledge' },
-			{ label: 'Design guide', page: 'designGuide' },
 			{ label: 'About Mandalon', page: 'about' },
 			{ label: 'Contact', page: 'contact' }
 		],
 		footer: {
+			navTitle: 'Sitemap',
 			nav: [
 				{ label: 'Chip Packaging', page: 'packaging' },
 				{ label: 'Consulting Services', page: 'consulting' },
@@ -58,7 +57,8 @@ export const shared = {
 				{ label: 'About Mandalon', page: 'about' },
 				{ label: 'Contact', page: 'contact' },
 				{ label: 'Privacy policy', page: 'privacy' }
-			]
+			],
+			certificationLabel: 'We are ISO 9001 certified'
 		},
 		errorPage: {
 			title: 'Page not found',

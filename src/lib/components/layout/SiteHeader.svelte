@@ -89,6 +89,10 @@
 		column-gap: 1.2rem;
 	}
 
+	.brand {
+		margin-inline-end: 1.2rem;
+	}
+
 	.brand img {
 		width: 148px;
 	}
@@ -180,6 +184,7 @@
 			grid-column: 1;
 			grid-row: 1;
 			justify-self: start;
+			margin-inline-end: 0;
 		}
 
 		.brand img {
