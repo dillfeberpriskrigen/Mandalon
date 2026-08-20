@@ -98,11 +98,17 @@
 									role="group"
 									aria-roledescription="slide"
 									aria-label={`${index + 1} / ${features.length}`}
-									aria-hidden={index === selectedIndex ? undefined : 'true'}
+									inert={index !== selectedIndex}
 								>
 									<Surface as="article" radius="large" padding="none">
 										<div class="carousel-media">
-											<Image src={feature.image.src} alt={feature.image.alt} width={feature.image.width} height={feature.image.height} />
+											<Image
+												src={feature.image.src}
+												alt={feature.image.alt}
+												width={feature.image.width}
+												height={feature.image.height}
+												sizes="(max-width: 640px) calc(100vw - 2rem), min(54rem, calc(100vw - 2rem))"
+											/>
 										</div>
 										<a class="carousel-copy" href={hrefFor(feature.page, locale, feature.section)}>
 											<Heading as="h3">{feature.title}</Heading>
@@ -298,14 +304,28 @@
 	}
 
 	.carousel-dot {
-		width: 0.7rem;
-		height: 0.7rem;
+		position: relative;
+		width: 1.5rem;
+		height: 1.5rem;
 		padding: 0;
 		border: none;
 		border-radius: 999px;
+		background: transparent;
+		cursor: pointer;
+		transition: width 0.25s ease;
+	}
+
+	.carousel-dot::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 0.7rem;
+		height: 0.7rem;
+		border-radius: 999px;
 		background: var(--muted);
 		opacity: 0.35;
-		cursor: pointer;
+		transform: translate(-50%, -50%);
 		transition:
 			width 0.25s ease,
 			opacity 0.25s ease,
@@ -313,6 +333,10 @@
 	}
 
 	.carousel-dot.is-active {
+		width: 2.5rem;
+	}
+
+	.carousel-dot.is-active::after {
 		width: 2rem;
 		opacity: 1;
 		background: var(--accent);
@@ -321,7 +345,8 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		.carousel-arrow,
-		.carousel-dot {
+		.carousel-dot,
+		.carousel-dot::after {
 			transition: none;
 		}
 	}

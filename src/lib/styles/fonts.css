@@ -1,4 +1,4 @@
-/* Roboto */
+/* Roboto (latin subset; regenerate with `python scripts/subset-fonts.py`) */
 @font-face {
 	font-family: 'Roboto';
 	src: url('/fonts/Roboto-VariableFont_wdth,wght.woff2') format('woff2');
@@ -15,7 +15,7 @@
 	font-display: swap;
 }
 
-/* Roboto Condensed */
+/* Roboto Condensed (latin subset; regenerate with `python scripts/subset-fonts.py`) */
 @font-face {
 	font-family: 'Roboto Condensed';
 	src: url('/fonts/RobotoCondensed-VariableFont_wght.woff2') format('woff2');

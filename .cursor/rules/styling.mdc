@@ -80,7 +80,7 @@ Use `Image` (`src/lib/components/media/Image.svelte`) for content images. Requir
 - Headings: Roboto Condensed (`h1–h6` in `app.css`)
 - Shared token: `--font-body` (`'Roboto Condensed', 'Roboto', …`) — used by the `Text` component
 - Self-hosted in `static/fonts/` — do not add Google Fonts CDN links
-- Above-the-fold faces are preloaded from `SiteChrome`
+- The heading face (Roboto Condensed, latin subset) is preloaded from `SiteChrome` for LCP. Body Roboto loads via CSS.
 
 ## Containers & page layout
 

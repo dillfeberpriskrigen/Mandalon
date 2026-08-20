@@ -42,7 +42,11 @@
 						</div>
 
 						<div class="intro-media">
-							<Image src={salesIntro.image.src} alt={salesIntro.image.alt} width={salesIntro.image.width} height={salesIntro.image.height} />
+							<picture>
+								<source media="(max-width: 780px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+								<source media="(min-width: 781px)" srcset={salesIntro.image.src} />
+								<Image src={salesIntro.image.src} alt={salesIntro.image.alt} width={salesIntro.image.width} height={salesIntro.image.height} sizes="16rem" />
+							</picture>
 						</div>
 					</div>
 				</div>

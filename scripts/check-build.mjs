@@ -22,7 +22,8 @@ const EXPECTED_PAGES = [
 	'/en/design-guide',
 	'/en/privacy-policy',
 	// Endpoints
-	'/sitemap.xml'
+	'/sitemap.xml',
+	'/llms.txt'
 ];
 
 const PRERENDERED_DIR = path.join(process.cwd(), 'build', 'prerendered');
@@ -32,6 +33,7 @@ const SITE_URL = 'https://mandalon.se';
 function urlPathToFile(urlPath) {
 	if (urlPath === '/') return 'index.html';
 	if (urlPath === '/sitemap.xml') return 'sitemap.xml';
+	if (urlPath === '/llms.txt') return 'llms.txt';
 	return `${urlPath.replace(/^\//, '')}.html`;
 }
 
@@ -61,7 +63,7 @@ function listPageFiles(dir, relative = '') {
 			files.push(...listPageFiles(full, rel));
 			continue;
 		}
-		if (entry.name.endsWith('.html') || entry.name === 'sitemap.xml') {
+		if (entry.name.endsWith('.html') || entry.name === 'sitemap.xml' || entry.name === 'llms.txt') {
 			files.push(rel.replace(/\\/g, '/'));
 		}
 	}
@@ -106,7 +108,7 @@ function main() {
 			fail(`${file}: unreplaced %lang% placeholder`);
 		}
 
-		if (urlPath === '/sitemap.xml') {
+		if (urlPath === '/sitemap.xml' || urlPath === '/llms.txt') {
 			continue;
 		}
 

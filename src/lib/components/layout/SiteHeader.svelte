@@ -35,7 +35,7 @@
 <header class="site-header">
 	<div class="container header-grid">
 		<a class="brand" href={hrefFor('home', data.locale)} aria-label="Mandalon home">
-			<img src="/mandalon/mandalon-logo-white.svg" alt="Mandalon" />
+			<img src="/mandalon/mandalon-logo-white.svg" alt="Mandalon" width="640" height="125" />
 		</a>
 
 		<nav class="main-nav" aria-label="Primary navigation">
@@ -97,6 +97,7 @@
 
 	.brand img {
 		width: 148px;
+		height: auto;
 	}
 
 	.main-nav {
@@ -198,6 +199,7 @@
 
 		.brand img {
 			width: 128px;
+			height: auto;
 		}
 
 		.main-nav {

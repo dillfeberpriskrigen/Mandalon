@@ -29,8 +29,8 @@
 	<div class="container footer-grid">
 		<div class="footer-start">
 			<a class="footer-brand" href={hrefFor('home', data.locale)} aria-label="Mandalon">
-				<img class="footer-brand-light" src={organizationLogoPath} alt="" aria-hidden="true" />
-				<img class="footer-brand-dark" src={organizationLogoOnDarkPath} alt="" aria-hidden="true" />
+				<img class="footer-brand-light" src={organizationLogoPath} alt="" width="636" height="368" aria-hidden="true" />
+				<img class="footer-brand-dark" src={organizationLogoOnDarkPath} alt="" width="636" height="368" aria-hidden="true" />
 			</a>
 
 			<address class="footer-contact">
@@ -98,6 +98,7 @@
 	.footer-brand img {
 		display: block;
 		width: 14rem;
+		height: auto;
 	}
 
 	.footer-brand img.footer-brand-dark {
