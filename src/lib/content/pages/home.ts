@@ -1,5 +1,11 @@
 import type { HomeContent } from '../types';
 
+function srcset(src: string, fullWidth: number): string {
+	const w480 = src.replace(/\.webp$/, '-480.webp');
+	const w800 = src.replace(/\.webp$/, '-800.webp');
+	return `${w480} 480w, ${w800} 800w, ${src} ${fullWidth}w`;
+}
+
 export const home = {
 	sv: {
 		hero: {
@@ -60,7 +66,8 @@ export const home = {
 						src: '/mandalon/pcblayout.webp',
 						alt: 'Kretskortslayout från ECAD med Mandalon-logotyp och anslutningar längs kanterna',
 						width: 976,
-						height: 895
+						height: 895,
+						srcset: srcset('/mandalon/pcblayout.webp', 976)
 					},
 					page: 'consulting',
 					section: 'engineering'
@@ -68,21 +75,39 @@ export const home = {
 				{
 					title: 'Design chip & sensorer',
 					text: 'Vi hjälper till med hur ert kisel bör designas för att det ska gå bra att montera och bonda.',
-					image: { src: '/mandalon/design-chip.webp', alt: 'Närbild av kretskort med monterad krets', width: 840, height: 440 },
+					image: {
+						src: '/mandalon/design-chip.webp',
+						alt: 'Närbild av kretskort med monterad krets',
+						width: 840,
+						height: 440,
+						srcset: srcset('/mandalon/design-chip.webp', 840)
+					},
 					page: 'consulting',
 					section: 'chip-design'
 				},
 				{
 					title: 'Processutveckling',
 					text: 'Mandalons erfarenhet finns där när ni behöver utveckla en egen process.',
-					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Tidig idéskiss', width: 1024, height: 680 },
+					image: {
+						src: '/mandalon/chip-prototypes.webp',
+						alt: 'Tidig idéskiss',
+						width: 1024,
+						height: 680,
+						srcset: srcset('/mandalon/chip-prototypes.webp', 1024)
+					},
 					page: 'consulting',
 					section: 'process-development'
 				},
 				{
 					title: 'Projektledning',
 					text: 'Vi på Mandalon erbjuder projektledning vid förfrågan.',
-					image: { src: '/mandalon/project.webp', alt: 'Miniatyrfigurer som arbetar på ett kretskort', width: 840, height: 440 },
+					image: {
+						src: '/mandalon/project.webp',
+						alt: 'Miniatyrfigurer som arbetar på ett kretskort',
+						width: 840,
+						height: 440,
+						srcset: srcset('/mandalon/project.webp', 840)
+					},
 					page: 'consulting',
 					section: 'project-management'
 				}
@@ -148,7 +173,8 @@ export const home = {
 						src: '/mandalon/pcblayout.webp',
 						alt: 'PCB layout from ECAD with the Mandalon logo and connectors along the edges',
 						width: 976,
-						height: 895
+						height: 895,
+						srcset: srcset('/mandalon/pcblayout.webp', 976)
 					},
 					page: 'consulting',
 					section: 'engineering'
@@ -156,21 +182,39 @@ export const home = {
 				{
 					title: 'Chip & sensor design',
 					text: 'We can help shape your silicon design so it is easier to mount and bond successfully.',
-					image: { src: '/mandalon/design-chip.webp', alt: 'Close-up of a circuit board with a mounted chip', width: 840, height: 440 },
+					image: {
+						src: '/mandalon/design-chip.webp',
+						alt: 'Close-up of a circuit board with a mounted chip',
+						width: 840,
+						height: 440,
+						srcset: srcset('/mandalon/design-chip.webp', 840)
+					},
 					page: 'consulting',
 					section: 'chip-design'
 				},
 				{
 					title: 'Process development',
 					text: "Mandalon's long experience is available when you need to develop your own process.",
-					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Early concept sketch', width: 1024, height: 680 },
+					image: {
+						src: '/mandalon/chip-prototypes.webp',
+						alt: 'Early concept sketch',
+						width: 1024,
+						height: 680,
+						srcset: srcset('/mandalon/chip-prototypes.webp', 1024)
+					},
 					page: 'consulting',
 					section: 'process-development'
 				},
 				{
 					title: 'Project management',
 					text: 'Mandalon can also provide project management support on request.',
-					image: { src: '/mandalon/project.webp', alt: 'Miniature figures working on a circuit board', width: 840, height: 440 },
+					image: {
+						src: '/mandalon/project.webp',
+						alt: 'Miniature figures working on a circuit board',
+						width: 840,
+						height: 440,
+						srcset: srcset('/mandalon/project.webp', 840)
+					},
 					page: 'consulting',
 					section: 'project-management'
 				}

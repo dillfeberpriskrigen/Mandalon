@@ -107,7 +107,8 @@
 												alt={feature.image.alt}
 												width={feature.image.width}
 												height={feature.image.height}
-												sizes="(max-width: 640px) calc(100vw - 2rem), min(54rem, calc(100vw - 2rem))"
+												srcset={feature.image.srcset}
+												sizes="(max-width: 640px) calc(100vw - 32px), min(864px, calc(100vw - 32px))"
 											/>
 										</div>
 										<a class="carousel-copy" href={hrefFor(feature.page, locale, feature.section)}>

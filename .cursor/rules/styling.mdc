@@ -72,7 +72,7 @@ Use `<style>` in `.svelte` files only for layout or structure unique to that com
 
 ## Images
 
-Use `Image` (`src/lib/components/media/Image.svelte`) for content images. Required: `src`, `alt`, `width`, `height`. Optional: `caption`, `priority` (eager + high fetch priority). Content modules store images as `ContentImage` (`{ src, alt, width, height }`). Prefer WebP under `static/mandalon/`; see `README.md` for the add-image procedure.
+Use `Image` (`src/lib/components/media/Image.svelte`) for content images. Required: `src`, `alt`, `width`, `height`. Optional: `caption`, `priority` (eager + high fetch priority), `sizes`, `srcset`. Content modules store images as `ContentImage` (`{ src, alt, width, height, srcset? }`). Prefer WebP under `static/mandalon/`; see `README.md` for the add-image procedure.
 
 ## Fonts
 

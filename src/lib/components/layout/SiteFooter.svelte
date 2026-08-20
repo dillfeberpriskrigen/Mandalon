@@ -59,7 +59,15 @@
 		</nav>
 
 		<a class="footer-cert" href={hrefFor('about', data.locale, aboutIsoSectionId)}>
-			<img src="/mandalon/a3cert-iso-9001.webp" alt="" width="700" height="700" aria-hidden="true" />
+			<img
+				src="/mandalon/a3cert-iso-9001.webp"
+				srcset="/mandalon/a3cert-iso-9001-240.webp 240w, /mandalon/a3cert-iso-9001.webp 700w"
+				sizes="120px"
+				alt=""
+				width="700"
+				height="700"
+				aria-hidden="true"
+			/>
 			<Text as="span" variant="caption">{data.content.footer.certificationLabel}</Text>
 		</a>
 	</div>

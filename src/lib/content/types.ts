@@ -25,6 +25,7 @@ export type ContentImage = {
 	alt: string;
 	width: number;
 	height: number;
+	srcset?: string;
 };
 
 export type HeroContent = {

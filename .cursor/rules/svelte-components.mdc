@@ -27,7 +27,7 @@ src/lib/components/
 ```
 
 - **No `Typography.svelte`** — typography is `Text` + `Heading` + `Link` only
-- **Images:** use `Image` from `media/Image.svelte` with required `src`, `alt`, `width`, `height` (optional `caption`, `priority`). Content image shape is `ContentImage` in `src/lib/content/types.ts`
+- **Images:** use `Image` from `media/Image.svelte` with required `src`, `alt`, `width`, `height` (optional `caption`, `priority`, `sizes`, `srcset`). Content image shape is `ContentImage` in `src/lib/content/types.ts`
 - **Panels/cards** — use `Surface`, not new one-off card components
 - **Capabilities / key-value rows** — use `DescriptionList`, not HTML tables for non-tabular data
 
