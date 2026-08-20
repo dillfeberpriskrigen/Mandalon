@@ -173,7 +173,7 @@
 			{#snippet content()}
 				<ParagraphArray
 					paragraphs={[
-						'Shared media + text grid used on packaging, knowledge bank, and contact.',
+						'Shared media + text grid used on packaging and contact.',
 						'Optional mediaMaxWidth caps portrait photos without page-local :global pierces.'
 					]}
 				/>

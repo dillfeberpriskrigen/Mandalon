@@ -3,15 +3,15 @@ import type { HomeContent } from '../types';
 export const home = {
 	sv: {
 		hero: {
-			title: 'Trådbondning och paketering för dina halvledare',
-			copy: 'Mandalon är med ditt team från idé till produktion. Vi har mer än 25 års erfarenhet av avancerad paketering, bondning och testsystem.'
+			title: 'Trådbondning och paketering för era halvledare',
+			copy: 'Mandalon är med ert team från idé till produktion. Vi har mer än 25 års erfarenhet av avancerad paketering, bondning och testsystem.'
 		},
 		salesIntro: {
-			title: 'Vi kapslar ditt chip i Linköping',
+			title: 'Vi kapslar ert chip i Linköping',
 			paragraphs: [
-				'Bondning och paketering, på engelska Advanced Packaging, är ofta ett litet men vitalt steg för att kunna använda ditt chip. I vårt labb strax utanför Linköping har vi erfarenhet och maskiner för att få kontakt med det mesta.',
+				'Trådbondning och paketering, på engelska Advanced Packaging, är oftast ett litet men avgörande steg för att kunna använda chipet. I vårt labb strax utanför Linköping har vi erfarenhet och maskiner för att få kontakt med det mesta.',
 				'Vi är gärna med i ett tidigt skede, när det fortfarande går att påverka chipets bondbarhet i layouten. Vi kan naturligtvis också hjälpa till senare i processen.',
-				'Svårbondade prototyper är inget främmande för oss på Mandalon, så var inte rädd att höra av er även om andra aktörer säger att det inte går. Om det verkligen inte går att bonda kan vi använda ledande lim och fästa bondtrådarna manuellt för att få din viktiga prototyp att fungera till mässan. Det går faktiskt!',
+				'Svårbondade prototyper är inget främmande för oss på Mandalon, så var inte rädd att höra av er även om andra aktörer säger att det inte går. Om det verkligen inte går att bonda kan vi använda ledande lim och fästa bondtrådarna manuellt för att få er viktiga prototyp att fungera till mässan. Det går faktiskt!',
 				'Ju tidigare i processen ni hör av er, desto bättre och billigare blir det.'
 			],
 			image: {
@@ -22,7 +22,7 @@ export const home = {
 			},
 			actions: [
 				{ label: 'Kontakt', page: 'contact' },
-				{ label: 'Paketering av Chip', page: 'packaging' },
+				{ label: 'Paketering av chip', page: 'packaging' },
 				{ label: 'Designguide', page: 'designGuide' }
 			]
 		},
@@ -30,12 +30,12 @@ export const home = {
 			title: 'Tre sätt Mandalon avlastar ert team under hela processen',
 			steps: [
 				{
-					title: '1. Fånga riskerna tidigt',
-					text: 'Identifiera problem i chip-design, pad-placering, substrat eller kapsling innan de hinner bli dyra.'
+					title: '1. Se riskerna i tid',
+					text: 'Hitta problem i chipdesign, padplacering, substrat eller kapsling innan de hinner bli dyra.'
 				},
 				{
-					title: '2. Montera prototyp',
-					text: 'Bonding, montering och skydd av känsliga strukturer utförs med fokus på att få fram något som faktiskt går att verifiera.'
+					title: '2. Montera prototypen',
+					text: 'Bondning, montering och skydd av känsliga strukturer, med fokus på att få fram något som faktiskt går att verifiera.'
 				},
 				{
 					title: '3. Ta steget till produktion',
@@ -46,7 +46,7 @@ export const home = {
 		consulting: {
 			title: 'Konsulttjänster som går att använda direkt i projektet',
 			intro:
-				'Förutom labbet erbjuder Mandalon konsulttjänster, oftast hos kund. De går att kombinera med bonding och paketering, och omfattar också testsystem, schema och kretskortsdesign.',
+				'Förutom labbet erbjuder Mandalon konsulttjänster. De går att kombinera med bondning och paketering, och omfattar också testsystem, schema och kretskortsdesign.',
 			labels: {
 				previous: 'Föregående bild',
 				next: 'Nästa bild',
@@ -74,7 +74,7 @@ export const home = {
 				},
 				{
 					title: 'Processutveckling',
-					text: 'Mandalons mångåriga erfarenhet ställs gärna till förfogande när ni behöver utveckla en egen process.',
+					text: 'Mandalons erfarenhet finns där när ni behöver utveckla en egen process.',
 					image: { src: '/mandalon/chip-prototypes.webp', alt: 'Tidig idéskiss', width: 1024, height: 680 },
 					page: 'consulting',
 					section: 'process-development'
@@ -110,7 +110,7 @@ export const home = {
 			},
 			actions: [
 				{ label: 'Contact', page: 'contact' },
-				{ label: 'Chip & Sensors', page: 'packaging' },
+				{ label: 'Chip packaging', page: 'packaging' },
 				{ label: 'Design guide', page: 'designGuide' }
 			]
 		},
@@ -134,7 +134,7 @@ export const home = {
 		consulting: {
 			title: 'Consulting services you can use directly in your project',
 			intro:
-				'In addition to the lab, Mandalon offers consulting services, usually close to the customer team. They can be combined with bonding and packaging, and also cover test systems, schematics and PCB design.',
+				'In addition to the lab, Mandalon offers consulting services. They can be combined with bonding and packaging, and also cover test systems, schematics and PCB design.',
 			labels: {
 				previous: 'Previous slide',
 				next: 'Next slide',

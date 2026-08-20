@@ -76,6 +76,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 		orgNumber: '556616-3670',
 		locationTitle: 'Besök oss',
 		visitNote: 'Labbet ligger utanför Linköping, i Linghem. Besök sker efter överenskommelse.',
+		shippingNote: 'Försändelser skickas bäst med PostNord. Andra transportföretag tar ofta flera dagar längre.',
 		mapTitle: 'Karta till Mandalon',
 		mapEnableLabel: 'Klicka för att använda kartan'
 	},
@@ -155,6 +156,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 		orgNumber: '556616-3670',
 		locationTitle: 'Visit us',
 		visitNote: 'The lab is outside Linköping, in Linghem. Visits are by appointment.',
+		shippingNote: 'Shipments are best sent with PostNord. Other carriers often take several days longer.',
 		mapTitle: 'Map to Mandalon',
 		mapEnableLabel: 'Click to use the map'
 	}

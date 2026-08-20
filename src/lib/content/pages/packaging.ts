@@ -13,7 +13,7 @@ export const chipSensorsPage = {
 			dieBonding: {
 				title: 'Mikromontering (die bonding)',
 				paragraphs: [
-					'Mikromontering (die bonding) är att sätta chipet på rätt plats med rätt lim innan det kan trådbondas. Vi die-bondar manuellt och är vana vid känsliga chip, MEMS och prototyper där passningen måste stämma från början.',
+					'Mikromontering, die bonding, är att sätta chipet på rätt plats med rätt lim innan det kan trådbondas. Vi die-bondar manuellt och är vana vid känsliga chip, MEMS och prototyper där passningen måste stämma från början.',
 					'Vanligt är att man monterar chip i kapsel eller på kretskort. Vi har en del open cavity kapslar i lager och en del lead frames. Kontakta oss för att se vad vi har inne för tillfället.',
 					'Vi har många limmer och kan blanda med precisionsvåg. Behöver ni ett specifikt lim tar vi hem det eller använder ert.'
 				]
@@ -36,18 +36,18 @@ export const chipSensorsPage = {
 			{ name: 'Wedge-bonding', description: 'Guldtråd, Aluminium' },
 			{ name: 'Manuell bondning', description: 'Ball och wedge' },
 			{ name: 'Automatisk bondning', description: 'Ball och wedge' },
-			{ name: 'Die bondning', description: 'Vi die-bondar manuellt' },
+			{ name: 'Die bonding', description: 'Vi die-bondar manuellt' },
 			{
 				name: 'Lim',
 				description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.'
 			},
 			{ name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.' },
 			{ name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.' },
-			{ name: 'Dragprovare', description: 'Vi har möjlighet att dragprova bondtrådar för att utvärdera kvalitet' },
+			{ name: 'Dragprovare', description: 'Vi har möjlighet att dragprova bondtrådar för att utvärdera kvalitet.' },
 			{
 				name: 'Plasmatvätt',
 				description:
-					'Vår maskin använder atmosfärsplasma för att rengöra objekten som skall bondas. Det är extra viktigt för att automatbondning ska fungera bra.'
+					'Vår maskin använder atmosfärsplasma för att rengöra objekten som ska bondas. Det är extra viktigt för att automatbondning ska fungera bra.'
 			}
 		],
 		areas: {
@@ -71,33 +71,33 @@ export const chipSensorsPage = {
 				image: { src: '/mandalon/chip-wirebonding.webp', alt: 'Bondmaskin, mikroskop och work holder', width: 768, height: 1024 }
 			},
 			assembly: {
-				title: 'Mikroelektronik-montering',
+				title: 'Mikroelektronikmontering',
 				subtitle: 'Chipet på rätt plats och rätt kontakterat',
 				paragraphs: [
-					'Området mikroelektronikmontering handlar enkelt uttryckt om hur man sätter ett chip på rätt plats och kontakterar detsamma.',
-					'Den långa varianten berör prestanda på färdig krets, producerbarhet, materialval, metodval, ekonomi, arbetsmiljö, tidsplanering, geometriaspekter med mera och vi sitter sällan i någon box när vi löser kundens problem.'
+					'Mikroelektronikmontering handlar enkelt uttryckt om hur man sätter ett chip på rätt plats och kontakterar det.',
+					'Den längre varianten berör prestanda på färdig krets, producerbarhet, materialval, metodval, ekonomi, arbetsmiljö, tidsplanering, geometri med mera. Vi låser oss sällan vid en färdig mall när vi tar oss an ert problem.'
 				],
 				image: { src: '/mandalon/chip-assembly.webp', alt: 'Bondningsparametrar', width: 1024, height: 768 }
 			},
 			encapsulation: {
 				title: 'Kapsling & ingjutning',
-				subtitle: 'Vad bör du tänka på?',
+				subtitle: 'Vad bör ni tänka på?',
 				paragraphs: [
-					'Ett bondat chip behöver ofta bli skyddat mot mekanisk åverkan även på prototypstadiet. Ibland räcker det att ha ett enkelt plastlock tejpat över chip och trådar, ibland kräver det en tät keramikkapsel. Man väljer också ofta att globba, dvs gjuta in chip och trådar i lämpligt lim.',
-					'Förberedelsen inför montering innefattar vanligtvis val av metall- eller keramkapsel/lock eller att välja montering/globning direkt på PCB. Den normala verksamheten inom detta område utgörs av att tillsammans med kund hitta rätt paketering i form av matchande kapsel eller att föreslå montering direkt på PCB. Båda angreppssätten har för och nackdelar.',
+					'Ett bondat chip behöver ofta bli skyddat mot mekanisk åverkan även på prototypstadiet. Ibland räcker det att ha ett enkelt plastlock tejpat över chip och trådar, ibland kräver det en tät keramikkapsel. Man väljer också ofta att globba, alltså gjuta in chip och trådar i lämpligt lim.',
+					'Förberedelsen inför montering innefattar vanligtvis val av metall- eller keramkapsel och lock, eller montering och globning direkt på PCB. Tillsammans med er hittar vi rätt paketering: en matchande kapsel, eller montering direkt på kortet. Båda sätten har för- och nackdelar.',
 					'Väljer man en relativt sett dyrare kapsel får man ett gott mekaniskt skydd och kan med rätt sockel byta sin krets enkelt i en mer komplex uppställning.',
-					'Väljer man istället montering direkt på PCB kan man uppnå en snabbare koppling med kortare anslutningar med rätt layout. Gäller ofta inom RF. Vill man ändå ha ett mer robust mekaniskt skydd för trådarna kan en globning hjälpa. Alternativet kan vara lock.',
-					'Vet ni inte hur ni ska göra avvägningarna för erat projekt så står våran erfarenhet till erat förfogande.'
+					'Väljer man i stället montering direkt på PCB kan man uppnå en snabbare koppling med kortare anslutningar med rätt layout. Gäller ofta inom RF. Vill man ändå ha ett mer robust mekaniskt skydd för trådarna kan en globning hjälpa. Alternativet kan vara lock.',
+					'Osäkra på avvägningen för ert projekt? Då finns vår erfarenhet att tillgå.'
 				],
 				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'Ett urval av normala TO metallkapslar', width: 768, height: 573 }
 			}
 		},
 		contactPrompt: {
-			label: 'Kontakta oss redan idag och diskutera ditt projekt!',
+			label: 'Kontakta oss redan idag och diskutera ert projekt!',
 			page: 'contact'
 		},
 		contactCta: {
-			title: 'Osäker på metod, kapsel eller bondbarhet?',
+			title: 'Osäkra på metod, kapsel eller bondbarhet?',
 			text: 'Hör av er så går vi igenom trådbondning, die bonding, montering och skydd utifrån just ert chip.',
 			label: 'Kontakta oss',
 			page: 'contact'
@@ -182,7 +182,7 @@ export const chipSensorsPage = {
 				subtitle: 'Getting the chip in place and connected',
 				paragraphs: [
 					'Microelectronics assembly is, simply put, about how a chip is positioned correctly and connected in the right way.',
-					'The longer version touches finished-circuit performance, manufacturability, materials, method choices, economics, work environment, timing and geometry. Mandalon rarely works inside a box when solving a customer problem.'
+					'The longer version touches finished-circuit performance, manufacturability, materials, method choices, economics, work environment, timing and geometry. We rarely lock ourselves to a ready-made template when we take on your problem.'
 				],
 				image: { src: '/mandalon/chip-assembly.webp', alt: 'Bonding parameters', width: 1024, height: 768 }
 			},

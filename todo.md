@@ -7,13 +7,10 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 ## Fråga AI
 
 - [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras? → ej schemalagd. Granskningen bekräftar mönstret (§2.4): komponenterna äger ingen yttre marginal, så anroparen måste sätta den. Ett medvetet val vore att låta sektionskomponenter äga sitt eget vertikala avstånd. Värt en egen liten uppgift senare.
-- [ ] Publik (granskning): vet kunden redan vad bondning är och varför det är viktigt, eller ska sajten förklara det? Vad är viktigast att en kund tar med sig — en tydlig bild av erbjudandet, eller något annat?
 
 ## Medium
 
 - [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
-- [ ] Kunskapsbank: «sagade wafer» → sågade; SV-titel «WAFER» vs EN «Wafer»; byt sida på bild/text under Mikrostrukturer; lägg till MEMS-bild (saknas i `static/mandalon`). → granskning
-- [ ] Språkpass senare (medvetet uppskjutet av granskaren): anglicismer (t.ex. «Fånga riskerna tidigt»), tilltal (er / du / kundens) ska jämkas. Gäller startsida, paketering och konsult. → granskning
 
 ## Low
 
@@ -63,3 +60,7 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] SEO för nyckelord: Advanced Packaging, Wire Bonding, Trådbondning, Die Bonding. Start- och paketeringssidorna har termerna i title, description, H1 och ingress. Organization JSON-LD använder sidfotens logga.
 - [x] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. IMAPS-raden har ingen död länk; övriga DIVA-länkar är kvar. → granskning
 - [x] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn. Labbfoto (`labhuset.webp`) ligger i introt. → granskning
+- [x] Publik: tekniska köpare känner till bondning. Sajten förklarar varför det spelar roll i en mening, sedan erbjudandet. Designguiden tar hur. → granskning
+- [x] Kunskapsbank, språk: «sagade» → sågade; SV-titel «Wafer» som EN. FAQ, ASIC, MEMS och mikrostrukturer putsade; Sensorer orörd. Sidan togs sedan bort. → granskning
+- [x] Språkpass startsida, paketering och konsult: ni/er/ert genomgående, anglicismer som «Fånga riskerna tidigt» och «sitta i en box» ut. → granskning
+- [x] Kunskapsbank borttagen. PostNord under Besök oss på kontakt. 301 från `/knowledge-bank`, `/kunskapsbank` och `/hjalp` till kontakt. → granskning

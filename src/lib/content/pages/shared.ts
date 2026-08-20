@@ -8,7 +8,7 @@ export const shared = {
 		},
 		languageSwitchLabel: 'Byt till engelska',
 		primaryLinks: [
-			{ label: 'Paketering av Chip', page: 'packaging' },
+			{ label: 'Paketering av chip', page: 'packaging' },
 			{ label: 'Konsulttjänster', page: 'consulting' },
 			{ label: 'Om Mandalon', page: 'about' },
 			{ label: 'Kontakt', page: 'contact' }
@@ -17,11 +17,10 @@ export const shared = {
 			navTitle: 'Sidkarta',
 			nav: [
 				{ label: 'Startsida', page: 'home' },
-				{ label: 'Paketering av Chip', page: 'packaging' },
+				{ label: 'Paketering av chip', page: 'packaging' },
 				{ label: 'Konsulttjänster', page: 'consulting' },
 				{ label: 'Om Mandalon', page: 'about' },
 				{ label: 'Kontakt', page: 'contact' },
-				{ label: 'Kunskapsbank', page: 'knowledge' },
 				{ label: 'Designguide', page: 'designGuide' },
 				{ label: 'Integritetspolicy', page: 'privacy' }
 			],
@@ -55,7 +54,6 @@ export const shared = {
 				{ label: 'Consulting Services', page: 'consulting' },
 				{ label: 'About Mandalon', page: 'about' },
 				{ label: 'Contact', page: 'contact' },
-				{ label: 'Knowledge bank', page: 'knowledge' },
 				{ label: 'Design guide', page: 'designGuide' },
 				{ label: 'Privacy policy', page: 'privacy' }
 			],

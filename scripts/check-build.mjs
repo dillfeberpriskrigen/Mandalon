@@ -12,7 +12,6 @@ const EXPECTED_PAGES = [
 	'/packaging',
 	'/consulting',
 	'/about',
-	'/knowledge-bank',
 	'/design-guide',
 	'/privacy-policy',
 	// Canonical English
@@ -20,7 +19,6 @@ const EXPECTED_PAGES = [
 	'/en/packaging',
 	'/en/consulting',
 	'/en/about',
-	'/en/knowledge-bank',
 	'/en/design-guide',
 	'/en/privacy-policy',
 	// Endpoints

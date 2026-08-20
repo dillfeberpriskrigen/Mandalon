@@ -226,6 +226,7 @@ export type ContactPageContent = {
 	orgNumber: string;
 	locationTitle: string;
 	visitNote: string;
+	shippingNote: string;
 	mapTitle: string;
 	mapEnableLabel: string;
 };
@@ -245,38 +246,6 @@ export type ContactFormActionData = {
 		message?: string;
 	};
 } | null;
-
-export const glossarySectionOrder = ['asic', 'mems', 'wafer', 'sensors', 'microstructures'] as const;
-
-export type GlossarySectionKey = (typeof glossarySectionOrder)[number];
-
-export type GlossarySection = {
-	title: string;
-	subtitle: string;
-	paragraphs: string[];
-	image?: ContentImage;
-	caption?: string;
-};
-
-export type GlossaryPageContent = {
-	meta: Meta;
-	title: string;
-	lead: string;
-	intro: string[];
-	introImage: ContentImage;
-	faqTitle: string;
-	faqs: {
-		question: string;
-		answer: string;
-	}[];
-	guide: {
-		title: string;
-		text: string;
-		label: string;
-		page: PageKey;
-	};
-	sections: Record<GlossarySectionKey, GlossarySection>;
-};
 
 export type PrivacyPageContent = {
 	meta: Meta;
@@ -360,7 +329,6 @@ export type LocaleContent = SharedContent &
 		consultingPage: ConsultingPageContent;
 		aboutPage: AboutPageContent;
 		contactPage: ContactPageContent;
-		glossaryPage: GlossaryPageContent;
 		designGuidePage: DesignGuidePageContent;
 		privacyPage: PrivacyPageContent;
 	};

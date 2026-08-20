@@ -49,7 +49,7 @@ Allowed variants only — no ad-hoc `font-size` in page scoped CSS:
 
 Tokens live in `:root` (`--text-*`, `--page-header-*`, `--page-sub-section-*`). Classes in `typography.css`.
 
-Create additional typography classes if needed, but ask first. Page-unique layout leftovers (kontakt map, kunskapsbank callout) are intentional; `designguide` keeps its own scoped styles until a future redesign.
+Create additional typography classes if needed, but ask first. Page-unique layout leftovers (kontakt map) are intentional; `designguide` keeps its own scoped styles until a future redesign.
 
 ## Component-scoped styles
 

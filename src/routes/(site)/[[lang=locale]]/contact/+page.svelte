@@ -93,6 +93,7 @@
 					</address>
 					<Text as="div">{data.content.contactPage.orgNumberLabel} {data.content.contactPage.orgNumber}</Text>
 					<Text as="p">{data.content.contactPage.visitNote}</Text>
+					<Text as="p">{data.content.contactPage.shippingNote}</Text>
 				</div>
 			</Surface>
 		</div>

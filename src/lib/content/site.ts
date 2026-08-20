@@ -4,7 +4,6 @@ import { consultingPage } from './pages/consulting';
 import { contactPage } from './pages/contact';
 import { designGuidePage } from './pages/designGuide';
 import { home } from './pages/home';
-import { glossaryPage } from './pages/knowledge';
 import { chipSensorsPage } from './pages/packaging';
 import { privacyPage } from './pages/privacy';
 import { shared } from './pages/shared';
@@ -23,7 +22,6 @@ export const siteContent = {
 		consultingPage: consultingPage.sv,
 		aboutPage: aboutPage.sv,
 		contactPage: contactPage.sv,
-		glossaryPage: glossaryPage.sv,
 		designGuidePage: designGuidePage.sv,
 		privacyPage: privacyPage.sv
 	},
@@ -34,7 +32,6 @@ export const siteContent = {
 		consultingPage: consultingPage.en,
 		aboutPage: aboutPage.en,
 		contactPage: contactPage.en,
-		glossaryPage: glossaryPage.en,
 		designGuidePage: designGuidePage.en,
 		privacyPage: privacyPage.en
 	}

@@ -7,7 +7,6 @@ export const pages = {
 	consulting: 'consulting',
 	contact: 'contact',
 	about: 'about',
-	knowledge: 'knowledge-bank',
 	designGuide: 'design-guide',
 	privacy: 'privacy-policy'
 } as const;
@@ -20,7 +19,6 @@ export const retiredSwedishSlugs = {
 	consulting: 'konsulttjanster',
 	contact: 'kontakt',
 	about: 'om-mandalon',
-	knowledge: 'kunskapsbank',
 	designGuide: 'designguide'
 } as const satisfies Partial<Record<Exclude<PageKey, 'home'>, string>>;
 

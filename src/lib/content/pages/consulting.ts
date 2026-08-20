@@ -5,10 +5,10 @@ export const consultingPage = {
 		meta: {
 			title: 'Mandalon | Konsulttjänster',
 			description:
-				'Konsulttjänster i Linköping: chip-design, processutveckling, projektledning, testsystem, schema och kretskortsdesign. Oftast hos kund, på projekt eller löpande timmar.'
+				'Konsulttjänster i Linköping: chipdesign, processutveckling, projektledning, testsystem, schema och kretskortsdesign. Oftast hos er, på projekt eller löpande timmar.'
 		},
 		title: 'Konsulttjänster',
-		lead: 'Vi hjälper till med elektronik, chip-design, processutveckling och projektledning, hos er eller i labbet. Det kan vara testsystem och kretskort, en genomgång innan kislet låses, eller att hålla ihop paketeringen i tidplanen.',
+		lead: 'Vi hjälper till med elektronik, chipdesign, processutveckling och projektledning, hos er eller i labbet. Det kan vara testsystem och kretskort, en genomgång innan kislet låses, eller att hålla ihop paketeringen i tidplanen.',
 		services: {
 			'chip-design': {
 				title: 'Design chip & sensorer',
@@ -31,9 +31,9 @@ export const consultingPage = {
 			},
 			'process-development': {
 				title: 'Processutveckling',
-				subtitle: 'När ni bygger eller vässar en egen metod',
+				subtitle: 'När ni bygger eller förbättrar en egen metod',
 				paragraphs: [
-					'Mandalons mångåriga erfarenhet från vitt skilda projekt kan användas när ni behöver utveckla eller vässa en egen process. Fokus ligger på att hitta arbetssätt som fungerar i praktiken.',
+					'Mandalons mångåriga erfarenhet från vitt skilda projekt kan användas när ni behöver utveckla eller förbättra en egen process. Fokus ligger på att hitta arbetssätt som fungerar i praktiken.',
 					'Det kan handla om bondparametrar, limval, fixturer eller hur ett flöde ska se ut från prototyp till mindre serie. Vi utgår från vad som fungerat i tidigare uppdrag.'
 				],
 				points: ['Parametrar, fixturer och flöden', 'Stöd när ni bygger egen kapacitet', 'Praktiska arbetssätt'],
@@ -48,10 +48,10 @@ export const consultingPage = {
 				title: 'Projektledning',
 				subtitle: 'Packaging-perspektiv i ett större utvecklingsprojekt',
 				paragraphs: [
-					'Vid behov kan Mandalon gå in med projektledning hos kund. Oftast fungerar vi som packaging-partner i ett större projekt, men när det behövs kan vi också ta ett tydligare ledningsansvar.',
-					'Det är relevant när bonding, kapsling, inköp och verifiering måste hänga ihop i rätt ordning, och någon behöver hålla i den delen av tidplanen.'
+					'Vid behov kan Mandalon gå in med projektledning hos er. Oftast fungerar vi som packaging-partner i ett större projekt, men när det behövs kan vi också ta ett tydligare ledningsansvar.',
+					'Det är relevant när bondning, kapsling, inköp och verifiering måste hänga ihop i rätt ordning, och någon behöver hålla i den delen av tidplanen.'
 				],
-				points: ['Projektledning på förfrågan', 'Packaging in i tidplan och beslut', 'Koordinering när många delar ska linjera'],
+				points: ['Projektledning på förfrågan', 'Packaging in i tidplan och beslut', 'Koordinering när många delar ska hänga ihop'],
 				image: {
 					src: '/mandalon/project.webp',
 					alt: 'Miniatyrfigurer som arbetar på ett kretskort',
@@ -112,9 +112,9 @@ export const consultingPage = {
 			},
 			'process-development': {
 				title: 'Process development',
-				subtitle: 'When you are building or sharpening your own method',
+				subtitle: 'When you are building or improving your own method',
 				paragraphs: [
-					"Mandalon's long experience across very different projects is available when you need to build or sharpen your own process. The focus is on approaches that work in practice.",
+					"Mandalon's long experience across very different projects is available when you need to build or improve your own process. The focus is on approaches that work in practice.",
 					'That can mean bond parameters, adhesives, fixtures, or how a flow should look from prototype to small series. We start from what has worked in earlier assignments.'
 				],
 				points: ['Parameters, fixtures and flow', 'Support when building in-house capability', 'Practical methods'],
