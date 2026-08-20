@@ -1,86 +1,44 @@
-import type { DesignGuideBlock } from '../types';
+import type { DesignGuideBlock, DesignGuideTocItem } from '../types';
 
 /** PDF linked from the design-guide download CTA. */
 export const designGuidePdfHref = '/mandalon/designguide/mt-2007-011-dg-issue1_070416.pdf';
+
+/** In-page id derived from a heading; keep in sync with TOC hrefs. */
+export function headingId(text: string): string {
+	return text
+		.toLowerCase()
+		.replace(/[–—]/g, '-')
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '');
+}
+
+export function tocFromHeadings(blocks: readonly DesignGuideBlock[]): DesignGuideTocItem[] {
+	const items: DesignGuideTocItem[] = [];
+	for (const block of blocks) {
+		if (block.type !== 'heading') continue;
+		const item: DesignGuideTocItem = {
+			label: block.text,
+			href: `#${headingId(block.text)}`
+		};
+		if (block.level === 2) {
+			items.push(item);
+			continue;
+		}
+		const parent = items.at(-1);
+		if (!parent) {
+			items.push(item);
+			continue;
+		}
+		parent.children = [...(parent.children ?? []), item];
+	}
+	return items;
+}
 
 /** Shared English design-guide body (T28 option A — not localized). */
 export const designGuideBody = [
 	{
 		type: 'heading',
-		level: 3,
-		text: 'Contents'
-	},
-	{
-		type: 'toc',
-		items: [
-			{
-				label: 'Background'
-			},
-			{
-				label: 'Conclusions'
-			},
-			{
-				label: 'Introduction',
-				children: [
-					{
-						label: 'Document Overview'
-					},
-					{
-						label: 'Definitions'
-					},
-					{
-						label: 'Ball Bonding'
-					}
-				]
-			},
-			{
-				label: 'PCB-Layout – good to know about PCB-layout before starting to design your chip',
-				children: [
-					{
-						label: 'PCB-Layout – pad positioning to reduce fan out'
-					},
-					{
-						label: 'PCB-Layout – pad positioning (RF signals)'
-					},
-					{
-						label: 'PCB-Layout – pad positioning (50Ω tracks)'
-					},
-					{
-						label: 'PCB-Layout – how close to the chip'
-					},
-					{
-						label: 'PCB-Layout – cavity to lower the chip into the PCB'
-					},
-					{
-						label: 'PCB-Layout – pad pattern'
-					},
-					{
-						label: 'PCB-Layout – where to place the chip'
-					},
-					{
-						label: 'PCB-Layout – PCB-pad size, open area (longer pads)'
-					}
-				]
-			},
-			{
-				label: 'Chip Design, pitch limitations for bonding',
-				children: [
-					{
-						label: 'RF Signals'
-					},
-					{
-						label: 'Data Signals'
-					}
-				]
-			},
-			{
-				label: 'System thinking'
-			}
-		]
-	},
-	{
-		type: 'heading',
-		level: 3,
+		level: 2,
 		text: '1. Background'
 	},
 	{
@@ -89,7 +47,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 3,
+		level: 2,
 		text: '2. Conclusions'
 	},
 	{
@@ -98,7 +56,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 3,
+		level: 2,
 		text: '3. Introduction'
 	},
 	{
@@ -107,7 +65,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '3.1 Document Overview'
 	},
 	{
@@ -116,7 +74,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '3.2 Definitions'
 	},
 	{
@@ -137,7 +95,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '3.3 Ball Bonding'
 	},
 	{
@@ -162,7 +120,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 3,
+		level: 2,
 		text: '4. PCB-Layout – good to know about PCB-layout before starting to design your chip'
 	},
 	{
@@ -171,7 +129,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.1 PCB-Layout – pad positioning to reduce fan out'
 	},
 	{
@@ -212,7 +170,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.2 PCB-Layout – pad positioning (RF signals)'
 	},
 	{
@@ -237,7 +195,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.3 PCB-Layout – pad positioning (50Ω tracks)'
 	},
 	{
@@ -262,7 +220,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.4 PCB-Layout – how close to the chip'
 	},
 	{
@@ -283,7 +241,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.5 PCB-Layout – cavity to lower the chip into the PCB'
 	},
 	{
@@ -304,7 +262,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.6 PCB-Layout – pad patterns'
 	},
 	{
@@ -321,7 +279,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.7 PCB-Layout – where to place the chip'
 	},
 	{
@@ -338,7 +296,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '4.8 PCB-Layout – PCB-pad size, open area (longer pads)'
 	},
 	{
@@ -373,7 +331,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 3,
+		level: 2,
 		text: '5. Chip Design, Pitch Limitations for Bonding'
 	},
 	{
@@ -382,7 +340,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '5.1 RF Signals'
 	},
 	{
@@ -412,7 +370,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 3,
+		level: 2,
 		text: 'Tables'
 	},
 	{
@@ -429,7 +387,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: 'Table 1: Straight Pitch. Case: RF Signals, wire dia = 33µm.'
 	},
 	{
@@ -441,7 +399,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: 'Table 2: Staggered Pads. Case: RF Signals, wire dia = 33µm.'
 	},
 	{
@@ -457,7 +415,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: '5.2 Data Signals'
 	},
 	{
@@ -478,7 +436,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: 'Table 3: Straight pitch. Case: Data signals'
 	},
 	{
@@ -506,7 +464,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: 'Staggered pads'
 	},
 	{
@@ -519,7 +477,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 4,
+		level: 3,
 		text: 'Table 4: Staggered pads. Case: Data Signals.'
 	},
 	{
@@ -551,7 +509,7 @@ export const designGuideBody = [
 	},
 	{
 		type: 'heading',
-		level: 3,
+		level: 2,
 		text: '6. System thinking'
 	},
 	{
@@ -567,3 +525,5 @@ export const designGuideBody = [
 		html: 'Another tool that could be of assistance is to produce a layout drawing. This helps all people involved to understand the special demands of the system. See picture 8 for example.'
 	}
 ] as const satisfies readonly DesignGuideBlock[];
+
+export const designGuideToc = tocFromHeadings(designGuideBody);

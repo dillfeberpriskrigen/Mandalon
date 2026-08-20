@@ -1,135 +1,111 @@
 <script lang="ts">
 	import DesignGuideBody from '$lib/components/content/DesignGuideBody.svelte';
+	import DesignGuideToc from '$lib/components/content/DesignGuideToc.svelte';
+	import PageContent from '$lib/components/layout/PageContent.svelte';
+	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
+	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
-	import { designGuideBody, designGuidePdfHref } from '$lib/content/pages/designGuideBody';
+	import ContactCtaSection from '$lib/components/sections/ContactCtaSection.svelte';
+	import Heading from '$lib/components/typography/Heading.svelte';
+	import Text from '$lib/components/typography/Text.svelte';
+	import { designGuideBody, designGuidePdfHref, designGuideToc } from '$lib/content/pages/designGuideBody';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	const content = $derived(data.content.designGuidePage);
+	const locale = $derived(data.locale);
 </script>
 
 <PageMeta meta={content.meta} pageKey="designGuide" locale={data.locale} />
 
-<section class="guide-page">
-	<div class="container">
-		<Surface as="section" radius="large" padding="large">
-			<h1 class="page-title">{content.title}</h1>
-			<p class="guide-intro text-width">{content.intro}</p>
-			{#if content.languageNote}
-				<p class="guide-language-note text-width">{content.languageNote}</p>
-			{/if}
-			<div class="guide-content">
-				<article class="designguide-article">
-					<h2>{content.articleIntroTitle}</h2>
-					<p>{content.articleIntroBody}</p>
-					<p>
-						<Button href={designGuidePdfHref}>{content.downloadLabel}</Button>
-					</p>
-					<DesignGuideBody blocks={designGuideBody} />
-				</article>
+<div class="guide-layout">
+	<PageShell>
+		<PageHeader title={content.title} lead={content.intro} />
+
+		{#if content.languageNote}
+			<div class="guide-note">
+				<Text as="p" variant="caption">{content.languageNote}</Text>
 			</div>
-		</Surface>
-	</div>
-</section>
+		{/if}
+
+		<div class="guide-intro">
+			<Surface as="section" radius="large" padding="large">
+				<PageContent>
+					<Heading as="h2">{content.articleIntroTitle}</Heading>
+					<Text as="p">{content.articleIntroBody}</Text>
+					<div class="guide-download">
+						<Button href={designGuidePdfHref}>{content.downloadLabel}</Button>
+					</div>
+				</PageContent>
+			</Surface>
+		</div>
+
+		<div class="docs-row">
+			<div class="docs-toc">
+				<Surface radius="large" padding="large">
+					<DesignGuideToc title={content.tocTitle} items={designGuideToc} />
+				</Surface>
+			</div>
+			<div class="docs-article">
+				<Surface as="article" radius="large" padding="large">
+					<DesignGuideBody blocks={designGuideBody} />
+				</Surface>
+			</div>
+		</div>
+
+		<ContactCtaSection cta={content.contactCta} {locale} />
+	</PageShell>
+</div>
 
 <style>
-	.guide-page {
-		/* Page-local width override — not a shared token */
-		--container-width: 980px;
-		padding: 4rem 0 6rem;
+	.guide-layout {
+		--container-width: var(--container-width-wide);
 	}
 
-	h1 {
-		margin: 0;
+	.guide-note {
+		margin-top: var(--space-medium);
 	}
 
 	.guide-intro {
-		margin-top: 1.25rem;
-		font-size: 1.12rem;
-		line-height: 1.8;
-		color: var(--ink);
+		margin-top: var(--space-large);
 	}
 
-	.guide-language-note {
-		margin-top: 1rem;
-		font-size: 0.95rem;
-		line-height: 1.6;
-		color: var(--muted);
-		font-style: italic;
+	.guide-download {
+		margin-top: var(--space-medium);
 	}
 
-	.guide-content {
-		margin-top: 2rem;
-	}
-
-	.designguide-article :global(h2),
-	.designguide-article :global(h3),
-	.designguide-article :global(h4) {
-		margin: 1.6rem 0 0.75rem;
-		line-height: 1.15;
-		color: #10231c;
-	}
-
-	.designguide-article :global(h2:first-child) {
-		margin-top: 0;
-		font-size: clamp(1.8rem, 3vw, 2.4rem);
-	}
-
-	.designguide-article :global(h3) {
-		font-size: clamp(1.4rem, 2.3vw, 1.8rem);
-	}
-
-	.designguide-article :global(h4) {
-		font-size: clamp(1.15rem, 2vw, 1.35rem);
-	}
-
-	.designguide-article :global(p),
-	.designguide-article :global(li) {
-		margin: 0.8rem 0 0;
-		line-height: 1.75;
-		color: var(--ink);
-	}
-
-	.designguide-article :global(figcaption) {
-		margin: 0.8rem 0 0;
-		line-height: 1.75;
-		color: var(--muted);
-	}
-
-	.designguide-article :global(.designguide-list),
-	.designguide-article :global(ol),
-	.designguide-article :global(ul) {
-		padding-left: 1.35rem;
-	}
-
-	.designguide-article :global(figure) {
-		margin: 1.2rem 0;
-	}
-
-	.designguide-article :global(img) {
-		display: block;
-		max-width: 100%;
-		height: auto;
-		border-radius: 0.6rem;
-	}
-
-	.designguide-article :global(.designguide-gallery-grid) {
+	.docs-row {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1rem;
-		padding: 0;
-		list-style: none;
+		grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
+		gap: var(--space-large);
+		align-items: start;
+		margin-top: var(--space-large);
 	}
 
-	.designguide-article :global(.designguide-gallery-item) {
-		margin: 0;
+	.docs-toc {
+		position: sticky;
+		top: 5.5rem;
+		min-width: 0;
+		max-height: calc(100dvh - 5.5rem - var(--space-large));
+		overflow-y: auto;
+		overscroll-behavior: contain;
 	}
 
-	@media (max-width: 700px) {
-		.designguide-article :global(.designguide-gallery-grid) {
+	.docs-article {
+		min-width: 0;
+	}
+
+	@media (max-width: 900px) {
+		.docs-row {
 			grid-template-columns: 1fr;
+		}
+
+		.docs-toc {
+			position: static;
+			max-height: none;
+			overflow: visible;
 		}
 	}
 </style>

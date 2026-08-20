@@ -11,6 +11,7 @@
 	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
+	import DesignGuideToc from '$lib/components/content/DesignGuideToc.svelte';
 
 	const demoDescriptionItems = [
 		{ term: 'Wire bonding', description: 'Gold and aluminium wire for chip interconnects' },
@@ -154,6 +155,26 @@
 					<Text as="p">Success fill using --color-success.</Text>
 				</Surface>
 			</div>
+		</Surface>
+	</section>
+
+	<section class="lab-block">
+		<Surface radius="large" padding="large">
+			<Heading as="h2">DesignGuideToc</Heading>
+			<DesignGuideToc
+				title="Contents"
+				items={[
+					{ label: 'Background', href: '#guide-demo-background' },
+					{
+						label: 'Introduction',
+						href: '#guide-demo-introduction',
+						children: [
+							{ label: 'Definitions', href: '#guide-demo-definitions' },
+							{ label: 'Ball bonding', href: '#guide-demo-ball-bonding' }
+						]
+					}
+				]}
+			/>
 		</Surface>
 	</section>
 

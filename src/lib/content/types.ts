@@ -277,6 +277,8 @@ export type DesignGuidePageContent = {
 	articleIntroBody: string;
 	downloadLabel: string;
 	embeddedDownloadLabel: string;
+	tocTitle: string;
+	contactCta: ContactCtaContent;
 };
 
 /** Figure in the shared English design-guide body. Images link to `src` as a full-page load. */
@@ -286,15 +288,15 @@ export type DesignGuideFigure = ContentImage & {
 
 export type DesignGuideTocItem = {
 	label: string;
+	href: string;
 	children?: DesignGuideTocItem[];
 };
 
 export type DesignGuideBlock =
-	| { type: 'heading'; level: 2 | 3 | 4; text: string }
+	| { type: 'heading'; level: 2 | 3; text: string }
 	| { type: 'paragraph'; html: string }
 	| ({ type: 'figure' } & DesignGuideFigure)
-	| { type: 'gallery'; figures: DesignGuideFigure[] }
-	| { type: 'toc'; items: DesignGuideTocItem[] };
+	| { type: 'gallery'; figures: DesignGuideFigure[] };
 
 export type FooterContent = {
 	navTitle: string;

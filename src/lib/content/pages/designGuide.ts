@@ -14,7 +14,14 @@ export const designGuidePage = {
 		articleIntroBody:
 			'2007 tog vi tillsammans med doktorander och personal vid Linköpings universitet och i samarbete med nano- och mikrosystemprogrammet minST fram en designguide. Ta del av den i sin helhet här, eller ladda ner den i PDF-format.',
 		downloadLabel: 'Hämta designguide som pdf',
-		embeddedDownloadLabel: 'Designguide'
+		embeddedDownloadLabel: 'Designguide',
+		tocTitle: 'Innehåll',
+		contactCta: {
+			title: 'Osäkra på padlayout eller bondbarhet?',
+			text: 'Hör av er så går vi igenom hur guiden gäller för just ert chip.',
+			label: 'Kontakta oss',
+			page: 'contact'
+		}
 	},
 	en: {
 		meta: {
@@ -29,6 +36,13 @@ export const designGuidePage = {
 		articleIntroBody:
 			'In 2007, together with doctoral researchers and staff at Linköping University and in collaboration with the nano- and microsystems programme minST, we developed a design guide. Read it in full here, or download it as a PDF.',
 		downloadLabel: 'Download design guide as PDF',
-		embeddedDownloadLabel: 'Download design guide'
+		embeddedDownloadLabel: 'Download design guide',
+		tocTitle: 'Contents',
+		contactCta: {
+			title: 'Unsure about pad layout or bondability?',
+			text: 'Get in touch and we will walk through how the guide applies to your chip.',
+			label: 'Contact us',
+			page: 'contact'
+		}
 	}
 } satisfies Record<'sv' | 'en', DesignGuidePageContent>;
