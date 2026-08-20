@@ -4,10 +4,6 @@ Punkter märkta med `→ Tnn` hanterades av en uppgift i [docs/review-roadmap.md
 
 Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
-## Fråga AI
-
-- [ ] Många komponenter är omgivna av en div med en class när de används på sidor. Är det nödvändigt? Är det något i mitt pattern som borde ändras? → ej schemalagd. Granskningen bekräftar mönstret (§2.4): komponenterna äger ingen yttre marginal, så anroparen måste sätta den. Ett medvetet val vore att låta sektionskomponenter äga sitt eget vertikala avstånd. Värt en egen liten uppgift senare.
-
 ## Medium
 
 - [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
@@ -20,6 +16,8 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [ ] Stöd för dark mode. → ej schemalagd. T31 är klar (tokens och CSS-regel dokumenterade); ta upp igen när det är dags.
 
 ## Klart
+
+- [x] Komponenter wrappade i en div med class på sidor: medvetet. Primitiver (`Surface`, `Heading`) äger ingen yttre marginal; anroparen sätter avstånd och layout. Sektioner som alltid sitter likadant (`ContactCtaSection`, `FaqSection`) äger redan `margin-top`. Inget Stack/Grid-lager — se `svelte-components.mdc`.
 
 - [x] Implementera fungerande besöksstatistik som inte använder sig av cookies och som inte lagrar persondata. SvelteKit-backend, SQLite/MariaDB, landskod utan sparad IP, 404:or och redirects.
 
