@@ -1,5 +1,8 @@
 export type AnalyticsEventType = 'pageview' | 'not_found' | 'redirect';
 
+/** Stored in `referrer_host` when the previous page was on this site. */
+export const INTERNAL_REFERRER_HOST = '(internal)';
+
 export type AnalyticsEventInput = {
 	eventType: AnalyticsEventType;
 	path: string;
@@ -23,6 +26,7 @@ export type RedirectCountRow = {
 export type DayCountRow = {
 	day: string;
 	views: number;
+	visits: number;
 };
 
 export type RecentView = {
@@ -31,6 +35,7 @@ export type RecentView = {
 	path: string;
 	country: string | null;
 	referrerHost: string | null;
+	isInternal: boolean;
 };
 
 export type RecentNotFound = {
@@ -50,6 +55,7 @@ export type RecentRedirect = {
 
 export type AnalyticsSummary = {
 	totalViews: number;
+	estimatedVisits: number;
 	uniquePaths: number;
 	viewsByDay: DayCountRow[];
 	topPages: CountRow[];

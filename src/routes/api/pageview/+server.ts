@@ -5,9 +5,9 @@ import {
 	countryFromAddress,
 	isPageviewBot,
 	isPageviewRateLimited,
-	parseReferrerHost,
 	pathFromSameOriginReferer,
 	recordEventLater,
+	referrerHostFromPageviewPayload,
 	safeClientAddress
 } from '$lib/server/analytics';
 
@@ -15,10 +15,7 @@ export const prerender = false;
 
 async function readReferrerHost(request: Request, hostname: string): Promise<string | null> {
 	try {
-		const body: unknown = await request.json();
-		if (body && typeof body === 'object' && 'referrerHost' in body) {
-			return parseReferrerHost((body as { referrerHost?: unknown }).referrerHost, hostname);
-		}
+		return referrerHostFromPageviewPayload(await request.json(), hostname);
 	} catch {
 		// Empty body or non-JSON is fine.
 	}

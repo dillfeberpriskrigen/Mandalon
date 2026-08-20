@@ -4,7 +4,17 @@ import { dirname, join, resolve } from 'node:path';
 import mysql from 'mysql2/promise';
 import initSqlJs, { type Database as SqlJsDatabase, type SqlJsStatic } from 'sql.js';
 import { analyticsMysqlUrl, analyticsSqlitePath } from './env';
-import type { AnalyticsEventInput, AnalyticsSummary, CountRow, DayCountRow, RecentNotFound, RecentRedirect, RecentView, RedirectCountRow } from './types';
+import {
+	INTERNAL_REFERRER_HOST,
+	type AnalyticsEventInput,
+	type AnalyticsSummary,
+	type CountRow,
+	type DayCountRow,
+	type RecentNotFound,
+	type RecentRedirect,
+	type RecentView,
+	type RedirectCountRow
+} from './types';
 
 type SqlParams = Array<string | number | null>;
 
@@ -59,6 +69,7 @@ function toCount(value: unknown): number {
 function emptySummary(): AnalyticsSummary {
 	return {
 		totalViews: 0,
+		estimatedVisits: 0,
 		uniquePaths: 0,
 		viewsByDay: [],
 		topPages: [],
@@ -221,7 +232,7 @@ export function recordEventLater(input: AnalyticsEventInput): void {
 }
 
 type RawCount = { label: string; views: number | string };
-type RawDay = { day: string; views: number | string };
+type RawDay = { day: string; views: number | string; visits: number | string };
 type RawRedirectCount = { path: string; redirect_to: string; views: number | string };
 type RawRecentView = {
 	id: number | string;
@@ -243,7 +254,7 @@ type RawRecentRedirect = {
 	redirect_to: string;
 	country: string | null;
 };
-type RawTotal = { total: number | string; unique_paths: number | string };
+type RawTotal = { total: number | string; unique_paths: number | string; visits: number | string };
 
 function mapCounts(rows: RawCount[]): CountRow[] {
 	return rows.map((row) => ({ label: row.label, views: toCount(row.views) }));
@@ -254,15 +265,19 @@ export async function getSummary(): Promise<AnalyticsSummary> {
 		const driver = await getDriver();
 
 		const [totals] = await driver.all<RawTotal>(
-			`SELECT COUNT(*) AS total, COUNT(DISTINCT path) AS unique_paths
-			 FROM analytics_events WHERE event_type = 'pageview'`
+			`SELECT COUNT(*) AS total, COUNT(DISTINCT path) AS unique_paths,
+			        SUM(CASE WHEN referrer_host = ? THEN 0 ELSE 1 END) AS visits
+			 FROM analytics_events WHERE event_type = 'pageview'`,
+			[INTERNAL_REFERRER_HOST]
 		);
 
 		const viewsByDayRows = await driver.all<RawDay>(
-			`SELECT substr(occurred_at, 1, 10) AS day, COUNT(*) AS views
+			`SELECT substr(occurred_at, 1, 10) AS day, COUNT(*) AS views,
+			        SUM(CASE WHEN referrer_host = ? THEN 0 ELSE 1 END) AS visits
 			 FROM analytics_events WHERE event_type = 'pageview'
 			 GROUP BY substr(occurred_at, 1, 10)
-			 ORDER BY day DESC LIMIT 90`
+			 ORDER BY day DESC LIMIT 90`,
+			[INTERNAL_REFERRER_HOST]
 		);
 
 		const topPages = await driver.all<RawCount>(
@@ -279,8 +294,10 @@ export async function getSummary(): Promise<AnalyticsSummary> {
 
 		const topReferrers = await driver.all<RawCount>(
 			`SELECT referrer_host AS label, COUNT(*) AS views
-			 FROM analytics_events WHERE event_type = 'pageview' AND referrer_host IS NOT NULL
-			 GROUP BY referrer_host ORDER BY views DESC, referrer_host ASC LIMIT 20`
+			 FROM analytics_events
+			 WHERE event_type = 'pageview' AND referrer_host IS NOT NULL AND referrer_host <> ?
+			 GROUP BY referrer_host ORDER BY views DESC, referrer_host ASC LIMIT 20`,
+			[INTERNAL_REFERRER_HOST]
 		);
 
 		const recentViewsRows = await driver.all<RawRecentView>(
@@ -315,21 +332,30 @@ export async function getSummary(): Promise<AnalyticsSummary> {
 
 		return {
 			totalViews: toCount(totals?.total),
+			estimatedVisits: toCount(totals?.visits),
 			uniquePaths: toCount(totals?.unique_paths),
-			viewsByDay: viewsByDayRows.map((row) => ({ day: row.day, views: toCount(row.views) }) satisfies DayCountRow),
+			viewsByDay: viewsByDayRows.map(
+				(row) =>
+					({
+						day: row.day,
+						views: toCount(row.views),
+						visits: toCount(row.visits)
+					}) satisfies DayCountRow
+			),
 			topPages: mapCounts(topPages),
 			topCountries: mapCounts(topCountries),
 			topReferrers: mapCounts(topReferrers),
-			recentViews: recentViewsRows.map(
-				(row) =>
-					({
-						id: toCount(row.id),
-						occurredAt: row.occurred_at,
-						path: row.path,
-						country: row.country,
-						referrerHost: row.referrer_host
-					}) satisfies RecentView
-			),
+			recentViews: recentViewsRows.map((row) => {
+				const isInternal = row.referrer_host === INTERNAL_REFERRER_HOST;
+				return {
+					id: toCount(row.id),
+					occurredAt: row.occurred_at,
+					path: row.path,
+					country: row.country,
+					referrerHost: isInternal ? null : row.referrer_host,
+					isInternal
+				} satisfies RecentView;
+			}),
 			topNotFound: mapCounts(topNotFound),
 			recentNotFound: recentNotFoundRows.map(
 				(row) =>

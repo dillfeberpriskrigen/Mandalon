@@ -3,9 +3,10 @@ import { isPageviewBot } from './bots';
 import { recordEvent, recordEventLater, getSummary } from './db';
 import { countryFromAddress } from './geo';
 import { isPageviewRateLimited } from './rate-limit';
-import type { AnalyticsEventInput } from './types';
+import { INTERNAL_REFERRER_HOST, type AnalyticsEventInput } from './types';
 
 export type { AnalyticsSummary } from './types';
+export { INTERNAL_REFERRER_HOST };
 export { recordEvent, recordEventLater, getSummary };
 export { countryFromAddress };
 export { isPageviewBot };
@@ -30,10 +31,27 @@ export function parseReferrerHost(value: unknown, siteHostname: string): string 
 	const site = siteHostname.replace(/^www\./i, '').toLowerCase();
 	const candidate = host.replace(/^www\./, '');
 	if (candidate === site) {
-		return null;
+		return INTERNAL_REFERRER_HOST;
 	}
 
 	return host;
+}
+
+export function referrerHostFromPageviewPayload(body: unknown, siteHostname: string): string | null {
+	if (!body || typeof body !== 'object') {
+		return null;
+	}
+
+	const payload = body as { internal?: unknown; referrerHost?: unknown };
+	if (payload.internal === true) {
+		return INTERNAL_REFERRER_HOST;
+	}
+
+	if ('referrerHost' in payload) {
+		return parseReferrerHost(payload.referrerHost, siteHostname);
+	}
+
+	return null;
 }
 
 export function referrerHostFromHeader(refererHeader: string | null, origin: string): string | null {

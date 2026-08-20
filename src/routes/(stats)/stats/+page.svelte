@@ -16,6 +16,14 @@
 			timeStyle: 'medium'
 		});
 	}
+
+	function referrerLabel(view: PageData['summary']['recentViews'][number]) {
+		if (view.isInternal) {
+			return 'Intern';
+		}
+
+		return view.referrerHost ?? 'Direkt';
+	}
 </script>
 
 <svelte:head>
@@ -24,12 +32,19 @@
 </svelte:head>
 
 <PageShell>
-	<PageHeader title="Sidvisningar" lead="Översikt över sidvisningar, länder, referrers, 404:or och redirects. Inga cookies, ingen IP-adress sparas." />
+	<PageHeader
+		title="Sidvisningar"
+		lead="Översikt över sidvisningar, uppskattade besök, länder, referrers, 404:or och redirects. Inga cookies, ingen IP-adress sparas. Ett besök räknas när föregående sida inte var den egna sajten."
+	/>
 
 	<section class="summary-grid" aria-label="Sammanfattning">
 		<Surface as="article" radius="large" padding="medium">
 			<Text as="p" variant="label">Totala sidvisningar</Text>
 			<p class="summary-value">{summary.totalViews}</p>
+		</Surface>
+		<Surface as="article" radius="large" padding="medium">
+			<Text as="p" variant="label">Uppskattade besök</Text>
+			<p class="summary-value">{summary.estimatedVisits}</p>
 		</Surface>
 		<Surface as="article" radius="large" padding="medium">
 			<Text as="p" variant="label">Unika sidor</Text>
@@ -100,6 +115,7 @@
 						<tr>
 							<th>Dag</th>
 							<th>Visningar</th>
+							<th>Besök</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -107,6 +123,7 @@
 							<tr>
 								<td>{row.day}</td>
 								<td>{row.views}</td>
+								<td>{row.visits}</td>
 							</tr>
 						{/each}
 					</tbody>
@@ -211,7 +228,7 @@
 							<td>{formatTimestamp(view.occurredAt)}</td>
 							<td><code>{view.path}</code></td>
 							<td>{view.country ?? 'Okänt'}</td>
-							<td>{view.referrerHost ? view.referrerHost : 'Direkt'}</td>
+							<td>{referrerLabel(view)}</td>
 						</tr>
 					{/each}
 				</tbody>
@@ -287,7 +304,7 @@
 	}
 
 	.summary-grid {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 
 	.stats-layout {
@@ -326,6 +343,12 @@
 	code {
 		font-family: ui-monospace, 'SFMono-Regular', monospace;
 		word-break: break-all;
+	}
+
+	@media (max-width: 1100px) {
+		.summary-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 	}
 
 	@media (max-width: 820px) {
