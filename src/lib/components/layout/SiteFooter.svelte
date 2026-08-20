@@ -5,7 +5,7 @@
 	import type { Locale, LocaleContent } from '$lib/content/site';
 	import { aboutIsoSectionId } from '$lib/content/pages/about';
 	import { hrefFor } from '$lib/routes';
-	import { organizationLogoPath } from '$lib/seo';
+	import { organizationLogoOnDarkPath, organizationLogoPath } from '$lib/seo';
 
 	type FooterData = {
 		locale: Locale;
@@ -28,8 +28,9 @@
 <footer class="site-footer">
 	<div class="container footer-grid">
 		<div class="footer-start">
-			<a class="footer-brand" href={hrefFor('home', data.locale)}>
-				<img src={organizationLogoPath} alt="Mandalon" />
+			<a class="footer-brand" href={hrefFor('home', data.locale)} aria-label="Mandalon">
+				<img class="footer-brand-light" src={organizationLogoPath} alt="" aria-hidden="true" />
+				<img class="footer-brand-dark" src={organizationLogoOnDarkPath} alt="" aria-hidden="true" />
 			</a>
 
 			<address class="footer-contact">
@@ -72,6 +73,7 @@
 		--container-width: var(--container-width-wide);
 		padding: var(--space-large) 0;
 		background: var(--surface);
+		box-shadow: var(--shadow-medium);
 	}
 
 	.footer-grid {
@@ -96,6 +98,18 @@
 	.footer-brand img {
 		display: block;
 		width: 14rem;
+	}
+
+	.footer-brand img.footer-brand-dark {
+		display: none;
+	}
+
+	:global(html.dark) .footer-brand img.footer-brand-light {
+		display: none;
+	}
+
+	:global(html.dark) .footer-brand img.footer-brand-dark {
+		display: block;
 	}
 
 	.footer-contact {

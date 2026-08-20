@@ -25,7 +25,7 @@
 		min-height: 21rem;
 		display: grid;
 		place-items: center;
-		background: linear-gradient(45deg, rgba(52, 57, 114, 0.94) 0%, rgba(52, 57, 114, 0.84) 100%);
+		background: var(--hero-bg);
 	}
 
 	.hero-content {

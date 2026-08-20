@@ -7,6 +7,7 @@ export const shared = {
 			description: 'Trådbondning, die bonding och advanced packaging i Linköping. Vi kapslar chip, sensorer, MEMS och ASIC:s från prototyp till mindre serier.'
 		},
 		languageSwitchLabel: 'Byt till engelska',
+		themeToggleLabel: 'Växla ljust och mörkt läge',
 		primaryLinks: [
 			{ label: 'Paketering av chip', page: 'packaging' },
 			{ label: 'Konsulttjänster', page: 'consulting' },
@@ -40,6 +41,7 @@ export const shared = {
 				'Wire bonding, die bonding and advanced packaging in Linköping, Sweden. We package chips, sensors, MEMS and ASICs from prototype to small series.'
 		},
 		languageSwitchLabel: 'Switch to Swedish',
+		themeToggleLabel: 'Toggle light and dark mode',
 		primaryLinks: [
 			{ label: 'Chip Packaging', page: 'packaging' },
 			{ label: 'Consulting Services', page: 'consulting' },

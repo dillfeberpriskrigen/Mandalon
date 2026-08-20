@@ -44,6 +44,7 @@
 		"embla-carousel-autoplay": "^8.6.0",
 		"embla-carousel-svelte": "^8.6.0",
 		"geoip-country": "^5.0.202608182354",
+		"mode-watcher": "^1.1.0",
 		"mysql2": "^3.23.3",
 		"nodemailer": "^8.0.11",
 		"sql.js": "^1.14.2"

@@ -13,9 +13,10 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [ ] Gör om designguide-sidan att mer likna en "read the docs" sida. → T29. T28 är klar (engelsk brödtext i båda locales). Strukturen är migrerad till `designGuideBody.ts`; kvar är riktig `alt`-text på figurerna.
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
-- [ ] Stöd för dark mode. → ej schemalagd. T31 är klar (tokens och CSS-regel dokumenterade); ta upp igen när det är dags.
 
 ## Klart
+
+- [x] Stöd för dark mode. Tokens växlar på `:root.dark` (systempreferens som standard, sol/måne till höger om EN/SV). → T31 lade grunden.
 
 - [x] Komponenter wrappade i en div med class på sidor: medvetet. Primitiver (`Surface`, `Heading`) äger ingen yttre marginal; anroparen sätter avstånd och layout. Sektioner som alltid sitter likadant (`ContactCtaSection`, `FaqSection`) äger redan `margin-top`. Inget Stack/Grid-lager — se `svelte-components.mdc`.
 

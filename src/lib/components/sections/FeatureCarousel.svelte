@@ -193,7 +193,7 @@
 		padding: 0;
 		border: none;
 		background: transparent;
-		color: var(--content-background);
+		color: var(--on-photo);
 		cursor: pointer;
 		opacity: 0.8;
 		transition:
@@ -204,7 +204,7 @@
 	.carousel-arrow svg {
 		width: 2rem;
 		height: 2rem;
-		filter: drop-shadow(0 1px 2px var(--ink));
+		filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.7));
 	}
 
 	.carousel-arrow-prev {

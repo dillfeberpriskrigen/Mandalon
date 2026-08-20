@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import ThemeToggle from '$lib/components/layout/ThemeToggle.svelte';
 	import { type Locale, type LocaleContent } from '$lib/content/site';
 	import { hrefFor, pageKeyFromPathname } from '$lib/routes';
 
@@ -57,16 +58,19 @@
 			{/if}
 		</nav>
 
-		<a class="language-switch" href={hrefFor(currentPageKey, otherLocale)} hreflang={otherLocale} aria-label={data.content.languageSwitchLabel}>
-			{#each languageOptions as option, i (option.locale)}
-				{#if i > 0}
-					<span class="language-sep" aria-hidden="true">/</span>
-				{/if}
-				<span class={['language-code', data.locale === option.locale && 'language-current']} lang={option.locale} aria-hidden="true">
-					{option.code}
-				</span>
-			{/each}
-		</a>
+		<div class="header-tools">
+			<a class="language-switch" href={hrefFor(currentPageKey, otherLocale)} hreflang={otherLocale} aria-label={data.content.languageSwitchLabel}>
+				{#each languageOptions as option, i (option.locale)}
+					{#if i > 0}
+						<span class="language-sep" aria-hidden="true">/</span>
+					{/if}
+					<span class={['language-code', data.locale === option.locale && 'language-current']} lang={option.locale} aria-hidden="true">
+						{option.code}
+					</span>
+				{/each}
+			</a>
+			<ThemeToggle label={data.content.themeToggleLabel} />
+		</div>
 	</div>
 </header>
 
@@ -76,9 +80,7 @@
 		top: 0;
 		z-index: 20;
 		padding: 1rem 0;
-		background:
-			linear-gradient(45deg, rgba(52, 57, 114, 0.94) 0%, rgba(79, 84, 137, 0.94) 100%),
-			url('/mandalon/motherboard-bg.webp') center top / cover no-repeat;
+		background: var(--header-bg);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 	}
 
@@ -125,10 +127,17 @@
 		flex-shrink: 0;
 	}
 
-	.language-switch {
+	.header-tools {
 		display: inline-flex;
 		align-items: center;
 		justify-self: end;
+		gap: 0.35rem;
+		color: rgba(255, 255, 255, 0.92);
+	}
+
+	.language-switch {
+		display: inline-flex;
+		align-items: center;
 		gap: 0.35rem;
 		padding: 0.15rem 0;
 		font-size: 0.98rem;
@@ -208,7 +217,7 @@
 			background: rgba(255, 255, 255, 0.08);
 		}
 
-		.language-switch {
+		.header-tools {
 			grid-column: 2;
 			grid-row: 1;
 			justify-self: end;

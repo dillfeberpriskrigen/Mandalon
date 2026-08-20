@@ -79,7 +79,7 @@
 		height: 20rem;
 		border-radius: 1.25rem;
 		background:
-			linear-gradient(90deg, rgba(16, 35, 28, 0.24) 0%, rgba(16, 35, 28, 0.08) 100%),
+			linear-gradient(90deg, var(--photo-scrim) 0%, var(--photo-scrim-soft) 100%),
 			url('/mandalon/help-asic.webp') center 65% / cover no-repeat;
 	}
 
@@ -139,7 +139,7 @@
 
 	.process-card {
 		padding: 0 0 0 1rem;
-		border-left: 3px solid rgba(16, 35, 28, 0.2);
+		border-left: 3px solid color-mix(in srgb, var(--ink) 20%, transparent);
 	}
 
 	@media (max-width: 960px) {

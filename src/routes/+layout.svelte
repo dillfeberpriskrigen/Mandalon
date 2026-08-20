@@ -4,6 +4,7 @@
 	import { page } from '$app/state';
 	import { shouldSkipPageviewPath } from '$lib/analytics-paths';
 	import type { Snippet } from 'svelte';
+	import { ModeWatcher } from 'mode-watcher';
 	import '../app.css';
 
 	let { children }: { children: Snippet } = $props();
@@ -45,4 +46,5 @@
 	}
 </script>
 
+<ModeWatcher defaultMode="system" themeColors={{ light: '#edf1e4', dark: '#0c0d17' }} />
 {@render children()}

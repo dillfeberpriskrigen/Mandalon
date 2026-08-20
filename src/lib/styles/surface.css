@@ -15,6 +15,7 @@
 
 .surface-accent {
 	--surface-background: var(--accent);
+	color: var(--on-accent);
 }
 
 .surface-warning {
@@ -72,6 +73,14 @@
 }
 
 .surface-shadow-medium {
+	box-shadow: var(--shadow-medium);
+}
+
+:root.dark .surface {
+	box-shadow: var(--shadow-small);
+}
+
+:root.dark .surface-shadow-medium {
 	box-shadow: var(--shadow-medium);
 }
 

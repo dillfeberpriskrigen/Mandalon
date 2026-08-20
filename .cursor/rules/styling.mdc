@@ -26,10 +26,15 @@ color: var(--muted);
 padding: var(--space-medium);
 ```
 
-Key tokens: `--ink`, `--muted`, `--accent`, `--bg`, `--surface`, `--line`, `--border-radius`, `--text-width`, container width vars.
+Key tokens: `--ink`, `--muted`, `--accent`, `--bg`, `--surface`, `--line`, `--on-accent`, `--on-photo`, `--border-radius`, `--text-width`, container width vars.
 
 ## Dark mode
-Not supported currently. But will be added in future.
+
+Supported. `mode-watcher` applies `.dark` on `html` (default: system preference). Light values live in `:root`; dark values override the same tokens on `:root.dark`. Components must use tokens, not hardcoded light colors, so both modes stay in sync.
+
+Dark surfaces use the logo hue (`hsl(235 29% 35%)`): `--bg` is `hsl(235 31% 7%)`, `--surface` / `--content-background` lift toward that purple, and `--shadow-*` are purple-black with a faint inner highlight. Header and hero use `--header-bg` / `--hero-bg` (darker purple in dark mode). Photo overlays stay dark chrome (`--on-photo` for icons/text on images). Do not introduce a second visual treatment for the same pattern.
+
+A sun/moon control sits to the right of the EN/SV switch in `SiteHeader`.
 
 ## Typography
 

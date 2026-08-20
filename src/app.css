@@ -7,8 +7,10 @@
 @import './lib/styles/button.css';
 @import './lib/styles/form.css';
 
-/* Global variables */
+/* Global variables. `.dark` is applied to `html` by mode-watcher. */
 :root {
+	color-scheme: light;
+
 	/* Layout component variables */
 	--container-width-default: 1080px;
 	--container-width-wide: 1140px;
@@ -29,9 +31,16 @@
 	--muted: #506458;
 	--accent: #f0b437;
 	--accent-deep: #d09212;
+	--on-accent: #10231c;
+	--on-photo: #fff;
 	--line: rgba(16, 35, 28, 0.1);
 	--line-strong: color-mix(in srgb, var(--ink) 55%, white);
 	--content-background: rgb(255, 255, 255);
+	--photo-scrim: rgb(16 35 28 / 0.24);
+	--photo-scrim-soft: rgb(16 35 28 / 0.08);
+	--page-bg-image: url('/mandalon/motherboard-bg.webp');
+	--header-bg: linear-gradient(45deg, rgb(52 57 114 / 0.94) 0%, rgb(79 84 137 / 0.94) 100%), url('/mandalon/motherboard-bg.webp') center top / cover no-repeat;
+	--hero-bg: linear-gradient(45deg, rgb(52 57 114 / 0.94) 0%, rgb(52 57 114 / 0.84) 100%);
 
 	--radius-small: 0.25rem;
 	--radius-medium: 0.5rem;
@@ -76,11 +85,48 @@
 	--shadow-medium: 0 4px 12px rgb(0 0 0 / 0.15);
 }
 
+:root.dark {
+	color-scheme: dark;
+
+	/* Same hue as the logo: hsl(235 29% 35%). Page is hsl(235 31% 7%); cards lift toward the brand purple. */
+	--bg: hsl(235 31% 7%);
+	--bg-soft: hsl(235 28% 13%);
+	--surface: hsl(235 29% 20% / 0.94);
+	--surface-strong: hsl(235 24% 88%);
+	--ink: hsl(235 22% 94%);
+	--muted: hsl(235 16% 72%);
+	--accent: #f0b437;
+	--accent-deep: #e0a428;
+	--on-accent: hsl(235 30% 12%);
+	--on-photo: #fff;
+	--line: hsl(235 24% 82% / 0.14);
+	--line-strong: hsl(235 22% 80% / 0.28);
+	--content-background: hsl(235 28% 17%);
+	--photo-scrim: hsl(235 31% 7% / 0.55);
+	--photo-scrim-soft: hsl(235 31% 7% / 0.22);
+	--page-bg-image: linear-gradient(hsl(235 31% 7% / 0.97), hsl(235 31% 7% / 0.97)), url('/mandalon/motherboard-bg.webp');
+	--header-bg: linear-gradient(45deg, hsl(235 32% 10%) 0%, hsl(235 29% 13%) 100%);
+	--hero-bg: linear-gradient(45deg, hsl(235 32% 10%) 0%, hsl(235 29% 12%) 100%);
+
+	--color-warning: hsl(40 42% 16%);
+	--color-success: hsl(160 18% 16%);
+	--color-danger: hsl(0 58% 74%);
+
+	--link-hover-bg: color-mix(in srgb, var(--accent) 28%, transparent);
+
+	--shadow-small: 0 1px 2px hsl(235 45% 3% / 0.55), 0 4px 14px hsl(235 45% 3% / 0.4), inset 0 1px 0 hsl(0 0% 100% / 0.06);
+	--shadow-medium: 0 2px 6px hsl(235 45% 3% / 0.45), 0 12px 32px hsl(235 50% 4% / 0.55), inset 0 1px 0 hsl(0 0% 100% / 0.07);
+}
+
 body {
 	margin: 0;
 	font-family: 'Roboto', system-ui, sans-serif;
-	color: #10231c;
-	background: url('/mandalon/motherboard-bg.webp') center top / cover no-repeat;
+	color: var(--ink);
+	background-color: var(--bg);
+	background-image: var(--page-bg-image);
+	background-position: center top;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 @media (prefers-reduced-motion: no-preference) and (min-width: 781px) {

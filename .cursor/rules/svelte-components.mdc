@@ -17,7 +17,7 @@ alwaysApply: false
 
 ```
 src/lib/components/
-  layout/       PageContent, PageHeader, PageShell, PageMeta, SiteChrome, SiteHeader, SiteFooter, ErrorPage
+  layout/       PageContent, PageHeader, PageShell, PageMeta, SiteChrome, SiteHeader, SiteFooter, ErrorPage, ThemeToggle
   typography/   Text, Heading, Link
   primitives/   Button, Surface
   media/        Image
