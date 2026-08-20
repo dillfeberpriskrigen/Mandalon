@@ -54,6 +54,25 @@ export function referrerHostFromPageviewPayload(body: unknown, siteHostname: str
 	return null;
 }
 
+/** Path from the pageview body. Referer stays on the first document URL after client-side navigation. */
+export function pathFromPageviewPayload(body: unknown): string | null {
+	if (!body || typeof body !== 'object') {
+		return null;
+	}
+
+	const path = (body as { path?: unknown }).path;
+	if (typeof path !== 'string') {
+		return null;
+	}
+
+	const trimmed = path.trim();
+	if (!trimmed.startsWith('/') || trimmed.startsWith('//') || trimmed.includes('\\')) {
+		return null;
+	}
+
+	return trimmed;
+}
+
 export function referrerHostFromHeader(refererHeader: string | null, origin: string): string | null {
 	if (!refererHeader) {
 		return null;

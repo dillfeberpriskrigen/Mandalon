@@ -33,6 +33,7 @@
 				method: 'POST',
 				headers: { 'content-type': 'application/json' },
 				body: JSON.stringify({
+					path: to.url.pathname,
 					...(referrerHost ? { referrerHost } : {}),
 					...(internal ? { internal: true } : {})
 				}),

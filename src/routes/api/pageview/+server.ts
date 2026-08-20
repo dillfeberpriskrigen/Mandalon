@@ -5,6 +5,7 @@ import {
 	countryFromAddress,
 	isPageviewBot,
 	isPageviewRateLimited,
+	pathFromPageviewPayload,
 	pathFromSameOriginReferer,
 	recordEventLater,
 	referrerHostFromPageviewPayload,
@@ -13,14 +14,23 @@ import {
 
 export const prerender = false;
 
-async function readReferrerHost(request: Request, hostname: string): Promise<string | null> {
+type PageviewBody = {
+	path: string | null;
+	referrerHost: string | null;
+};
+
+async function readPageviewBody(request: Request, hostname: string): Promise<PageviewBody> {
 	try {
-		return referrerHostFromPageviewPayload(await request.json(), hostname);
+		const body = await request.json();
+		return {
+			path: pathFromPageviewPayload(body),
+			referrerHost: referrerHostFromPageviewPayload(body, hostname)
+		};
 	} catch {
 		// Empty body or non-JSON is fine.
 	}
 
-	return null;
+	return { path: null, referrerHost: null };
 }
 
 export const POST: RequestHandler = async ({ request, url, getClientAddress }) => {
@@ -33,23 +43,23 @@ export const POST: RequestHandler = async ({ request, url, getClientAddress }) =
 		return new Response(null, { status: 204 });
 	}
 
-	const referredPath = pathFromSameOriginReferer(request.headers.get('referer'), url.origin);
-	if (!referredPath) {
+	const body = await readPageviewBody(request, url.hostname);
+	const rawPath = body.path ?? pathFromSameOriginReferer(request.headers.get('referer'), url.origin);
+	if (!rawPath) {
 		return new Response(null, { status: 204 });
 	}
 
-	const path = normalizeAnalyticsPath(referredPath);
+	const path = normalizeAnalyticsPath(rawPath);
 	if (shouldSkipPageviewPath(path)) {
 		return new Response(null, { status: 204 });
 	}
 
-	const referrerHost = await readReferrerHost(request, url.hostname);
 	recordEventLater(
 		buildEvent({
 			eventType: 'pageview',
 			path,
 			country: countryFromAddress(address),
-			referrerHost
+			referrerHost: body.referrerHost
 		})
 	);
 
