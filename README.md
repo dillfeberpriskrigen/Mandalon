@@ -39,6 +39,59 @@ Copy `.env.example` to `.env` for local `npm run dev`. Vite loads it automatical
 
 Pushes to `develop` / `test1` / `test2` deploy to the matching secrets; `main` deploys to production.
 
+### New environment (DirectAdmin)
+
+Create the **subdomain** first. Document root: **Default** → `/domains/<hostname>/public_html`.
+
+Application root, `APP_ROOT_*`, and `cloudlinux-selector --app-root` have no leading slash and no trailing slash: `domains/<hostname>/node-root`.
+
+Then Extra Features → Setup Node.js App → Create Application:
+
+- Node.js version: `18.20.8`
+- Application mode: Production
+- Application root: `domains/<hostname>/node-root`
+- Application URL: choose the subdomain; leave the extra path field **empty** (app at `/`)
+- Application startup file: `_passenger.cjs` (this repo’s Passenger entry, not `app.js`)
+- Passenger log file: the prefix is `/home/<user>/`; fill `domains/<hostname>/node-log/passenger.log`
+
+Those fields write `public_html/.htaccess`.
+
+Create Application also adds `node-root/` (stub `_passenger.cjs`, empty `public/` and `tmp/`), empty `node-log/`, and `~/nodevenv/domains/<hostname>/node-root/18/`. Until the first GitHub deploy, the stub is a tiny HTTP server that responds `It works!` plus the Node version. Deploy replaces it with this repo’s `_passenger.cjs` (loads `.env`, imports `./build/index.js`) and creates `.env` via `scripts/ensure-env.mjs`. After `npm install` on the server, `node_modules` is a symlink into that venv.
+
+**The only manual filesystem step:** delete the DirectAdmin placeholder so Apache does not serve it instead of the Node app:
+
+```bash
+rm ~/domains/<hostname>/public_html/index.html
+```
+
+Do **not** delete `public_html/`. That directory is the Apache docroot; CloudLinux `.htaccess` lives there. Without it Passenger never starts. Do not put site files in `public_html`.
+
+Layout after setup:
+
+```text
+/home/<user>/domains/<hostname>/node-root/     # APP_ROOT, deploy target
+/home/<user>/domains/<hostname>/node-log/      # passenger.log (outside deploy)
+/home/<user>/domains/<hostname>/public_html/   # .htaccess (plus empty cgi-bin)
+/home/<user>/nodevenv/domains/<hostname>/node-root/18/
+```
+
+### GitHub secrets
+
+No trailing slash on any path-like value. No `/home/<user>/` prefix on `APP_ROOT_*`.
+
+Shared by `develop` / `test1` / `test2`: `SSH_HOST`, `SSH_PORT`, `SSH_USER`, `SSH_PRIVATE_KEY`.
+
+Per preview branch (`deploy-dev` maps these onto `APP_ROOT` and `DOMAIN`): `APP_ROOT_DEVELOPMENT`, `DOMAIN_DEVELOPMENT`, `APP_ROOT_TEST1`, `DOMAIN_TEST1`, `APP_ROOT_TEST2`, `DOMAIN_TEST2`.
+
+Production (`main`): `SSH_HOST_MAIN`, `SSH_PORT_MAIN`, `SSH_USER_MAIN`, `SSH_PRIVATE_KEY_MAIN`, `APP_ROOT_MAIN`.
+
+- `APP_ROOT_*`: `domains/<hostname>/node-root`. Same string as DirectAdmin Application root and `--app-root`. Used as `cd`, SCP `target`, Selector `--app-root`, and `/home/<user>/nodevenv/<APP_ROOT>/18/bin/activate`. A trailing slash or an absolute home path breaks the venv path and Selector.
+- `DOMAIN_*`: `<hostname>` (no `https://`, no trailing slash). Selected in the same `deploy-dev` step as `APP_ROOT`.
+- `SSH_HOST` / `SSH_HOST_MAIN`: hostname or IP only (no `ssh://`)
+- `SSH_PORT` / `SSH_PORT_MAIN`: integer
+- `SSH_USER` / `SSH_USER_MAIN`: account name (the `/home/<user>` basename)
+- `SSH_PRIVATE_KEY` / `SSH_PRIVATE_KEY_MAIN`: full PEM, including the BEGIN/END lines
+
 ### `cloudlinux-selector` (SSH)
 
 Inleed runs the app with CloudLinux Node Selector. After SSH login the shell starts in `/home/<user>/`. The Node files live at:
