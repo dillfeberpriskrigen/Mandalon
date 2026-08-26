@@ -44,7 +44,6 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			{
 				name: 'Per-Erik Fägerman',
 				role: 'VD',
-				image: { src: '/mandalon/PerErik.webp', alt: 'Per-Erik Fägerman', width: 198, height: 198 },
 				phone: '073 320 60 50',
 				phoneHref: 'tel:+46733206050',
 				reason: 'Ring mig om ni har frågor om Mandalon, paketering av chip eller labbet.',
@@ -59,11 +58,10 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			{
 				name: 'Jonatan Gezelius',
 				role: 'Elektronikingenjör',
-				image: { src: '/mandalon/Jonatan.webp', alt: 'Jonatan Gezelius', width: 200, height: 200 },
 				phone: '073 58 48 690',
 				phoneHref: 'tel:+46735848690',
-				reason: 'Ring mig om ni har frågor om testsystem, schema, kretskort eller paketering av chip.',
-				bio: 'Elektronikingenjör sedan 2019, med erfarenhet av produktionstestsystem, schema och kretskortsdesign från idé till färdigt kort.'
+				reason: 'Ring mig om ni har frågor om testsystem, elektronikdesign, kretskort eller paketering av chip.',
+				bio: 'Elektronikingenjör sedan 2019, med erfarenhet av produktionstestsystem, elektronikdesign och kretskortsdesign från idé till färdigt kort.'
 			}
 		],
 		address: {
@@ -123,7 +121,6 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			{
 				name: 'Per-Erik Fägerman',
 				role: 'CEO',
-				image: { src: '/mandalon/PerErik.webp', alt: 'Per-Erik Fägerman', width: 198, height: 198 },
 				phone: '+46 733 20 60 50',
 				phoneHref: 'tel:+46733206050',
 				reason: 'Call me about Mandalon, chip packaging, or the lab.',
@@ -138,7 +135,6 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			{
 				name: 'Jonatan Gezelius',
 				role: 'Electronics engineer',
-				image: { src: '/mandalon/Jonatan.webp', alt: 'Jonatan Gezelius', width: 200, height: 200 },
 				phone: '+46 73 58 48 690',
 				phoneHref: 'tel:+46735848690',
 				reason: 'Call me about test systems, schematics, circuit boards, or chip packaging.',
