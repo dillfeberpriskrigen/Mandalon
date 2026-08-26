@@ -83,13 +83,10 @@ Project conventions that apply to every task:
 
 ### 5. Verify
 
-Run these three, in order. All must pass:
+Do not run format, check, and lint as a ritual after every edit. The git pre-commit hook runs all three.
 
-```bash
-npm run format
-npm run check
-npm run lint
-```
+- **Code changes:** run `npm run lint`. Do not also run `check` unless you need it to debug a type error.
+- **Content-only** (copy in `src/lib/content/pages/`, no type or shape change): skip lint and check.
 
 Then, if the task touches routing, loaders, `+layout` files, hooks, prerendering, or the document head:
 
@@ -100,9 +97,11 @@ npm run check:build   # once T06 has landed
 
 Then perform every numbered step under the task's `Verification` heading. Manual browser checks run against `npm run dev` at http://localhost:5173. Redirect and status-code checks run against `node build/index.js`, not the dev server — the dev server does not reproduce `adapter-node`'s static-file middleware. Start the server in the background, do the checks, then stop it.
 
+If the user asks you to commit, run `npm run format` first. The hook then formats, type-checks, and lints.
+
 **Tasks tagged `expected-failure`** state in their own verification steps that `npm run check` is supposed to fail at an intermediate point. Read those steps before treating a failure as a defect. The task is still not complete, and the checkbox is still not ticked, until the final state passes everything.
 
-**If verification fails:** fix the cause and re-run the full gate from `npm run format`. After two failed attempts, stop, leave the changes in place uncommitted, and report what failed with the exact error output. Do not tick the checkbox. Do not revert the developer's working tree.
+**If verification fails:** fix the cause and re-run the same checks. After two failed attempts, stop, leave the changes in place uncommitted, and report what failed with the exact error output. Do not tick the checkbox. Do not revert the developer's working tree.
 
 ### 6. Mark complete
 
@@ -132,7 +131,7 @@ Changed:
 - deleted src/lib/components/icons/
 
 Verified:
-- npm run format / check / lint: pass
+- npm run lint: pass (code change)
 - /stats still loads and renders its error state
 
 Roadmap updated: T03 ticked, progress log appended.

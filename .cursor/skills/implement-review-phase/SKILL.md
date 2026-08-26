@@ -82,7 +82,7 @@ Follow the same steps as `implement-review-task`:
 
 1. Read **every** file in `Affected files` before editing.
 2. Implement the task’s `Steps` exactly.
-3. Run verification (standard gate, then build/`check:build` when required, then every numbered `Verification` step).
+3. Run verification (lint after code changes; skip lint/check for content-only copy; then build/`check:build` when required, then every numbered `Verification` step).
 4. Only then tick `- [x] Complete` and append a progress-log row.
 
 Reuse the project conventions and stop conditions from `implement-review-task` (Svelte 5 runes, content in `src/lib/content/`, tokens, LF, no drive-by cleanup, etc.).
@@ -95,15 +95,16 @@ Reuse the project conventions and stop conditions from `implement-review-task` (
 
 After mark-complete succeeds:
 
-1. Stage only this task’s `Affected files` and `docs/review-roadmap.md`.
-2. Commit with a concise message that states the **why** and ends with the task id, matching recent roadmap commits, e.g.:
+1. Run `npm run format`.
+2. Stage only this task’s `Affected files` and `docs/review-roadmap.md`.
+3. Commit with a concise message that states the **why** and ends with the task id, matching recent roadmap commits, e.g.:
 
 ```
 Introduce a page registry and derive SEO alternates from it (T09).
 ```
 
-3. Run `git status` and confirm a clean tree (or only unrelated pre-existing files the user already knew about).
-4. **Do not push.**
+4. Run `git status` and confirm a clean tree (or only unrelated pre-existing files the user already knew about).
+5. **Do not push.**
 
 If the commit fails because of a hook, fix the issue and create a **new** commit — never amend unless the user explicitly asks.
 
@@ -114,7 +115,7 @@ After each commit, give a short report (can be compact while the phase is still 
 ```
 Task: T06 — Add a build-output smoke check
 Commit: <hash>
-Verified: format/check/lint, build+check:build, negative rename test
+Verified: lint, build+check:build, negative rename test
 Next in phase: T07
 ```
 

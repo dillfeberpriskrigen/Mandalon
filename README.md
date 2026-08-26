@@ -17,6 +17,8 @@ npm install
 npm run dev
 ```
 
+`npm install` sets a local git `pre-commit` hook. It always runs `npm run format`, then `npm run check`, then `npm run lint`. Skip it only with `--no-verify` if you have a reason. During editing, lint after code changes; skip lint and type-check for copy-only edits in `src/lib/content/pages/`.
+
 ## Production build
 
 ```bash

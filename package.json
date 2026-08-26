@@ -14,7 +14,8 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"check:build": "node scripts/check-build.mjs",
-		"ensure-env": "node scripts/ensure-env.mjs"
+		"ensure-env": "node scripts/ensure-env.mjs",
+		"prepare": "node scripts/install-git-hooks.mjs"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.4",

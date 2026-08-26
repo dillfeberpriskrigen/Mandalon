@@ -21,7 +21,7 @@ npm run build    # production build
 npm run check    # svelte-check
 npm run check:build # smoke-check prerendered build output
 npm run lint     # prettier + eslint
-npm run format   # Perform formatting, prettier + svelte
+npm run format   # prettier --write (mandatory before commit)
 ```
 ## i18n and routing
 
@@ -39,4 +39,4 @@ npm run format   # Perform formatting, prettier + svelte
 - **Content:** User-facing text lives in `src/lib/content/` — pages consume it as `data.content`; components receive content via props (never hardcoded). Shared English-only bodies (e.g. design guide article) may live in a dedicated module under `pages/`. No em dash (`—`) in that copy; see `product-design.mdc`.
 - **Code comments:** Swedish or English
 - **Reference page:** `(site)/[[lang=locale]]/packaging/+page.svelte` — canonical example of page structure
-- **Before done:** After any code change, run `npm run format`, then `npm run check`, then `npm run lint`. Do not consider the task done until all three pass. If the change touches routing, loaders, layouts, hooks, prerendering, or the document head, also run `npm run build` and `npm run check:build`.
+- **Format / lint / check:** see `quality-gates.mdc`. Do not run the full format+check+lint suite after every edit.

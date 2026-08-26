@@ -27,20 +27,20 @@ Everything else is a genuine improvement but can be scheduled freely, dropped, o
 
 ## Standard verification
 
-Every task must end with all three of these passing, in this order:
+Do not run format, check, and lint after every edit. The git pre-commit hook runs all three.
 
-```bash
-npm run format
-npm run check
-npm run lint
-```
+During the task:
 
-Tasks that touch routing, loaders, `+layout` files, hooks, or prerendering must also pass:
+- **Code changes:** run `npm run lint` after implementing.
+- **Content-only** (copy in `src/lib/content/pages/`, no type or shape change): skip lint and check.
+- Tasks that touch routing, loaders, `+layout` files, hooks, or prerendering must also pass:
 
 ```bash
 npm run build
 node scripts/check-build.mjs   # once T06 has landed
 ```
+
+Before commit, run `npm run format`. The hook then formats, type-checks, and lints.
 
 Manual checks run against `npm run dev` (http://localhost:5173) unless a task says otherwise.
 
