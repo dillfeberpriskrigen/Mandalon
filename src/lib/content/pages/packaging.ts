@@ -9,24 +9,6 @@ export const chipSensorsPage = {
 		},
 		title: 'Paketering av chip och trådbondning',
 		lead: 'I labbet utanför Linköping arbetar vi dagligen med advanced packaging: trådbondning, die bonding, kapsling och prototyper för chip, sensorer och MEMS. Vi tar oss an även det som andra bedömt som svårt att bonda.',
-		methods: {
-			dieBonding: {
-				title: 'Mikromontering (die bonding)',
-				paragraphs: [
-					'Mikromontering, die bonding, är att sätta chipet på rätt plats med rätt lim innan det kan trådbondas. Vi die-bondar manuellt och är vana vid känsliga chip, MEMS och prototyper där passningen måste stämma från början.',
-					'Vanligt är att man monterar chip i kapsel eller på kretskort. Vi har en del open cavity kapslar i lager och en del lead frames. Kontakta oss för att se vad vi har inne för tillfället.',
-					'Vi har många limmer och kan blanda med precisionsvåg. Behöver ni ett specifikt lim tar vi hem det eller använder ert.'
-				]
-			},
-			wireBonding: {
-				title: 'Trådbondning',
-				paragraphs: [
-					'När chipet sitter ska det ha kontakt med omvärlden. Trådbondning är metoden vi arbetar med: ball och wedge, guld- och aluminiumtråd, manuellt och automatiskt.',
-					'Vi har tillgång till bondmaskiner för ball- och wedgebondning, både manuella och helautomatiska. Vilken metod som passar beror på chip, pad-layout och hur kretsen ska skyddas efteråt.',
-					'Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem. Även när fan-out ser ut som spaghetti kan vi oftast lösa det, det tar bara lite längre tid.'
-				]
-			}
-		},
 		capabilitiesTitle: 'Kapabilitet',
 		capabilitiesPresentation: 'Listan visar det vi är mest vana att hantera. Den är inte heltäckande, så hör av er om ni behöver något som saknas.',
 		capabilities: [
@@ -51,6 +33,28 @@ export const chipSensorsPage = {
 			}
 		],
 		areas: {
+			assembly: {
+				title: 'Mikroelektronikmontering',
+				subtitle: 'Chipet säkert på plats',
+				paragraphs: [
+					'Mikromontering, die bonding, är att sätta chipet på rätt plats med rätt lim innan det kan trådbondas. Vi die-bondar manuellt och är vana vid känsliga chip, MEMS och prototyper där varje enhet är dyrbar.',
+					'Vanligt är att man monterar chip i kapsel eller på kretskort. Vi har en del open cavity kapslar i lager och en del lead frames. Kontakta oss för att se vad vi har inne för tillfället.',
+					'Vi har många limmer och kan blanda med precisionsvåg. Behöver ni ett specifikt lim tar vi hem det eller använder ert.'
+				],
+				image: { src: '/mandalon/designguide/picture-12.webp', alt: 'Chip bondat på PCB', width: 733, height: 401 },
+				contactLabel: 'Kontakta oss för mer information'
+			},
+			wireBonding: {
+				title: 'Trådbondning',
+				subtitle: 'Ett chip behöver kontakteras och skyddas',
+				paragraphs: [
+					'När chipet sitter ska det ha kontakt med omvärlden. Trådbondning är en beprövad metod för kontaktering och är den metod som vi använder.',
+					'Vi har tillgång till bondmaskiner för ball- och wedgebondning, både manuella och helautomatiska. Vi kan arbeta med både guld- och aluminiumtråd, och väljer metod och material utifrån chip, pad-layout och hur kretsen ska skyddas efteråt.',
+					'Har ni glömt att öppna passiveringslagret för en viktig pad? Vi har räddat många chip som haft problem. Även när fan-out ser ut som spaghetti kan vi oftast lösa det, det tar bara lite längre tid.'
+				],
+				image: { src: '/mandalon/designguide/picture-5.webp', alt: 'Två chip trådbondade på kretskort', width: 844, height: 476 },
+				contactLabel: 'Hör av er om trådbondning'
+			},
 			prototypes: {
 				title: 'Utveckling & prototyper',
 				subtitle: 'Området som är Mandalons ursprung',
@@ -59,25 +63,8 @@ export const chipSensorsPage = {
 					'Under prototypfasen ligger fokus på att få chipet att prata med omvärlden för första gången. Aspekter som producerbarhet och tillförlitlighet väger lättare.',
 					'Under resans gång blir dessa aspekter däremot allt viktigare och ju tidigare man lägger resurser på detta desto lättare är det att anpassa sin design inför kommande produktion.'
 				],
-				image: { src: '/mandalon/chip-prototypes.webp', alt: 'Tidig idéskiss', width: 1024, height: 680 }
-			},
-			wireBonding: {
-				title: 'Trådbondning & paketering',
-				subtitle: 'Ett chip behöver kontakteras och skyddas',
-				paragraphs: [
-					'Trådbondning är en beprövad metod för kontaktering och är den metod som Mandalon använder. Vi har tillgång till bondmaskiner för ball- respektive wedgebondning, manuella maskiner samt helautomatiska.',
-					'Vilken metod som passar beror på chip, pad-layout och hur kretsen ska skyddas efteråt. Vi hjälper till att välja upplägg så att kontakteringen håller både för verifiering och nästa steg.'
-				],
-				image: { src: '/mandalon/chip-wirebonding.webp', alt: 'Bondmaskin, mikroskop och work holder', width: 768, height: 1024 }
-			},
-			assembly: {
-				title: 'Mikroelektronikmontering',
-				subtitle: 'Chipet på rätt plats och rätt kontakterat',
-				paragraphs: [
-					'Mikroelektronikmontering handlar enkelt uttryckt om hur man sätter ett chip på rätt plats och kontakterar det.',
-					'Den längre varianten berör prestanda på färdig krets, producerbarhet, materialval, metodval, ekonomi, arbetsmiljö, tidsplanering, geometri med mera. Vi låser oss sällan vid en färdig mall när vi tar oss an ert problem.'
-				],
-				image: { src: '/mandalon/chip-assembly.webp', alt: 'Bondningsparametrar', width: 1024, height: 768 }
+				image: { src: '/mandalon/chip-prototypes.webp', alt: 'Tidig idéskiss', width: 1024, height: 680 },
+				contactLabel: 'Berätta om er prototyp så hjälper vi till'
 			},
 			encapsulation: {
 				title: 'Kapsling & ingjutning',
@@ -89,12 +76,9 @@ export const chipSensorsPage = {
 					'Väljer man i stället montering direkt på PCB kan man uppnå en snabbare koppling med kortare anslutningar med rätt layout. Gäller ofta inom RF. Vill man ändå ha ett mer robust mekaniskt skydd för trådarna kan en globning hjälpa. Alternativet kan vara lock.',
 					'Osäkra på avvägningen för ert projekt? Då finns vår erfarenhet att tillgå.'
 				],
-				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'Ett urval av normala TO metallkapslar', width: 768, height: 573 }
+				image: { src: '/mandalon/kapslar.webp', alt: 'Ett urval av normala metallkapslar', width: 1876, height: 2557 },
+				contactLabel: 'Kontakta oss så reder vi ut detaljerna'
 			}
-		},
-		contactPrompt: {
-			label: 'Kontakta oss redan idag och diskutera ert projekt!',
-			page: 'contact'
 		},
 		contactCta: {
 			title: 'Osäkra på metod, kapsel eller bondbarhet?',
@@ -111,32 +95,14 @@ export const chipSensorsPage = {
 		},
 		title: 'Chip packaging and wire bonding',
 		lead: 'In our lab outside Linköping we work daily with advanced packaging: wire bonding, die bonding, encapsulation and prototypes for chips, sensors and MEMS. We also take on work others have judged too difficult to bond.',
-		methods: {
-			dieBonding: {
-				title: 'Die bonding',
-				paragraphs: [
-					'Die bonding is placing the chip in the right position with the right adhesive before it can be wire bonded. We die-bond by hand and are used to sensitive chips, MEMS and prototypes where the placement has to be right from the start.',
-					'Chips are commonly mounted in a package or on a PCB. We keep some open-cavity packages and some lead frames in stock. Contact us to see what we currently have.',
-					'We keep a wide range of adhesives and can mix with a precision scale. If you need a specific adhesive we can source it or use yours.'
-				]
-			},
-			wireBonding: {
-				title: 'Wire bonding',
-				paragraphs: [
-					'Once the chip is in place it needs to talk to the outside world. Wire bonding is the method we work with: ball and wedge, gold and aluminium wire, manual and automatic.',
-					'We have machines for ball and wedge bonding, both manual and fully automatic. Which method fits depends on the chip, pad layout and how the circuit should be protected afterwards.',
-					'Did you forget to open the passivation layer for an important pad? We have saved many chips with issues. Even when the fan-out looks like spaghetti we can usually solve it, it just takes a bit longer.'
-				]
-			}
-		},
 		capabilitiesTitle: 'Capabilities',
 		capabilitiesPresentation:
 			'The list shows what we are most experienced with. It is not exhaustive, so get in touch if you need something that is not listed.',
 		capabilities: [
 			{ name: 'Gold wire', description: '25µm, 17µm' },
-			{ name: 'Aluminum wire', description: '25µm, 17µm' },
+			{ name: 'Aluminium wire', description: '25µm, 17µm' },
 			{ name: 'Ball bonding', description: 'Gold wire' },
-			{ name: 'Wedge bonding', description: 'Gold wire, Aluminum' },
+			{ name: 'Wedge bonding', description: 'Gold wire, Aluminium' },
 			{ name: 'Manual bonding', description: 'Ball and wedge' },
 			{ name: 'Automatic bonding', description: 'Ball and wedge' },
 			{ name: 'Die bonding', description: 'We perform die bonding manually' },
@@ -158,6 +124,28 @@ export const chipSensorsPage = {
 			}
 		],
 		areas: {
+			assembly: {
+				title: 'Microelectronics assembly',
+				subtitle: 'The chip securely in place',
+				paragraphs: [
+					'Microassembly, die bonding, is placing the chip in the right position with the right adhesive before it can be wire bonded. We die-bond by hand and are used to sensitive chips, MEMS and prototypes where each unit is precious.',
+					'Chips are commonly mounted in a package or on a PCB. We keep some open-cavity packages and some lead frames in stock. Contact us to see what we currently have.',
+					'We keep a wide range of adhesives and can mix with a precision scale. If you need a specific adhesive we can source it or use yours.'
+				],
+				image: { src: '/mandalon/designguide/picture-12.webp', alt: 'Chip bonded on a PCB', width: 733, height: 401 },
+				contactLabel: 'Contact us for more information'
+			},
+			wireBonding: {
+				title: 'Wire bonding',
+				subtitle: 'A chip needs interconnects and protection',
+				paragraphs: [
+					'Once the chip is in place it needs contact with the outside world. Wire bonding is a proven interconnect method, and it is the method we use.',
+					'We have access to machines for ball and wedge bonding, both manual and fully automatic. We work with both gold and aluminium wire, and choose method and material based on the chip, pad layout and how the circuit should be protected afterwards.',
+					'Did you forget to open the passivation layer for an important pad? We have saved many chips with issues. Even when the fan-out looks like spaghetti we can usually solve it, it just takes a bit longer.'
+				],
+				image: { src: '/mandalon/designguide/picture-5.webp', alt: 'Two chips wire bonded on a circuit board', width: 844, height: 476 },
+				contactLabel: 'Get in touch about wire bonding'
+			},
 			prototypes: {
 				title: 'Development & prototypes',
 				subtitle: 'The area where Mandalon started',
@@ -166,42 +154,22 @@ export const chipSensorsPage = {
 					'During the prototype phase, the focus is on getting the chip to communicate with the outside world for the first time. Manufacturability and long-term reliability weigh less at this stage.',
 					'As the project moves forward, those aspects become increasingly important, and the earlier resources are invested in them, the easier it becomes to adapt the design for later production.'
 				],
-				image: { src: '/mandalon/chip-prototypes.webp', alt: 'Early concept sketch', width: 1024, height: 680 }
-			},
-			wireBonding: {
-				title: 'Wire bonding & packaging',
-				subtitle: 'A chip needs interconnects and protection',
-				paragraphs: [
-					'Interconnecting chips and other structures can be done in several ways. Wire bonding has been used for a long time and is the method Mandalon works with. We have access to machines for both ball and wedge bonding, manual systems and fully automatic ones.',
-					'Which method fits depends on the chip, pad layout and how the circuit should be protected afterwards. We help choose an approach so the interconnects hold both for verification and for the next step.'
-				],
-				image: { src: '/mandalon/chip-wirebonding.webp', alt: 'Wire bonding machine, microscope and work holder', width: 768, height: 1024 }
-			},
-			assembly: {
-				title: 'Microelectronics assembly',
-				subtitle: 'Getting the chip in place and connected',
-				paragraphs: [
-					'Microelectronics assembly is, simply put, about how a chip is positioned correctly and connected in the right way.',
-					'The longer version touches finished-circuit performance, manufacturability, materials, method choices, economics, work environment, timing and geometry. We rarely lock ourselves to a ready-made template when we take on your problem.'
-				],
-				image: { src: '/mandalon/chip-assembly.webp', alt: 'Bonding parameters', width: 1024, height: 768 }
+				image: { src: '/mandalon/chip-prototypes.webp', alt: 'Early concept sketch', width: 1024, height: 680 },
+				contactLabel: 'Tell us about your prototype and we will help'
 			},
 			encapsulation: {
 				title: 'Encapsulation & potting',
 				subtitle: 'What should you think about?',
 				paragraphs: [
 					'A bonded chip often needs protection from mechanical stress already at the prototype stage. Sometimes a simple plastic lid taped over the chip and wires is enough, while in other cases a sealed ceramic package is required. Potting the chip and wires in a suitable adhesive is also common.',
-					'Preparation for assembly usually involves choosing a metal or ceramic package and lid, or mounting and potting directly on a PCB. Much of the work in this area is about finding the right package together with the customer or proposing direct PCB assembly. Both approaches have advantages and drawbacks.',
+					'Preparation for assembly usually involves choosing a metal or ceramic package and lid, or mounting and potting directly on a PCB. Together with you we find the right packaging: a matching package, or mounting directly on the board. Both approaches have advantages and drawbacks.',
 					'A relatively more expensive package gives good mechanical protection and can make it easy to swap the circuit in a more complex setup when used with the right socket.',
 					'If you instead mount directly on a PCB, a faster connection with shorter interconnects can be achieved with the right layout, which is often relevant in RF. If better mechanical protection for the wires is still needed, potting can help. Another option is a lid.',
 					'If you are unsure how to weigh the options for your project, our experience is at your disposal.'
 				],
-				image: { src: '/mandalon/chip-encapsulation.webp', alt: 'A selection of common TO metal packages', width: 768, height: 573 }
+				image: { src: '/mandalon/kapslar.webp', alt: 'A selection of common metal packages', width: 1876, height: 2557 },
+				contactLabel: 'Contact us and we will sort out the details'
 			}
-		},
-		contactPrompt: {
-			label: 'Get in touch today and we can discuss your project!',
-			page: 'contact'
 		},
 		contactCta: {
 			title: 'Unsure about method, package or bondability?',

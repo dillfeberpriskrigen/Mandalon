@@ -32,26 +32,21 @@
 <PageShell>
 	<PageHeader title={page.title} lead={page.lead} />
 
-	<div class="surface-grid methods">
-		<Surface as="section" radius="large" padding="large" shadow="medium">
-			<div class="method-heading">
-				<Heading as="h2">{page.methods.dieBonding.title}</Heading>
-			</div>
-			<ParagraphArray paragraphs={page.methods.dieBonding.paragraphs} />
-		</Surface>
-
-		<Surface as="section" radius="large" padding="large" shadow="medium">
-			<div class="method-heading">
-				<Heading as="h2">{page.methods.wireBonding.title}</Heading>
-			</div>
-			<ParagraphArray paragraphs={page.methods.wireBonding.paragraphs} />
-		</Surface>
-	</div>
-
-	<div class="contact-prompt">
-		<Surface as="section" radius="large" padding="large">
-			<Button href={hrefFor(page.contactPrompt.page, locale)}>{page.contactPrompt.label}</Button>
-		</Surface>
+	<div class="areas">
+		{#each chipSensorsAreaOrder as key, i (key)}
+			{@const area = page.areas[key]}
+			<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
+				{#snippet content()}
+					<ParagraphArray paragraphs={area.paragraphs} />
+					<div class="area-action">
+						<Button href={hrefFor('contact', locale)}>{area.contactLabel}</Button>
+					</div>
+				{/snippet}
+				{#snippet media()}
+					<Image src={area.image.src} alt={area.image.alt} width={area.image.width} height={area.image.height} priority={i === 0} />
+				{/snippet}
+			</MediaArticleSection>
+		{/each}
 	</div>
 
 	<div class="capabilities">
@@ -64,41 +59,16 @@
 		</Surface>
 	</div>
 
-	<div class="areas">
-		{#each chipSensorsAreaOrder as key, i (key)}
-			{@const area = page.areas[key]}
-			<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
-				{#snippet content()}
-					<ParagraphArray paragraphs={area.paragraphs} />
-				{/snippet}
-				{#snippet media()}
-					<Image src={area.image.src} alt={area.image.alt} width={area.image.width} height={area.image.height} priority={i === 0} />
-				{/snippet}
-			</MediaArticleSection>
-		{/each}
-	</div>
-
 	<ContactCtaSection cta={page.contactCta} {locale} />
 </PageShell>
 
 <style>
-	.methods {
-		margin-top: 2.2rem;
-		align-items: stretch;
-	}
-
-	.methods :global(.surface) {
-		height: 100%;
-		min-width: 0;
-	}
-
 	.method-heading {
 		margin-bottom: var(--space-medium);
 	}
 
 	.areas,
-	.capabilities,
-	.contact-prompt {
+	.capabilities {
 		margin-top: 3rem;
 	}
 
@@ -107,8 +77,11 @@
 		gap: 1.5rem;
 	}
 
-	.contact-prompt :global(.button) {
-		width: 100%;
+	.area-action {
+		margin-top: var(--space-medium);
+	}
+
+	.area-action :global(.button) {
 		white-space: normal;
 		text-wrap: balance;
 	}

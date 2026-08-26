@@ -69,7 +69,7 @@ export type ConsultingHomeContent = {
 	}[];
 };
 
-export const chipSensorsAreaOrder = ['prototypes', 'wireBonding', 'assembly', 'encapsulation'] as const;
+export const chipSensorsAreaOrder = ['assembly', 'wireBonding', 'encapsulation', 'prototypes'] as const;
 
 export type ChipSensorsAreaKey = (typeof chipSensorsAreaOrder)[number];
 
@@ -77,12 +77,13 @@ type ChipSensorsAreaBase = {
 	title: string;
 	subtitle: string;
 	image: ContentImage;
+	contactLabel: string;
 };
 
 export type ChipSensorsAreas = {
 	prototypes: ChipSensorsAreaBase & { paragraphs: [string, string, string] };
-	wireBonding: ChipSensorsAreaBase & { paragraphs: [string, string] };
-	assembly: ChipSensorsAreaBase & { paragraphs: [string, string] };
+	wireBonding: ChipSensorsAreaBase & { paragraphs: [string, string, string] };
+	assembly: ChipSensorsAreaBase & { paragraphs: [string, string, string] };
 	encapsulation: ChipSensorsAreaBase & { paragraphs: [string, string, string, string, string] };
 };
 
@@ -90,16 +91,6 @@ export type ChipSensorsPageContent = {
 	meta: Meta;
 	title: string;
 	lead: string;
-	methods: {
-		dieBonding: {
-			title: string;
-			paragraphs: [string, string, string];
-		};
-		wireBonding: {
-			title: string;
-			paragraphs: [string, string, string];
-		};
-	};
 	capabilitiesTitle: string;
 	capabilitiesPresentation: string;
 	capabilities: {
@@ -107,10 +98,6 @@ export type ChipSensorsPageContent = {
 		description: string;
 	}[];
 	areas: ChipSensorsAreas;
-	contactPrompt: {
-		label: string;
-		page: PageKey;
-	};
 	contactCta: ContactCtaContent;
 };
 
