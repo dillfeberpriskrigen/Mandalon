@@ -36,6 +36,7 @@ export type HeroContent = {
 export type SalesIntroContent = {
 	title: string;
 	paragraphs: string[];
+	points: [string, string, string];
 	image: ContentImage;
 	actions: NavLink[];
 };

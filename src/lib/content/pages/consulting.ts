@@ -8,7 +8,7 @@ export const consultingPage = {
 				'Konsulttjänster i Linköping: chipdesign, processutveckling, projektledning, testsystem, schema och kretskortsdesign. Oftast hos er, på projekt eller löpande timmar.'
 		},
 		title: 'Konsulttjänster',
-		lead: 'Vi hjälper till med elektronik, chipdesign, processutveckling och projektledning, hos er eller i labbet. Det kan vara testsystem och kretskort, en genomgång innan kislet låses, eller att hålla ihop paketeringen i tidplanen.',
+		lead: 'Behöver ni tillfällig stöttning eller ytterligare kompetens till ert projekt?',
 		services: {
 			'chip-design': {
 				title: 'Design chip & sensorer',
@@ -89,7 +89,7 @@ export const consultingPage = {
 				'Consulting in Linköping: chip design, process development, project management, test systems, schematics and PCB design. Usually on site, as a project or on an hourly basis.'
 		},
 		title: 'Consulting Services',
-		lead: 'We help with electronics, chip design, process development and project management, at your site or in the lab. That can be test systems and circuit boards, a review before the silicon is locked, or keeping packaging aligned in the schedule.',
+		lead: 'Need additional engineering or project capacity without hiring permanently?',
 		services: {
 			'chip-design': {
 				title: 'Chip & sensor design',

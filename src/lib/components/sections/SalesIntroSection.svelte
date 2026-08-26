@@ -26,28 +26,36 @@
 		<PageContent>
 			<Surface radius="large" padding="large">
 				<div class="intro-copy">
-					<Heading as="h2">{salesIntro.title}</Heading>
-
-					<div class="intro-body">
-						<div class="intro-text">
-							<ParagraphArray paragraphs={salesIntro.paragraphs} />
-
-							<div class="intro-actions">
-								{#each salesIntro.actions as action, index (action.page)}
-									<Button href={hrefFor(action.page, activeLocale)} variant={index === 0 ? 'primary' : 'secondary'}>
-										{action.label}
-									</Button>
-								{/each}
-							</div>
+					{#if salesIntro.title}
+						<div class="intro-title">
+							<Heading as="h2">{salesIntro.title}</Heading>
 						</div>
+					{/if}
 
-						<div class="intro-media">
-							<picture>
-								<source media="(max-width: 780px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
-								<source media="(min-width: 781px)" srcset={salesIntro.image.src} />
-								<Image src={salesIntro.image.src} alt={salesIntro.image.alt} width={salesIntro.image.width} height={salesIntro.image.height} sizes="16rem" />
-							</picture>
+					<div class="intro-text">
+						<ParagraphArray paragraphs={salesIntro.paragraphs} />
+
+						<ul class="content-list">
+							{#each salesIntro.points as point (point)}
+								<li>{point}</li>
+							{/each}
+						</ul>
+
+						<div class="intro-actions">
+							{#each salesIntro.actions as action (action.page)}
+								<Button href={hrefFor(action.page, activeLocale)} variant="primary">
+									{action.label}
+								</Button>
+							{/each}
 						</div>
+					</div>
+
+					<div class="intro-media">
+						<picture>
+							<source media="(max-width: 780px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+							<source media="(min-width: 781px)" srcset={salesIntro.image.src} />
+							<Image src={salesIntro.image.src} alt={salesIntro.image.alt} width={salesIntro.image.width} height={salesIntro.image.height} sizes="16rem" />
+						</picture>
 					</div>
 				</div>
 			</Surface>
@@ -99,19 +107,19 @@
 
 	.intro-copy {
 		display: grid;
-		gap: 0.7rem;
-	}
-
-	.intro-body {
-		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(10rem, 16rem);
 		gap: var(--space-large);
-		align-items: start;
+		align-items: stretch;
+	}
+
+	.intro-title {
+		grid-column: 1 / -1;
 	}
 
 	.intro-text {
 		display: grid;
-		gap: 0.7rem;
+		gap: var(--space-large);
+		align-content: start;
 	}
 
 	.intro-copy :global(p) {
@@ -119,14 +127,26 @@
 	}
 
 	.intro-media {
+		position: relative;
 		border-radius: var(--border-radius);
 		overflow: hidden;
+		min-height: 0;
+	}
+
+	.intro-media picture {
+		position: absolute;
+		inset: 0;
+		display: block;
 	}
 
 	.intro-media :global(img) {
+		position: absolute;
+		inset: 0;
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
 	}
 
 	.intro-process {
@@ -153,7 +173,7 @@
 	}
 
 	@media (max-width: 780px) {
-		.intro-body {
+		.intro-copy {
 			grid-template-columns: 1fr;
 		}
 

@@ -5,14 +5,18 @@ alwaysApply: true
 
 # Format, lint, and check
 
-The git pre-commit hook runs `npm run format`, then `npm run check`, then `npm run lint`. That suite is a **commit gate**, not a "task complete" ritual. Do not run all three after every edit.
+The git pre-commit hook runs `npm run format`, then `npm run check`, then `npm run lint`. That suite is a **commit gate**, not a "task complete" ritual.
 
 ## During development
 
-- **Code changes:** run `npm run lint` after the change. Code includes components, routes, lib modules, `src/lib/content/types.ts`, `src/lib/content/site.ts`, scripts, and config. Do not also run `check` unless you need it to debug a type error.
-- **Content-only:** do not run `lint` or `check`. Content-only means copy in `src/lib/content/pages/**` and static assets, with no type or shape change. A mixed change (copy plus code) is a code change.
-- **Routing, loaders, layouts, hooks, prerendering, or the document head:** also run `npm run build` and `npm run check:build` before you consider that work done.
+Edit the files and stop. The user runs the app and checks the result.
+
+Do **not** run `npm run lint`, `npm run format`, `npm run check`, `npm run build`, or `npm run check:build` after edits. Do **not** curl or fetch the dev server, write temp check scripts, or otherwise scrape `/` and `/en/` to verify copy or UI.
+
+Run a command only if it is needed to make the change (for example `npm run dev` is already running) or if you are debugging a failure the user asked about.
 
 ## Before commit
 
 Always run `npm run format` before staging and committing. The hook formats again, then type-checks and lints. If the hook fails, fix the issues and commit again. Do not use `--no-verify`.
+
+If the change touched routing, loaders, layouts, hooks, prerendering, or the document head, also run `npm run build` and `npm run check:build` before you consider the commit done.

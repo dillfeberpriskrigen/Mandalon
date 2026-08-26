@@ -39,4 +39,4 @@ npm run format   # prettier --write (mandatory before commit)
 - **Content:** User-facing text lives in `src/lib/content/` — pages consume it as `data.content`; components receive content via props (never hardcoded). Shared English-only bodies (e.g. design guide article) may live in a dedicated module under `pages/`. No em dash (`—`) in that copy; see `product-design.mdc`.
 - **Code comments:** Swedish or English
 - **Reference page:** `(site)/[[lang=locale]]/packaging/+page.svelte` — canonical example of page structure
-- **Format / lint / check:** see `quality-gates.mdc`. Do not run the full format+check+lint suite after every edit.
+- **Format / lint / check:** see `quality-gates.mdc`. Do not run them during development; they belong at commit.

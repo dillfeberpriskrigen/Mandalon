@@ -10,27 +10,22 @@ export const home = {
 	sv: {
 		hero: {
 			title: 'Trådbondning och paketering för era halvledare',
-			copy: 'Mandalon är med ert team från idé till produktion. Vi har mer än 25 års erfarenhet av avancerad paketering, bondning och testsystem.'
+			copy: 'Vi kombinerar expertis inom halvledarpaketering, elektronikdesign, projekt- och affärsledning i ett effektivt team.'
 		},
 		salesIntro: {
-			title: 'Vi kapslar ert chip i Linköping',
+			title: 'Ta hjälp av vårt team redan idag',
 			paragraphs: [
-				'Trådbondning och paketering, på engelska Advanced Packaging, är oftast ett litet men avgörande steg för att kunna använda chipet. I vårt labb strax utanför Linköping har vi erfarenhet och maskiner för att få kontakt med det mesta.',
-				'Vi är gärna med i ett tidigt skede, när det fortfarande går att påverka chipets bondbarhet i layouten. Vi kan naturligtvis också hjälpa till senare i processen.',
-				'Svårbondade prototyper är inget främmande för oss på Mandalon, så var inte rädd att höra av er även om andra aktörer säger att det inte går. Om det verkligen inte går att bonda kan vi använda ledande lim och fästa bondtrådarna manuellt för att få er viktiga prototyp att fungera till mässan. Det går faktiskt!',
-				'Ju tidigare i processen ni hör av er, desto bättre och billigare blir det.'
+				'Vi är ett flexibelt ingenjörsföretag i Linköping som kombinerar 25 års erfarenhet av avancerad halvledarpaketering och trådbondning med elektronikdesign, projekt- och affärsledning.',
+				'Vi hjälper er med avancerad paketering av halvledare, utveckling av testsystem, projektledning och planering. Mandalon kan erbjuda en helhetslösning eller stötta inom enskilda områden.'
 			],
+			points: ['Flexibelt åtagande efter ert behov', 'Bondning, testsystem och projektledning', 'Korta beslutsvägar, snabba åtgärder'],
 			image: {
 				src: '/mandalon/intro.webp',
 				alt: 'Närbild av trådbondning på ett chip',
 				width: 768,
 				height: 1024
 			},
-			actions: [
-				{ label: 'Kontakt', page: 'contact' },
-				{ label: 'Paketering av chip', page: 'packaging' },
-				{ label: 'Designguide', page: 'designGuide' }
-			]
+			actions: [{ label: 'Kontakta oss redan idag', page: 'contact' }]
 		},
 		process: {
 			title: 'Tre sätt Mandalon avlastar ert team under hela processen',
@@ -117,27 +112,22 @@ export const home = {
 	en: {
 		hero: {
 			title: 'Wire bonding and advanced packaging for your semiconductors',
-			copy: 'Mandalon is with your team from idea to production. We have more than 25 years of experience in advanced packaging, bonding and test systems.'
+			copy: 'We combine deep semiconductor packaging expertise, practical electronics engineering and project and business management in one efficient team.'
 		},
 		salesIntro: {
-			title: 'We package your chip in Linköping, Sweden',
+			title: 'Get in touch with our team today',
 			paragraphs: [
-				'Advanced packaging is often a small but vital step if you are going to use your chip. In our lab, just outside Linköping in Sweden, we have the experience and machines to make contact with most things.',
-				'We are happy to join at an early stage, when there is still time to influence how bondable the chip will end up. Of course we can also help later in the process.',
-				'Difficult-to-bond prototypes are nothing new to us at Mandalon, so do not hesitate to get in touch even if others say it cannot be done. If it really cannot be bonded, we can even use conductive adhesive to glue the bond wires by hand to get your important prototype working in time for the showcase. It actually works!',
-				'The earlier in the process you get in touch, the better and cheaper it gets.'
+				'We are a flexible engineering company in Linköping that combines 25 years of experience in advanced semiconductor packaging and wire bonding with electronics design, project and business management.',
+				'We help you with advanced semiconductor packaging, test system development, project management and planning. Mandalon can offer a complete solution or support in individual areas.'
 			],
+			points: ['Flexible commitment based on your needs', 'Bonding, test systems and project management', 'Short decision paths, fast action'],
 			image: {
 				src: '/mandalon/intro.webp',
 				alt: 'Close-up of wire bonding on a chip',
 				width: 768,
 				height: 1024
 			},
-			actions: [
-				{ label: 'Contact', page: 'contact' },
-				{ label: 'Chip packaging', page: 'packaging' },
-				{ label: 'Design guide', page: 'designGuide' }
-			]
+			actions: [{ label: 'Contact us today', page: 'contact' }]
 		},
 		process: {
 			title: 'Three ways Mandalon helps your team throughout the process',
