@@ -12,6 +12,6 @@
 
 <HeroSection title={data.content.hero.title} copy={data.content.hero.copy} />
 
-<SalesIntroSection salesIntro={data.content.salesIntro} process={data.content.process} locale={data.locale} defaultLocale={data.defaultLocale} />
-
-<FeatureCarousel content={data.content.consulting} locale={data.locale} />
+<SalesIntroSection salesIntro={data.content.salesIntro} process={data.content.process} locale={data.locale} defaultLocale={data.defaultLocale}>
+	<FeatureCarousel content={data.content.consulting} locale={data.locale} />
+</SalesIntroSection>

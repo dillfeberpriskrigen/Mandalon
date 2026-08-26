@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import ParagraphArray from '$lib/components/content/ParagraphArray.svelte';
 	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import Image from '$lib/components/media/Image.svelte';
@@ -14,9 +15,10 @@
 		process: ProcessContent;
 		locale: Locale | null;
 		defaultLocale: Locale;
+		children?: Snippet;
 	}
 
-	let { salesIntro, process, locale, defaultLocale }: Props = $props();
+	let { salesIntro, process, locale, defaultLocale, children }: Props = $props();
 
 	const activeLocale = $derived(locale ?? defaultLocale);
 </script>
@@ -60,6 +62,8 @@
 				</div>
 			</Surface>
 
+			{@render children?.()}
+
 			<section class="divider-banner" aria-hidden="true">
 				<div class="divider-banner__image"></div>
 			</section>
@@ -84,7 +88,7 @@
 
 <style>
 	.divider-banner {
-		padding: 2rem 0 0;
+		padding: 2rem 0 1rem;
 	}
 
 	.divider-banner__image {
@@ -102,7 +106,7 @@
 	}
 
 	.intro {
-		padding: 0 0 var(--space-large);
+		padding: 0 0 5rem;
 	}
 
 	.intro-copy {

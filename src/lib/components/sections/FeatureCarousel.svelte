@@ -2,7 +2,6 @@
 	import useEmblaCarousel from 'embla-carousel-svelte';
 	import Autoplay from 'embla-carousel-autoplay';
 	import type { EmblaCarouselType } from 'embla-carousel';
-	import PageContent from '$lib/components/layout/PageContent.svelte';
 	import Image from '$lib/components/media/Image.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
@@ -18,7 +17,6 @@
 	let { content, locale }: Props = $props();
 
 	const title = $derived(content.title);
-	const intro = $derived(content.intro);
 	const features = $derived(content.features);
 	const labels = $derived(content.labels);
 
@@ -77,88 +75,67 @@
 {/snippet}
 
 <section class="carousel" aria-roledescription="carousel" aria-label={title}>
-	<div class="container">
-		<PageContent>
-			<div class="carousel-header">
-				<Surface radius="large" padding="large">
-					<Heading as="h2">{title}</Heading>
-					<div class="carousel-intro">
-						<Text as="p" variant="lead">{intro}</Text>
-					</div>
-				</Surface>
-			</div>
-
-			<div class="carousel-spotlight">
-				<div class="embla">
-					<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblaInit={handleEmblaInit}>
-						<div class="embla__container">
-							{#each features as feature, index (feature.title)}
-								<div
-									class="embla__slide"
-									role="group"
-									aria-roledescription="slide"
-									aria-label={`${index + 1} / ${features.length}`}
-									inert={index !== selectedIndex}
-								>
-									<Surface as="article" radius="large" padding="none">
-										<div class="carousel-media">
-											<Image
-												src={feature.image.src}
-												alt={feature.image.alt}
-												width={feature.image.width}
-												height={feature.image.height}
-												srcset={feature.image.srcset}
-												sizes="(max-width: 640px) calc(100vw - 32px), min(864px, calc(100vw - 32px))"
-											/>
-										</div>
-										<a class="carousel-copy" href={hrefFor(feature.page, locale, feature.section)}>
-											<Heading as="h3">{feature.title}</Heading>
-											<Text as="p">{feature.text}</Text>
-										</a>
-									</Surface>
-								</div>
-							{/each}
-						</div>
-					</div>
-
-					<div class="carousel-nav" role="group">
-						<button type="button" class="carousel-arrow carousel-arrow-prev" aria-label={labels.previous} onclick={scrollPrev} onkeydown={onControlKeydown}>
-							{@render arrowIcon()}
-						</button>
-						<button type="button" class="carousel-arrow carousel-arrow-next" aria-label={labels.next} onclick={scrollNext} onkeydown={onControlKeydown}>
-							{@render arrowIcon()}
-						</button>
-					</div>
-				</div>
-
-				<div class="carousel-dots">
+	<div class="carousel-spotlight">
+		<div class="embla">
+			<div class="embla__viewport" use:useEmblaCarousel={{ options: emblaOptions, plugins: emblaPlugins }} onemblaInit={handleEmblaInit}>
+				<div class="embla__container">
 					{#each features as feature, index (feature.title)}
-						<button
-							type="button"
-							class={['carousel-dot', index === selectedIndex && 'is-active']}
-							aria-label={slideLabel(index, feature.title)}
-							aria-current={index === selectedIndex ? 'true' : undefined}
-							onclick={() => scrollTo(index)}
-							onkeydown={onControlKeydown}
-						></button>
+						<div
+							class="embla__slide"
+							role="group"
+							aria-roledescription="slide"
+							aria-label={`${index + 1} / ${features.length}`}
+							inert={index !== selectedIndex}
+						>
+							<Surface as="article" radius="large" padding="none">
+								<div class="carousel-media">
+									<Image
+										src={feature.image.src}
+										alt={feature.image.alt}
+										width={feature.image.width}
+										height={feature.image.height}
+										srcset={feature.image.srcset}
+										sizes="(max-width: 640px) calc(100vw - 32px), min(864px, calc(100vw - 32px))"
+									/>
+								</div>
+								<a class="carousel-copy" href={hrefFor(feature.page, locale, feature.section)}>
+									<Heading as="h3">{feature.title}</Heading>
+									<Text as="p">{feature.text}</Text>
+								</a>
+							</Surface>
+						</div>
 					{/each}
 				</div>
 			</div>
-		</PageContent>
+
+			<div class="carousel-nav" role="group">
+				<button type="button" class="carousel-arrow carousel-arrow-prev" aria-label={labels.previous} onclick={scrollPrev} onkeydown={onControlKeydown}>
+					{@render arrowIcon()}
+				</button>
+				<button type="button" class="carousel-arrow carousel-arrow-next" aria-label={labels.next} onclick={scrollNext} onkeydown={onControlKeydown}>
+					{@render arrowIcon()}
+				</button>
+			</div>
+		</div>
+
+		<div class="carousel-dots">
+			{#each features as feature, index (feature.title)}
+				<button
+					type="button"
+					class={['carousel-dot', index === selectedIndex && 'is-active']}
+					aria-label={slideLabel(index, feature.title)}
+					aria-current={index === selectedIndex ? 'true' : undefined}
+					onclick={() => scrollTo(index)}
+					onkeydown={onControlKeydown}
+				></button>
+			{/each}
+		</div>
 	</div>
 </section>
 
 <style>
 	.carousel {
-		padding: var(--space-large) 0 5rem;
-	}
-
-	.carousel-header {
-		margin-bottom: 2rem;
-	}
-
-	.carousel-intro {
-		margin-top: 1.25rem;
+		padding: 2rem 0;
 	}
 
 	.carousel-spotlight {
