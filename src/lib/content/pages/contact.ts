@@ -137,8 +137,8 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 				role: 'Electronics engineer',
 				phone: '+46 73 58 48 690',
 				phoneHref: 'tel:+46735848690',
-				reason: 'Call me about test systems, schematics, circuit boards, or chip packaging.',
-				bio: 'Electronics engineer since 2019, with experience in production test systems, schematics and PCB design from idea to a finished board.'
+				reason: 'Call me about test systems, electronics design, circuit boards, or chip packaging.',
+				bio: 'Electronics engineer since 2019, with experience in production test systems, electronics design and PCB design from idea to a finished board.'
 			}
 		],
 		address: {
