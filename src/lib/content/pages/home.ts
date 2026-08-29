@@ -62,8 +62,7 @@ export const home = {
 						height: 895,
 						srcset: srcset('/mandalon/designguide/picture-6.webp', 976)
 					},
-					page: 'packaging',
-					section: 'engineering'
+					page: 'packaging'
 				},
 				{
 					title: 'Elektronik & testsystem',
@@ -175,8 +174,7 @@ export const home = {
 						height: 895,
 						srcset: srcset('/mandalon/designguide/picture-6.webp', 976)
 					},
-					page: 'packaging',
-					section: 'engineering'
+					page: 'packaging'
 				},
 				{
 					title: 'Electronics & test systems',
