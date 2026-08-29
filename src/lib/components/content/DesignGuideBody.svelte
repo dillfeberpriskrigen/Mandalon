@@ -68,6 +68,8 @@
 	}
 
 	.designguide-body :global(img) {
+		width: 100%;
+		height: auto;
 		border-radius: var(--border-radius);
 	}
 
