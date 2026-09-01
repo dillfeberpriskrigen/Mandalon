@@ -40,7 +40,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 		people: [
 			{
 				name: 'Per-Erik Fägerman',
-				role: 'VD',
+				role: 'Grundare och VD',
 				phone: '073 320 60 50',
 				phoneHref: 'tel:+46733206050',
 				reason: 'Ring mig om ni har frågor om Mandalon, paketering av chip eller labbet.',
@@ -48,7 +48,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			},
 			{
 				name: 'Isabelle Fägerman',
-				role: 'CFO',
+				role: 'Ekonomi och projektledning',
 				reason: 'Ring mig om ni har frågor om fakturor, offerter eller ledtider.',
 				bio: 'Erfarenhet av organisation och ekonomi från flera bolag i elektronikbranschen.'
 			},
@@ -71,7 +71,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 		orgNumber: '556616-3670',
 		locationTitle: 'Besök oss',
 		visitNote: 'Labbet ligger utanför Linköping, i Linghem. Besök sker efter överenskommelse.',
-		shippingNote: 'Försändelser skickas bäst med PostNord. Andra transportföretag tar ofta flera dagar längre.',
+		shippingNote: 'Mandalon rekommenderar PostNord för paket och brev till oss. Andra transportföretag tar ofta flera dagar längre.',
 		mapTitle: 'Karta till Mandalon',
 		mapEnableLabel: 'Klicka för att använda kartan'
 	},
@@ -114,7 +114,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 		people: [
 			{
 				name: 'Per-Erik Fägerman',
-				role: 'CEO',
+				role: 'Founder and CEO',
 				phone: '+46 733 20 60 50',
 				phoneHref: 'tel:+46733206050',
 				reason: 'Call me about Mandalon, chip packaging, or the lab.',
@@ -122,7 +122,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			},
 			{
 				name: 'Isabelle Fägerman',
-				role: 'CFO',
+				role: 'Finance and project management',
 				reason: 'Call me about invoices, quotations, or lead times.',
 				bio: 'Experience in organisation and finance from several companies in the electronics industry.'
 			},
@@ -146,7 +146,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 		orgNumber: '556616-3670',
 		locationTitle: 'Visit us',
 		visitNote: 'The lab is outside Linköping, in Linghem. Visits are by appointment.',
-		shippingNote: 'Shipments are best sent with PostNord. Other carriers often take several days longer.',
+		shippingNote: 'Mandalon recommends PostNord for parcels and letters to us. Other carriers often take several days longer.',
 		mapTitle: 'Map to Mandalon',
 		mapEnableLabel: 'Click to use the map'
 	}
