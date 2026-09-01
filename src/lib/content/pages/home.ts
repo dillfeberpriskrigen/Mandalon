@@ -1,9 +1,8 @@
 import type { HomeContent } from '../types';
 
 function srcset(src: string, fullWidth: number): string {
-	const w480 = src.replace(/\.webp$/, '-480.webp');
-	const w800 = src.replace(/\.webp$/, '-800.webp');
-	return `${w480} 480w, ${w800} 800w, ${src} ${fullWidth}w`;
+	const variants = [480, 800].filter((width) => width < fullWidth);
+	return [...variants.map((width) => `${src.replace(/\.webp$/, `-${width}.webp`)} ${width}w`), `${src} ${fullWidth}w`].join(', ');
 }
 
 export const home = {
@@ -58,9 +57,9 @@ export const home = {
 					image: {
 						src: '/mandalon/designguide/picture-6.webp',
 						alt: 'Ett ballbondat chip on board',
-						width: 976,
-						height: 895,
-						srcset: srcset('/mandalon/designguide/picture-6.webp', 976)
+						width: 600,
+						height: 491,
+						srcset: srcset('/mandalon/designguide/picture-6.webp', 600)
 					},
 					page: 'packaging'
 				},
@@ -176,9 +175,9 @@ export const home = {
 					image: {
 						src: '/mandalon/designguide/picture-6.webp',
 						alt: 'A ball-bonded chip on board',
-						width: 976,
-						height: 895,
-						srcset: srcset('/mandalon/designguide/picture-6.webp', 976)
+						width: 600,
+						height: 491,
+						srcset: srcset('/mandalon/designguide/picture-6.webp', 600)
 					},
 					page: 'packaging'
 				},
