@@ -49,7 +49,7 @@ export type ProcessContent = {
 	}[];
 };
 
-export const consultingServiceIds = ['engineering', 'project-management', 'chip-design', 'process-development'] as const;
+export const consultingServiceIds = ['engineering', 'project-management', 'chip-design'] as const;
 
 export type ConsultingServiceId = (typeof consultingServiceIds)[number];
 

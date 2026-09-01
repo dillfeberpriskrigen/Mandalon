@@ -29,28 +29,14 @@ export const consultingPage = {
 					page: 'designGuide'
 				}
 			},
-			'process-development': {
-				title: 'Processutveckling',
-				subtitle: 'När ni bygger eller förbättrar en egen metod',
-				paragraphs: [
-					'Mandalons mångåriga erfarenhet från vitt skilda projekt kan användas när ni behöver utveckla eller förbättra en egen process. Fokus ligger på att hitta arbetssätt som fungerar i praktiken.',
-					'Det kan handla om bondparametrar, limval, fixturer eller hur ett flöde ska se ut från prototyp till mindre serie. Vi utgår från vad som fungerat i tidigare uppdrag.'
-				],
-				points: ['Parametrar, fixturer och flöden', 'Stöd när ni bygger egen kapacitet', 'Praktiska arbetssätt'],
-				image: {
-					src: '/mandalon/chip-prototypes.webp',
-					alt: 'Tidig idéskiss',
-					width: 1024,
-					height: 680
-				}
-			},
 			'project-management': {
-				title: 'Projektledning',
+				title: 'Projektledning & processutveckling',
 				subtitle: 'Packaging-perspektiv i ett större utvecklingsprojekt',
 				paragraphs: [
-					'När bondning, kapsling, inköp och verifiering måste hänga ihop i rätt ordning så tar Mandalon hand om hela processen inklusive kontakter med underleverantörer.'
+					'När bondning, kapsling, inköp och verifiering måste hänga ihop i rätt ordning så tar Mandalon hand om hela processen inklusive kontakter med underleverantörer.',
+					'Behöver ni ta fram eller förbättra en egen tillverkningsprocess? Det kan vi hjälpa till med!'
 				],
-				points: ['Projektledning på förfrågan', 'Packaging in i tidplan och beslut', 'Koordinering när många delar ska hänga ihop'],
+				points: ['Projektledning på förfrågan', 'Koordinering när packaging behövs i ert projekt', 'Stöd när ni bygger egen kapacitet'],
 				image: {
 					src: '/mandalon/project.webp',
 					alt: 'Miniatyrfigurer som arbetar på ett kretskort',
@@ -109,28 +95,14 @@ export const consultingPage = {
 					page: 'designGuide'
 				}
 			},
-			'process-development': {
-				title: 'Process development',
-				subtitle: 'When you are building or improving your own method',
-				paragraphs: [
-					"Mandalon's long experience across very different projects is available when you need to build or improve your own process. The focus is on approaches that work in practice.",
-					'That can mean bond parameters, adhesives, fixtures, or how a flow should look from prototype to small series. We start from what has worked in earlier assignments.'
-				],
-				points: ['Parameters, fixtures and flow', 'Support when building in-house capability', 'Practical methods'],
-				image: {
-					src: '/mandalon/chip-prototypes.webp',
-					alt: 'Early concept sketch',
-					width: 1024,
-					height: 680
-				}
-			},
 			'project-management': {
-				title: 'Project management',
+				title: 'Project management & process development',
 				subtitle: 'A packaging perspective inside a larger development project',
 				paragraphs: [
-					'When bonding, encapsulation, purchasing and verification have to line up in the right order, Mandalon takes care of the whole process, including contact with subcontractors.'
+					'When bonding, encapsulation, purchasing and verification have to line up in the right order, Mandalon takes care of the whole process, including contact with subcontractors.',
+					'Need to develop or improve a manufacturing process of your own? We can help.'
 				],
-				points: ['Project management on request', 'Packaging in the schedule and the decisions', 'Coordination when many parts need to line up'],
+				points: ['Project management on request', 'Coordination when packaging is needed in your project', 'Support when you are building in-house capability'],
 				image: {
 					src: '/mandalon/project.webp',
 					alt: 'Miniature figures working on a circuit board',

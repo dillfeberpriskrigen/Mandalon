@@ -77,7 +77,7 @@ export const home = {
 					section: 'engineering'
 				},
 				{
-					title: 'Projektledning',
+					title: 'Projektledning & processutveckling',
 					text: 'Vi stöttar er oavsett om ni behöver en drivande kraft genom hela projektet eller extra kompetens i ett specifikt skede.',
 					image: {
 						src: '/mandalon/project.webp',
@@ -101,19 +101,6 @@ export const home = {
 					},
 					page: 'consulting',
 					section: 'chip-design'
-				},
-				{
-					title: 'Processutveckling',
-					text: 'Mandalons erfarenhet finns där när ni behöver utveckla en egen tillverkningsprocess.',
-					image: {
-						src: '/mandalon/chip-prototypes.webp',
-						alt: 'Tidig idéskiss',
-						width: 1024,
-						height: 680,
-						srcset: srcset('/mandalon/chip-prototypes.webp', 1024)
-					},
-					page: 'consulting',
-					section: 'process-development'
 				}
 			]
 		},
@@ -195,7 +182,7 @@ export const home = {
 					section: 'engineering'
 				},
 				{
-					title: 'Project management',
+					title: 'Project management & process development',
 					text: 'We support you whether you need a driving force through the whole project or extra competence at a specific stage.',
 					image: {
 						src: '/mandalon/project.webp',
@@ -219,19 +206,6 @@ export const home = {
 					},
 					page: 'consulting',
 					section: 'chip-design'
-				},
-				{
-					title: 'Process development',
-					text: "Mandalon's experience is there when you need to develop your own manufacturing process.",
-					image: {
-						src: '/mandalon/chip-prototypes.webp',
-						alt: 'Early concept sketch',
-						width: 1024,
-						height: 680,
-						srcset: srcset('/mandalon/chip-prototypes.webp', 1024)
-					},
-					page: 'consulting',
-					section: 'process-development'
 				}
 			]
 		},
