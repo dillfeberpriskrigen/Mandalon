@@ -202,10 +202,7 @@ export type ContactPageContent = {
 	title: string;
 	lead: string;
 	emailTitle: string;
-	emailIntro: string;
 	emailLabel: string;
-	email: string;
-	emailHref: string;
 	urgentNote: string;
 	form: ContactFormContent;
 	people: ContactPerson[];
@@ -250,7 +247,6 @@ export type PrivacyPageContent = {
 		addressLabel: string;
 		addressLines: string[];
 		emailLabel: string;
-		email: string;
 	};
 };
 

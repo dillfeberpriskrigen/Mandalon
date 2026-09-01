@@ -48,7 +48,7 @@ export function buildLlmsTxt(): string {
 
 Mandalon Technologies AB is a B2B lab for chip packaging, wire bonding, die bonding, and consulting. The lab is in Linghem, just outside Linköping, Sweden. Swedish is the default language (no URL prefix). English pages live under /en/.
 
-Contact inquiries by email, phone, or the form on the contact page. There is no e-commerce and no account login.
+Contact inquiries by phone or the form on the contact page. There is no e-commerce and no account login.
 
 ## Pages (English)
 ${pageList('en')}
@@ -58,7 +58,6 @@ ${pageList('sv')}
 
 ## Contact
 - Company: ${company}
-- Email: [${contact.email}](${contact.emailHref})
 - Address: ${street}, ${postalCode} ${city}, Sweden
 - Org.nr: ${contact.orgNumber}
 ${people}

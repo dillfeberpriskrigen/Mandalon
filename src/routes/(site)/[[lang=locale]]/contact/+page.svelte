@@ -3,6 +3,7 @@
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import EmailAddress from '$lib/components/media/EmailAddress.svelte';
 	import Image from '$lib/components/media/Image.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import ContactFormSection from '$lib/components/sections/ContactFormSection.svelte';
@@ -70,10 +71,9 @@
 		<Surface as="section" radius="large" padding="large" shadow="medium">
 			<div class="panel-copy">
 				<Heading as="h2">{data.content.contactPage.emailTitle}</Heading>
-				<Text as="p">{data.content.contactPage.emailIntro}</Text>
 				<div class="email-fact">
 					<Text variant="label">{data.content.contactPage.emailLabel}</Text>
-					<Link href={data.content.contactPage.emailHref}>{data.content.contactPage.email}</Link>
+					<EmailAddress />
 				</div>
 				<Text as="p">{data.content.contactPage.urgentNote}</Text>
 			</div>
@@ -122,7 +122,7 @@
 	.email-fact {
 		display: flex;
 		flex-wrap: wrap;
-		align-items: baseline;
+		align-items: center;
 		gap: var(--space-small);
 	}
 

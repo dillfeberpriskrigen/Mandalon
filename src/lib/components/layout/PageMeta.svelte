@@ -40,14 +40,12 @@
 
 	function organizationBase(locale: Locale) {
 		const { contactPage, aboutPage } = siteContent[locale];
-		const email = contactPage.email;
 		const telephone = contactPage.people.find((person) => person.phoneHref)?.phoneHref?.replace(/^tel:/, '');
 		const logoUrl = toAbsoluteUrl(organizationLogoPath);
 
 		return {
 			name: contactPage.address.company,
 			url: siteUrl,
-			email,
 			telephone,
 			taxID: contactPage.orgNumber,
 			logo: logoUrl,

@@ -38,7 +38,7 @@ const privacyPolicyBody = {
 		{
 			title: 'Rättigheter enligt GDPR:',
 			paragraphs: [
-				'Privatpersoners rättigheter när det gäller de uppgifter Mandalon hanterar ger möjlighet att dels påverka vilken information som sparas och dels att rätta eller begära radering av de egna uppgifterna. Begäran om detta görs enklast via email till info@mandalon.se.'
+				'Privatpersoners rättigheter när det gäller de uppgifter Mandalon hanterar ger möjlighet att dels påverka vilken information som sparas och dels att rätta eller begära radering av de egna uppgifterna. Begäran om detta görs enklast via kontaktformuläret eller e-post till adressen nedan.'
 			]
 		}
 	],
@@ -46,8 +46,7 @@ const privacyPolicyBody = {
 		title: 'Kontakt:',
 		addressLabel: 'Postadress',
 		addressLines: ['Bjärby Himmelslund 1', '58561 Linghem'],
-		emailLabel: 'Email',
-		email: 'info@mandalon.se'
+		emailLabel: 'Email'
 	}
 };
 

@@ -4,15 +4,14 @@
 	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
+	import EmailAddress from '$lib/components/media/EmailAddress.svelte';
 	import Surface from '$lib/components/primitives/Surface.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
-	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	const content = $derived(data.content.privacyPage);
-	const mailtoHref = $derived(`mailto:${content.contact.email}`);
 </script>
 
 <PageMeta meta={content.meta} pageKey="privacy" locale={data.locale} />
@@ -56,7 +55,7 @@
 					</Text>
 					<Text as="p">
 						<Text as="span" weight="bold">{content.contact.emailLabel}:</Text>
-						<Link href={mailtoHref}>{content.contact.email}</Link>
+						<EmailAddress />
 					</Text>
 				</section>
 			</PageContent>

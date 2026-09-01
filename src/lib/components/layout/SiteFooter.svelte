@@ -1,6 +1,6 @@
 <script lang="ts">
+	import EmailAddress from '$lib/components/media/EmailAddress.svelte';
 	import Heading from '$lib/components/typography/Heading.svelte';
-	import Link from '$lib/components/typography/Link.svelte';
 	import Text from '$lib/components/typography/Text.svelte';
 	import type { Locale, LocaleContent } from '$lib/content/site';
 	import { aboutIsoSectionId } from '$lib/content/pages/about';
@@ -42,7 +42,9 @@
 				{/if}
 				<div class="footer-contact-meta">
 					<Text as="div" variant="caption">{contact.orgNumberLabel} {contact.orgNumber}</Text>
-					<Link href={contact.emailHref}>{contact.email}</Link>
+					<div class="footer-email">
+						<EmailAddress />
+					</div>
 				</div>
 			</address>
 		</div>
@@ -137,6 +139,11 @@
 		align-items: flex-start;
 		gap: 0.15rem;
 		margin-top: var(--space-small);
+	}
+
+	.footer-email {
+		font-size: var(--text-caption-size);
+		line-height: var(--text-caption-line);
 	}
 
 	.footer-nav {
