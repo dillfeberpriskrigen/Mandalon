@@ -48,8 +48,7 @@ export const consultingPage = {
 				title: 'Projektledning',
 				subtitle: 'Packaging-perspektiv i ett större utvecklingsprojekt',
 				paragraphs: [
-					'Vid behov kan Mandalon gå in med projektledning hos er. Oftast fungerar vi som packaging-partner i ett större projekt, men när det behövs kan vi också ta ett tydligare ledningsansvar.',
-					'Det är relevant när bondning, kapsling, inköp och verifiering måste hänga ihop i rätt ordning, och någon behöver hålla i den delen av tidplanen.'
+					'När bondning, kapsling, inköp och verifiering måste hänga ihop i rätt ordning så tar Mandalon hand om hela processen inklusive kontakter med underleverantörer.'
 				],
 				points: ['Projektledning på förfrågan', 'Packaging in i tidplan och beslut', 'Koordinering när många delar ska hänga ihop'],
 				image: {
@@ -129,8 +128,7 @@ export const consultingPage = {
 				title: 'Project management',
 				subtitle: 'A packaging perspective inside a larger development project',
 				paragraphs: [
-					'When needed, Mandalon can provide project management on site. Most often we work as a packaging partner inside a broader project, but we can also take a clearer lead when that is useful.',
-					'It is relevant when bonding, encapsulation, purchasing and verification have to line up in the right order, and someone needs to own that part of the schedule.'
+					'When bonding, encapsulation, purchasing and verification have to line up in the right order, Mandalon takes care of the whole process, including contact with subcontractors.'
 				],
 				points: ['Project management on request', 'Packaging in the schedule and the decisions', 'Coordination when many parts need to line up'],
 				image: {

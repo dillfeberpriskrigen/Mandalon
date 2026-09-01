@@ -104,7 +104,7 @@ export type ChipSensorsPageContent = {
 export type ConsultingService = {
 	title: string;
 	subtitle: string;
-	paragraphs: [string, string];
+	paragraphs: [string] | [string, string];
 	points: [string, string, string];
 	image: ContentImage;
 	relatedLink?: {
