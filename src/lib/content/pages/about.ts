@@ -38,10 +38,10 @@ export const aboutPage = {
 		referencesHeading: 'Utvalda referenser',
 		researchProjectsHeading: 'Forskningsprojekt',
 		references: [
-			'Autoliv, industrialiseringsprocess 2012-14',
-			'Neonode, industrialiseringsprocess 2015-16',
+			'Prismatic/GE HealthCare, mångårigt projekt, pågående',
 			'Veoneer, design verification run 2017',
-			'Prismatic/GE HealthCare, mångårigt projekt, pågående'
+			'Neonode, industrialiseringsprocess 2015-16',
+			'Autoliv, industrialiseringsprocess 2012-14'
 		],
 		researchProjects: [
 			{
@@ -118,10 +118,10 @@ export const aboutPage = {
 		referencesHeading: 'Selected references',
 		researchProjectsHeading: 'Research projects',
 		references: [
-			'Autoliv, industrialisation process 2012-14',
-			'Neonode, industrialisation process 2015-16',
+			'Prismatic/GE HealthCare, multi-year project, ongoing',
 			'Veoneer, design verification run 2017',
-			'Prismatic/GE HealthCare, multi-year project, ongoing'
+			'Neonode, industrialisation process 2015-16',
+			'Autoliv, industrialisation process 2012-14'
 		],
 		researchProjects: [
 			{
