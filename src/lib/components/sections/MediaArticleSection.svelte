@@ -11,11 +11,13 @@
 		reverse?: boolean;
 		/** Caps media column width (e.g. portrait photos on contact). */
 		mediaMaxWidth?: string;
+		/** Drop the top margin when this block sits directly under PageHeader. */
+		flushTop?: boolean;
 	}
-	let { title, subtitle, content, reverse = false, media, mediaMaxWidth }: Props = $props();
+	let { title, subtitle, content, reverse = false, media, mediaMaxWidth, flushTop = false }: Props = $props();
 </script>
 
-<article class:reverse class:twocolumn={(title || subtitle || content) && media} style:--media-max-width={mediaMaxWidth}>
+<article class={{ reverse, twocolumn: (title || subtitle || content) && media, 'flush-top': flushTop }} style:--media-max-width={mediaMaxWidth}>
 	<div class="media">
 		{#if media}
 			{@render media()}
@@ -49,6 +51,10 @@
 		border-radius: var(--border-radius);
 		background: var(--content-background);
 		box-shadow: var(--shadow-medium);
+	}
+
+	.flush-top {
+		margin-top: 0;
 	}
 
 	/* Topic column slightly larger than media */

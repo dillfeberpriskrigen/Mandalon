@@ -35,7 +35,7 @@
 	<div class="areas">
 		{#each chipSensorsAreaOrder as key, i (key)}
 			{@const area = page.areas[key]}
-			<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1}>
+			<MediaArticleSection title={area.title} subtitle={area.subtitle} reverse={i % 2 === 1} flushTop={i === 0}>
 				{#snippet content()}
 					<ParagraphArray paragraphs={area.paragraphs} />
 					<div class="area-action">
@@ -67,14 +67,13 @@
 		margin-bottom: var(--space-medium);
 	}
 
-	.areas,
-	.capabilities {
-		margin-top: 3rem;
-	}
-
 	.areas {
 		display: grid;
 		gap: 1.5rem;
+	}
+
+	.capabilities {
+		margin-top: var(--space-section);
 	}
 
 	.area-action {

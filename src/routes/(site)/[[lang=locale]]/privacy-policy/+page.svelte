@@ -65,11 +65,7 @@
 </PageShell>
 
 <style>
-	.language-note {
-		margin-top: var(--space-medium);
-	}
-
-	.policy {
+	.language-note + .policy {
 		margin-top: var(--space-large);
 	}
 

@@ -26,7 +26,7 @@
 		{#each consultingServiceIds as key, i (key)}
 			{@const service: ConsultingService = page.services[key]}
 			<div id={key} class="service">
-				<MediaArticleSection title={service.title} subtitle={service.subtitle} reverse={i % 2 === 0}>
+				<MediaArticleSection title={service.title} subtitle={service.subtitle} reverse={i % 2 === 0} flushTop={i === 0}>
 					{#snippet content()}
 						<ParagraphArray paragraphs={service.paragraphs} />
 						<ul class="content-list">
@@ -53,7 +53,6 @@
 
 <style>
 	.services {
-		margin-top: 2.2rem;
 		display: grid;
 		gap: 1.5rem;
 	}

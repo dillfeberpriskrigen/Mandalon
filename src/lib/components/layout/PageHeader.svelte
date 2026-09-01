@@ -12,18 +12,24 @@
 	let { title, lead }: Props = $props();
 </script>
 
-<Surface as="header" radius="large" padding="large">
-	<Heading as="h1">{title}</Heading>
-	{#if lead}
-		<div class="lead-wrap">
-			<PageContent>
-				<Text as="p" variant="lead">{lead}</Text>
-			</PageContent>
-		</div>
-	{/if}
-</Surface>
+<div class="page-header">
+	<Surface as="header" radius="large" padding="large">
+		<Heading as="h1">{title}</Heading>
+		{#if lead}
+			<div class="lead-wrap">
+				<PageContent>
+					<Text as="p" variant="lead">{lead}</Text>
+				</PageContent>
+			</div>
+		{/if}
+	</Surface>
+</div>
 
 <style>
+	.page-header {
+		margin-bottom: var(--space-section);
+	}
+
 	.lead-wrap {
 		margin-top: 1.25rem;
 	}

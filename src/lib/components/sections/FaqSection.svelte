@@ -33,7 +33,7 @@
 
 <style>
 	.faq-section {
-		margin-top: 3rem;
+		margin-top: var(--space-section);
 	}
 
 	.faq-list {

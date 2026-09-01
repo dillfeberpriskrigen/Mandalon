@@ -110,10 +110,6 @@
 </PageShell>
 
 <style>
-	.form-panel {
-		margin-top: var(--space-medium);
-	}
-
 	.form-panel :global(.surface-default) {
 		background: var(--content-background);
 	}

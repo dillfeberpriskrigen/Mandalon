@@ -24,7 +24,7 @@
 <PageShell>
 	<PageHeader title={page.title} lead={page.lead} />
 
-	<MediaArticleSection title={page.introTitle} reverse={true}>
+	<MediaArticleSection title={page.introTitle} reverse={true} flushTop>
 		{#snippet content()}
 			<ParagraphArray paragraphs={page.intro} />
 		{/snippet}

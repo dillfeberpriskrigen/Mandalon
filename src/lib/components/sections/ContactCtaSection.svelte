@@ -30,7 +30,7 @@
 
 <style>
 	.contact-cta {
-		margin-top: 3rem;
+		margin-top: var(--space-section);
 	}
 
 	.contact-cta-inner {
