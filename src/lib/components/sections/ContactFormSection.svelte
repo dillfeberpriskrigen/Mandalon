@@ -62,6 +62,7 @@
 		<form
 			class="form form-stack"
 			method="POST"
+			novalidate
 			use:enhance={() => {
 				submitting = true;
 				return async ({ update }) => {

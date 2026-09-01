@@ -26,7 +26,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			successTitle: 'Ditt meddelande har skickats!',
 			success: 'Tack. Vi återkommer oftast samma vardag.',
 			successUrgent: 'Behöver du komma i kontakt med oss snarast? Ring någon av våra medarbetare nedan.',
-			sendFailed: 'Meddelandet kunde inte skickas. Försök igen eller mejla oss.',
+			sendFailed: 'Meddelandet kunde inte skickas. Försök igen eller mejla oss på info@mandalon.se.',
 			rateLimited: 'För många meddelanden just nu. Vänta en stund och försök igen.',
 			leaveWarning: 'Meddelandet är inte skickat. Vill ni lämna sidan och förlora det ni skrivit?',
 			privacy: {
@@ -103,7 +103,7 @@ export const contactPage: Record<'sv' | 'en', ContactPageContent> = {
 			successTitle: 'Your message has been sent!',
 			success: 'Thank you. We usually reply the same weekday.',
 			successUrgent: 'Need to reach us right away? Call one of our colleagues below.',
-			sendFailed: 'The message could not be sent. Try again or email us.',
+			sendFailed: 'The message could not be sent. Try again or email us at info@mandalon.se.',
 			rateLimited: 'Too many messages right now. Wait a moment and try again.',
 			leaveWarning: 'Your message has not been sent. Do you want to leave this page and lose what you wrote?',
 			privacy: {
