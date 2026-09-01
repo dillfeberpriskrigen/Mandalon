@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
+	import ContactCtaSection from '$lib/components/sections/ContactCtaSection.svelte';
 	import FeatureCarousel from '$lib/components/sections/FeatureCarousel.svelte';
 	import HeroSection from '$lib/components/sections/HeroSection.svelte';
 	import SalesIntroSection from '$lib/components/sections/SalesIntroSection.svelte';
@@ -14,4 +15,7 @@
 
 <SalesIntroSection salesIntro={data.content.salesIntro} process={data.content.process} locale={data.locale} defaultLocale={data.defaultLocale}>
 	<FeatureCarousel content={data.content.consulting} locale={data.locale} />
+	{#snippet after()}
+		<ContactCtaSection cta={data.content.contactCta} locale={data.locale} />
+	{/snippet}
 </SalesIntroSection>

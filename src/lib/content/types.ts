@@ -312,6 +312,7 @@ export type HomeContent = {
 	salesIntro: SalesIntroContent;
 	process: ProcessContent;
 	consulting: ConsultingHomeContent;
+	contactCta: ContactCtaContent;
 };
 
 export type LocaleContent = SharedContent &

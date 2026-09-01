@@ -13,7 +13,7 @@ export const home = {
 			copy: 'Vi kombinerar expertis inom halvledarpaketering, elektronikdesign, projekt- och affärsledning i ett effektivt team.'
 		},
 		salesIntro: {
-			title: 'Ta hjälp av vårt team redan idag',
+			title: 'Mandalon står redo',
 			paragraphs: [
 				'Vi är ett flexibelt ingenjörsföretag i Linköping som kombinerar 25 års erfarenhet av avancerad halvledarpaketering och trådbondning med elektronikdesign, projekt- och affärsledning.',
 				'Vi hjälper er med avancerad paketering av halvledare, utveckling av testsystem, projektledning och planering. Mandalon kan erbjuda en helhetslösning eller stötta inom enskilda områden.'
@@ -25,7 +25,7 @@ export const home = {
 				width: 768,
 				height: 1024
 			},
-			actions: [{ label: 'Kontakta oss redan idag', page: 'contact' }]
+			actions: [{ label: 'Kontakta oss idag', page: 'contact' }]
 		},
 		process: {
 			title: 'Tre sätt Mandalon avlastar ert team under hela processen',
@@ -117,6 +117,12 @@ export const home = {
 					section: 'process-development'
 				}
 			]
+		},
+		contactCta: {
+			title: 'Behöver ni hjälp med paketering, bondning eller elektronik?',
+			text: 'Hör av er så går vi igenom var Mandalon gör mest nytta. Hos er, i labbet, eller båda.',
+			label: 'Kontakta oss',
+			page: 'contact'
 		}
 	},
 	en: {
@@ -125,7 +131,7 @@ export const home = {
 			copy: 'We combine deep semiconductor packaging expertise, practical electronics engineering and project and business management in one efficient team.'
 		},
 		salesIntro: {
-			title: 'Get in touch with our team today',
+			title: 'Mandalon is ready',
 			paragraphs: [
 				'We are a flexible engineering company in Linköping that combines 25 years of experience in advanced semiconductor packaging and wire bonding with electronics design, project and business management.',
 				'We help you with advanced semiconductor packaging, test system development, project management and planning. Mandalon can offer a complete solution or support in individual areas.'
@@ -229,6 +235,12 @@ export const home = {
 					section: 'process-development'
 				}
 			]
+		},
+		contactCta: {
+			title: 'Need help with packaging, bonding or electronics?',
+			text: 'Get in touch and we will go through where Mandalon is most useful. At your site, in the lab, or both.',
+			label: 'Contact us',
+			page: 'contact'
 		}
 	}
 } satisfies Record<'sv' | 'en', HomeContent>;

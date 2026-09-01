@@ -16,9 +16,10 @@
 		locale: Locale | null;
 		defaultLocale: Locale;
 		children?: Snippet;
+		after?: Snippet;
 	}
 
-	let { salesIntro, process, locale, defaultLocale, children }: Props = $props();
+	let { salesIntro, process, locale, defaultLocale, children, after }: Props = $props();
 
 	const activeLocale = $derived(locale ?? defaultLocale);
 </script>
@@ -82,6 +83,8 @@
 					</div>
 				</div>
 			</Surface>
+
+			{@render after?.()}
 		</PageContent>
 	</div>
 </section>
