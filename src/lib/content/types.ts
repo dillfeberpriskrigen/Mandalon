@@ -107,6 +107,7 @@ export type ConsultingService = {
 	paragraphs: [string] | [string, string];
 	points: [string, string, string];
 	image: ContentImage;
+	contactLabel: string;
 	relatedLink?: {
 		label: string;
 		page: PageKey;

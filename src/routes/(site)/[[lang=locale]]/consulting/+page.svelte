@@ -4,6 +4,7 @@
 	import PageMeta from '$lib/components/layout/PageMeta.svelte';
 	import PageShell from '$lib/components/layout/PageShell.svelte';
 	import Image from '$lib/components/media/Image.svelte';
+	import Button from '$lib/components/primitives/Button.svelte';
 	import ContactCtaSection from '$lib/components/sections/ContactCtaSection.svelte';
 	import MediaArticleSection from '$lib/components/sections/MediaArticleSection.svelte';
 	import Link from '$lib/components/typography/Link.svelte';
@@ -39,6 +40,9 @@
 								<Link href={hrefFor(service.relatedLink.page, locale)}>{service.relatedLink.label}</Link>
 							</div>
 						{/if}
+						<div class="service-action">
+							<Button href={hrefFor('contact', locale)}>{service.contactLabel}</Button>
+						</div>
 					{/snippet}
 					{#snippet media()}
 						<Image src={service.image.src} alt={service.image.alt} width={service.image.width} height={service.image.height} priority={i === 0} />
@@ -63,5 +67,14 @@
 
 	.related-link {
 		margin-top: var(--space-medium);
+	}
+
+	.service-action {
+		margin-top: var(--space-medium);
+	}
+
+	.service-action :global(.button) {
+		white-space: normal;
+		text-wrap: balance;
 	}
 </style>

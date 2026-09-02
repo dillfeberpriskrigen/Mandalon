@@ -24,6 +24,7 @@ export const consultingPage = {
 					width: 840,
 					height: 440
 				},
+				contactLabel: 'Få svar om din design redan idag!',
 				relatedLink: {
 					label: 'Läs designguiden',
 					page: 'designGuide'
@@ -34,7 +35,7 @@ export const consultingPage = {
 				subtitle: 'Packaging-perspektiv i ett större utvecklingsprojekt',
 				paragraphs: [
 					'När bondning, kapsling, inköp och verifiering måste hänga ihop i rätt ordning så tar Mandalon hand om hela processen inklusive kontakter med underleverantörer.',
-					'Behöver ni ta fram eller förbättra en egen tillverkningsprocess? Det kan vi hjälpa till med!'
+					'Vi hjälper dig när ni ska ta fram er egen tillverkningsprocess!'
 				],
 				points: ['Projektledning på förfrågan', 'Koordinering när packaging behövs i ert projekt', 'Stöd när ni bygger egen kapacitet'],
 				image: {
@@ -42,7 +43,8 @@ export const consultingPage = {
 					alt: 'Miniatyrfigurer som arbetar på ett kretskort',
 					width: 840,
 					height: 440
-				}
+				},
+				contactLabel: 'Berätta om ert projekt och ta hjälp av oss!'
 			},
 			engineering: {
 				title: 'Elektronik & testsystem',
@@ -57,7 +59,8 @@ export const consultingPage = {
 					alt: 'Kretskortslayout från ECAD med Mandalon-logotyp och anslutningar längs kanterna',
 					width: 976,
 					height: 895
-				}
+				},
+				contactLabel: 'Kontakta oss och beskriv ditt behov!'
 			}
 		},
 		contactCta: {
@@ -90,6 +93,7 @@ export const consultingPage = {
 					width: 840,
 					height: 440
 				},
+				contactLabel: 'Get answers about your design today!',
 				relatedLink: {
 					label: 'Read the design guide',
 					page: 'designGuide'
@@ -100,7 +104,7 @@ export const consultingPage = {
 				subtitle: 'A packaging perspective inside a larger development project',
 				paragraphs: [
 					'When bonding, encapsulation, purchasing and verification have to line up in the right order, Mandalon takes care of the whole process, including contact with subcontractors.',
-					'Need to develop or improve a manufacturing process of your own? We can help.'
+					'We help you when you are developing your own manufacturing process!'
 				],
 				points: ['Project management on request', 'Coordination when packaging is needed in your project', 'Support when you are building in-house capability'],
 				image: {
@@ -108,7 +112,8 @@ export const consultingPage = {
 					alt: 'Miniature figures working on a circuit board',
 					width: 840,
 					height: 440
-				}
+				},
+				contactLabel: 'Tell us about your project and get help from us!'
 			},
 			engineering: {
 				title: 'Electronics & test systems',
@@ -123,7 +128,8 @@ export const consultingPage = {
 					alt: 'PCB layout from ECAD with the Mandalon logo and connectors along the edges',
 					width: 976,
 					height: 895
-				}
+				},
+				contactLabel: 'Contact us and describe your needs!'
 			}
 		},
 		contactCta: {
