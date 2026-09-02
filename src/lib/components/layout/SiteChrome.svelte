@@ -19,6 +19,8 @@
 </script>
 
 <svelte:head>
+	<link rel="preload" as="image" href="/mandalon/motherboard-bg.webp" fetchpriority="high" />
+	<link rel="preload" href="/fonts/Roboto-VariableFont_wdth,wght.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 	<link rel="preload" href="/fonts/RobotoCondensed-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 </svelte:head>
 
