@@ -10,10 +10,11 @@ export const chipSensorsPage = {
 		title: 'Paketering av chip och trådbondning',
 		lead: 'I labbet utanför Linköping arbetar vi dagligen med advanced packaging: trådbondning, die bonding, kapsling och prototyper för chip, sensorer och MEMS. Vi tar oss an även det som andra bedömt som svårt att bonda.',
 		capabilitiesTitle: 'Kapabilitet',
-		capabilitiesPresentation: 'Listan visar det vi är mest vana att hantera. Den är inte heltäckande, så hör av er om ni behöver något som saknas.',
+		capabilitiesPresentation:
+			'Listan visar det vi är mest vana att hantera. Den är inte heltäckande, så hör av er om ni är ute efter något som inte finns med.',
 		capabilities: [
-			{ name: 'Guldtråd', description: '25µm, 17µm' },
-			{ name: 'Aluminiumtråd', description: '25µm, 17µm' },
+			{ name: 'Guldtråd', description: '17 µm - 50 µm' },
+			{ name: 'Aluminiumtråd', description: '20 µm - 75 µm' },
 			{ name: 'Ball-bonding', description: 'Guldtråd' },
 			{ name: 'Wedge-bonding', description: 'Guldtråd, Aluminium' },
 			{ name: 'Manuell bondning', description: 'Ball och wedge' },
@@ -21,15 +22,14 @@ export const chipSensorsPage = {
 			{ name: 'Die bonding', description: 'Vi die-bondar manuellt' },
 			{
 				name: 'Lim',
-				description: 'Vi har många limmer och möjlighet att blanda med precisionsvåg. Om ni behöver ett specifikt lim så kan vi ta hem det eller använda ert.'
+				description: 'Vi har en del limmer hemma för snabb prototypning. Övriga limmer tar vi hem vid behov.'
 			},
-			{ name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs eller om ni levererar egna.' },
+			{ name: 'Standardkapslar', description: 'Vi har ett begränsat urval kapslar på lager men kan ta hem det som behövs.' },
 			{ name: 'Glob top', description: 'Vi har silikon och epoxylim för globning av chip och trådar.' },
-			{ name: 'Dragprovare', description: 'Vi har möjlighet att dragprova bondtrådar för att utvärdera kvalitet.' },
+			{ name: 'Dragprovare', description: 'Vi har utrustning för att dragprova bondtrådar och utvärdera kvalitet.' },
 			{
 				name: 'Plasmatvätt',
-				description:
-					'Vår maskin använder atmosfärsplasma för att rengöra objekten som ska bondas. Det är extra viktigt för att automatbondning ska fungera bra.'
+				description: 'Vi använder atmosfärsplasma för att rengöra objekten som ska bondas. Det är extra viktigt för att automatbondning ska fungera bra.'
 			}
 		],
 		areas: {
@@ -97,10 +97,10 @@ export const chipSensorsPage = {
 		lead: 'In our lab outside Linköping we work daily with advanced packaging: wire bonding, die bonding, encapsulation and prototypes for chips, sensors and MEMS. We also take on work others have judged too difficult to bond.',
 		capabilitiesTitle: 'Capabilities',
 		capabilitiesPresentation:
-			'The list shows what we are most experienced with. It is not exhaustive, so get in touch if you need something that is not listed.',
+			'The list shows what we are most experienced with. It is not exhaustive, so get in touch if you are looking for something that is not listed.',
 		capabilities: [
-			{ name: 'Gold wire', description: '25µm, 17µm' },
-			{ name: 'Aluminium wire', description: '25µm, 17µm' },
+			{ name: 'Gold wire', description: '17 µm - 50 µm' },
+			{ name: 'Aluminium wire', description: '20 µm - 75 µm' },
 			{ name: 'Ball bonding', description: 'Gold wire' },
 			{ name: 'Wedge bonding', description: 'Gold wire, Aluminium' },
 			{ name: 'Manual bonding', description: 'Ball and wedge' },
@@ -108,19 +108,17 @@ export const chipSensorsPage = {
 			{ name: 'Die bonding', description: 'We perform die bonding manually' },
 			{
 				name: 'Adhesives',
-				description:
-					'We have a wide range of adhesives and the ability to mix them using a precision scale. If you require a specific adhesive, we can source it or use yours.'
+				description: 'We keep some adhesives in stock for quick prototyping. Other adhesives we source as needed.'
 			},
 			{
 				name: 'Standard packages',
-				description: 'We keep a limited selection of packages in stock but can source what is needed or use customer-supplied ones.'
+				description: 'We keep a limited selection of packages in stock but can source what is needed.'
 			},
 			{ name: 'Glob top', description: 'We use silicone and epoxy for glob topping of chips and wires.' },
-			{ name: 'Pull tester', description: 'We have the capability to perform pull tests on bond wires to evaluate quality.' },
+			{ name: 'Pull tester', description: 'We have equipment for pull testing bond wires and evaluating quality.' },
 			{
 				name: 'Plasma cleaning',
-				description:
-					'Our machine uses atmospheric plasma to clean the objects that are to be bonded. This is especially important for automatic bonding to work well.'
+				description: 'We use atmospheric plasma to clean the objects that are to be bonded. This is especially important for automatic bonding to work well.'
 			}
 		],
 		areas: {
