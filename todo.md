@@ -4,12 +4,19 @@ Punkter märkta med `→ Tnn` hanterades av en uppgift i [docs/review-roadmap.md
 
 Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 
-## Medium
+## High
 
 - [ ] Nya kontaktfoton, särskilt Per-Erik (granskaren: minst 15 år gammal). Kräver nya bilder. → granskning
 
+## Medium
+
+- [ ] Nya uppdaterade referensprojekt
+
 ## Low
 
+- [ ] Roligare 404 sida
+- [ ] Byt till ny bild på stugan
+- [ ] Slider före-efter bild på kretskortdesign till riktigt kretskort
 - [ ] Designguide: skriv riktig `alt`-text på figurerna. → T29 (docs-layouten är klar).
 - [ ] Experiment-sidan: strukturera innehållet så det blir tydligare vad som demonstreras, och överväg bättre namn. → ej schemalagd. Dev-only i produktion är redan gjort (T24).
 - [ ] Kolla manuellt igenom struktur och innehåll efter refaktorering.
