@@ -65,7 +65,7 @@ Klarmarkerade punkter ligger i [Klart](#klart) längst ned.
 - [x] Paketering, capability-listan: rubrik i en Surface; vänsterkolumnen radbryter inte (`minmax(8rem, max-content)` + `nowrap`). → granskning
 - [x] Lägg till produktområde för elektronikingenjör: testsystem, schema och kretskortsdesign på projekt och tim-basis. Konsultsidan har «Elektronik & testsystem» med ECAD-layout, samma område i karusellen.
 - [x] SEO för nyckelord: Advanced Packaging, Wire Bonding, Trådbondning, Die Bonding. Start- och paketeringssidorna har termerna i title, description, H1 och ingress. Organization JSON-LD använder sidfotens logga.
-- [x] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekar på `twdns.se` med `PHPSESSID` och är död. Kontrollera övriga DIVA-länkar. IMAPS-raden har ingen död länk; övriga DIVA-länkar är kvar. → granskning
+- [x] Trasig forskningslänk på Om Mandalon: MEMS/IMAPS-PDF:en pekade på `twdns.se` med `PHPSESSID` och är död. IMAPS-raden länkar till lokal PDF (`mems-packaging-imaps-2008.pdf`). Övriga DIVA-länkar är kvar. → granskning
 - [x] Om Mandalon: introstycket under «En introduktion till Mandalon» är upphackat; tomt nedre vänstra hörn. Labbfoto (`labhuset.webp`) ligger i introt. → granskning
 - [x] Publik: tekniska köpare känner till bondning. Sajten förklarar varför det spelar roll i en mening, sedan erbjudandet. Designguiden tar hur. → granskning
 - [x] Kunskapsbank, språk: «sagade» → sågade; SV-titel «Wafer» som EN. FAQ, ASIC, MEMS och mikrostrukturer putsade; Sensorer orörd. Sidan togs sedan bort. → granskning

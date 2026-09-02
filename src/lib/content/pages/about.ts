@@ -2,6 +2,7 @@ import type { AboutPageContent } from '../types';
 
 export const aboutIsoSectionId = 'iso-9001';
 export const iso9001CertificateHref = '/mandalon/iso-9001-certificate.pdf';
+export const memsPackagingImapsHref = '/mandalon/mems-packaging-imaps-2008.pdf';
 
 export const aboutPage = {
 	sv: {
@@ -57,7 +58,8 @@ export const aboutPage = {
 				href: 'https://www.diva-portal.org/smash/get/diva2:707206/FULLTEXT01.pdf'
 			},
 			{
-				title: 'MEMS sensor packaging IMAPS seminar contribution'
+				title: 'MEMS sensor packaging IMAPS seminar contribution',
+				href: memsPackagingImapsHref
 			},
 			{
 				title: 'Characterization of a novel isotropic detector diode designed for phantom dosimetry in radiation therapy (Angelica Johansson)',
@@ -137,7 +139,8 @@ export const aboutPage = {
 				href: 'https://www.diva-portal.org/smash/get/diva2:707206/FULLTEXT01.pdf'
 			},
 			{
-				title: 'MEMS sensor packaging IMAPS seminar contribution'
+				title: 'MEMS sensor packaging IMAPS seminar contribution',
+				href: memsPackagingImapsHref
 			},
 			{
 				title: 'Characterization of a novel isotropic detector diode designed for phantom dosimetry in radiation therapy (Angelica Johansson)',
