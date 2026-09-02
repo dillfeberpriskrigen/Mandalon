@@ -91,7 +91,7 @@
 							<Text as="div">{data.content.contactPage.address.country}</Text>
 						{/if}
 					</address>
-					<Text as="div">{data.content.contactPage.orgNumberLabel} {data.content.contactPage.orgNumber}</Text>
+					<Text as="div">{data.content.contactPage.orgNumberLabel} <span x-apple-data-detectors="false">{data.content.contactPage.orgNumber}</span></Text>
 					<Text as="p">{data.content.contactPage.visitNote}</Text>
 					<Text as="p">{data.content.contactPage.shippingNote}</Text>
 				</div>

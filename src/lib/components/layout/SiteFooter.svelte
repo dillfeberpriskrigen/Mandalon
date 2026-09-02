@@ -41,7 +41,7 @@
 					<Text as="div" variant="caption">{address.country}</Text>
 				{/if}
 				<div class="footer-contact-meta">
-					<Text as="div" variant="caption">{contact.orgNumberLabel} {contact.orgNumber}</Text>
+					<Text as="div" variant="caption">{contact.orgNumberLabel} <span x-apple-data-detectors="false">{contact.orgNumber}</span></Text>
 					<div class="footer-email">
 						<EmailAddress />
 					</div>

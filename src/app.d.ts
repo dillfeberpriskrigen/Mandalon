@@ -10,4 +10,12 @@ declare global {
 	}
 }
 
+declare module 'svelte/elements' {
+	// T must match svelte/elements HTMLAttributes so this augments instead of replacing it.
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	export interface HTMLAttributes<T> {
+		'x-apple-data-detectors'?: 'true' | 'false';
+	}
+}
+
 export {};
