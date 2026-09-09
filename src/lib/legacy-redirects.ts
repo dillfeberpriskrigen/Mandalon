@@ -33,6 +33,7 @@ const legacyRedirects: ReadonlyArray<LegacyRedirect> = [
 	{ from: '/usen/help/sensorer', to: 'contact', locale: 'en' },
 	{ from: '/en/kunskapsbank', to: 'contact', locale: 'en' },
 	{ from: '/en/knowledge-bank', to: 'contact', locale: 'en' },
+	{ from: '/contact-us', to: 'contact', locale: 'en' },
 
 	{ from: '/chip-sensorer', to: 'packaging', locale: 'sv' },
 	{ from: '/chip-sensorer/kapsling-ingjutning', to: 'packaging', locale: 'sv' },
@@ -73,6 +74,7 @@ const legacyRedirects: ReadonlyArray<LegacyRedirect> = [
 	{ from: '/integritetspolicy-3', to: 'privacy', locale: 'sv' },
 	{ from: '/integritetspolicy', to: 'privacy', locale: 'sv' },
 
+	{ from: '/usen/help/designguide', to: 'designGuide', locale: 'en' },
 	{ from: '/wp-content/uploads/2019/04/mt-2007-011-dg-issue1_070416.pdf', href: designGuidePdfHref }
 ];
 
